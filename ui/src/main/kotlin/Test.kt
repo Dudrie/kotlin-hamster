@@ -13,7 +13,6 @@ class HamsterApp : Application() {
         primaryStage.minHeight = 400.0
         primaryStage.show()
     }
-
 }
 
 fun main() {
