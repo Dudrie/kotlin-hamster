@@ -1,8 +1,16 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion: String by System.getProperties()
-    kotlin("jvm") version kotlinVersion
+    kotlin("jvm")
+
+    // JavaFX
+    application
+    id("org.openjfx.javafxplugin") version "0.0.9"
+}
+
+javafx {
+    version = "15.0.1"
+    modules("javafx.controls")
 }
 
 dependencies {

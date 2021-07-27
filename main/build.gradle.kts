@@ -1,8 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion: String by System.getProperties()
-    kotlin("jvm") version kotlinVersion
+    kotlin("jvm")
 }
 
 dependencies {
