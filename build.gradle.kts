@@ -1,9 +1,10 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 group = "de.github.dudrie"
 version = "1.0"
 
 plugins {
-    val kotlinVersion: String by System.getProperties()
-    kotlin("jvm") version kotlinVersion
+    kotlin("jvm") version "1.5.21"
 }
 
 allprojects {
@@ -12,5 +13,9 @@ allprojects {
 
     repositories {
         mavenCentral()
+    }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "11"
     }
 }

@@ -1,27 +1,35 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.compose.compose
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("jvm")
 
-    // JavaFX
-    application
-    id("org.openjfx.javafxplugin") version "0.0.9"
+    id("org.jetbrains.compose") version "1.0.0-alpha1"
 }
 
-javafx {
-    version = "15.0.1"
-    modules("javafx.controls")
+repositories {
+    mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    google()
 }
 
 dependencies {
     implementation(project(":core"))
+    implementation(compose.desktop.currentOs)
     testImplementation(kotlin("test"))
+}
+
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "kotlin-chess"
+            packageVersion = "1.0.0"
+        }
+    }
 }
 
 tasks.test {
     useJUnit()
-}
-
-tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "1.8"
 }
