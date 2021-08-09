@@ -7,15 +7,11 @@ plugins {
     id("org.jetbrains.compose") version "1.0.0-alpha1"
 }
 
-repositories {
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    google()
-}
-
 dependencies {
     implementation(project(":core"))
     implementation(compose.desktop.currentOs)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
+
     testImplementation(kotlin("test"))
 }
 
@@ -24,7 +20,7 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "kotlin-chess"
+            packageName = "kotlin-hamster"
             packageVersion = "1.0.0"
         }
     }

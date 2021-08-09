@@ -13,7 +13,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/kotlin-lib" />
+            <option value="$PROJECT_DIR$/imperative" />
             <option value="$PROJECT_DIR$/main" />
             <option value="$PROJECT_DIR$/ui" />
           </set>
