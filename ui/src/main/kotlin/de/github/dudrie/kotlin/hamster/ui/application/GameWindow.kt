@@ -24,14 +24,14 @@ private val GameViewModelLocal = compositionLocalOf<GameViewModel> { error("No G
 @Composable
 fun GrainDisplay() {
     val gameViewModel = GameViewModelLocal.current
-    val grainCount by gameViewModel.grainCount
+    val grainCount by gameViewModel.hamsterGame.paule.grainCountState
 
     Text("Grain Count Display: $grainCount")
 }
 
 @Composable
 fun GrainIncreaseButton() {
-    var grainCount by GameViewModelLocal.current.grainCount
+    var grainCount by gameViewModel.hamsterGame.paule.grainCountState
 
     Button(onClick = { grainCount++ }) {
         Text("Increase grains!!!")
@@ -40,7 +40,7 @@ fun GrainIncreaseButton() {
 
 @Composable
 fun GrainDecreaseButton() {
-    var grainCount by GameViewModelLocal.current.grainCount
+    var grainCount by gameViewModel.hamsterGame.paule.grainCountState
 
     Button(onClick = { grainCount-- }) {
         Text("Decrease grains!!!")
@@ -50,15 +50,13 @@ fun GrainDecreaseButton() {
 @Composable
 fun RootContent() {
     CompositionLocalProvider(GameViewModelLocal provides gameViewModel) {
-        MaterialTheme {
-            Column(Modifier.padding(4.dp).background(Color.Red).fillMaxSize()) {
-                GrainDisplay()
+        Column(Modifier.padding(4.dp).background(Color.Red).fillMaxSize()) {
+            GrainDisplay()
 
-                Row(Modifier.padding(top = 16.dp)) {
-                    GrainDecreaseButton()
-                    Spacer(Modifier.width(8.dp))
-                    GrainIncreaseButton()
-                }
+            Row(Modifier.padding(top = 16.dp)) {
+                GrainDecreaseButton()
+                Spacer(Modifier.width(8.dp))
+                GrainIncreaseButton()
             }
         }
     }
@@ -72,21 +70,23 @@ class GameWindow {
             var isStarted by remember { mutableStateOf(false) }
 
             Window(title = "Single Hamster Game", onCloseRequest = ::exitApplication) {
-                if (isStarted) {
-                    RootContent()
-                } else {
-                    // TODO: Does one need a loading indicator here?
-                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Text("Starting hamster app...")
+                MaterialTheme {
+                    if (isStarted) {
+                        RootContent()
+                    } else {
+                        // TODO: Does one need a loading indicator here?
+                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            Text("Starting hamster app...")
+                        }
                     }
                 }
             }
 
             LaunchedEffect(true) {
-                // TODO: Init game here?!
+                // TODO: Init visual (!) board here?!
                 delay(3000L)
                 isStarted = true
-                delay(500L)
+                delay(2000L)
                 initLatch.countDown()
             }
         }

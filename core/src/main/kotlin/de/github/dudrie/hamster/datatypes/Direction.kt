@@ -1,5 +1,5 @@
 package de.github.dudrie.hamster.datatypes
 
 enum class Direction {
-    NORTH, EAST, SOUTH, WEST
+    North, East, South, West
 }

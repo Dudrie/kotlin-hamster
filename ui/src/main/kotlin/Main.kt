@@ -1,12 +1,12 @@
-import de.github.dudrie.kotlin.hamster.ui.application.HamsterGame
+import de.github.dudrie.kotlin.hamster.ui.application.HamsterGameUI
 import de.github.dudrie.kotlin.hamster.ui.state.gameViewModel
 
 private fun setGrains() {
-    gameViewModel.grainCount.value = 100
+    gameViewModel.hamsterGame.paule.grainCountState.value = 123
 }
 
 fun main() {
-    HamsterGame().startGame()
+    HamsterGameUI().startGame()
 
     println("Hello world")
     setGrains()

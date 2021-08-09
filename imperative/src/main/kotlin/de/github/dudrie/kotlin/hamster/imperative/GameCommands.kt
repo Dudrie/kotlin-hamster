@@ -1,7 +1,7 @@
 package de.github.dudrie.kotlin.hamster.imperative
 
-import de.github.dudrie.kotlin.hamster.ui.application.HamsterGame
+import de.github.dudrie.kotlin.hamster.ui.application.HamsterGameUI
 
 fun startGame() {
-    HamsterGame().startGame()
+    HamsterGameUI().startGame()
 }
