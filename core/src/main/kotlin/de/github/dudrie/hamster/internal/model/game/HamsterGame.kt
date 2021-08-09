@@ -15,7 +15,7 @@ class HamsterGame() {
 
     init {
         // TODO: Load settings from file.
-        val size = Size(columnCount = 5, rowCount = 7)
+        val size = Size(columnCount = 7, rowCount = 5)
         territory = GameTerritory(size = size, tiles = getTilesForTerritory(size))
 
         paule = GameHamster(

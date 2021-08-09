@@ -14,9 +14,10 @@ allprojects {
     version = "0.1"
 
     repositories {
-        mavenCentral()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         google()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        mavenCentral()
+
     }
 
     tasks.withType<KotlinCompile> {
