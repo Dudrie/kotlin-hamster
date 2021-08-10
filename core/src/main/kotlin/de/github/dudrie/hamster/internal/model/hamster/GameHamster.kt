@@ -2,6 +2,7 @@ package de.github.dudrie.hamster.internal.model.hamster
 
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileContent
@@ -30,9 +31,9 @@ class GameHamster(
             tileState.value = value
         }
 
-    private var direction: Direction
+    var direction: Direction
         get() = directionState.value
-        set(value) {
+        private set(value) {
             directionState.value = value
         }
 
@@ -46,29 +47,41 @@ class GameHamster(
     override val isBlockingMovement: Boolean = false
 
     fun move() {
+        val newLocation = getLocationAfterMove()
+        val newTile = territory.getTileAt(newLocation)
+        moveTo(newTile)
+    }
+
+    fun moveTo(tile: GameTile) {
+        require(isTileWalkable(tile)) { "The destination tile is blocked or outside the territory. Destination tile's location: ${tile.location}." }
+        currentTile.removeContent(this)
+        tile.addContent(this)
+
+        currentTile = tile
+    }
+
+    fun getLocationAfterMove(): Location {
         val location = currentTile.location
-        val newLocation = when (direction) {
+        return when (direction) {
             Direction.North -> location.copy(row = location.row - 1)
             Direction.East -> location.copy(column = location.column + 1)
             Direction.South -> location.copy(row = location.row + 1)
             Direction.West -> location.copy(column = location.column - 1)
         }
-        val newTile = territory.getTileAt(newLocation)
-
-        require(territory.isTileWalkable(newTile)) { "The destination tile is blocked or outside the territory. Destination tile's location: ${newTile.location}." }
-        currentTile.removeContent(this)
-        newTile.addContent(this)
-
-        currentTile = newTile
     }
 
     fun turnLeft() {
-        direction = when (direction) {
+        val newDirection = when (direction) {
             Direction.North -> Direction.West
             Direction.East -> Direction.North
             Direction.South -> Direction.East
             Direction.West -> Direction.South
         }
+        turnTo(newDirection)
+    }
+
+    fun turnTo(newDirection: Direction) {
+        direction = newDirection
     }
 
     fun pickGrain() {
@@ -80,5 +93,9 @@ class GameHamster(
             "Hamster does not have a grain to drop."
         }
         grainCount -= 1
+    }
+
+    private fun isTileWalkable(tile: GameTile): Boolean {
+        return territory.isTileInside(tile) && !tile.blocked
     }
 }

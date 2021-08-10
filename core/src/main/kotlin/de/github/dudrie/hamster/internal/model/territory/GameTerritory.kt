@@ -16,10 +16,6 @@ class GameTerritory(val size: Size, val tiles: List<GameTile>) {
         return tile
     }
 
-    fun isTileWalkable(tile: GameTile): Boolean {
-        return isTileInside(tile) && !tile.blocked
-    }
-
     fun isTileInside(tile: GameTile): Boolean {
         return this.isLocationInside(tile.location)
     }
