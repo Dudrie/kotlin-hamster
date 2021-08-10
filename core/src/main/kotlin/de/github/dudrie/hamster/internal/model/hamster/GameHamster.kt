@@ -2,7 +2,6 @@ package de.github.dudrie.hamster.internal.model.hamster
 
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Direction
-import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileContent
@@ -10,24 +9,25 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileContentType
 
 class GameHamster(
     val territory: GameTerritory,
-    location: Location,
+    tile: GameTile,
     direction: Direction,
     grainCount: Int = 0
 ) : GameTileContent(GameTileContentType.Hamster) {
 
     init {
-        require(territory.isLocationInside(location)) { "The location of the hamster is outside the territory. Location: $location" }
+        require(territory.isTileInside(tile)) { "The tile of the hamster is outside the territory. Tile's location: ${tile.location}" }
         require(grainCount >= 0) { "The grainCount must be zero or positive. Grain count: $grainCount" }
+        tile.addContent(this)
     }
 
-    val locationState = mutableStateOf(location)
+    val tileState = mutableStateOf(tile)
     val directionState = mutableStateOf(direction)
     val grainCountState = mutableStateOf(grainCount)
 
-    private var location: Location
-        get() = locationState.value
+    override var currentTile: GameTile
+        get() = tileState.value
         set(value) {
-            locationState.value = value
+            tileState.value = value
         }
 
     private var direction: Direction
@@ -42,18 +42,24 @@ class GameHamster(
             grainCountState.value = value
         }
 
-    override val currentTile: GameTile
-        get() = territory.getTileAt(location)
 
-    override val isBlocking: Boolean = false
+    override val isBlockingMovement: Boolean = false
 
     fun move() {
-        location = when (direction) {
+        val location = currentTile.location
+        val newLocation = when (direction) {
             Direction.North -> location.copy(row = location.row - 1)
             Direction.East -> location.copy(column = location.column + 1)
             Direction.South -> location.copy(row = location.row + 1)
             Direction.West -> location.copy(column = location.column - 1)
         }
+        val newTile = territory.getTileAt(newLocation)
+
+        require(territory.isTileWalkable(newTile)) { "The destination tile is blocked or outside the territory. Destination tile's location: ${newTile.location}." }
+        currentTile.removeContent(this)
+        newTile.addContent(this)
+
+        currentTile = newTile
     }
 
     fun turnLeft() {

@@ -8,21 +8,23 @@ import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
-class HamsterGame() {
+class HamsterGame {
     val territory: GameTerritory
 
     val paule: GameHamster
 
     init {
-        // TODO: Load settings from file.
+        // TODO: Load settings/data/... from file.
         val size = Size(columnCount = 7, rowCount = 5)
         territory = GameTerritory(size = size, tiles = getTilesForTerritory(size))
+        val hamsterTile = territory.getTileAt(Location.Origin)
+        val grainCount = 0
 
         paule = GameHamster(
             territory = territory,
             direction = Direction.East,
-            location = Location.Origin,
-            grainCount = 0
+            tile = hamsterTile,
+            grainCount = grainCount
         )
     }
 

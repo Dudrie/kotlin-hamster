@@ -7,5 +7,5 @@ enum class GameTileContentType {
 abstract class GameTileContent(val type: GameTileContentType) {
     abstract val currentTile: GameTile
 
-    abstract val isBlocking: Boolean
+    abstract val isBlockingMovement: Boolean
 }

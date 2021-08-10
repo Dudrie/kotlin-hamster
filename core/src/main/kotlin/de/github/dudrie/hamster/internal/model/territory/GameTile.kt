@@ -19,16 +19,24 @@ class GameTile(
     val tileContent = mutableStateListOf<GameTileContent>()
 
     val blocked: Boolean
-        get() = _blocked || tileContent.fold(false) { blocked, element -> blocked || element.isBlocking }
+        get() = _blocked || tileContent.fold(false) { blocked, element -> blocked || element.isBlockingMovement }
 
     val territory: GameTerritory
         get() {
-            require(_territory != null) { "Game territory not initialised" }
+            require(_territory != null) { "Game territory not initialised. You must call setTerritory() before accessing this property." }
             return _territory!!
         }
 
-    fun addContent(vararg content: GameTileContent) {
-        tileContent += content
+    fun addContent(vararg contents: GameTileContent) {
+        for (content in contents) {
+            if (!tileContent.contains(content)) {
+                tileContent += content
+            }
+        }
+    }
+
+    fun removeContent(vararg contents: GameTileContent) {
+        tileContent -= contents
     }
 
     fun setTerritory(territory: GameTerritory) {
