@@ -1,5 +1,6 @@
 package de.github.dudrie.kotlin.hamster.ui.state
 
+import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.HamsterGame
 
 class GameViewModel private constructor() {
@@ -9,5 +10,7 @@ class GameViewModel private constructor() {
     }
 
     val hamsterGame = HamsterGame()
+
+    val gameCommands = GameCommandStack()
 
 }
