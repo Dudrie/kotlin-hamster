@@ -24,7 +24,7 @@ class GameWindow {
             Window(title = "Single Hamster Game", onCloseRequest = ::exitApplication) {
                 MaterialTheme {
                     if (isStarted) {
-                        RootContent()
+                        MainGameUI()
                     } else {
                         // TODO: Does one need a loading indicator here?
                         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
