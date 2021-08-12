@@ -21,6 +21,6 @@ class GameTerritory(val size: Size, val tiles: List<GameTile>) {
     }
 
     fun isLocationInside(location: Location): Boolean {
-        return location.row <= size.rowCount && location.column <= size.columnCount
+        return size.isLocationInside(location)
     }
 }
