@@ -12,10 +12,8 @@ enum class GameTileType {
 class GameTile(
     val location: Location,
     val type: GameTileType,
-    blocked: Boolean = false
 ) {
 
-    private var _blocked: Boolean = blocked
     private var _territory: GameTerritory? = null
 
     private val tileContentState = mutableStateListOf<GameTileContent>()
@@ -25,7 +23,7 @@ class GameTile(
     val grainCount by grainCountState
 
     val blocked: Boolean
-        get() = _blocked || tileContentState.fold(false) { blocked, element -> blocked || element.isBlockingMovement }
+        get() = isBlockingTile() || tileContentState.fold(false) { blocked, element -> blocked || element.isBlockingMovement }
 
     val territory: GameTerritory
         get() {
@@ -49,4 +47,8 @@ class GameTile(
         _territory = territory
     }
 
+    private fun isBlockingTile(): Boolean = when (type) {
+        GameTileType.Floor -> false
+        GameTileType.Wall -> true
+    }
 }

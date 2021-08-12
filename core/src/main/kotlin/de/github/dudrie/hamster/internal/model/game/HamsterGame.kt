@@ -32,7 +32,7 @@ class HamsterGame {
         val tiles = mutableListOf<GameTile>()
         for (column in 0 until size.columnCount) {
             for (row in 0 until size.rowCount) {
-                tiles.add(GameTile(location = Location(column, row), type = GameTileType.Floor, blocked = false))
+                tiles.add(GameTile(location = Location(column, row), type = GameTileType.Floor))
             }
         }
         return tiles
