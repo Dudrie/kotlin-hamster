@@ -1,6 +1,8 @@
 package de.github.dudrie.hamster.internal.model.hamster
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
@@ -21,28 +23,15 @@ class GameHamster(
         tile.addContent(this)
     }
 
-    val tileState = mutableStateOf(tile)
-    val directionState = mutableStateOf(direction)
-    val grainCountState = mutableStateOf(grainCount)
+    private val tileState = mutableStateOf(tile)
+    private val directionState = mutableStateOf(direction)
+    private val grainCountState = mutableStateOf(grainCount)
 
-    override var currentTile: GameTile
-        get() = tileState.value
-        set(value) {
-            tileState.value = value
-        }
+    override val currentTile: GameTile by tileState
 
-    var direction: Direction
-        get() = directionState.value
-        private set(value) {
-            directionState.value = value
-        }
+    var direction: Direction by directionState
 
-    private var grainCount: Int
-        get() = grainCountState.value
-        set(value) {
-            grainCountState.value = value
-        }
-
+    var grainCount: Int by grainCountState
 
     override val isBlockingMovement: Boolean = false
 
@@ -57,7 +46,7 @@ class GameHamster(
         currentTile.removeContent(this)
         tile.addContent(this)
 
-        currentTile = tile
+        tileState.value = tile
     }
 
     fun getLocationAfterMove(): Location {

@@ -1,29 +1,18 @@
 package de.github.dudrie.hamster.internal.model.game
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
+import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.execptions.GameAbortedException
 import java.util.concurrent.Semaphore
 
 class GameCommandStack : CommandStack() {
-    private val _speedState = mutableStateOf(4.0)
-    val speedState = produceState(_speedState.value) { _speedState }
+    private val speedState = mutableStateOf(4.0)
+    private val modeState = mutableStateOf(GameMode.Initializing)
 
-    private val _modeState = mutableStateOf(GameMode.Initializing)
-    val modeState = produceState(_modeState.value) { _modeState }
+    private var speed: Double by speedState
 
-    private var speed: Double
-        get() = _speedState.value
-        set(value) {
-            require(value > 0 && value <= 10) { "Provided speed ($value) is not between 0 and 10." }
-            _speedState.value = value
-        }
-
-    private var mode: GameMode
-        get() = _modeState.value
-        set(value) {
-            _modeState.value = value
-        }
+    private var mode: GameMode by modeState
 
     private val pauseLock: Semaphore = Semaphore(1, true)
 

@@ -1,6 +1,8 @@
 package de.github.dudrie.hamster.internal.model.territory
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Location
 
 enum class GameTileType {
@@ -16,10 +18,14 @@ class GameTile(
     private var _blocked: Boolean = blocked
     private var _territory: GameTerritory? = null
 
-    val tileContent = mutableStateListOf<GameTileContent>()
+    private val tileContentState = mutableStateListOf<GameTileContent>()
+    val tileContent = tileContentState.asIterable()
+
+    private val grainCountState = mutableStateOf(0)
+    val grainCount by grainCountState
 
     val blocked: Boolean
-        get() = _blocked || tileContent.fold(false) { blocked, element -> blocked || element.isBlockingMovement }
+        get() = _blocked || tileContentState.fold(false) { blocked, element -> blocked || element.isBlockingMovement }
 
     val territory: GameTerritory
         get() {
@@ -29,14 +35,14 @@ class GameTile(
 
     fun addContent(vararg contents: GameTileContent) {
         for (content in contents) {
-            if (!tileContent.contains(content)) {
-                tileContent += content
+            if (!tileContentState.contains(content)) {
+                tileContentState += content
             }
         }
     }
 
     fun removeContent(vararg contents: GameTileContent) {
-        tileContent -= contents
+        tileContentState -= contents
     }
 
     fun setTerritory(territory: GameTerritory) {

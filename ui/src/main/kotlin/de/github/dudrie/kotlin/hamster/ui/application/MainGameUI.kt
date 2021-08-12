@@ -42,7 +42,10 @@ fun MainGameUI() {
                 Box(
                     modifier = Modifier.fillMaxHeight().width(300.dp).background(Color.LightGray)
                 ) {
-                    Text("CONSOLE")
+                    val gameViewModel = GameViewModelLocal.current
+                    val grainCount = gameViewModel.hamsterGame.paule.grainCount
+
+                    Text("CONSOLE\nGRAINS: $grainCount")
                 }
             }
         }
