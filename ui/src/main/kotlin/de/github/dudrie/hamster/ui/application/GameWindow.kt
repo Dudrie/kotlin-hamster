@@ -9,12 +9,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.launchApplication
+import de.github.dudrie.hamster.external.model.HamsterGame
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import java.util.concurrent.CountDownLatch
 
-class GameWindow {
+internal val HamsterGameLocal = compositionLocalOf<HamsterGame> { error("No hamster game was provided.") }
+
+class GameWindow(private val hamsterGame: HamsterGame) {
     fun show(initLatch: CountDownLatch) {
         val scope = CoroutineScope(Dispatchers.Main)
 
@@ -24,7 +27,9 @@ class GameWindow {
             Window(title = "Single Hamster Game", onCloseRequest = ::exitApplication) {
                 MaterialTheme {
                     if (isStarted) {
-                        MainGameUI()
+                        CompositionLocalProvider(HamsterGameLocal provides hamsterGame) {
+                            MainGameUI()
+                        }
                     } else {
                         // TODO: Does one need a loading indicator here?
                         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

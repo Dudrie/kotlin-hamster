@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun GameGridLayout() {
-    val gameTerritory = GameViewModelLocal.current.hamsterGame.territory
-    val size = gameTerritory.size
+    val gameTerritory = HamsterGameLocal.current.territory
+    val size = gameTerritory.territorySize
     val borderWidth = 1.dp
 
     val minWidth = Integer.min(size.columnCount * 32, 300)

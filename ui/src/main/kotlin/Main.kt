@@ -1,11 +1,12 @@
+import de.github.dudrie.hamster.internal.model.hamster.commands.PickGrainCommand
 import de.github.dudrie.hamster.ui.application.HamsterGameCompose
-import de.github.dudrie.hamster.ui.state.GameViewModel
 
 private fun setGrains() {
     Thread.sleep(1000L)
     repeat(40) {
-        GameViewModel.model.hamsterGame.paule.pickGrain()
-        Thread.sleep(250L)
+        val game = HamsterGameCompose.hamsterGame
+        game.executeCommand(PickGrainCommand(game.hamsterGameViewModel.hamster))
+        println("Picked grain ${it + 1}")
     }
 }
 
