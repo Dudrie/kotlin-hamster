@@ -47,6 +47,15 @@ class GameTile(
         _territory = territory
     }
 
+    fun addGrainToTile() {
+        grainCountState.value++
+    }
+
+    fun removeGrainFromTile() {
+        require(grainCount <= 0) { "There are no grains to pick up at $location." }
+        grainCountState.value--
+    }
+
     private fun isBlockingTile(): Boolean = when (type) {
         GameTileType.Floor -> false
         GameTileType.Wall -> true

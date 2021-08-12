@@ -1,18 +1,33 @@
 package de.github.dudrie.hamster.internal.model.hamster.commands
 
+import de.github.dudrie.hamster.execptions.NoGrainsOnTileException
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
+import de.github.dudrie.hamster.internal.model.territory.GameTile
 
 class PickGrainCommand(private val hamster: GameHamster) : Command() {
+    private var tileGrainWasPickedFrom: GameTile? = null
+
     override fun execute() {
-        TODO("Not yet implemented")
+        require(canBeExecuted()) { "Pick grain command cannot be executed." }
+        val tile = hamster.currentTile
+        tile.removeGrainFromTile()
+        hamster.pickGrain()
+        tileGrainWasPickedFrom = tile
     }
 
     override fun undo() {
-        TODO("Not yet implemented")
+        tileGrainWasPickedFrom?.let {
+            hamster.dropGrain()
+            it.addGrainToTile()
+            tileGrainWasPickedFrom = null
+        }
     }
 
     override fun getExceptionsFromCommandExecution(): List<RuntimeException> {
-        TODO("Not yet implemented")
+        if (hamster.currentTile.grainCount <= 0) {
+            return listOf(NoGrainsOnTileException(hamster.currentTile))
+        }
+        return listOf()
     }
 }
