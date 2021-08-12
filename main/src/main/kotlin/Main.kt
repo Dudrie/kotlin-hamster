@@ -22,5 +22,5 @@ fun main() {
 
     val json = ResourceReader("/territories/testTer01.json").content
     val parsedData = InitialTerritoryData.fromJson(json)
-    println(parsedData.getSpecialTiles().size)
+    println(parsedData.getAllSpecialTiles().size)
 }

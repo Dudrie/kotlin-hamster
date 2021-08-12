@@ -29,7 +29,9 @@ class InitialTerritoryData(val territorySize: Size, val initialHamster: HamsterD
         specialTiles[location] = TileData(location = location, grainCount = grainCount)
     }
 
-    fun getSpecialTiles(): List<TileData> = specialTiles.toList().map { it.second }
+    fun getAllSpecialTiles(): List<TileData> = specialTiles.toList().map { it.second }
+
+    fun getSpecialTileAt(location: Location): TileData? = specialTiles[location]
 
     fun toJson(): String = stringifyJson(this)
 

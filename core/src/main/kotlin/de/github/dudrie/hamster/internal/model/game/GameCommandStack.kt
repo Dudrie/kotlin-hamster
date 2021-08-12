@@ -10,9 +10,9 @@ class GameCommandStack : CommandStack() {
     private val speedState = mutableStateOf(4.0)
     private val modeState = mutableStateOf(GameMode.Initializing)
 
-    private var speed: Double by speedState
+    var speed: Double by speedState
 
-    private var mode: GameMode by modeState
+    val mode: GameMode by modeState
 
     private val pauseLock: Semaphore = Semaphore(1, true)
 
@@ -26,7 +26,7 @@ class GameCommandStack : CommandStack() {
             hasCommandsToUndo.value = false
             hasCommandsToRedo.value = false
 
-            mode = if (startPaused) {
+            modeState.value = if (startPaused) {
                 GameMode.Paused
             } else {
                 GameMode.Running
@@ -34,6 +34,35 @@ class GameCommandStack : CommandStack() {
         } finally {
             executionLock.unlock()
         }
+    }
+
+    fun pauseGame() {
+        executionLock.lock()
+        try {
+            require(mode == GameMode.Running) { "One can only pause a running game." }
+            modeState.value = GameMode.Paused
+        } finally {
+            executionLock.unlock()
+        }
+
+        try {
+            pauseLock.acquire()
+        } catch (e: InterruptedException) {
+        }
+
+    }
+
+    fun resumeGame() {
+        executionLock.lock()
+        try {
+            require(mode == GameMode.Paused) { "One can only resume a paused game." }
+        } finally {
+            executionLock.unlock()
+        }
+
+        redoAll()
+        modeState.value = GameMode.Running
+        pauseLock.release()
     }
 
     override fun execute(command: Command) {
@@ -46,7 +75,7 @@ class GameCommandStack : CommandStack() {
                 try {
                     super.execute(command)
                 } catch (e: Exception) {
-                    mode = GameMode.Stopped
+                    modeState.value = GameMode.Stopped
                     throw e
                 }
             } finally {
@@ -67,14 +96,14 @@ class GameCommandStack : CommandStack() {
 
     private fun checkCommandThrowsNoExceptions(command: Command) {
         if (!command.canBeExecuted()) {
-            mode = GameMode.Stopped
+            modeState.value = GameMode.Stopped
             throw command.getExceptionsFromCommandExecution()[0]
         }
     }
 
     private fun checkModeAllowsCommandExecution() {
         if (mode == GameMode.Aborted) {
-            mode = GameMode.Stopped
+            modeState.value = GameMode.Stopped
             throw GameAbortedException("Command execution was aborted.")
         } else if (mode != GameMode.Running) {
             throw IllegalStateException("The game must be running in order to execute commands.")

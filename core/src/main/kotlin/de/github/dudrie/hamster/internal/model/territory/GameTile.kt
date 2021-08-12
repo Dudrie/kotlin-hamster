@@ -12,6 +12,7 @@ enum class GameTileType {
 class GameTile(
     val location: Location,
     val type: GameTileType,
+    grainCount: Int = 0
 ) {
 
     private var _territory: GameTerritory? = null
@@ -19,7 +20,7 @@ class GameTile(
     private val tileContentState = mutableStateListOf<GameTileContent>()
     val tileContent = tileContentState.asIterable()
 
-    private val grainCountState = mutableStateOf(0)
+    private val grainCountState = mutableStateOf(grainCount)
     val grainCount by grainCountState
 
     val blocked: Boolean
@@ -30,6 +31,10 @@ class GameTile(
             require(_territory != null) { "Game territory not initialised. You must call setTerritory() before accessing this property." }
             return _territory!!
         }
+
+    init {
+        require(grainCount >= 0) { "Grain count must be zero or positive." }
+    }
 
     fun addContent(vararg contents: GameTileContent) {
         for (content in contents) {
@@ -52,7 +57,7 @@ class GameTile(
     }
 
     fun removeGrainFromTile() {
-        require(grainCount <= 0) { "There are no grains to pick up at $location." }
+        require(grainCount > 0) { "There are no grains to pick up at $location." }
         grainCountState.value--
     }
 

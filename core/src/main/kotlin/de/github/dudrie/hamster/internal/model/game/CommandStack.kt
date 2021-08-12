@@ -67,7 +67,7 @@ abstract class CommandStack {
         }
     }
 
-    private fun redoAll() {
+    protected fun redoAll() {
         executionLock.lock()
         try {
             while (hasCommandsToRedo.value) {
