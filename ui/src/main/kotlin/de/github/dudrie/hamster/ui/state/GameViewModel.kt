@@ -1,4 +1,4 @@
-package de.github.dudrie.kotlin.hamster.ui.state
+package de.github.dudrie.hamster.ui.state
 
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.HamsterGame

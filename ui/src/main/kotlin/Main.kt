@@ -1,5 +1,5 @@
-import de.github.dudrie.kotlin.hamster.ui.application.HamsterGameCompose
-import de.github.dudrie.kotlin.hamster.ui.state.GameViewModel
+import de.github.dudrie.hamster.ui.application.HamsterGameCompose
+import de.github.dudrie.hamster.ui.state.GameViewModel
 
 private fun setGrains() {
     Thread.sleep(1000L)

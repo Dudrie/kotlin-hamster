@@ -1,4 +1,4 @@
-package de.gothub.dudrie.hamster.importer.helpers
+package de.github.dudrie.hamster.importer.helpers
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

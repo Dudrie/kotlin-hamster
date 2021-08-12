@@ -1,10 +1,10 @@
-package de.gothub.dudrie.hamster.importer.data
+package de.github.dudrie.hamster.importer.data
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.importer.helpers.parseJson
+import de.github.dudrie.hamster.importer.helpers.stringifyJson
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
-import de.gothub.dudrie.hamster.importer.helpers.parseJson
-import de.gothub.dudrie.hamster.importer.helpers.stringifyJson
 
 class InitialTerritoryData(val territorySize: Size, val initialHamster: HamsterData) {
 

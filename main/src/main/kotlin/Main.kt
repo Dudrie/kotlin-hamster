@@ -1,9 +1,9 @@
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
-import de.gothub.dudrie.hamster.importer.data.HamsterData
-import de.gothub.dudrie.hamster.importer.data.InitialTerritoryData
-import de.gothub.dudrie.hamster.importer.helpers.ResourceReader
+import de.github.dudrie.hamster.importer.data.HamsterData
+import de.github.dudrie.hamster.importer.data.InitialTerritoryData
+import de.github.dudrie.hamster.importer.helpers.ResourceReader
 
 fun main() {
     val data = InitialTerritoryData(

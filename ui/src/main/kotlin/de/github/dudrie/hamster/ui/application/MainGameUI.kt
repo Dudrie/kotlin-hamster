@@ -1,4 +1,4 @@
-package de.github.dudrie.kotlin.hamster.ui.application
+package de.github.dudrie.hamster.ui.application
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.kotlin.hamster.ui.state.GameViewModel
+import de.github.dudrie.hamster.ui.state.GameViewModel
 
 internal val GameViewModelLocal = compositionLocalOf<GameViewModel> { error("No GameViewModel is provided.") }
 

@@ -1,4 +1,4 @@
-package de.github.dudrie.kotlin.hamster.ui.application
+package de.github.dudrie.hamster.ui.application
 
 import java.util.concurrent.CountDownLatch
 

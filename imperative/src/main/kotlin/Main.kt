@@ -1,4 +1,4 @@
-import de.github.dudrie.kotlin.hamster.imperative.startGame
+import de.github.dudrie.hamster.imperative.startGame
 
 fun main() {
     startGame()
