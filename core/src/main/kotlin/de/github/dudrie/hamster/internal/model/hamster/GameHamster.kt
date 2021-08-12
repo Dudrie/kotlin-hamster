@@ -61,23 +61,11 @@ class GameHamster(
     }
 
     fun getLocationAfterMove(): Location {
-        val location = currentTile.location
-        return when (direction) {
-            Direction.North -> location.copy(row = location.row - 1)
-            Direction.East -> location.copy(column = location.column + 1)
-            Direction.South -> location.copy(row = location.row + 1)
-            Direction.West -> location.copy(column = location.column - 1)
-        }
+        return currentTile.location.translate(direction.directionVector)
     }
 
     fun turnLeft() {
-        val newDirection = when (direction) {
-            Direction.North -> Direction.West
-            Direction.East -> Direction.North
-            Direction.South -> Direction.East
-            Direction.West -> Direction.South
-        }
-        turnTo(newDirection)
+        turnTo(direction.left())
     }
 
     fun turnTo(newDirection: Direction) {
