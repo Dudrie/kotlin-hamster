@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.internal.model.territory
 
 enum class GameTileContentType {
-    Hamster, Grain
+    Hamster
 }
 
 abstract class GameTileContent(val type: GameTileContentType) {

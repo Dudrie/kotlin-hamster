@@ -31,8 +31,6 @@ class InitialTerritoryData(val territorySize: Size, val initialHamster: HamsterD
 
     fun getAllSpecialTiles(): List<TileData> = specialTiles.toList().map { it.second }
 
-    fun getSpecialTileAt(location: Location): TileData? = specialTiles[location]
-
     fun toJson(): String = stringifyJson(this)
 
     private fun isInside(location: Location): Boolean = territorySize.isLocationInside(location)
