@@ -2,7 +2,6 @@ package de.github.dudrie.hamster.internal.model.hamster
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
@@ -29,9 +28,9 @@ class GameHamster(
 
     override val currentTile: GameTile by tileState
 
-    var direction: Direction by directionState
+    val direction: Direction by directionState
 
-    var grainCount: Int by grainCountState
+    val grainCount: Int by grainCountState
 
     override val isBlockingMovement: Boolean = false
 
@@ -58,18 +57,18 @@ class GameHamster(
     }
 
     fun turnTo(newDirection: Direction) {
-        direction = newDirection
+        directionState.value = newDirection
     }
 
     fun pickGrain() {
-        grainCount += 1
+        grainCountState.value += 1
     }
 
     fun dropGrain() {
         require(grainCount > 0) {
             "Hamster does not have a grain to drop."
         }
-        grainCount -= 1
+        grainCountState.value -= 1
     }
 
     private fun isTileWalkable(tile: GameTile): Boolean {
