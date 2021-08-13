@@ -26,11 +26,20 @@ class GameCommandStack : CommandStack() {
             hasCommandsToUndo.value = false
             hasCommandsToRedo.value = false
 
-            modeState.value = if (startPaused) {
-                GameMode.Paused
-            } else {
-                GameMode.Running
+            startGame()
+            if (startPaused) {
+                pauseGame()
             }
+        } finally {
+            executionLock.unlock()
+        }
+    }
+
+    fun startGame() {
+        executionLock.lock()
+        try {
+            require(mode == GameMode.Initializing) { "One can only start a game which is initializing." }
+            modeState.value = GameMode.Running
         } finally {
             executionLock.unlock()
         }

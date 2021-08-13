@@ -16,9 +16,9 @@ class HamsterGameCompose {
         window = GameWindow(hamsterGame)
     }
 
-    fun startGame() {
+    fun startGame(startPaused: Boolean = false) {
         window.show(initLatch)
         initLatch.await()
-        hamsterGame.startGame(false)
+        hamsterGame.startGame(startPaused)
     }
 }

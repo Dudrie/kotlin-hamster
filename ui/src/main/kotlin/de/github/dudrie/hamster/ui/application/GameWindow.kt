@@ -7,7 +7,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowSize
+import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.launchApplication
 import de.github.dudrie.hamster.external.model.HamsterGame
 import kotlinx.coroutines.CoroutineScope
@@ -29,7 +32,7 @@ class GameWindow(private val hamsterGame: HamsterGame) {
                 exitApplication()
                 // Make sure the main process gets halted as well.
                 exitProcess(0)
-            }) {
+            }, state = WindowState(size = WindowSize(1000.dp, 750.dp))) {
                 MaterialTheme {
                     if (isStarted) {
                         CompositionLocalProvider(HamsterGameLocal provides hamsterGame) {
