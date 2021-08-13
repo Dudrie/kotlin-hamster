@@ -3,7 +3,7 @@ package de.github.dudrie.hamster.internal.model.territory
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
 
-class GameTerritory(val size: Size, val tiles: List<GameTile>) {
+class GameTerritory(val size: Size, private val tiles: List<GameTile>) {
 
     init {
         require(tiles.size == size.columnCount * size.rowCount) { "Count of tiles (${tiles.size}) does not match the size $size." }

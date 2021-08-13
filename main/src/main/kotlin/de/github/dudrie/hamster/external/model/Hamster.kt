@@ -18,7 +18,7 @@ class Hamster(territory: Territory, location: Location, direction: Direction, gr
         val tile = territory.getTileAt(location)
         internalHamster =
             GameHamster(
-                territory = territory.internalTerritory,
+                territory = territory.getInternalTerritory(),
                 tile = tile,
                 direction = direction,
                 grainCount = grainCount
