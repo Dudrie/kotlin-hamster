@@ -14,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import java.util.concurrent.CountDownLatch
+import kotlin.system.exitProcess
 
 internal val HamsterGameLocal = compositionLocalOf<HamsterGame> { error("No hamster game was provided.") }
 
@@ -24,7 +25,11 @@ class GameWindow(private val hamsterGame: HamsterGame) {
         scope.launchApplication {
             var isStarted by remember { mutableStateOf(false) }
 
-            Window(title = "Single Hamster Game", onCloseRequest = ::exitApplication) {
+            Window(title = "Single Hamster Game", onCloseRequest = {
+                exitApplication()
+                // Make sure the main process gets halted as well.
+                exitProcess(0)
+            }) {
                 MaterialTheme {
                     if (isStarted) {
                         CompositionLocalProvider(HamsterGameLocal provides hamsterGame) {
