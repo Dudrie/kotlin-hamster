@@ -26,7 +26,7 @@ fun BoardTileBackground(tile: GameTile) {
         GameTileType.Floor -> {
             if (tile.isEmptyTile) {
                 Text(
-                    text = "Grains:${tile.grainCount}",
+                    text = "Grains: ${tile.grainCount}",
                     textAlign = TextAlign.Center,
                 )
             }

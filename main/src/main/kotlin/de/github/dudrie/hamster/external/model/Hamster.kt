@@ -10,7 +10,7 @@ import de.github.dudrie.hamster.internal.model.hamster.commands.TurnLeftCommand
 
 class Hamster(territory: Territory, location: Location, direction: Direction, grainCount: Int) {
 
-    private val internalHamster: GameHamster
+    internal val internalHamster: GameHamster
 
     private val game: HamsterGame = territory.hamsterGame
 
@@ -18,7 +18,7 @@ class Hamster(territory: Territory, location: Location, direction: Direction, gr
         val tile = territory.getTileAt(location)
         internalHamster =
             GameHamster(
-                territory = territory.getInternalTerritory(),
+                territory = territory.internalTerritory,
                 tile = tile,
                 direction = direction,
                 grainCount = grainCount

@@ -12,12 +12,14 @@ class HamsterGame(territoryFile: String? = null) {
 
     val territory: Territory
 
-    init {
-        val importer = InitialGameImporter(territoryFile)
-        territory = Territory.loadFromImporter(importer = importer, hamsterGame = this)
-        val hamster = importer.hamster
+    val hamster: Hamster
 
-        hamsterGameViewModel = HamsterGameViewModel(territory = territory.getInternalTerritory(), hamster = hamster)
+    init {
+        val importer = InitialGameImporter(hamsterGame = this, territoryFile = territoryFile)
+        territory = importer.territory
+        hamster = importer.hamster
+        hamsterGameViewModel =
+            HamsterGameViewModel(territory = territory.internalTerritory, hamster = hamster.internalHamster)
     }
 
     fun startGame(startPaused: Boolean) {

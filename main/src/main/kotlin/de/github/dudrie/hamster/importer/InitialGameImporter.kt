@@ -1,21 +1,22 @@
 package de.github.dudrie.hamster.importer
 
+import de.github.dudrie.hamster.external.model.Hamster
+import de.github.dudrie.hamster.external.model.HamsterGame
+import de.github.dudrie.hamster.external.model.Territory
 import de.github.dudrie.hamster.importer.data.InitialTerritoryData
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
-import de.github.dudrie.hamster.internal.model.hamster.GameHamster
-import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 
-class InitialGameImporter(private val territoryFile: String? = null) {
+class InitialGameImporter(private val hamsterGame: HamsterGame, private val territoryFile: String? = null) {
     companion object {
         private const val DEFAULT_FILE = "/territories/defaultTerritory.json"
     }
 
     private val data: InitialTerritoryData
 
-    lateinit var territory: GameTerritory
+    lateinit var territory: Territory
         private set
 
-    lateinit var hamster: GameHamster
+    lateinit var hamster: Hamster
         private set
 
     init {
@@ -30,15 +31,15 @@ class InitialGameImporter(private val territoryFile: String? = null) {
         val builder = TerritoryBuilder(size)
         initSpecialTiles(builder)
 
-        territory = builder.build()
+        val gameTerritory = builder.build()
+        territory = Territory(hamsterGame, gameTerritory)
     }
 
     private fun initHamster() {
         val hamsterData = data.initialHamster
-        val tile = territory.getTileAt(hamsterData.location)
-        hamster = GameHamster(
+        hamster = Hamster(
             territory = territory,
-            tile = tile,
+            location = hamsterData.location,
             direction = hamsterData.direction,
             grainCount = hamsterData.grainCount
         )
