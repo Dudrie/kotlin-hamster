@@ -1,15 +1,14 @@
 package de.github.dudrie.hamster.ui.application
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.internal.model.game.GameMode
+import de.github.dudrie.hamster.ui.components.BoardGrid
+import de.github.dudrie.hamster.ui.components.ConsolePanel
 
 @Composable
 fun MainGameUI() {
@@ -41,23 +40,9 @@ fun MainGameUI() {
         }
     ) {
         Row(modifier = Modifier.fillMaxSize()) {
-            Box(
-                modifier = Modifier.padding(8.dp).weight(1f),
-                contentAlignment = Alignment.Center
-            ) {
-                GameGridLayout()
-            }
+            BoardGrid(Modifier.weight(1f).fillMaxHeight())
 
-            Box(
-                modifier = Modifier.fillMaxHeight().width(300.dp).background(Color.LightGray)
-            ) {
-                val viewModel = HamsterGameLocal.current.hamsterGameViewModel
-                val commands = HamsterGameLocal.current.gameCommands
-                val grainCount = viewModel.hamster.grainCount
-                val speed = commands.speed
-
-                Text("CONSOLE\nGRAINS: $grainCount\nSPEED:$speed")
-            }
+            ConsolePanel(Modifier.fillMaxHeight().width(300.dp))
         }
     }
 }

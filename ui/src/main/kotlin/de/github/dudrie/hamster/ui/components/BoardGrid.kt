@@ -1,17 +1,17 @@
-package de.github.dudrie.hamster.ui.application
+package de.github.dudrie.hamster.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 
 @Composable
-fun GameGridLayout() {
+fun BoardGrid(modifier: Modifier = Modifier) {
     val gameTerritory = HamsterGameLocal.current.territory
     val size = gameTerritory.territorySize
     val borderWidth = 1.dp
@@ -20,7 +20,7 @@ fun GameGridLayout() {
     val maxWidth = Integer.max(size.columnCount * 64, 1000)
 
     Box(
-        modifier = Modifier.padding(8.dp).fillMaxHeight().widthIn(min = minWidth.dp, max = maxWidth.dp),
+        modifier = modifier.padding(16.dp).widthIn(min = minWidth.dp, max = maxWidth.dp),
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -31,12 +31,14 @@ fun GameGridLayout() {
                     modifier = Modifier.weight(1f).padding(start = borderWidth, end = borderWidth)
                 ) {
                     for (col in 0 until size.columnCount) {
-                        Surface(modifier = Modifier.weight(1f).aspectRatio(1f).padding(borderWidth)) {
-                            Text("c: $col, r: $row")
-                        }
+                        BoardTile(
+                            Location(column = col, row = row),
+                            Modifier.weight(1f).aspectRatio(1f).padding(borderWidth)
+                        )
                     }
                 }
             }
         }
     }
 }
+
