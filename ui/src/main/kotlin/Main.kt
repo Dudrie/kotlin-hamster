@@ -8,7 +8,7 @@ private fun setGrains() {
     println("Moving hamster")
 
     game.executeCommand(MoveCommand(hamster))
-    repeat(3) {
+    repeat(1) {
         game.executeCommand(TurnLeftCommand(hamster))
     }
     repeat(2) {
@@ -17,8 +17,7 @@ private fun setGrains() {
 }
 
 fun main() {
-    HamsterGameCompose().startGame(true)
+    HamsterGameCompose().startGame()
 
-    println("Hello world")
     setGrains()
 }
