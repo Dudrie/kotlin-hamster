@@ -8,9 +8,9 @@ abstract class CommandStack {
 
     protected val undoneCommands: MutableList<Command> = mutableListOf()
 
-    protected val hasCommandsToUndo = mutableStateOf(false)
+    val hasCommandsToUndo = mutableStateOf(false)
 
-    protected val hasCommandsToRedo = mutableStateOf(false)
+    val hasCommandsToRedo = mutableStateOf(false)
 
     protected val executionLock: ReentrantLock = ReentrantLock(true)
 
@@ -40,7 +40,7 @@ abstract class CommandStack {
         }
     }
 
-    private fun redo() {
+    open fun redo() {
         executionLock.lock()
         try {
             require(undoneCommands.size > 0) { "There are no commands to redo." }

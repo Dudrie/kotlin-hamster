@@ -64,6 +64,16 @@ class GameCommandStack : CommandStack() {
         }
     }
 
+    override fun redo() {
+        executionLock.lock()
+        try {
+            require(mode == GameMode.Stopped || mode == GameMode.Paused) { "One can only redo a command if the game is paused or stopped." }
+            super.redo()
+        } finally {
+            executionLock.unlock()
+        }
+    }
+
     fun startGame(startPaused: Boolean) {
         executionLock.lock()
         try {
@@ -117,8 +127,8 @@ class GameCommandStack : CommandStack() {
         executionLock.lock()
         try {
             require(mode == GameMode.Paused) { "One can only resume a paused game." }
-            modeState.value = GameMode.Running
             redoAll()
+            modeState.value = GameMode.Running
         } finally {
             executionLock.unlock()
         }
@@ -139,11 +149,18 @@ class GameCommandStack : CommandStack() {
     }
 
     private fun checkModeAllowsCommandExecution() {
-        if (mode == GameMode.Aborted) {
-            modeState.value = GameMode.Stopped
-            throw GameAbortedException("Command execution was aborted.")
-        } else if (mode != GameMode.Running) {
-            throw IllegalStateException("The game must be running in order to execute commands.")
+        when (mode) {
+            GameMode.Aborted -> {
+                modeState.value = GameMode.Stopped
+                throw GameAbortedException("One cannot run commands on an aborted game.")
+            }
+            GameMode.Initializing -> {
+                throw IllegalStateException("One cannot run commands if the game is still initializing.")
+            }
+            GameMode.Stopped -> {
+                throw IllegalStateException("One cannot execute commands if the game is stopped.")
+            }
+            else -> return
         }
     }
 
