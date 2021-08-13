@@ -17,6 +17,7 @@ class Territory private constructor(val hamsterGame: HamsterGame, private val in
     fun getTileAt(location: Location): GameTile = internalTerritory.getTileAt(location)
 
     fun getInternalTerritory(): GameTerritory = internalTerritory
+
     // TODO: Add more helper functions!
 
 }

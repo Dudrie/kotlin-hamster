@@ -20,7 +20,7 @@ fun main() {
 
     println(data.toJson())
 
-    val json = ResourceReader("/territories/testTer01.json").content
+    val json = ResourceReader("/territories/testTer01.json").getContentAsText()
     val parsedData = InitialTerritoryData.fromJson(json)
     println(parsedData.getAllSpecialTiles().size)
 }

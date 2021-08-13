@@ -13,4 +13,3 @@ data class Location(val column: Int, val row: Int) {
         return "(col: $column, row: $row)"
     }
 }
-
