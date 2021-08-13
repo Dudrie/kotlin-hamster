@@ -17,29 +17,45 @@ class GameCommandStack : CommandStack() {
 
     private val pauseLock: Semaphore = Semaphore(1, true)
 
-    override fun execute(command: Command) {
+    fun executeCommand(command: Command) {
         try {
             pauseLock.acquire()
-            executionLock.lock()
-            try {
-                checkCommandCanBeExecuted(command)
-
-                try {
-                    super.execute(command)
-                } catch (e: Exception) {
-                    modeState.value = GameMode.Stopped
-                    throw e
-                }
-            } catch (e: RuntimeException) {
-                runtimeExceptionState.value = e
-                stopGame()
-            } finally {
-                executionLock.unlock()
-            }
-            delayNextCommand()
+            execute(command)
         } catch (e: InterruptedException) {
         } finally {
             pauseLock.release()
+        }
+    }
+
+    override fun execute(command: Command) {
+        executionLock.lock()
+        try {
+            checkCommandCanBeExecuted(command)
+
+            try {
+                super.execute(command)
+            } catch (e: Exception) {
+                modeState.value = GameMode.Stopped
+                throw e
+            }
+        } catch (e: RuntimeException) {
+            runtimeExceptionState.value = e
+            println(e)
+            stopGame()
+        } finally {
+            executionLock.unlock()
+        }
+        delayNextCommand()
+    }
+
+    override fun undo() {
+        executionLock.lock()
+        try {
+            require(mode == GameMode.Stopped || mode == GameMode.Paused) { "One can only undo a command if the game is paused or stopped." }
+            super.undo()
+            gameLog.removeLastMessage()
+        } finally {
+            executionLock.unlock()
         }
     }
 
@@ -96,12 +112,11 @@ class GameCommandStack : CommandStack() {
         executionLock.lock()
         try {
             require(mode == GameMode.Paused) { "One can only resume a paused game." }
+            modeState.value = GameMode.Running
+            redoAll()
         } finally {
             executionLock.unlock()
         }
-
-        redoAll()
-        modeState.value = GameMode.Running
         pauseLock.release()
     }
 

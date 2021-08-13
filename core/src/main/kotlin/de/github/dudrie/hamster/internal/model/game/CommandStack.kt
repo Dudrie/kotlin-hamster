@@ -26,7 +26,7 @@ abstract class CommandStack {
         }
     }
 
-    private fun undo() {
+    open fun undo() {
         executionLock.lock()
         try {
             require(executedCommands.size > 0) { "There are no commands to undo." }

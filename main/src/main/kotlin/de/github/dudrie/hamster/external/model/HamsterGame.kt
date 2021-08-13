@@ -25,6 +25,6 @@ class HamsterGame(territoryFile: String? = null) {
     }
 
     fun executeCommand(command: Command) {
-        this.gameCommands.execute(command)
+        this.gameCommands.executeCommand(command)
     }
 }
