@@ -30,4 +30,13 @@ class DropGrainCommand(private val hamster: GameHamster) : Command() {
         }
         return listOf()
     }
+
+    override fun getCommandLogMessage(): String {
+        val tile = tileGrainWasPutOn
+        return if (tile != null) {
+            "Hamster dropped grain onto ${tile.location}."
+        } else {
+            "Hamster dropped grain."
+        }
+    }
 }

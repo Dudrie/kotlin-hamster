@@ -14,10 +14,9 @@ abstract class CommandStack {
 
     protected val executionLock: ReentrantLock = ReentrantLock(true)
 
-    open fun execute(command: Command) {
+    protected open fun execute(command: Command) {
         executionLock.lock()
         try {
-            redoAll()
             command.execute()
             executedCommands += command
             hasCommandsToUndo.value = true
@@ -45,11 +44,10 @@ abstract class CommandStack {
         executionLock.lock()
         try {
             require(undoneCommands.size > 0) { "There are no commands to redo." }
-            val commandToRedo = undoneCommands.removeFirst()
-            commandToRedo.execute()
+            val commandToRedo = undoneCommands.removeLast()
+            execute(commandToRedo)
 
-            executedCommands += commandToRedo
-            hasCommandsToUndo.value = true
+            hasCommandsToUndo.value = executedCommands.size > 0
             hasCommandsToRedo.value = undoneCommands.size > 0
         } finally {
             executionLock.unlock()

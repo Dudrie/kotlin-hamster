@@ -22,4 +22,6 @@ class TurnLeftCommand(private val hamster: GameHamster) : Command() {
     override fun getExceptionsFromCommandExecution(): List<RuntimeException> {
         return listOf()
     }
+
+    override fun getCommandLogMessage(): String = "Hamster turned left."
 }

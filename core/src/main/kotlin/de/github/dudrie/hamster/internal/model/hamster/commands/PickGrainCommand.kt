@@ -30,4 +30,13 @@ class PickGrainCommand(private val hamster: GameHamster) : Command() {
         }
         return listOf()
     }
+
+    override fun getCommandLogMessage(): String {
+        val tile = tileGrainWasPickedFrom
+        return if (tile != null) {
+            "Hamster picked grain from ${tile.location}."
+        } else {
+            "Hamster picked grain."
+        }
+    }
 }

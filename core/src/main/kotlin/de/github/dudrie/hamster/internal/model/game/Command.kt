@@ -7,6 +7,8 @@ abstract class Command {
 
     abstract fun getExceptionsFromCommandExecution(): List<RuntimeException>
 
+    abstract fun getCommandLogMessage(): String
+
     fun canBeExecuted(): Boolean {
         return getExceptionsFromCommandExecution().isEmpty()
     }

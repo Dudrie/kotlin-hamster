@@ -1,23 +1,24 @@
-import de.github.dudrie.hamster.internal.model.hamster.commands.MoveCommand
-import de.github.dudrie.hamster.internal.model.hamster.commands.TurnLeftCommand
 import de.github.dudrie.hamster.ui.application.HamsterGameCompose
 
-private fun setGrains() {
+private fun runSampleGame() {
     val game = HamsterGameCompose.hamsterGame
-    val hamster = game.hamsterGameViewModel.hamster
-    println("Moving hamster")
+    val paule = game.hamster
 
-    game.executeCommand(MoveCommand(hamster))
-    repeat(1) {
-        game.executeCommand(TurnLeftCommand(hamster))
+    paule.pickGrain()
+    paule.move()
+
+    repeat(3) {
+        paule.turnLeft()
     }
     repeat(2) {
-        game.executeCommand(MoveCommand(hamster))
+        paule.move()
     }
+    paule.dropGrain()
+    paule.move()
 }
 
 fun main() {
     HamsterGameCompose().startGame()
 
-    setGrains()
+    runSampleGame()
 }

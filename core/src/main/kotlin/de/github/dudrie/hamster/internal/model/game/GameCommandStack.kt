@@ -15,6 +15,10 @@ class GameCommandStack : CommandStack() {
     private val runtimeExceptionState = mutableStateOf<RuntimeException?>(null)
     val runtimeException: RuntimeException? by runtimeExceptionState
 
+    private val gameLog: GameLog = GameLog()
+    val gameMessages: Iterable<String>
+        get() = gameLog.messages
+
     private val pauseLock: Semaphore = Semaphore(1, true)
 
     fun executeCommand(command: Command) {
@@ -34,6 +38,7 @@ class GameCommandStack : CommandStack() {
 
             try {
                 super.execute(command)
+                gameLog.addMessage(command.getCommandLogMessage())
             } catch (e: Exception) {
                 modeState.value = GameMode.Stopped
                 throw e

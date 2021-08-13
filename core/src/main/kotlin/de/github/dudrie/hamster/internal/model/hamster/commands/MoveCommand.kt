@@ -40,4 +40,6 @@ class MoveCommand(private val hamster: GameHamster) : Command() {
 
         return list
     }
+
+    override fun getCommandLogMessage(): String = "Hamster moved on step."
 }
