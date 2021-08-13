@@ -24,10 +24,12 @@ fun BoardTileBackground(tile: GameTile) {
             )
         }
         GameTileType.Floor -> {
-            Text(
-                text = "${tile.type}\nGrains:${tile.grainCount}",
-                textAlign = TextAlign.Center,
-            )
+            if (tile.isEmptyTile) {
+                Text(
+                    text = "Grains:${tile.grainCount}",
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
     }
 }

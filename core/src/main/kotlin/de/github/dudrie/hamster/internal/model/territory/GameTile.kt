@@ -20,6 +20,9 @@ class GameTile(
     private val tileContentState = mutableStateListOf<GameTileContent>()
     val tileContent = tileContentState.asIterable()
 
+    val isEmptyTile
+        get() = tileContentState.isEmpty()
+
     private val grainCountState = mutableStateOf(grainCount)
     val grainCount by grainCountState
 

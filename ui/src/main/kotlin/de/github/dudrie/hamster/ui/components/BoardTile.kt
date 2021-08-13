@@ -17,5 +17,7 @@ fun BoardTile(location: Location, modifier: Modifier) {
     // TODO: Use better floor color -> Custom game theme?
     Box(modifier = modifier.background(Color.LightGray), contentAlignment = Alignment.Center) {
         BoardTileBackground(tile)
+
+        BoardTileContent(tile)
     }
 }
