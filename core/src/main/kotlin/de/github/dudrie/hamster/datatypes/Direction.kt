@@ -4,7 +4,7 @@ enum class Direction(val directionVector: LocationVector) {
     North(LocationVector(0, -1)),
     East(LocationVector(1, 0)),
     South(LocationVector(0, 1)),
-    West(LocationVector(0, -1));
+    West(LocationVector(-1, 0));
 
     fun left(): Direction {
         return when (this) {
