@@ -2,19 +2,46 @@ package de.github.dudrie.hamster.internal.model.game
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.execptions.GameAbortedException
 import java.util.concurrent.Semaphore
 
 class GameCommandStack : CommandStack() {
     private val speedState = mutableStateOf(4.0)
+    val speed: Double by speedState
+
     private val modeState = mutableStateOf(GameMode.Initializing)
-
-    var speed: Double by speedState
-
     val mode: GameMode by modeState
 
+    private val runtimeExceptionState = mutableStateOf<RuntimeException?>(null)
+    val runtimeException: RuntimeException? by runtimeExceptionState
+
     private val pauseLock: Semaphore = Semaphore(1, true)
+
+    override fun execute(command: Command) {
+        try {
+            pauseLock.acquire()
+            executionLock.lock()
+            try {
+                checkCommandCanBeExecuted(command)
+
+                try {
+                    super.execute(command)
+                } catch (e: Exception) {
+                    modeState.value = GameMode.Stopped
+                    throw e
+                }
+            } catch (e: RuntimeException) {
+                runtimeExceptionState.value = e
+                stopGame()
+            } finally {
+                executionLock.unlock()
+            }
+            delayNextCommand()
+        } catch (e: InterruptedException) {
+        } finally {
+            pauseLock.release()
+        }
+    }
 
     fun startGame(startPaused: Boolean) {
         executionLock.lock()
@@ -26,7 +53,8 @@ class GameCommandStack : CommandStack() {
             hasCommandsToUndo.value = false
             hasCommandsToRedo.value = false
 
-            startGame()
+            modeState.value = GameMode.Running
+
             if (startPaused) {
                 pauseGame()
             }
@@ -35,13 +63,16 @@ class GameCommandStack : CommandStack() {
         }
     }
 
-    fun startGame() {
+    fun stopGame() {
         executionLock.lock()
         try {
-            require(mode == GameMode.Initializing) { "One can only start a game which is initializing." }
-            modeState.value = GameMode.Running
+            modeState.value = GameMode.Stopped
         } finally {
             executionLock.unlock()
+        }
+        try {
+            pauseLock.acquire()
+        } catch (e: InterruptedException) {
         }
     }
 
@@ -72,29 +103,6 @@ class GameCommandStack : CommandStack() {
         redoAll()
         modeState.value = GameMode.Running
         pauseLock.release()
-    }
-
-    override fun execute(command: Command) {
-        try {
-            pauseLock.acquire()
-            executionLock.lock()
-            try {
-                checkCommandCanBeExecuted(command)
-
-                try {
-                    super.execute(command)
-                } catch (e: Exception) {
-                    modeState.value = GameMode.Stopped
-                    throw e
-                }
-            } finally {
-                executionLock.unlock()
-            }
-            delayNextCommand()
-        } catch (e: InterruptedException) {
-        } finally {
-            pauseLock.release()
-        }
     }
 
     private fun checkCommandCanBeExecuted(command: Command) {

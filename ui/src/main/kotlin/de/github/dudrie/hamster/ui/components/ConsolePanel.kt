@@ -2,6 +2,7 @@ package de.github.dudrie.hamster.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -18,6 +19,13 @@ fun ConsolePanel(modifier: Modifier = Modifier) {
         val grainCount = viewModel.hamster.grainCount
         val speed = commands.speed
 
-        Text("CONSOLE\nGRAINS: $grainCount\nSPEED:$speed")
+        Column {
+            Text("CONSOLE")
+            Text("GRAINS: $grainCount")
+            Text("SPEED:$speed")
+            if (commands.runtimeException != null) {
+                Text("Exception: ${commands.runtimeException}")
+            }
+        }
     }
 }
