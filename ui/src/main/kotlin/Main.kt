@@ -7,7 +7,7 @@ private fun runSampleGame() {
     paule.pickGrain()
     paule.move()
 
-    repeat(3) {
+    repeat(1) {
         paule.turnLeft()
     }
     repeat(2) {

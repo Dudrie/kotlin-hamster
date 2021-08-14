@@ -28,8 +28,6 @@ fun ConsolePanel(modifier: Modifier = Modifier) {
                     }
                 }
 
-                // TODO: Remove this one and replace with dialog
-                //       Or should a dialog be added additionally?
                 if (commands.runtimeException != null) {
                     item {
                         ConsoleErrorRow(commands.runtimeException!!)

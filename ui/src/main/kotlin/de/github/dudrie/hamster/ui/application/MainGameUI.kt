@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ui.components.appbar.AppBar
-import de.github.dudrie.hamster.ui.components.board.BoardGrid
+import de.github.dudrie.hamster.ui.components.board.Board
 import de.github.dudrie.hamster.ui.components.console.ConsolePanel
 
 @Composable
@@ -18,7 +18,7 @@ fun MainGameUI() {
         topBar = { AppBar() }
     ) {
         Row(modifier = Modifier.fillMaxSize()) {
-            BoardGrid(Modifier.weight(1f).fillMaxHeight())
+            Board(Modifier.weight(1f).fillMaxHeight())
 
             ConsolePanel(Modifier.fillMaxHeight().width(300.dp))
         }
