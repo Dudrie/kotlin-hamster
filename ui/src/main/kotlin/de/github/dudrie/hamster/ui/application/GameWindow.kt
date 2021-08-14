@@ -1,12 +1,9 @@
 package de.github.dudrie.hamster.ui.application
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowSize
@@ -27,37 +24,25 @@ class GameWindow(private val hamsterGame: HamsterGame) {
         val scope = CoroutineScope(Dispatchers.Main)
 
         scope.launchApplication {
-            var isStarted by remember { mutableStateOf(false) }
-
             Window(
                 title = ResString.get("window.title"),
                 onCloseRequest = {
                     exitApplication()
-                    // Make sure the main process gets halted as well.
-                    exitProcess(0)
+                    exitProcess(0) // Make sure the main process gets halted as well.
                 },
                 state = WindowState(size = WindowSize(1000.dp, 750.dp))
             ) {
+                LaunchedEffect(true) {
+                    // Allow the window a short time to run the first render.
+                    delay(100L)
+                    initLatch.countDown()
+                }
+
                 MaterialTheme {
-                    if (isStarted) {
-                        CompositionLocalProvider(HamsterGameLocal provides hamsterGame) {
-                            MainGameUI()
-                        }
-                    } else {
-                        // TODO: Does one need a loading indicator here?
-                        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                            Text(ResString.get("window.loading.text"))
-                        }
+                    CompositionLocalProvider(HamsterGameLocal provides hamsterGame) {
+                        MainGameUI()
                     }
                 }
-            }
-
-            LaunchedEffect(true) {
-                // TODO: Init visual (!) board here?!
-                delay(2000L)
-                isStarted = true
-                delay(1000L)
-                initLatch.countDown()
             }
         }
     }
