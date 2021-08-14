@@ -5,6 +5,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -29,6 +30,10 @@ fun AppBar() {
         val canRedo by commands.canRedoCommand()
         val canPauseOrResume by commands.canPauseOrResumeGame()
 
+        val speedText by produceState("", commands.speed) {
+            value = "${ResString.get("appbar.speed.label")}: ${floor(commands.speed)}"
+        }
+
         Spacer(Modifier.width(64.dp))
 
         ControlButton(
@@ -43,7 +48,6 @@ fun AppBar() {
             modifier = Modifier.padding(start = padding),
             enabled = canPauseOrResume,
             onClick = {
-                // Make sure we run this in a different coroutine so the UI does not wait until the methods return.
                 scope.launch {
                     if (commands.mode == GameMode.Running) {
                         commands.pauseGame()
@@ -62,11 +66,10 @@ fun AppBar() {
             enabled = canRedo
         )
 
-        // TODO: Add icons (& current value? (floored!))
         SpeedSlider(modifier = Modifier.width(400.dp).padding(start = padding * 2))
 
         Text(
-            text = "${ResString.getForGameMode(commands.mode)} | ${floor(commands.speed)}",
+            text = "${ResString.getForGameMode(commands.mode)} | $speedText",
             textAlign = TextAlign.End,
             modifier = Modifier.fillMaxWidth().weight(0.5f)
         )
