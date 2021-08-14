@@ -14,5 +14,7 @@ object R {
         const val redo = "/icons/outline_redo_black_36dp.png"
         const val stop = "/icons/round_stop_black_36dp.png"
         const val undo = "/icons/outline_undo_black_36dp.png"
+        const val slowSpeed = "/icons/speedometer-slow.png"
+        const val fastSpeed = "/icons/speedometer.png"
     }
 }

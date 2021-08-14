@@ -1,19 +1,21 @@
-package de.github.dudrie.hamster.ui.application
+package de.github.dudrie.hamster.ui.components.appbar
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.R
+import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 import de.github.dudrie.hamster.ui.components.ControlButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlin.math.floor
 
 @Composable
 fun AppBar() {
@@ -60,21 +62,10 @@ fun AppBar() {
         )
 
         // TODO: Add icons (& current value? (floored!))
-        Slider(
-            value = commands.speed,
-            onValueChange = { newSpeed -> commands.setSpeed(newSpeed) },
-            valueRange = GameCommandStack.speedRange,
-            steps = GameCommandStack.speedSteps,
-            modifier = Modifier.weight(1f).padding(start = padding),
-            colors = SliderDefaults.colors(
-                thumbColor = MaterialTheme.colors.onPrimary,
-                activeTrackColor = MaterialTheme.colors.secondary,
-                inactiveTrackColor = MaterialTheme.colors.onPrimary,
-            )
-        )
+        SpeedSlider(modifier = Modifier.width(400.dp).padding(start = padding * 2))
 
         Text(
-            text = "${commands.mode} | ${commands.speed}",
+            text = "${commands.mode} | ${floor(commands.speed)}",
             textAlign = TextAlign.End,
             modifier = Modifier.fillMaxWidth().weight(0.5f)
         )
