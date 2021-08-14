@@ -27,7 +27,6 @@ fun BoardTile(location: Location, modifier: Modifier) {
         }
     }
 
-    // TODO: Use better floor color -> Custom game theme?
     Surface(modifier = modifier, color = GameTheme.colors.floorColor, border = border) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             BoardTileBackground(tile)

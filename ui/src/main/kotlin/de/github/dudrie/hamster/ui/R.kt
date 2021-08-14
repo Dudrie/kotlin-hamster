@@ -6,6 +6,7 @@ object R {
     object resources {
         const val wall = "/images/wall.png"
         const val hamster = "/images/hamster.png"
+        const val grain = "/images/grain.png"
     }
 
     object icons {

@@ -4,7 +4,9 @@ private fun runSampleGame() {
     val game = HamsterGameCompose.hamsterGame
     val paule = game.hamster
 
-    paule.pickGrain()
+    repeat(3) {
+        paule.pickGrain()
+    }
     paule.move()
 
     repeat(3) {
@@ -13,7 +15,9 @@ private fun runSampleGame() {
     repeat(2) {
         paule.move()
     }
-    paule.dropGrain()
+    repeat(2) {
+        paule.dropGrain()
+    }
     paule.move()
 }
 

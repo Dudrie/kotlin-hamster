@@ -2,11 +2,9 @@ package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.text.style.TextAlign
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
@@ -24,13 +22,6 @@ fun BoardTileBackground(tile: GameTile) {
             )
         }
         GameTileType.Floor -> {
-            if (tile.isEmptyTile) {
-                // TODO: Move this one to the content and use image for it.
-                Text(
-                    text = "Grains: ${tile.grainCount}",
-                    textAlign = TextAlign.Center
-                )
-            }
         }
     }
 }
