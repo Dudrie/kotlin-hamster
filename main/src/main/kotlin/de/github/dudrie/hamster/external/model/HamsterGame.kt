@@ -6,6 +6,7 @@ import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.HamsterGameViewModel
 
 class HamsterGame(territoryFile: String? = null) {
+    // TODO: Is this actually needed?
     val hamsterGameViewModel: HamsterGameViewModel
 
     val gameCommands: GameCommandStack = GameCommandStack()
