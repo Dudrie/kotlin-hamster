@@ -1,5 +1,6 @@
 package de.github.dudrie.hamster.internal.model.hamster.commands
 
+import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.execptions.DestinationOutsideTerritoryException
 import de.github.dudrie.hamster.execptions.PathBlockedException
 import de.github.dudrie.hamster.internal.model.game.Command
@@ -43,5 +44,5 @@ class MoveCommand(private val hamster: GameHamster) : Command() {
         return list
     }
 
-    override fun getCommandLogMessage(): String = "Hamster moved one step."
+    override fun getCommandLogMessage(): String = ResString.get("command.move.log")
 }

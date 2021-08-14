@@ -12,6 +12,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowSize
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.launchApplication
+import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.external.model.HamsterGame
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,11 +29,15 @@ class GameWindow(private val hamsterGame: HamsterGame) {
         scope.launchApplication {
             var isStarted by remember { mutableStateOf(false) }
 
-            Window(title = "Single Hamster Game", onCloseRequest = {
-                exitApplication()
-                // Make sure the main process gets halted as well.
-                exitProcess(0)
-            }, state = WindowState(size = WindowSize(1000.dp, 750.dp))) {
+            Window(
+                title = ResString.get("window.title"),
+                onCloseRequest = {
+                    exitApplication()
+                    // Make sure the main process gets halted as well.
+                    exitProcess(0)
+                },
+                state = WindowState(size = WindowSize(1000.dp, 750.dp))
+            ) {
                 MaterialTheme {
                     if (isStarted) {
                         CompositionLocalProvider(HamsterGameLocal provides hamsterGame) {
@@ -41,7 +46,7 @@ class GameWindow(private val hamsterGame: HamsterGame) {
                     } else {
                         // TODO: Does one need a loading indicator here?
                         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                            Text("Starting hamster app...")
+                            Text(ResString.get("window.loading.text"))
                         }
                     }
                 }

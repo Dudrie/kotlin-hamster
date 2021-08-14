@@ -1,7 +1,6 @@
 package de.github.dudrie.hamster.internal.model.game
 
 import androidx.compose.runtime.*
-import de.github.dudrie.hamster.execptions.GameAbortedException
 import java.util.concurrent.Semaphore
 
 class GameCommandStack : CommandStack() {
@@ -180,10 +179,6 @@ class GameCommandStack : CommandStack() {
 
     private fun checkModeAllowsCommandExecution() {
         when (mode) {
-            GameMode.Aborted -> {
-                modeState.value = GameMode.Stopped
-                throw GameAbortedException("One cannot run commands on an aborted game.")
-            }
             GameMode.Initializing -> {
                 throw IllegalStateException("One cannot run commands if the game is still initializing.")
             }

@@ -19,16 +19,5 @@ enum class GameMode {
     /**
      * The game is stopped due because all commands have been executed.
      */
-    Stopped,
-
-    /**
-     * The game was aborted through a user action or a similar function invocation.
-     *
-     * Unlike Stopped the execution of commands has not finished but was interrupted.
-     */
-    Aborted;
-
-    fun isStoppedOrAborted(): Boolean {
-        return this == Stopped || this == Aborted
-    }
+    Stopped
 }

@@ -1,5 +1,6 @@
 package de.github.dudrie.hamster.internal.model.hamster.commands
 
+import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.execptions.NoGrainsOnTileException
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
@@ -34,9 +35,9 @@ class PickGrainCommand(private val hamster: GameHamster) : Command() {
     override fun getCommandLogMessage(): String {
         val tile = tileGrainWasPickedFrom
         return if (tile != null) {
-            "Hamster picked grain from ${tile.location}."
+            ResString.getWithFormat("command.pick.grain.log.on.location", tile.location)
         } else {
-            "Hamster picked grain."
+            ResString.get("command.pick.grain.log.no.location.given")
         }
     }
 }

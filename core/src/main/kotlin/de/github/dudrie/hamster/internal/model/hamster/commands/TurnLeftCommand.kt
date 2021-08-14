@@ -1,5 +1,6 @@
 package de.github.dudrie.hamster.internal.model.hamster.commands
 
+import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
@@ -23,5 +24,5 @@ class TurnLeftCommand(private val hamster: GameHamster) : Command() {
         return listOf()
     }
 
-    override fun getCommandLogMessage(): String = "Hamster turned left."
+    override fun getCommandLogMessage(): String = ResString.get("command.turn.left")
 }

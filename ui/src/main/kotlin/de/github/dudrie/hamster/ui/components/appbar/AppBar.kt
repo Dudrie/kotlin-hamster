@@ -9,6 +9,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
@@ -65,7 +66,7 @@ fun AppBar() {
         SpeedSlider(modifier = Modifier.width(400.dp).padding(start = padding * 2))
 
         Text(
-            text = "${commands.mode} | ${floor(commands.speed)}",
+            text = "${ResString.getForGameMode(commands.mode)} | ${floor(commands.speed)}",
             textAlign = TextAlign.End,
             modifier = Modifier.fillMaxWidth().weight(0.5f)
         )
