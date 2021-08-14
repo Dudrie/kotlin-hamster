@@ -3,7 +3,6 @@ package de.github.dudrie.hamster.ui.components
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.ButtonColors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedButton
@@ -41,6 +40,6 @@ fun ControlButton(resourcePath: String, onClick: () -> Unit, enabled: Boolean = 
         contentPadding = PaddingValues(0.dp),
         enabled = enabled
     ) {
-        ResourceIcon(resourcePath, modifier = Modifier.size(36.dp), tint = contentColor)
+        ResourceIcon(resourcePath, size = ResourceIconSize.Medium, tint = contentColor)
     }
 }

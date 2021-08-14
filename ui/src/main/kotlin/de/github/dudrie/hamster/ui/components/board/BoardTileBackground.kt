@@ -25,6 +25,7 @@ fun BoardTileBackground(tile: GameTile) {
         }
         GameTileType.Floor -> {
             if (tile.isEmptyTile) {
+                // TODO: Move this one to the content and use image for it.
                 Text(
                     text = "Grains: ${tile.grainCount}",
                     textAlign = TextAlign.Center,

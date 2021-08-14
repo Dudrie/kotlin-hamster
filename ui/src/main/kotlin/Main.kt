@@ -18,7 +18,7 @@ private fun runSampleGame() {
 }
 
 fun main() {
-    HamsterGameCompose().startGame(false)
+    HamsterGameCompose().startGame(startPaused = false)
 
     runSampleGame()
 }
