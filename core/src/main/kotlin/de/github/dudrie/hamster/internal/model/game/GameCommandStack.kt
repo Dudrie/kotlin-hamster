@@ -1,7 +1,6 @@
 package de.github.dudrie.hamster.internal.model.game
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import de.github.dudrie.hamster.execptions.GameAbortedException
 import java.util.concurrent.Semaphore
 
@@ -12,6 +11,9 @@ class GameCommandStack : CommandStack() {
     private val modeState = mutableStateOf(GameMode.Initializing)
     val mode: GameMode by modeState
 
+    private val isUndoingOrRedoingState = mutableStateOf(false)
+    private var isUndoingOrRedoing: Boolean by isUndoingOrRedoingState
+
     private val runtimeExceptionState = mutableStateOf<RuntimeException?>(null)
     val runtimeException: RuntimeException? by runtimeExceptionState
 
@@ -20,6 +22,19 @@ class GameCommandStack : CommandStack() {
         get() = gameLog.messages
 
     private val pauseLock: Semaphore = Semaphore(1, true)
+
+
+    @Composable
+    fun canUndoCommand(): State<Boolean> =
+        rememberUpdatedState(hasCommandsToUndo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
+
+    @Composable
+    fun canRedoCommand(): State<Boolean> =
+        rememberUpdatedState(hasCommandsToRedo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
+
+    @Composable
+    fun canPauseOrResumeGame(): State<Boolean> =
+        rememberUpdatedState(mode == GameMode.Running || mode == GameMode.Paused && !isUndoingOrRedoing)
 
     fun executeCommand(command: Command) {
         try {
@@ -57,9 +72,11 @@ class GameCommandStack : CommandStack() {
         executionLock.lock()
         try {
             require(mode == GameMode.Stopped || mode == GameMode.Paused) { "One can only undo a command if the game is paused or stopped." }
+            isUndoingOrRedoing = true
             super.undo()
             gameLog.removeLastMessage()
         } finally {
+            isUndoingOrRedoing = false
             executionLock.unlock()
         }
     }
@@ -68,8 +85,10 @@ class GameCommandStack : CommandStack() {
         executionLock.lock()
         try {
             require(mode == GameMode.Stopped || mode == GameMode.Paused) { "One can only redo a command if the game is paused or stopped." }
+            isUndoingOrRedoing = true
             super.redo()
         } finally {
+            isUndoingOrRedoing = false
             executionLock.unlock()
         }
     }
