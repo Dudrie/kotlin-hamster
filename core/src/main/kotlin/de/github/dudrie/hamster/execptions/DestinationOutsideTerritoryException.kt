@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.execptions
 
-import de.github.dudrie.hamster.internal.model.territory.GameTile
+import de.github.dudrie.hamster.datatypes.Location
 
-class DestinationOutsideTerritoryException(destinationTile: GameTile) : TileRelatedException(destinationTile) {
-    override fun toString(): String = "Tile at ${tile.location} is outside the territory."
+class DestinationOutsideTerritoryException(private val location: Location) : RuntimeException() {
+    override fun toString(): String = "Tile at $location is outside the territory."
 }

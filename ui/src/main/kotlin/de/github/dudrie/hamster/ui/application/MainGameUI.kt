@@ -8,8 +8,9 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.ui.components.BoardGrid
-import de.github.dudrie.hamster.ui.components.ConsolePanel
+import de.github.dudrie.hamster.ui.components.appbar.AppBar
+import de.github.dudrie.hamster.ui.components.board.BoardGrid
+import de.github.dudrie.hamster.ui.components.console.ConsolePanel
 
 @Composable
 fun MainGameUI() {

@@ -71,7 +71,7 @@ class GameCommandStack : CommandStack() {
             }
         } catch (e: RuntimeException) {
             runtimeExceptionState.value = e
-            println(e)
+            println("[GameException] $e")
             stopGame()
         } finally {
             executionLock.unlock()

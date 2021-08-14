@@ -27,12 +27,14 @@ class MoveCommand(private val hamster: GameHamster) : Command() {
 
         try {
             val newLocation = hamster.getLocationAfterMove()
-            val newTile = hamster.territory.getTileAt(newLocation)
 
-            if (!hamster.territory.isTileInside(newTile)) {
-                list += DestinationOutsideTerritoryException(newTile)
-            } else if (newTile.blocked) {
-                list += PathBlockedException(newTile)
+            if (!hamster.territory.isLocationInside(newLocation)) {
+                list += DestinationOutsideTerritoryException(newLocation)
+            } else {
+                val newTile = hamster.territory.getTileAt(newLocation)
+                if (newTile.blocked) {
+                    list += PathBlockedException(newTile)
+                }
             }
         } catch (e: RuntimeException) {
             list += e
@@ -41,5 +43,5 @@ class MoveCommand(private val hamster: GameHamster) : Command() {
         return list
     }
 
-    override fun getCommandLogMessage(): String = "Hamster moved on step."
+    override fun getCommandLogMessage(): String = "Hamster moved one step."
 }

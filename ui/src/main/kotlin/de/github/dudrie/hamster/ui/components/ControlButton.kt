@@ -5,15 +5,15 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.ButtonColors
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedButton
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.importer.helpers.ResourceReader
 
 object ControlButtonColors : ButtonColors {
     @Composable
@@ -41,14 +41,6 @@ fun ControlButton(resourcePath: String, onClick: () -> Unit, enabled: Boolean = 
         contentPadding = PaddingValues(0.dp),
         enabled = enabled
     ) {
-        val buttonIcon = remember(resourcePath) {
-            ResourceReader(resourcePath).getContentAsImage().asImageBitmap()
-        }
-        Icon(
-            bitmap = buttonIcon,
-            contentDescription = null,
-            tint = contentColor,
-            modifier = Modifier.size(36.dp)
-        )
+        ResourceIcon(resourcePath, modifier = Modifier.size(36.dp), tint = contentColor)
     }
 }

@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.components
+package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
