@@ -1,14 +1,14 @@
 package de.github.dudrie.hamster.ui.application
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.components.ControlButton
@@ -59,6 +59,24 @@ fun AppBar() {
             enabled = canRedo
         )
 
-        Text(text = "${commands.mode}", textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth())
+        // TODO: Add icons (& current value? (floored!))
+        Slider(
+            value = commands.speed,
+            onValueChange = { newSpeed -> commands.setSpeed(newSpeed) },
+            valueRange = GameCommandStack.speedRange,
+            steps = GameCommandStack.speedSteps,
+            modifier = Modifier.weight(1f).padding(start = padding),
+            colors = SliderDefaults.colors(
+                thumbColor = MaterialTheme.colors.onPrimary,
+                activeTrackColor = MaterialTheme.colors.secondary,
+                inactiveTrackColor = MaterialTheme.colors.onPrimary,
+            )
+        )
+
+        Text(
+            text = "${commands.mode} | ${commands.speed}",
+            textAlign = TextAlign.End,
+            modifier = Modifier.fillMaxWidth().weight(0.5f)
+        )
     }
 }

@@ -5,8 +5,15 @@ import de.github.dudrie.hamster.execptions.GameAbortedException
 import java.util.concurrent.Semaphore
 
 class GameCommandStack : CommandStack() {
-    private val speedState = mutableStateOf(4.0)
-    val speed: Double by speedState
+    companion object {
+        const val minSpeed = 1f
+        const val maxSpeed = 10f
+        const val speedSteps = (maxSpeed - minSpeed - 1).toInt()
+        val speedRange = minSpeed..maxSpeed
+    }
+
+    private val speedState = mutableStateOf(4.0f)
+    val speed: Float by speedState
 
     private val modeState = mutableStateOf(GameMode.Initializing)
     val mode: GameMode by modeState
@@ -23,7 +30,6 @@ class GameCommandStack : CommandStack() {
 
     private val pauseLock: Semaphore = Semaphore(1, true)
 
-
     @Composable
     fun canUndoCommand(): State<Boolean> =
         rememberUpdatedState(hasCommandsToUndo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
@@ -35,6 +41,11 @@ class GameCommandStack : CommandStack() {
     @Composable
     fun canPauseOrResumeGame(): State<Boolean> =
         rememberUpdatedState(mode == GameMode.Running || mode == GameMode.Paused && !isUndoingOrRedoing)
+
+    fun setSpeed(speed: Float) {
+        require(speed in speedRange) { "Speed must be between $minSpeed and $maxSpeed." }
+        speedState.value = speed
+    }
 
     fun executeCommand(command: Command) {
         try {
@@ -185,7 +196,7 @@ class GameCommandStack : CommandStack() {
 
     private fun delayNextCommand() {
         try {
-            Thread.sleep(((11.0 - speed) / 5.0 * 400.0).toLong())
+            Thread.sleep(((maxSpeed + 1 - speed) / 5.0 * 400.0).toLong())
         } catch (e: InterruptedException) {
         }
     }
