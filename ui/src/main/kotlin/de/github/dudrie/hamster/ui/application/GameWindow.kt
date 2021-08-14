@@ -1,6 +1,5 @@
 package de.github.dudrie.hamster.ui.application
 
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.compositionLocalOf
@@ -11,6 +10,7 @@ import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.launchApplication
 import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.external.model.HamsterGame
+import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -38,8 +38,10 @@ class GameWindow(private val hamsterGame: HamsterGame) {
                     initLatch.countDown()
                 }
 
-                MaterialTheme {
-                    CompositionLocalProvider(HamsterGameLocal provides hamsterGame) {
+                ThemeWrapper {
+                    CompositionLocalProvider(
+                        HamsterGameLocal provides hamsterGame
+                    ) {
                         MainGameUI()
                     }
                 }
