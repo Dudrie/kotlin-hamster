@@ -3,11 +3,8 @@ package de.github.dudrie.hamster.external.model
 import de.github.dudrie.hamster.importer.InitialGameImporter
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
-import de.github.dudrie.hamster.internal.model.game.HamsterGameViewModel
 
 class HamsterGame(territoryFile: String? = null) {
-    // TODO: Is this actually needed?
-    val hamsterGameViewModel: HamsterGameViewModel
 
     val gameCommands: GameCommandStack = GameCommandStack()
 
