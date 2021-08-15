@@ -8,6 +8,8 @@ private fun runSampleGame(game: HamsterGame) {
     }
     paule.move()
 
+    paule.talk("I said something :)")
+
     repeat(3) {
         paule.turnLeft()
     }

@@ -26,6 +26,26 @@ class Territory(val hamsterGame: HamsterGame, internal val internalTerritory: Ga
      */
     override fun getTileAt(location: Location): GameTile = internalTerritory.getTileAt(location)
 
-    // TODO: Add more helper functions!
+    /**
+     * Is the [GameTile] at [location] free for movement?
+     *
+     * The [location] is considered free if it is inside the territory and not blocked for movement.
+     */
+    override fun isFree(location: Location): Boolean =
+        internalTerritory.isLocationInside(location) && !isBlocked(location)
+
+    /**
+     * Is the [GameTile] at [location] blocked for movement?
+     *
+     * The [location] must be inside the territory. To check whether any location can be moved upon use [isFree].
+     */
+    override fun isBlocked(location: Location): Boolean = getTileAt(location).blocked
+
+    /**
+     * Returns the number of grains on the [GameTile] at the [location].
+     *
+     * The [location] must be inside the territory.
+     */
+    override fun getNumbersOfGrainsAt(location: Location): Int = getTileAt(location).grainCount
 
 }

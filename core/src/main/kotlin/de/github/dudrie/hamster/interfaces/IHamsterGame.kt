@@ -4,6 +4,9 @@ import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.GameMode
 
+/**
+ * Helper interface for the actual hamster game used during a game.
+ */
 interface IHamsterGame {
     /**
      * [GameCommandStack] associated with this [IHamsterGame].
