@@ -16,7 +16,17 @@ import kotlinx.coroutines.delay
 import java.util.concurrent.CountDownLatch
 import kotlin.system.exitProcess
 
+/**
+ * Window holding the game's application.
+ *
+ * @param hamsterGame Game which holds the data to display in the window.
+ */
 class GameWindow(private val hamsterGame: IHamsterGame) {
+    /**
+     * Starts the Compose application.
+     *
+     * After launching the application the [initLatch] will get counted down by 1.
+     */
     fun show(initLatch: CountDownLatch) {
         val scope = CoroutineScope(Dispatchers.Main)
 

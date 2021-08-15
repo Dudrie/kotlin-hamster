@@ -14,6 +14,9 @@ import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 import de.github.dudrie.hamster.ui.components.ResourceIcon
 
+/**
+ * [Slider] which is responsible for adjusting the [speed][GameCommandStack.speed] of the game.
+ */
 @Composable
 fun SpeedSlider(modifier: Modifier = Modifier) {
     val commands = HamsterGameLocal.current.gameCommands

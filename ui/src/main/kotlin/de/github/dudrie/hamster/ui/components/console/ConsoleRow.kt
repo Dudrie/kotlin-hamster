@@ -11,8 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+/**
+ * Base abstraction of a row used inside the [ConsolePanel].
+ *
+ * @see ConsoleLightRow
+ * @see ConsoleDarkRow
+ * @see ConsoleErrorRow
+ */
 @Composable
-fun ConsoleRow(
+private fun ConsoleRow(
     text: String,
     modifier: Modifier = Modifier,
     backgroundColor: Color = Color.Unspecified,
@@ -23,6 +30,11 @@ fun ConsoleRow(
     }
 }
 
+/**
+ * [ConsoleRow] showing the given [text] on a light background.
+ *
+ * @see ConsoleRow
+ */
 @Composable
 fun ConsoleLightRow(text: String, modifier: Modifier = Modifier) {
     ConsoleRow(
@@ -33,6 +45,11 @@ fun ConsoleLightRow(text: String, modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * [ConsoleRow] showing the given [text] on a dark background.
+ *
+ * @see ConsoleRow
+ */
 @Composable
 fun ConsoleDarkRow(text: String, modifier: Modifier = Modifier) {
     ConsoleRow(
@@ -43,6 +60,11 @@ fun ConsoleDarkRow(text: String, modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * [ConsoleRow] that displays the [exception] on a row which has the [error][MaterialTheme.colors] background.
+ *
+ * @see ConsoleRow
+ */
 @Composable
 fun ConsoleErrorRow(exception: RuntimeException, modifier: Modifier = Modifier) {
     ConsoleRow(

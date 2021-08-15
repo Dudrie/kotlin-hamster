@@ -4,6 +4,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 
+/**
+ * Wrapper composable which makes all theme related objects available through [CompositionLocals][androidx.compose.runtime.CompositionLocal].
+ */
 @Composable
 fun ThemeWrapper(content: @Composable () -> Unit) {
     MaterialTheme {

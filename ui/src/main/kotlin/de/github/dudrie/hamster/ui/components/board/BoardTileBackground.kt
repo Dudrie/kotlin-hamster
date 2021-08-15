@@ -1,6 +1,8 @@
 package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -11,6 +13,9 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.theme.GameTheme
 
+/**
+ * Renders the background of the tile based upon its [type][GameTileType].
+ */
 @Composable
 fun BoardTileBackground(tile: GameTile) {
     when (tile.type) {

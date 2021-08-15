@@ -13,10 +13,33 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 
+/**
+ * Sizes for the [Icon] used in the [ResourceIcon] composable.
+ *
+ * @param value The [Dp] of the related [ResourceIconSize].
+ */
 enum class ResourceIconSize(val value: Dp) {
-    Small(24.dp), Medium(36.dp), Large(48.dp)
+    /**
+     * Small icon
+     */
+    Small(24.dp),
+
+    /**
+     * Medium icon
+     */
+    Medium(36.dp),
+
+    /**
+     * Large icon
+     */
+    Large(48.dp)
 }
 
+/**
+ * Shows an [Icon] which gets loaded from the resources.
+ *
+ * The icon content is defined by the given [resourcePath].
+ */
 @Composable
 fun ResourceIcon(
     resourcePath: String,

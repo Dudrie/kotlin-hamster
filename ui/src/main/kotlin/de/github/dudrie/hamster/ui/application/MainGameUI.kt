@@ -12,6 +12,15 @@ import de.github.dudrie.hamster.ui.components.appbar.AppBar
 import de.github.dudrie.hamster.ui.components.board.Board
 import de.github.dudrie.hamster.ui.components.console.ConsolePanel
 
+/**
+ * The root [Composable] for the main game UI.
+ *
+ * It is responsible for the main layout of the game.
+ *
+ * @see AppBar
+ * @see Board
+ * @see ConsolePanel
+ */
 @Composable
 fun MainGameUI() {
     Scaffold(

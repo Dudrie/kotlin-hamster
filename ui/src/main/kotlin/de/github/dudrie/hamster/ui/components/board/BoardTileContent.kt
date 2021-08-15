@@ -20,6 +20,9 @@ import de.github.dudrie.hamster.internal.model.hamster.GameHamster
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.ui.R
 
+/**
+ * Returns the amount of degrees the hamster's image has to be turned to visually face in the [direction].
+ */
 fun getDegreesForDirection(direction: Direction): Float = when (direction) {
     Direction.North -> 270f
     Direction.East -> 0f
@@ -27,6 +30,9 @@ fun getDegreesForDirection(direction: Direction): Float = when (direction) {
     Direction.West -> 180f
 }
 
+/**
+ * Renders the content of the given [tile].
+ */
 @Composable
 fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {

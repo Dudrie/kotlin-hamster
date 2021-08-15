@@ -19,6 +19,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.math.floor
 
+/**
+ * AppBar which is shown at the top of the window.
+ *
+ * It contains the basic controls for the game.
+ */
 @Composable
 fun AppBar() {
     TopAppBar(elevation = 8.dp, contentPadding = PaddingValues(horizontal = 16.dp)) {

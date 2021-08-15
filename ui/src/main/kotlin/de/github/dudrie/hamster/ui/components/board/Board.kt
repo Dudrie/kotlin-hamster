@@ -9,6 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 
+/**
+ * Wrapper for the basic components for the game board.
+ *
+ * @see BoardGrid
+ * @see BoardExceptionDialog
+ */
 @Composable
 fun Board(modifier: Modifier = Modifier) {
     val gameTerritory = HamsterGameLocal.current.territory

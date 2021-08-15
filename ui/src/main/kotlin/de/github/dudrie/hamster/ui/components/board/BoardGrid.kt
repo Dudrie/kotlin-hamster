@@ -9,6 +9,11 @@ import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 
+/**
+ * Renders the game's territory in a grid with square tiles using [BoardTiles][BoardTile].
+ *
+ * @see BoardTile
+ */
 @Composable
 fun BoardGrid() {
     val gameTerritory = HamsterGameLocal.current.territory

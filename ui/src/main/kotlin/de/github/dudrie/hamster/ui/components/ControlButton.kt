@@ -14,10 +14,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+/**
+ * Implementation of [ButtonColors] to be used in the [ControlButton].
+ */
 object ControlButtonColors : ButtonColors {
+    /**
+     * Represents the background color for this button, depending on [enabled].
+     *
+     * @param enabled whether the button is enabled
+     */
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> = mutableStateOf(Color.Transparent)
 
+    /**
+     * Represents the content color for this button, depending on [enabled].
+     *
+     * @param enabled whether the button is enabled
+     */
     @Composable
     override fun contentColor(enabled: Boolean): State<Color> {
         return if (enabled) {
@@ -28,6 +41,13 @@ object ControlButtonColors : ButtonColors {
     }
 }
 
+/**
+ * [OutlinedButton] adjusted to be placed upon the [AppBar][de.github.dudrie.hamster.ui.components.appbar.AppBar].
+ *
+ * It shows the icon defined by [resourcePath] as only content.
+ *
+ * @see ResourceIcon
+ */
 @Composable
 fun ControlButton(resourcePath: String, onClick: () -> Unit, enabled: Boolean = true, modifier: Modifier = Modifier) {
     val contentColor by ControlButtonColors.contentColor(enabled)

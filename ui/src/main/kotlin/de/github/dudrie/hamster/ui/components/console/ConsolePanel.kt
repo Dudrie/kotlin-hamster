@@ -12,6 +12,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 
+/**
+ * Shows the game messages in a list.
+ *
+ * The messages alternate between having a light and a dark background. Messages from exceptions are highlighted with a different background.
+ *
+ * @see ConsoleLightRow
+ * @see ConsoleDarkRow
+ * @see ConsoleErrorRow
+ */
 @Composable
 fun ConsolePanel(modifier: Modifier = Modifier) {
     Box(modifier = modifier.background(brush = SolidColor(Color.Black), alpha = 0.05f)) {

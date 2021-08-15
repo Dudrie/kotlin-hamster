@@ -12,8 +12,15 @@ import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.execptions.TileRelatedException
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
-import de.github.dudrie.hamster.ui.theme.GameTheme
 
+/**
+ * Responsible for rendering a single tile of a territory.
+ *
+ * It shows the tile according to its [type][de.github.dudrie.hamster.internal.model.territory.GameTile.type] and its [content][de.github.dudrie.hamster.internal.model.territory.GameTile.tileContent].
+ *
+ * @see BoardTileBackground
+ * @see BoardTileContent
+ */
 @Composable
 fun BoardTile(location: Location, modifier: Modifier) {
     val gameTerritory = HamsterGameLocal.current.territory
