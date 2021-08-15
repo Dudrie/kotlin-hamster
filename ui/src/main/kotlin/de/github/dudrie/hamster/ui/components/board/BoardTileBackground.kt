@@ -9,6 +9,7 @@ import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import de.github.dudrie.hamster.ui.R
+import de.github.dudrie.hamster.ui.theme.GameTheme
 
 @Composable
 fun BoardTileBackground(tile: GameTile) {
@@ -22,6 +23,7 @@ fun BoardTileBackground(tile: GameTile) {
             )
         }
         GameTileType.Floor -> {
+            Box(modifier = Modifier.background(color = GameTheme.colors.floorColor).fillMaxSize()) {}
         }
     }
 }
