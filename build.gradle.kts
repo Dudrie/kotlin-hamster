@@ -44,7 +44,7 @@ allprojects {
         kotlinOptions.jvmTarget = "11"
     }
 
-    tasks.withType<DokkaTaskPartial>().configureEach() {
+    tasks.withType<DokkaTaskPartial>().configureEach {
         dokkaSourceSets {
             configureEach {
                 reportUndocumented.set(true)

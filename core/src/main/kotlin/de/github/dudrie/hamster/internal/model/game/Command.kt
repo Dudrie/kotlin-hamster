@@ -15,7 +15,7 @@ abstract class Command {
     abstract fun undo()
 
     /**
-     * Generates a [List] of [RuntimeExceptions][RuntimeException] that contains all exception which would be thrown if the command gets exectuted.
+     * Generates a [List] of [RuntimeExceptions][RuntimeException] that contains all exception which would be thrown if the command gets executed.
      *
      * @return Generated [List].
      */

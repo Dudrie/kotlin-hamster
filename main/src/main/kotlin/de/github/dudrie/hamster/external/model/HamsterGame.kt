@@ -17,7 +17,6 @@ class HamsterGame(territoryFile: String? = null) : IHamsterGame {
     /**
      * [GameCommandStack] associated with this [HamsterGame].
      */
-    // TODO: Make private and pass important functions through.
     override val gameCommands: GameCommandStack = GameCommandStack()
 
     /**
