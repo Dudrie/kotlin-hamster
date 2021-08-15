@@ -1,5 +1,4 @@
 import de.github.dudrie.hamster.external.model.HamsterGame
-import de.github.dudrie.hamster.ui.application.HamsterGameCompose
 
 private fun runSampleGame(game: HamsterGame) {
     val paule = game.paule
@@ -23,7 +22,7 @@ private fun runSampleGame(game: HamsterGame) {
 
 internal fun main() {
     val game = HamsterGame("/territories/testTer01.json")
-    HamsterGameCompose(game).startGame(startPaused = false)
+    game.startGame()
 
     runSampleGame(game)
 }

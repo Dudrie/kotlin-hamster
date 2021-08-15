@@ -3,14 +3,30 @@ package de.github.dudrie.hamster.ui.application
 import de.github.dudrie.hamster.interfaces.IHamsterGame
 import java.util.concurrent.CountDownLatch
 
-class HamsterGameCompose(private val hamsterGame: IHamsterGame) {
+/**
+ * Wrapper class to handle the start of a [GameWindow] which shows the UI for the given hamsterGame.
+ *
+ * @param hamsterGame Game which serves the data to the created window.
+ */
+class HamsterGameCompose(hamsterGame: IHamsterGame) {
 
+    /**
+     * Indicates when the [GameWindow] is ready.
+     */
     private val initLatch = CountDownLatch(1)
+
+    /**
+     * Window showing the actual game.
+     */
     private val window: GameWindow = GameWindow(hamsterGame)
 
-    fun startGame(startPaused: Boolean = true) {
+    /**
+     * Starts the game.
+     *
+     * This functions waits until the [GameWindow] is shown.
+     */
+    fun startGame() {
         window.show(initLatch)
         initLatch.await()
-        hamsterGame.startGame(startPaused)
     }
 }
