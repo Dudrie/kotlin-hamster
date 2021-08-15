@@ -14,7 +14,7 @@ class GameLog {
     val messages = messagesState.asIterable()
 
     /**
-     * Adds a message to the [GameLog].
+     * Adds a [message] to the [GameLog].
      *
      * Also, the message gets printed to the default console as well.
      */

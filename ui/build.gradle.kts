@@ -9,7 +9,6 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":main"))
     implementation(compose.desktop.currentOs)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
 

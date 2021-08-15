@@ -1,20 +1,12 @@
 package de.github.dudrie.hamster.ui.application
 
-import de.github.dudrie.hamster.external.model.HamsterGame
+import de.github.dudrie.hamster.ui.interfaces.IHamsterGame
 import java.util.concurrent.CountDownLatch
 
-class HamsterGameCompose {
-    companion object {
-        lateinit var hamsterGame: HamsterGame
-    }
+class HamsterGameCompose(private val hamsterGame: IHamsterGame) {
 
     private val initLatch = CountDownLatch(1)
-    private val window: GameWindow
-
-    init {
-        hamsterGame = HamsterGame("/territories/testTer01.json")
-        window = GameWindow(hamsterGame)
-    }
+    private val window: GameWindow = GameWindow(hamsterGame)
 
     fun startGame(startPaused: Boolean = true) {
         window.show(initLatch)
