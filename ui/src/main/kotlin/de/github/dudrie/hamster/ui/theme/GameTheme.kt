@@ -1,8 +1,8 @@
 package de.github.dudrie.hamster.ui.theme
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
+import de.github.dudrie.hamster.ui.application.GameColorsLocal
 
 /**
  * Object holding colors important to the game.
@@ -35,8 +35,3 @@ internal object GameTheme {
         get() = GameColorsLocal.current
 
 }
-
-/**
- * Provides the [GameColors] object.
- */
-internal val GameColorsLocal = compositionLocalOf<GameColors> { error("No game theme was provided.") }
