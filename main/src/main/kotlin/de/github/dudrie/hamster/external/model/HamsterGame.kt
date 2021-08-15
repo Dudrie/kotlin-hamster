@@ -27,12 +27,12 @@ class HamsterGame(territoryFile: String? = null) : IHamsterGame {
     /**
      * Default [Hamster] used in the game.
      */
-    override val hamster: Hamster
+    val paule: Hamster
 
     init {
         val importer = InitialGameImporter(hamsterGame = this, territoryFile = territoryFile)
         territory = importer.territory
-        hamster = importer.hamster
+        paule = importer.hamster
     }
 
     /**

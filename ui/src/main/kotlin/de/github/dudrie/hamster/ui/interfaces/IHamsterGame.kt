@@ -8,18 +8,12 @@ interface IHamsterGame {
     /**
      * [GameCommandStack] associated with this [IHamsterGame].
      */
-    // TODO: Make private and pass important functions through.
     val gameCommands: GameCommandStack
 
     /**
      * [ITerritory] of this game.
      */
     val territory: ITerritory
-
-    /**
-     * Default [IHamster] used in the game.
-     */
-    val hamster: IHamster
 
     /**
      * Starts a game.
@@ -32,4 +26,5 @@ interface IHamsterGame {
      * Executes the given [command] to change the state of this game.
      */
     fun executeCommand(command: Command)
+
 }

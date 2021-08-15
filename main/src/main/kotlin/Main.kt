@@ -2,7 +2,7 @@ import de.github.dudrie.hamster.external.model.HamsterGame
 import de.github.dudrie.hamster.ui.application.HamsterGameCompose
 
 private fun runSampleGame(game: HamsterGame) {
-    val paule = game.hamster
+    val paule = game.paule
 
     repeat(3) {
         paule.pickGrain()
