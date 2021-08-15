@@ -1,5 +1,8 @@
 package de.github.dudrie.hamster.internal.model.game
 
+/**
+ * Represents the mode the game is currently in.
+ */
 enum class GameMode {
     /**
      * The game gets initialised (ie loading the territory and placing the default hamster).

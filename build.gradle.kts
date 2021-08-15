@@ -1,3 +1,4 @@
+import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val artifactPrefix = rootProject.name
@@ -41,6 +42,15 @@ allprojects {
 
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "11"
+    }
+
+    tasks.withType<DokkaTaskPartial>().configureEach() {
+        dokkaSourceSets {
+            configureEach {
+                reportUndocumented.set(true)
+                includeNonPublic.set(false)
+            }
+        }
     }
 }
 
