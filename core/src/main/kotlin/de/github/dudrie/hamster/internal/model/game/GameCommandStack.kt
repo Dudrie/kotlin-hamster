@@ -7,6 +7,9 @@ import java.util.concurrent.Semaphore
  * Stack to handle [Command] execution with the game context.
  */
 class GameCommandStack : CommandStack() {
+    /**
+     * Object holding general settings for the game's execution.
+     */
     companion object {
         /**
          * Minimum speed configurable for the game.
