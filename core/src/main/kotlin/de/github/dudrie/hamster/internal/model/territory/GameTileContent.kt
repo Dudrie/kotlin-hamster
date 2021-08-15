@@ -1,11 +1,16 @@
 package de.github.dudrie.hamster.internal.model.territory
 
-enum class GameTileContentType {
-    Hamster
-}
-
-abstract class GameTileContent(val type: GameTileContentType) {
+/**
+ * Abstraction of all content of a tile.
+ */
+abstract class GameTileContent {
+    /**
+     * Current tile this content sits on.
+     */
     abstract val currentTile: GameTile
 
+    /**
+     * Does this content prevent movement onto its tile?
+     */
     abstract val isBlockingMovement: Boolean
 }

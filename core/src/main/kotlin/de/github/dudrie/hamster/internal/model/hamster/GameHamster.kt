@@ -7,14 +7,13 @@ import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileContent
-import de.github.dudrie.hamster.internal.model.territory.GameTileContentType
 
 class GameHamster(
     val territory: GameTerritory,
     tile: GameTile,
     direction: Direction,
     grainCount: Int = 0
-) : GameTileContent(GameTileContentType.Hamster) {
+) : GameTileContent() {
 
     init {
         require(territory.isTileInside(tile)) { "The tile of the hamster is outside the territory. Tile's location: ${tile.location}" }
