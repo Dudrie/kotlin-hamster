@@ -61,6 +61,7 @@ class GameHamster(
     }
 
     fun pickGrain() {
+        require(currentTile.grainCount > 0) { "The tile beneath the hamster does not have any grains on it." }
         grainCountState.value += 1
     }
 
