@@ -31,7 +31,7 @@ fun getDegreesForDirection(direction: Direction): Float = when (direction) {
 fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         if (tile.grainCount > 0) {
-            val grain = remember { ResourceReader(R.resources.grain).getContentAsImage().asImageBitmap() }
+            val grain = remember { ResourceReader(R.images.grain).getContentAsImage().asImageBitmap() }
 
             Box(
                 modifier = Modifier.fillMaxSize().padding(4.dp),
@@ -56,7 +56,7 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
         for (content in tile.tileContent) {
             if (content is GameHamster) {
                 val degrees = getDegreesForDirection(content.direction)
-                val hamster = remember { ResourceReader(R.resources.hamster).getContentAsImage().asImageBitmap() }
+                val hamster = remember { ResourceReader(R.images.hamster).getContentAsImage().asImageBitmap() }
 
                 Image(
                     bitmap = hamster,

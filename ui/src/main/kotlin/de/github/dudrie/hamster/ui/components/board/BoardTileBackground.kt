@@ -14,7 +14,7 @@ import de.github.dudrie.hamster.ui.R
 fun BoardTileBackground(tile: GameTile) {
     when (tile.type) {
         GameTileType.Wall -> {
-            val res = ResourceReader(R.resources.wall)
+            val res = ResourceReader(R.images.wall)
             Image(
                 bitmap = res.getContentAsImage().asImageBitmap(),
                 contentDescription = null,
