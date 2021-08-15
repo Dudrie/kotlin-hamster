@@ -3,7 +3,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":ui"))
+    implementation(project(":core"))
+    implementation(project(":main"))
 
     testImplementation(kotlin("test"))
 }

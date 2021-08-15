@@ -2,12 +2,12 @@ package de.github.dudrie.hamster.external.model
 
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.interfaces.IHamster
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
 import de.github.dudrie.hamster.internal.model.hamster.commands.DropGrainCommand
 import de.github.dudrie.hamster.internal.model.hamster.commands.MoveCommand
 import de.github.dudrie.hamster.internal.model.hamster.commands.PickGrainCommand
 import de.github.dudrie.hamster.internal.model.hamster.commands.TurnLeftCommand
-import de.github.dudrie.hamster.ui.interfaces.IHamster
 
 /**
  * Hamster used in the game.

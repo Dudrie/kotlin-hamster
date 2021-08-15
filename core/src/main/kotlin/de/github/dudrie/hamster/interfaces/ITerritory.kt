@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.interfaces
+package de.github.dudrie.hamster.interfaces
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size

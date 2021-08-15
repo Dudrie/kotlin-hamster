@@ -1,7 +1,9 @@
 package de.github.dudrie.hamster.imperative
 
-import de.github.dudrie.hamster.ui.application.HamsterGameCompose
+import de.github.dudrie.hamster.external.model.HamsterGame
 
 fun startGame() {
-    HamsterGameCompose().startGame()
+    val game = HamsterGame()
+
+    game.startGame(true)
 }

@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.interfaces
+package de.github.dudrie.hamster.interfaces
 
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack

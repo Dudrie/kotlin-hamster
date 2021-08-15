@@ -1,10 +1,10 @@
 package de.github.dudrie.hamster.external.model
 
 import de.github.dudrie.hamster.importer.InitialGameImporter
+import de.github.dudrie.hamster.interfaces.IHamsterGame
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.GameMode
-import de.github.dudrie.hamster.ui.interfaces.IHamsterGame
 
 /**
  * Base game class to load and start a hamster game.

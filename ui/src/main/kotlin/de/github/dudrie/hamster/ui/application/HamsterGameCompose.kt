@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.ui.application
 
-import de.github.dudrie.hamster.ui.interfaces.IHamsterGame
+import de.github.dudrie.hamster.interfaces.IHamsterGame
 import java.util.concurrent.CountDownLatch
 
 class HamsterGameCompose(private val hamsterGame: IHamsterGame) {

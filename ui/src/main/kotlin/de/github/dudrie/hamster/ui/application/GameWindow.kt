@@ -9,7 +9,7 @@ import androidx.compose.ui.window.WindowSize
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.launchApplication
 import de.github.dudrie.hamster.ResString
-import de.github.dudrie.hamster.ui.interfaces.IHamsterGame
+import de.github.dudrie.hamster.interfaces.IHamsterGame
 import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

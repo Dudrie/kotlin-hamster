@@ -2,9 +2,9 @@ package de.github.dudrie.hamster.external.model
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.interfaces.ITerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
-import de.github.dudrie.hamster.ui.interfaces.ITerritory
 
 /**
  * Territory used in the [HamsterGame].

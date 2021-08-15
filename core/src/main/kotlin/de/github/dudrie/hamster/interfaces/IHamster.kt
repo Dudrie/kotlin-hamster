@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.interfaces
+package de.github.dudrie.hamster.interfaces
 
 interface IHamster {
     /**
