@@ -2,7 +2,6 @@ package de.github.dudrie.hamster.ui.application
 
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowSize
@@ -16,8 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import java.util.concurrent.CountDownLatch
 import kotlin.system.exitProcess
-
-internal val HamsterGameLocal = compositionLocalOf<IHamsterGame> { error("No hamster game was provided.") }
 
 class GameWindow(private val hamsterGame: IHamsterGame) {
     fun show(initLatch: CountDownLatch) {
