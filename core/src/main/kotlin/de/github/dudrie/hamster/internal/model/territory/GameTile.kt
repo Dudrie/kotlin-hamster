@@ -49,6 +49,7 @@ class GameTile(
     }
 
     fun setTerritory(territory: GameTerritory) {
+        require(territory.isLocationInside(location)) { "The tile's location $location is outside the territory. Territory size: ${territory.size}" }
         _territory = territory
     }
 
