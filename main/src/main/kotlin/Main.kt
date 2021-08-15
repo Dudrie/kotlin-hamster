@@ -5,7 +5,7 @@ import de.github.dudrie.hamster.importer.data.HamsterData
 import de.github.dudrie.hamster.importer.data.InitialTerritoryData
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 
-fun main() {
+internal fun main() {
     val data = InitialTerritoryData(
         territorySize = Size(5, 7),
         initialHamster = HamsterData(location = Location(1, 2), direction = Direction.East, grainCount = 3)

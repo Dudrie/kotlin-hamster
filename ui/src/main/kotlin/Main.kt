@@ -21,7 +21,7 @@ private fun runSampleGame() {
     paule.move()
 }
 
-fun main() {
+internal fun main() {
     HamsterGameCompose().startGame(startPaused = false)
 
     runSampleGame()
