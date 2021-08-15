@@ -67,25 +67,25 @@ class GameCommandStack : CommandStack() {
     private val pauseLock: Semaphore = Semaphore(1, true)
 
     /**
-     * @return Is the game in a state in which a [Command] can be undone?
+     * Is the game in a state in which a [Command] can be undone?
      */
-    @Composable
-    fun canUndoCommand(): State<Boolean> =
-        rememberUpdatedState(hasCommandsToUndo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
+    val canUndoCommand: State<Boolean>
+        @Composable
+        get() = rememberUpdatedState(hasCommandsToUndo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
 
     /**
-     * @return Is the game in a state in which a [Command] can be redone?
+     * Is the game in a state in which a [Command] can be redone?
      */
-    @Composable
-    fun canRedoCommand(): State<Boolean> =
-        rememberUpdatedState(hasCommandsToRedo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
+    val canRedoCommand: State<Boolean>
+        @Composable
+        get() = rememberUpdatedState(hasCommandsToRedo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
 
     /**
-     * @return Is the game in a state in which it can be [paused][GameMode.Paused] or [resumed][GameMode.Running]?
+     * Is the game in a state in which it can be [paused][GameMode.Paused] or [resumed][GameMode.Running]?
      */
-    @Composable
-    fun canPauseOrResumeGame(): State<Boolean> =
-        rememberUpdatedState(mode == GameMode.Running || mode == GameMode.Paused && !isUndoingOrRedoing)
+    val canPauseOrResumeGame: State<Boolean>
+        @Composable
+        get() = rememberUpdatedState(mode == GameMode.Running || mode == GameMode.Paused && !isUndoingOrRedoing)
 
     /**
      * Set the speed of the game.

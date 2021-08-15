@@ -26,9 +26,9 @@ fun AppBar() {
         val padding = 8.dp
 
         val commands = HamsterGameLocal.current.gameCommands
-        val canUndo by commands.canUndoCommand()
-        val canRedo by commands.canRedoCommand()
-        val canPauseOrResume by commands.canPauseOrResumeGame()
+        val canUndo by commands.canUndoCommand
+        val canRedo by commands.canRedoCommand
+        val canPauseOrResume by commands.canPauseOrResumeGame
 
         val speedText by produceState("", commands.speed) {
             value = "${ResString.get("appbar.speed.label")}: ${floor(commands.speed)}"
