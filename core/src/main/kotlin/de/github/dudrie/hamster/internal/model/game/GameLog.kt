@@ -1,6 +1,8 @@
 package de.github.dudrie.hamster.internal.model.game
 
+import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 
 /**
  * Holds all messages which should appear as game log to the user.
@@ -12,6 +14,12 @@ class GameLog {
      * All messages saved in the [GameLog].
      */
     val messages = messagesState.asIterable()
+
+    /**
+     * Amount of messages saved in the log.
+     */
+    val messageCount: State<Int>
+        get() = mutableStateOf(messagesState.size)
 
     /**
      * Adds a [message] to the [GameLog].
