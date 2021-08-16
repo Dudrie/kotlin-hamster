@@ -1,9 +1,6 @@
 package de.github.dudrie.hamster.ui.components.console
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.*
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -28,8 +25,8 @@ fun ScrollDownButton(visible: Boolean, onClick: suspend CoroutineScope.() -> Uni
     AnimatedVisibility(
         visible = visible,
         modifier = modifier,
-        enter = slideInHorizontally({ fullWidth -> fullWidth }),
-        exit = slideOutHorizontally({ fullWidth -> fullWidth })
+        enter = fadeIn() + slideInHorizontally({ it / 2 }),
+        exit = fadeOut() + slideOutHorizontally({ it / 2 })
     ) {
         val scope = rememberCoroutineScope()
 
