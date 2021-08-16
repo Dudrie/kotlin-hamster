@@ -7,14 +7,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.rememberScrollbarAdapter
-import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,46 +30,60 @@ import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 @Composable
 fun ConsolePanel(modifier: Modifier = Modifier) {
     Box(modifier = modifier.background(brush = SolidColor(Color.Black), alpha = 0.05f)) {
-        val commands = HamsterGameLocal.current.gameCommands
-        val messages = commands.gameMessages
-        val messageCount by commands.gameMessageCount
-        val scrollState = rememberLazyListState()
+        val messageCount by produceMessageCountOnCommandStack()
+        val (doAutoScrollState, scrollState, interactionSource) = handleAutoScrolling(messageCount)
+        var doAutoScroll by doAutoScrollState
 
-        LaunchedEffect(messageCount) {
-            if (messageCount > 0) {
-                // FIXME: If one moves the scrollbar during the auto-scroll the UI freezes.
-                //       This is NOT the case with scrollToItem. How to solve this problem?
-                scrollState.animateScrollToItem(messageCount - 1)
+        ConsoleMessageList(scrollState = scrollState, modifier = Modifier.fillMaxSize().padding(end = 12.dp))
+
+        VerticalScrollbar(
+            adapter = rememberScrollbarAdapter(scrollState),
+            modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
+            style = defaultScrollbarStyle().copy(
+                unhoverColor = Color.Black.copy(alpha = 0.4f),
+                hoverColor = Color.Black.copy(alpha = 0.7f),
+                shape = RoundedCornerShape(50),
+                thickness = 12.dp
+            ),
+            interactionSource = interactionSource
+        )
+
+        ScrollDownButton(
+            visible = !doAutoScroll,
+            modifier = Modifier.align(Alignment.BottomEnd).padding(end = 16.dp, bottom = 16.dp),
+            onClick = {
+                scrollState.scrollToLastMessage(messageCount)
+                doAutoScroll = true
             }
-        }
-
-        Box {
-            LazyColumn(modifier = Modifier.fillMaxSize().padding(end = 8.dp), state = scrollState) {
-                itemsIndexed(messages.toList()) { index, message ->
-                    if (index % 2 == 0) {
-                        ConsoleDarkRow(text = message)
-                    } else {
-                        ConsoleLightRow(text = message)
-                    }
-                }
-
-                if (commands.runtimeException != null) {
-                    item {
-                        ConsoleErrorRow(commands.runtimeException!!)
-                    }
-                }
-            }
-
-            // TODO: Make prettier.
-            VerticalScrollbar(
-                adapter = rememberScrollbarAdapter(scrollState),
-                modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
-                style = defaultScrollbarStyle().copy(
-                    unhoverColor = Color.Black.copy(alpha = 0.4f),
-                    hoverColor = MaterialTheme.colors.primary
-                )
-            )
-        }
-
+        )
     }
 }
+
+/**
+ * Scrolls to the last message in the list by using the given [messageCount].
+ *
+ * [messageCount] must be the count of all messages currently in the list.
+ */
+suspend fun LazyListState.scrollToLastMessage(messageCount: Int) {
+    if (messageCount > 0) {
+        animateScrollToItem(messageCount - 1)
+    }
+}
+
+/**
+ * Calculates and returns the number of messages which should be shown.
+ *
+ * This includes not only the [game messages][de.github.dudrie.hamster.internal.model.game.GameLog.messages] but also any [exception][de.github.dudrie.hamster.internal.model.game.GameCommandStack.runtimeException] present in the [GameCommandStack][de.github.dudrie.hamster.internal.model.game.GameCommandStack].
+ */
+@Composable
+fun produceMessageCountOnCommandStack(): State<Int> {
+    val commands = HamsterGameLocal.current.gameCommands
+    return produceState(0, commands.gameMessageCount, commands.runtimeException) {
+        var newValue = commands.gameMessageCount.value
+        if (commands.runtimeException != null) {
+            newValue++
+        }
+        value = newValue
+    }
+}
+
