@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.ui.application
 
 import de.github.dudrie.hamster.interfaces.IHamsterGame
+import de.github.dudrie.hamster.ui.application.windows.GameWindow
 import java.util.concurrent.CountDownLatch
 
 /**

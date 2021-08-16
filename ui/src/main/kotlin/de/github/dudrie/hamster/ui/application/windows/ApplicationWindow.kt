@@ -1,14 +1,12 @@
-package de.github.dudrie.hamster.ui.application
+package de.github.dudrie.hamster.ui.application.windows
 
-import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowSize
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.launchApplication
-import de.github.dudrie.hamster.ResString
-import de.github.dudrie.hamster.interfaces.IHamsterGame
 import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,13 +15,22 @@ import java.util.concurrent.CountDownLatch
 import kotlin.system.exitProcess
 
 /**
- * Window holding the game's application.
+ * Helper class which implements the basic functionality to show a Compose window.
  *
- * @param hamsterGame Game which holds the data to display in the window.
+ * The rendered content will already be wrapped by [ThemeWrapper].
  */
-class GameWindow(private val hamsterGame: IHamsterGame) {
+abstract class ApplicationWindow(private val windowTitle: String) {
+
+    /**
+     * Renders the content of the window.
+     */
+    @Composable
+    abstract fun content()
+
     /**
      * Starts the Compose application.
+     *
+     * The window renders the composable served by [content] which is wrapped in the [ThemeWrapper] composable.
      *
      * After launching the application the [initLatch] will get counted down by 1.
      */
@@ -32,7 +39,7 @@ class GameWindow(private val hamsterGame: IHamsterGame) {
 
         scope.launchApplication {
             Window(
-                title = ResString.get("window.title"),
+                title = windowTitle,
                 onCloseRequest = {
                     exitApplication()
                     exitProcess(0) // Make sure the main process gets halted as well.
@@ -46,11 +53,7 @@ class GameWindow(private val hamsterGame: IHamsterGame) {
                 }
 
                 ThemeWrapper {
-                    CompositionLocalProvider(
-                        HamsterGameLocal provides hamsterGame
-                    ) {
-                        MainGameUI()
-                    }
+                    content()
                 }
             }
         }
