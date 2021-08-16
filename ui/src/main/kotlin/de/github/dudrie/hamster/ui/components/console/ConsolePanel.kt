@@ -1,15 +1,14 @@
 package de.github.dudrie.hamster.ui.components.console
 
+import androidx.compose.foundation.LocalScrollbarStyle
 import androidx.compose.foundation.VerticalScrollbar
 import androidx.compose.foundation.background
-import androidx.compose.foundation.defaultScrollbarStyle
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.rememberScrollbarAdapter
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,12 +47,7 @@ fun ConsolePanel(modifier: Modifier = Modifier) {
         VerticalScrollbar(
             adapter = rememberScrollbarAdapter(scrollState),
             modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
-            style = defaultScrollbarStyle().copy(
-                unhoverColor = Color.Black.copy(alpha = 0.4f),
-                hoverColor = Color.Black.copy(alpha = 0.7f),
-                shape = RoundedCornerShape(50),
-                thickness = 12.dp
-            ),
+            style = LocalScrollbarStyle.current.copy(thickness = 12.dp),
             interactionSource = interactionSource
         )
 
