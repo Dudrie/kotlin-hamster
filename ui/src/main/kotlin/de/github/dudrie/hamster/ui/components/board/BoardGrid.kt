@@ -32,6 +32,7 @@ fun BoardGrid(
             ) {
                 for (col in 0 until size.columnCount) {
                     val location = Location(col, row)
+                    
                     tileContent(
                         location,
                         Modifier.weight(1f).aspectRatio(1f).padding(borderWidth)
