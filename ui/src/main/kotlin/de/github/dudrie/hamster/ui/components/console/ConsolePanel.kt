@@ -34,7 +34,16 @@ fun ConsolePanel(modifier: Modifier = Modifier) {
         val (doAutoScrollState, scrollState, interactionSource) = handleAutoScrolling(messageCount)
         var doAutoScroll by doAutoScrollState
 
-        ConsoleMessageList(scrollState = scrollState, modifier = Modifier.fillMaxSize().padding(end = 12.dp))
+        ConsoleMessageList(
+            scrollState = scrollState,
+            onMouseScroll = { _, _ ->
+                if (scrollState.firstVisibleItemScrollOffset > 0) {
+                    doAutoScroll = false
+                }
+                false
+            },
+            modifier = Modifier.fillMaxSize().padding(end = 12.dp)
+        )
 
         VerticalScrollbar(
             adapter = rememberScrollbarAdapter(scrollState),

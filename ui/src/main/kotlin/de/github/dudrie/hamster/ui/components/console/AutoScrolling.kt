@@ -16,8 +16,6 @@ import kotlinx.coroutines.flow.collect
  */
 @Composable
 fun handleAutoScrolling(messageCount: Int): AutoScrollHelpers {
-    // FIXME: Auto scrolling does not get halted if the user scrolls the list with the mouse wheel
-    //        How does one react to those events?
     val actualMessageCount by rememberUpdatedState(messageCount)
     val doAutoScroll = remember { mutableStateOf(true) }
     val interactionSource = remember { MutableInteractionSource() }
