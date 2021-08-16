@@ -1,13 +1,13 @@
 package de.github.dudrie.hamster.ui.application
 
 import androidx.compose.runtime.compositionLocalOf
-import de.github.dudrie.hamster.interfaces.IHamsterGame
+import de.github.dudrie.hamster.interfaces.AbstractHamsterGame
 import de.github.dudrie.hamster.ui.theme.GameColors
 
 /**
- * Provides the [IHamsterGame] which serves the data for the app's game.
+ * Provides the [AbstractHamsterGame] which serves the data for the app's game.
  */
-internal val HamsterGameLocal = compositionLocalOf<IHamsterGame> { error("No hamster game was provided.") }
+internal val HamsterGameLocal = compositionLocalOf<AbstractHamsterGame> { error("No hamster game was provided.") }
 
 /**
  * Provides the [GameColors] object.

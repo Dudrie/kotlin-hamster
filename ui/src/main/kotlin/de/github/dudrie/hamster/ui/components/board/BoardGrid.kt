@@ -2,12 +2,13 @@ package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.Dp
 import de.github.dudrie.hamster.datatypes.Location
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.interfaces.AbstractTerritory
 
 /**
  * Renders the game's territory in a grid with square tiles using [BoardTiles][BoardTile].
@@ -15,10 +16,12 @@ import de.github.dudrie.hamster.ui.application.HamsterGameLocal
  * @see BoardTile
  */
 @Composable
-fun BoardGrid() {
-    val gameTerritory = HamsterGameLocal.current.territory
-    val size = gameTerritory.territorySize
-    val borderWidth = 1.dp
+fun BoardGrid(
+    territory: AbstractTerritory,
+    borderWidth: Dp,
+    tileContent: @Composable RowScope.(location: Location, tileModifier: Modifier) -> Unit
+) {
+    val size = territory.territorySize
 
     Column(
         modifier = Modifier.height(IntrinsicSize.Min).width(IntrinsicSize.Min).background(Color.Black)
@@ -28,9 +31,11 @@ fun BoardGrid() {
                 modifier = Modifier.weight(1f).padding(start = borderWidth, end = borderWidth)
             ) {
                 for (col in 0 until size.columnCount) {
-                    BoardTile(
-                        Location(column = col, row = row),
+                    val location = Location(col, row)
+                    tileContent(
+                        location,
                         Modifier.weight(1f).aspectRatio(1f).padding(borderWidth)
+                            .background(MaterialTheme.colors.surface)
                     )
                 }
             }

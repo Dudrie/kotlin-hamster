@@ -11,7 +11,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.ui.R
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 import de.github.dudrie.hamster.ui.components.ResourceIcon
 import de.github.dudrie.hamster.ui.components.ResourceIconSize
 
@@ -19,8 +18,7 @@ import de.github.dudrie.hamster.ui.components.ResourceIconSize
  * Special [Popup] which shows the [RuntimeException] of the game if there is any.
  */
 @Composable
-fun BoardExceptionDialog() {
-    val runtimeException = HamsterGameLocal.current.gameCommands.runtimeException
+fun BoardExceptionDialog(runtimeException: RuntimeException?) {
     var showErrorDialog by remember(runtimeException) { mutableStateOf(runtimeException != null) }
 
     runtimeException?.let {

@@ -9,29 +9,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.datatypes.Location
-import de.github.dudrie.hamster.execptions.TileRelatedException
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.internal.model.territory.GameTile
 
 /**
  * Responsible for rendering a single tile of a territory.
  *
- * It shows the tile according to its [type][de.github.dudrie.hamster.internal.model.territory.GameTile.type] and its [content][de.github.dudrie.hamster.internal.model.territory.GameTile.tileContent].
+ * It shows the [tile] according to its [type][de.github.dudrie.hamster.internal.model.territory.GameTile.type] and its [content][de.github.dudrie.hamster.internal.model.territory.GameTile.tileContent].
  *
  * @see BoardTileBackground
  * @see BoardTileContent
  */
 @Composable
-fun BoardTile(location: Location, modifier: Modifier) {
-    val gameTerritory = HamsterGameLocal.current.territory
-    val runtimeException = HamsterGameLocal.current.gameCommands.runtimeException
-    val tile = gameTerritory.getTileAt(location)
+fun BoardTile(tile: GameTile, showBorder: Boolean = false, modifier: Modifier = Modifier) {
     var border: BorderStroke? = null
 
-    if (runtimeException is TileRelatedException) {
-        if (runtimeException.tile.location == location) {
-            border = BorderStroke(8.dp, Color.Blue)
-        }
+    if (showBorder) {
+        border = BorderStroke(8.dp, Color.Blue)
     }
 
     Surface(modifier = modifier, border = border) {

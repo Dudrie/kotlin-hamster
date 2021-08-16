@@ -16,19 +16,27 @@ import de.github.dudrie.hamster.ui.application.HamsterGameLocal
  * @see BoardExceptionDialog
  */
 @Composable
-fun Board(modifier: Modifier = Modifier) {
-    val gameTerritory = HamsterGameLocal.current.territory
-    val size = gameTerritory.territorySize
+fun BoardForGame(modifier: Modifier = Modifier) {
+    val (territory, gameCommands, tileToHighlight) = HamsterGameLocal.current
+    val size = territory.territorySize
 
     val minWidth = Integer.min(size.columnCount * 32, 300)
     val maxWidth = Integer.max(size.columnCount * 64, 1000)
+
+    val borderWidth = 1.dp
 
     Box(
         modifier = modifier.padding(16.dp).widthIn(min = minWidth.dp, max = maxWidth.dp),
         contentAlignment = Alignment.Center
     ) {
-        BoardGrid()
+        BoardGrid(territory, borderWidth) { location, tileModifier ->
+            BoardTile(
+                tile = territory.getTileAt(location),
+                showBorder = tileToHighlight?.location == location,
+                modifier = tileModifier
+            )
+        }
 
-        BoardExceptionDialog()
+        BoardExceptionDialog(gameCommands.runtimeException)
     }
 }

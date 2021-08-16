@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.application
+package de.github.dudrie.hamster.ui.game
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ui.components.appbar.AppBar
-import de.github.dudrie.hamster.ui.components.board.Board
+import de.github.dudrie.hamster.ui.components.board.BoardForGame
 import de.github.dudrie.hamster.ui.components.console.ConsolePanel
 
 /**
@@ -18,7 +18,7 @@ import de.github.dudrie.hamster.ui.components.console.ConsolePanel
  * It is responsible for the main layout of the game.
  *
  * @see AppBar
- * @see Board
+ * @see BoardForGame
  * @see ConsolePanel
  */
 @Composable
@@ -27,7 +27,7 @@ fun MainGameUI() {
         topBar = { AppBar() }
     ) {
         Row(modifier = Modifier.fillMaxSize()) {
-            Board(Modifier.weight(1f).fillMaxHeight())
+            BoardForGame(Modifier.weight(1f).fillMaxHeight())
 
             ConsolePanel(Modifier.fillMaxHeight().width(300.dp))
         }
