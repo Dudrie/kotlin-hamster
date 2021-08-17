@@ -33,7 +33,6 @@ fun EditPanel(onClose: () -> Unit, modifier: Modifier = Modifier) {
             }
 
             val editedTile by EditorState.editedTile
-            var startingHamster by EditorState.startingHamster
 
             editedTile?.let {
                 val tile = it.tile
@@ -63,16 +62,10 @@ fun EditPanel(onClose: () -> Unit, modifier: Modifier = Modifier) {
                     Text("MAKE FLOOR")
                 }
 
-                Button(onClick = {
-                    if (startingHamster != null) {
-                        startingHamster!!.currentTile.removeContent(startingHamster!!)
-                    }
-
-                    val hamster = EditableHamster(tile, Direction.East, 0)
-                    startingHamster = hamster
-                    tile.addContent(hamster)
-
-                }, enabled = !tile.hasHamsterContent() && !tile.blocked) {
+                Button(
+                    onClick = { EditorState.setTileOfStartingHamster(tile) },
+                    enabled = !tile.hasHamsterContent() && !tile.blocked
+                ) {
                     Text("SET HAMSTER START")
                 }
 

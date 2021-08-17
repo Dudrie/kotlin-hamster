@@ -21,4 +21,11 @@ class EditableHamster(tile: EditableGameTile, direction: Direction, grainCount: 
         super.setGrainCount(newCount)
     }
 
+    /**
+     * Sets the tile of this hamster to be the given [tile].
+     */
+    fun setTile(tile: EditableGameTile) {
+        super.setTile(tile)
+    }
+
 }

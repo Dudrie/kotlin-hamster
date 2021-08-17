@@ -2,6 +2,7 @@ package de.github.dudrie.hamster.ui.editor
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
+import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
 import de.github.dudrie.hamster.internal.model.hamster.EditableHamster
@@ -27,9 +28,26 @@ object EditorState {
         get() = EditorTerritoryLocal.current
 
     /**
-     * Hamster which will be on the board after initialization.
+     * Hamster which contains the information about the initially spawned hamster in a game.
      */
     val startingHamster = mutableStateOf<EditableHamster?>(null)
+
+    /**
+     * Sets the tile of the [startingHamster] to the given one.
+     *
+     * If there is a [startingHamster] it gets moved to the new [tile] keeping all its properties. Otherwise, a new [startingHamster] gets created.
+     */
+    fun setTileOfStartingHamster(tile: EditableGameTile) {
+        val hamster = startingHamster.value ?: getDefaultHamster(tile)
+
+        hamster.setTile(tile)
+        startingHamster.value = hamster
+    }
+
+    /**
+     * Returns a default hamster.
+     */
+    private fun getDefaultHamster(tile: EditableGameTile) = EditableHamster(tile, Direction.East, 0)
 }
 
 /**
