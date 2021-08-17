@@ -27,13 +27,11 @@ enum class GameTileType {
  * @param type Type of this tile.
  * @param grainCount Initial amount of grains laying on this tile.
  */
-class GameTile(
+open class GameTile(
     val location: Location,
-    val type: GameTileType,
+    open val type: GameTileType,
     grainCount: Int = 0
 ) {
-
-    private var _territory: GameTerritory? = null
 
     private val tileContentState = mutableStateListOf<GameTileContent>()
 
@@ -42,7 +40,7 @@ class GameTile(
      */
     val tileContent = tileContentState.asIterable()
 
-    private val grainCountState = mutableStateOf(grainCount)
+    protected val grainCountState = mutableStateOf(grainCount)
 
     /**
      * Amount of grains laying on this tile.
@@ -54,19 +52,6 @@ class GameTile(
      */
     val blocked: Boolean
         get() = isBlockingTile() || tileContentState.fold(false) { blocked, element -> blocked || element.isBlockingMovement }
-
-    /**
-     * The territory this tile sits in.
-     *
-     * Must be set through [setTerritory] before this property can be accessed.
-     *
-     * @see setTerritory
-     */
-    val territory: GameTerritory
-        get() {
-            require(_territory != null) { "Game territory not initialised. You must call setTerritory() before accessing this property." }
-            return _territory!!
-        }
 
     init {
         require(grainCount >= 0) { "Grain count must be zero or positive." }
@@ -94,18 +79,6 @@ class GameTile(
      */
     fun removeContent(vararg contents: GameTileContent) {
         tileContentState -= contents
-    }
-
-    /**
-     * Sets the territory of this tile.
-     *
-     * The [location] of this tile must be inside the [territory].
-     *
-     * @param territory Territory this tile should be in.
-     */
-    fun setTerritory(territory: GameTerritory) {
-        require(territory.isLocationInside(location)) { "The tile's location $location is outside the territory. Territory size: ${territory.size}" }
-        _territory = territory
     }
 
     /**

@@ -13,7 +13,6 @@ class GameTerritory(val size: Size, private val tiles: List<GameTile>) {
 
     init {
         require(tiles.size == size.columnCount * size.rowCount) { "Count of tiles (${tiles.size}) does not match the size size." }
-        tiles.forEach { it.setTerritory(this) }
     }
 
     /**
