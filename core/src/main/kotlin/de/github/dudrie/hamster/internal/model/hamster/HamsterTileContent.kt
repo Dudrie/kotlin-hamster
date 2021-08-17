@@ -50,7 +50,7 @@ sealed class HamsterTileContent(tile: GameTile, direction: Direction, grainCount
     /**
      * Sets the [direction] of the hamster.
      */
-    protected fun setDirection(direction: Direction) {
+    protected open fun setDirection(direction: Direction) {
         directionState.value = direction
     }
 
@@ -59,7 +59,7 @@ sealed class HamsterTileContent(tile: GameTile, direction: Direction, grainCount
      *
      * The [newCount] must be zero or positive.
      */
-    protected fun setGrainCount(newCount: Int) {
+    protected open fun setGrainCount(newCount: Int) {
         require(newCount >= 0) { "The new grain count ($newCount) must be zero or greater." }
         grainCountState.value = newCount
     }

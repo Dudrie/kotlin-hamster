@@ -56,10 +56,21 @@ abstract class AbstractHamsterGame {
     abstract fun executeCommand(command: Command)
 
 
+    /**
+     * The territory of the game.
+     */
     operator fun component1(): AbstractTerritory = territory
 
+    /**
+     * The command stack of the game.
+     */
     operator fun component2(): GameCommandStack = gameCommands
 
+    /**
+     * The tile which should be highlighted.
+     *
+     * If none should be highlighted `null` is returned.
+     */
     @Composable
     operator fun component3(): GameTile? = tileToHighlight
 }

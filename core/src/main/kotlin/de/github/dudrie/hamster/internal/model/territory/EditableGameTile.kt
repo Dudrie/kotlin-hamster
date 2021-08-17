@@ -16,11 +16,19 @@ class EditableGameTile(
 
     override var type: GameTileType by typeState
 
+    /**
+     * Sets the grain count on this tile to the given [count].
+     *
+     * [count] must be zero or greater.
+     */
     fun setGrainCount(count: Int) {
         require(count >= 0) { "The new grain count ($count) is negative. It must be zero or positive." }
         grainCountState.value = count
     }
 
+    /**
+     * Does this tile have (at least) one content which is a [HamsterTileContent].
+     */
     fun hasHamsterContent(): Boolean {
         for (content in tileContent) {
             if (content is HamsterTileContent) {

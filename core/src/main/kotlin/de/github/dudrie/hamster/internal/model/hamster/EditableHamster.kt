@@ -13,4 +13,12 @@ import de.github.dudrie.hamster.internal.model.territory.EditableGameTile
 class EditableHamster(tile: EditableGameTile, direction: Direction, grainCount: Int = 0) :
     HamsterTileContent(tile, direction, grainCount) {
 
+    public override fun setDirection(direction: Direction) {
+        super.setDirection(direction)
+    }
+
+    public override fun setGrainCount(newCount: Int) {
+        super.setGrainCount(newCount)
+    }
+
 }
