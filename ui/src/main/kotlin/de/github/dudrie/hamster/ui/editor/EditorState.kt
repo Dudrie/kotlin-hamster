@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
+import de.github.dudrie.hamster.internal.model.hamster.EditableHamster
 import de.github.dudrie.hamster.internal.model.territory.EditableGameTile
 import de.github.dudrie.hamster.ui.application.EditorTerritoryLocal
 
@@ -25,6 +26,10 @@ object EditorState {
         @Composable
         get() = EditorTerritoryLocal.current
 
+    /**
+     * Hamster which will be on the board after initialization.
+     */
+    val startingHamster = mutableStateOf<EditableHamster?>(null)
 }
 
 /**

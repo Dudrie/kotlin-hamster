@@ -15,7 +15,6 @@ import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
 import de.github.dudrie.hamster.ui.components.board.BoardGrid
 import de.github.dudrie.hamster.ui.components.board.BoardTile
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 /**
  * Board used in the editor.
@@ -42,9 +41,7 @@ fun BoardForEditor(territory: AbstractEditableTerritory, modifier: Modifier = Mo
             LaunchedEffect(interactionSource) {
                 interactionSource.interactions.collect {
                     if (it is PressInteraction.Release) {
-                        launch {
-                            editedTile = EditedTile(tile)
-                        }
+                        editedTile = EditedTile(tile)
                     }
                 }
             }
