@@ -2,7 +2,7 @@ package de.github.dudrie.hamster.ui.application.windows
 
 import androidx.compose.runtime.Composable
 import de.github.dudrie.hamster.ResString
-import de.github.dudrie.hamster.de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
+import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
 import de.github.dudrie.hamster.ui.editor.MainEditorUI
 
 /**

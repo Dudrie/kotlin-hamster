@@ -1,11 +1,9 @@
-package de.github.dudrie.hamster.de.github.dudrie.hamster.internal.model.territory
+package de.github.dudrie.hamster.internal.model.territory
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.datatypes.Location
-import de.github.dudrie.hamster.internal.model.territory.GameTile
-import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
 class EditableGameTile(
     location: Location,
