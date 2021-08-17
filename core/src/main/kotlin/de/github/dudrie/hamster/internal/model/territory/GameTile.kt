@@ -34,13 +34,12 @@ open class GameTile(
 ) {
 
     private val tileContentState = mutableStateListOf<GameTileContent>()
+    protected val grainCountState = mutableStateOf(grainCount)
 
     /**
      * All [GameTileContent] objects that are on this tile.
      */
     val tileContent = tileContentState.asIterable()
-
-    protected val grainCountState = mutableStateOf(grainCount)
 
     /**
      * Amount of grains laying on this tile.

@@ -1,15 +1,12 @@
 package de.github.dudrie.hamster.internal.model.hamster
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
-import de.github.dudrie.hamster.internal.model.territory.GameTileContent
 
 /**
- * Holding all state related to a hamster in the game.
+ * Holds all state related to a hamster in the game.
  *
  * @param territory [GameTerritory] this hamster is in.
  * @param tile [GameTile] this hamster is initially on. The tile must be inside the [territory].
@@ -21,34 +18,13 @@ class GameHamster(
     tile: GameTile,
     direction: Direction,
     grainCount: Int = 0
-) : GameTileContent() {
+) : HamsterTileContent(tile, direction, grainCount) {
 
     init {
         require(territory.isTileInside(tile)) { "The tile of the hamster is outside the territory. Tile's location: ${tile.location}" }
         require(grainCount >= 0) { "The grainCount must be zero or positive. Grain count: $grainCount" }
         tile.addContent(this)
     }
-
-    private val tileState = mutableStateOf(tile)
-    private val directionState = mutableStateOf(direction)
-    private val grainCountState = mutableStateOf(grainCount)
-
-    /**
-     * The [GameTile] the hamster is currently on.
-     */
-    override val currentTile: GameTile by tileState
-
-    /**
-     * The [Direction] the hamster currently faces.
-     */
-    val direction: Direction by directionState
-
-    /**
-     * The amount of grains the hamster currently has in its mouth.
-     */
-    val grainCount: Int by grainCountState
-
-    override val isBlockingMovement: Boolean = false
 
     /**
      * Move one step in the [Direction] the hamster is facing.
@@ -72,10 +48,8 @@ class GameHamster(
      */
     fun moveTo(tile: GameTile) {
         require(isTileWalkable(tile)) { "The destination tile is blocked or outside the territory. Destination tile's location: ${tile.location}." }
-        currentTile.removeContent(this)
-        tile.addContent(this)
 
-        tileState.value = tile
+        setTile(tile)
     }
 
     /**
@@ -100,7 +74,7 @@ class GameHamster(
      * @param newDirection [Direction] the hamster should face in.
      */
     fun turnTo(newDirection: Direction) {
-        directionState.value = newDirection
+        setDirection(newDirection)
     }
 
     /**
@@ -112,7 +86,7 @@ class GameHamster(
      */
     fun pickGrain() {
         require(currentTile.grainCount > 0) { "The tile beneath the hamster does not have any grains on it." }
-        grainCountState.value += 1
+        setGrainCount(grainCount + 1)
     }
 
     /**
@@ -126,7 +100,7 @@ class GameHamster(
         require(grainCount > 0) {
             "Hamster does not have a grain to drop."
         }
-        grainCountState.value -= 1
+        setGrainCount(grainCount - 1)
     }
 
     /**

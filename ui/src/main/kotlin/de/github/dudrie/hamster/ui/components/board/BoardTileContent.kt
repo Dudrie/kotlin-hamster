@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
-import de.github.dudrie.hamster.internal.model.hamster.GameHamster
+import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.ui.R
 
@@ -60,7 +60,7 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
         }
 
         for (content in tile.tileContent) {
-            if (content is GameHamster) {
+            if (content is HamsterTileContent) {
                 val degrees = getDegreesForDirection(content.direction)
                 val hamster = remember { ResourceReader(R.images.hamster).getContentAsImage().asImageBitmap() }
 
