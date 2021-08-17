@@ -3,9 +3,11 @@ package de.github.dudrie.hamster.ui.editor
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
+import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -26,7 +28,7 @@ fun EditPanel(onClose: () -> Unit, modifier: Modifier = Modifier) {
             // TODO: Make whole panel prettier
             // TODO: Add "validation" & user feedback (error props, ...)
             IconButton(onClick = onClose, modifier = Modifier.align(Alignment.End)) {
-                Text("X")
+                Icon(Icons.Rounded.Close, contentDescription = null)
             }
 
             val editedTile by EditorState.editedTile

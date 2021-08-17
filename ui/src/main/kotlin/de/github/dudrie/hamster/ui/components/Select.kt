@@ -1,13 +1,15 @@
 package de.github.dudrie.hamster.ui.components
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.rounded.KeyboardArrowDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 /**
  * A select component with a dropdown menu.
@@ -32,8 +34,12 @@ fun <T> Select(
 
     Box(modifier.wrapContentSize(Alignment.TopStart)) {
         OutlinedButton(onClick = { dropDownExpanded = true }, modifier = modifier) {
-            Text(itemToString(value))
-            Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
+            Text(itemToString(value), modifier = Modifier.padding(end = 4.dp).align(Alignment.CenterVertically))
+            Icon(
+                imageVector = Icons.Rounded.KeyboardArrowDown,
+                contentDescription = null,
+                modifier = Modifier.align(Alignment.CenterVertically)
+            )
         }
         DropdownMenu(expanded = dropDownExpanded, onDismissRequest = { dropDownExpanded = false }) {
             items.forEach { item ->
