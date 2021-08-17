@@ -16,7 +16,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
+import de.github.dudrie.hamster.de.github.dudrie.hamster.internal.model.territory.EditableGameTile
+import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import de.github.dudrie.hamster.ui.components.board.BoardGrid
+import de.github.dudrie.hamster.ui.components.board.BoardTile
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -53,38 +56,40 @@ fun BoardForEditor(territory: AbstractEditableTerritory, modifier: Modifier = Mo
         BoardGrid(territory, 1.dp) { location, tileModifier ->
             var editedTile by EditorState.editedTile
             val interactionSource = remember { MutableInteractionSource() }
+            val tile = remember(location) { territory.getTileAt(location) }
 
             LaunchedEffect(interactionSource) {
                 interactionSource.interactions.collect {
                     if (it is PressInteraction.Release) {
                         launch {
-                            editedTile = EditedTile(location)
+                            editedTile = EditedTile(tile)
                         }
                     }
                 }
             }
 
-            Column(
-                tileModifier.clickable(
-                    interactionSource = interactionSource,
-                    indication = LocalIndication.current,
-                    enabled = editedTile?.location != location
-                ) { }
-            ) {
-                Text("$location")
-
-                if (editedTile?.location == location) {
-                    Text("GETS EDITED")
-                }
-            }
+            BoardTile(tile = tile, showBorder = editedTile?.location == location, modifier = tileModifier.clickable(
+                interactionSource = interactionSource,
+                indication = LocalIndication.current,
+                enabled = editedTile?.location != location
+            ) {})
         }
     }
 }
 
-class EditedTile(val location: Location)
+internal val EditorTerritoryLocal =
+    compositionLocalOf<AbstractEditableTerritory> { error("No editable territory was provided.") }
+
+data class EditedTile(val tile: EditableGameTile) {
+    val location: Location = tile.location
+}
 
 object EditorState {
     val editedTile = mutableStateOf<EditedTile?>(null)
+
+    val territory: AbstractEditableTerritory
+        @Composable
+        get() = EditorTerritoryLocal.current
 }
 
 @OptIn(ExperimentalAnimationApi::class)
@@ -111,19 +116,47 @@ fun Toolbox(modifier: Modifier = Modifier) {
             exit = fadeOut() + slideOutHorizontally({ it / 2 })
         ) {
             val scope = rememberCoroutineScope()
+
             Column(Modifier.fillMaxSize().background(Color.Cyan)) {
-                if (editedTile != null) {
-                    Text("IM EDITING ${editedTile!!.location}")
-                }
+                val tile = editedTile?.tile
 
                 Button(onClick = {
                     scope.launch {
                         drawerState.targetState = false
                         EditorState.editedTile.value = null
                     }
-                }) {
+                }, modifier = Modifier.align(Alignment.End)) {
                     Text("CLOSE")
                 }
+
+                if (tile == null) {
+                    return@Column
+                }
+
+                var textFieldValue by remember(tile) { mutableStateOf(tile.grainCount.toString()) }
+
+                TextField(
+                    value = textFieldValue,
+                    onValueChange = { value ->
+                        textFieldValue = value
+                        val newGrainCount: Int? = value.toIntOrNull()
+                        if (newGrainCount != null && newGrainCount >= 0) {
+                            tile.setGrainCount(newGrainCount)
+                        }
+                    },
+                    label = { Text("Grain Count") },
+                )
+
+                Button(onClick = { tile.type = GameTileType.Wall }) {
+                    Text("MAKE WALL")
+                }
+                Button(onClick = { tile.type = GameTileType.Floor }) {
+                    Text("MAKE FLOOR")
+                }
+
+                // TODO: Add button which spawns a Hamster
+                //       This requires a new TileContent: EditableHamster.
+                //       Which itself should add an abstraction between GameHamster and GameTileContent: HamsterTileContent, because there is probably no visual difference between a GameHamster and an EditableHamster.
             }
         }
     }
