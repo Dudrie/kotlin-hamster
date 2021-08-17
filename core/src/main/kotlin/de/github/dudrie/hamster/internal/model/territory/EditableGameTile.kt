@@ -6,6 +6,13 @@ import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 
+/**
+ * Holds the information about a [GameTile] that gets used in the editor and which configuration can be changed.
+ *
+ * @param location Location of the tile.
+ * @param type Initial [GameTileType] of the tile.
+ * @param grainCount Initial number of grains on the tile. Defaults to 0.
+ */
 class EditableGameTile(
     location: Location,
     type: GameTileType,
