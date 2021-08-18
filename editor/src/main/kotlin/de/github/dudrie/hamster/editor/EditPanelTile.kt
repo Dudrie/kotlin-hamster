@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.editor.model.EditableGameTile
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
@@ -30,18 +31,7 @@ import de.github.dudrie.hamster.ui.theme.GameTheme
  */
 @Composable
 fun EditPanelTile(tile: EditableGameTile) {
-    TextFieldForNumbers(
-        value = tile.grainCount,
-        onValueChanged = {
-            if (it > 0) {
-                tile.setGrainCount(it)
-            }
-        },
-        label = { Text("GRAIN COUNT") },
-        enabled = !tile.blocked
-    )
-
-    Row(Modifier.padding(vertical = 16.dp)) {
+    Row(Modifier.padding(bottom = 16.dp)) {
         IconButtonWithText(
             onClick = { tile.type = GameTileType.Wall },
             enabled = tile.canTileBeAWall(),
@@ -55,7 +45,7 @@ fun EditPanelTile(tile: EditableGameTile) {
                     modifier = Modifier.size(40.dp)
                 )
             },
-            text = { Text("WALL") }
+            text = { Text(ResString.getForGameTileType(GameTileType.Wall)) }
         )
 
         IconButtonWithText(
@@ -68,14 +58,26 @@ fun EditPanelTile(tile: EditableGameTile) {
                         .size(40.dp)
                 )
             },
-            text = { Text("FLOOR") }
+            text = { Text(ResString.getForGameTileType(GameTileType.Floor)) }
         )
     }
 
     Button(
         onClick = { EditorState.setTileOfStartingHamster(tile) },
-        enabled = !tile.hasHamsterContent() && !tile.blocked
+        enabled = !tile.hasHamsterContent() && !tile.blocked,
+        modifier = Modifier.padding(bottom = 16.dp)
     ) {
-        Text("SET HAMSTER START")
+        Text(ResString.get("editor.side.edit.tile.set.hamster.start"))
     }
+
+    TextFieldForNumbers(
+        value = tile.grainCount,
+        onValueChanged = {
+            if (it > 0) {
+                tile.setGrainCount(it)
+            }
+        },
+        label = { Text(ResString.get("editor.side.edit.tile.grain.count")) },
+        enabled = !tile.blocked
+    )
 }

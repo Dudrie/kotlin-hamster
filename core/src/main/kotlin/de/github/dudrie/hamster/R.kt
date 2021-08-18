@@ -2,6 +2,7 @@ package de.github.dudrie.hamster
 
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.internal.model.game.GameMode
+import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import java.text.MessageFormat
 import java.util.*
 
@@ -56,6 +57,16 @@ object ResString {
             Direction.East -> "direction.east"
             Direction.South -> "direction.south"
             Direction.West -> "direction.west"
+        }
+    )
+
+    /**
+     * Returns the localized string representation of the given [GameTileType].
+     */
+    fun getForGameTileType(type: GameTileType): String = get(
+        when (type) {
+            GameTileType.Floor -> "tile.type.floor"
+            GameTileType.Wall -> "tile.type.wall"
         }
     )
 }

@@ -34,10 +34,14 @@ fun EditPanelTileContent(content: GameTileContent) {
  */
 @Composable
 fun EditPanelHamsterTileContent(content: EditableHamster) {
-    Text("EDIT A HAMSTER", modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+    Text(
+        ResString.get("editor.side.edit.hamster.title"),
+        modifier = Modifier.fillMaxWidth(),
+        textAlign = TextAlign.Center
+    )
 
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Text("FACE IN:", Modifier.padding(end = 8.dp))
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 16.dp)) {
+        Text("${ResString.get("editor.side.edit.hamster.direction.of.view")}:", Modifier.padding(end = 8.dp))
         Select(
             items = remember {
                 listOf(
@@ -53,7 +57,6 @@ fun EditPanelHamsterTileContent(content: EditableHamster) {
         )
     }
 
-
     TextFieldForNumbers(
         value = content.grainCount,
         onValueChanged = {
@@ -61,7 +64,7 @@ fun EditPanelHamsterTileContent(content: EditableHamster) {
                 content.setGrainCount(it)
             }
         },
-        label = { Text("GRAIN COUNT") },
-        hint = "GRAIN COUNT OF HAMSTER: ${content.grainCount}"
+        label = { Text(ResString.get("editor.side.edit.hamster.grain.count.label")) },
+        hint = ResString.getWithFormat("editor.side.edit.hamster.grain.count.hint", content.grainCount)
     )
 }
