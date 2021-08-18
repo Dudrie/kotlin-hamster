@@ -2,10 +2,11 @@ package de.github.dudrie.hamster.ui.editor
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -14,12 +15,12 @@ import kotlinx.coroutines.launch
  *
  * It also is responsible for showing the [EditPanel] if an object gets edited.
  *
- * @param modifier Modifiers applied to the underlying [Box].
+ * @param modifier Modifiers applied to the underlying [Surface].
  */
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun EditorSidepanel(modifier: Modifier = Modifier) {
-    Box(modifier) {
+    Surface(modifier, elevation = 4.dp) {
         var editedTile by EditorState.editedTile
         val drawerState = remember { MutableTransitionState(false) }
 
@@ -30,7 +31,7 @@ fun EditorSidepanel(modifier: Modifier = Modifier) {
             drawerState.targetState = editedTile != null
         }
 
-        EditorToolbox()
+        EditorToolbox(Modifier.fillMaxSize())
 
         AnimatedVisibility(
             visibleState = drawerState,
