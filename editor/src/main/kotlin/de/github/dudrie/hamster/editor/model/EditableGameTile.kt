@@ -1,10 +1,12 @@
-package de.github.dudrie.hamster.internal.model.territory
+package de.github.dudrie.hamster.editor.model
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
+import de.github.dudrie.hamster.internal.model.territory.GameTile
+import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
 /**
  * Holds the information about a [GameTile] that gets used in the editor and which configuration can be changed.

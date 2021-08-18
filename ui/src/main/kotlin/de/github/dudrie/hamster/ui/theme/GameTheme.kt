@@ -7,7 +7,7 @@ import androidx.compose.ui.graphics.Color
 /**
  * Object holding colors important to the game.
  */
-internal object GameColors {
+object GameColors {
     /**
      * Default color used in the hamster's image.
      *
@@ -24,7 +24,7 @@ internal object GameColors {
 /**
  * Object holding properties important for theming the game.
  */
-internal object GameTheme {
+object GameTheme {
     /**
      * Colors related to the game.
      *

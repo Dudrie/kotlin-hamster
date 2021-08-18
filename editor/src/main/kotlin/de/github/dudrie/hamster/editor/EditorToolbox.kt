@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.editor
+package de.github.dudrie.hamster.editor
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -11,12 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.editor.tools.MakeFloorTool
+import de.github.dudrie.hamster.editor.tools.MakeWallTool
+import de.github.dudrie.hamster.editor.tools.TileTool
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.components.ResourceIcon
 import de.github.dudrie.hamster.ui.components.ResourceIconSize
-import de.github.dudrie.hamster.ui.editor.tools.MakeFloorTool
-import de.github.dudrie.hamster.ui.editor.tools.MakeWallTool
-import de.github.dudrie.hamster.ui.editor.tools.TileTool
 import de.github.dudrie.hamster.ui.theme.GameTheme
 
 /**

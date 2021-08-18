@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.editor
+package de.github.dudrie.hamster.editor
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +12,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.datatypes.Direction
-import de.github.dudrie.hamster.internal.model.hamster.EditableHamster
+import de.github.dudrie.hamster.editor.model.EditableHamster
 import de.github.dudrie.hamster.internal.model.territory.GameTileContent
 import de.github.dudrie.hamster.ui.components.Select
 import de.github.dudrie.hamster.ui.components.TextFieldForNumbers

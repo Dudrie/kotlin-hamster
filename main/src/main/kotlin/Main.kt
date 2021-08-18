@@ -1,8 +1,4 @@
-import de.github.dudrie.hamster.datatypes.Size
-import de.github.dudrie.hamster.external.model.EditableTerritory
 import de.github.dudrie.hamster.external.model.HamsterGame
-import de.github.dudrie.hamster.ui.application.windows.EditorWindow
-import java.util.concurrent.CountDownLatch
 
 private fun runSampleGame(game: HamsterGame) {
     game.gameCommands.setSpeed(7f)
@@ -30,17 +26,9 @@ private fun runSampleGame(game: HamsterGame) {
     paule.move()
 }
 
-internal fun startEditor() {
-    EditorWindow(EditableTerritory(Size(5, 3))).show(
-        CountDownLatch((1))
-    )
-}
-
 internal fun main() {
-    startEditor()
+    val game = HamsterGame("/territories/testTer01.json")
+    game.startGame(false)
 
-//    val game = HamsterGame("/territories/testTer01.json")
-//    game.startGame(false)
-//
-//    runSampleGame(game)
+    runSampleGame(game)
 }

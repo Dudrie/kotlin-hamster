@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.editor
+package de.github.dudrie.hamster.editor
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -8,7 +8,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
+import de.github.dudrie.hamster.editor.model.AbstractEditableTerritory
 
 /**
  * Main composable for the editor UI.

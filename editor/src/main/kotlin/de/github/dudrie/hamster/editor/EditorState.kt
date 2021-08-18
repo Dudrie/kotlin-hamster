@@ -1,14 +1,14 @@
-package de.github.dudrie.hamster.ui.editor
+package de.github.dudrie.hamster.editor
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
-import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
-import de.github.dudrie.hamster.internal.model.hamster.EditableHamster
-import de.github.dudrie.hamster.internal.model.territory.EditableGameTile
-import de.github.dudrie.hamster.ui.application.EditorTerritoryLocal
-import de.github.dudrie.hamster.ui.editor.tools.TileTool
+import de.github.dudrie.hamster.editor.model.AbstractEditableTerritory
+import de.github.dudrie.hamster.editor.model.EditableGameTile
+import de.github.dudrie.hamster.editor.model.EditableHamster
+import de.github.dudrie.hamster.editor.tools.TileTool
 
 /**
  * State of the editor.
@@ -73,3 +73,9 @@ data class EditedTile(val tile: EditableGameTile) {
      */
     val location: Location = tile.location
 }
+
+/**
+ * Provides the [AbstractEditableTerritory] object for the editor.
+ */
+internal val EditorTerritoryLocal =
+    compositionLocalOf<AbstractEditableTerritory> { error("No editable territory was provided.") }

@@ -1,7 +1,7 @@
-package de.github.dudrie.hamster.internal.model.hamster
+package de.github.dudrie.hamster.editor.model
 
 import de.github.dudrie.hamster.datatypes.Direction
-import de.github.dudrie.hamster.internal.model.territory.EditableGameTile
+import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 
 /**
  * Holds all state related to a hamster in the editor.

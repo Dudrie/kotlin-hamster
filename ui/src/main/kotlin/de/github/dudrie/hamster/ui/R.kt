@@ -4,7 +4,7 @@ package de.github.dudrie.hamster.ui
  * Object with paths to different resources
  */
 @Suppress("ClassName")
-internal object R {
+object R {
 
     /**
      * Path to images

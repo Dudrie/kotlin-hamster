@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.editor
+package de.github.dudrie.hamster.editor
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.MutableTransitionState

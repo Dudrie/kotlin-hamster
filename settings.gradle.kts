@@ -7,4 +7,4 @@ pluginManagement {
 
 rootProject.name = "kotlin-hamster"
 
-include("core", "main", "ui", "imperative")
+include("core", "main", "ui", "imperative", "editor")

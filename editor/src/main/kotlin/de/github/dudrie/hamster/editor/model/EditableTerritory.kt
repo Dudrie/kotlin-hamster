@@ -1,9 +1,7 @@
-package de.github.dudrie.hamster.external.model
+package de.github.dudrie.hamster.editor.model
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
-import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
-import de.github.dudrie.hamster.internal.model.territory.EditableGameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
 /**

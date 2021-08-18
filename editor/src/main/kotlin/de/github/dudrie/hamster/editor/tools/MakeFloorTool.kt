@@ -1,6 +1,6 @@
-package de.github.dudrie.hamster.ui.editor.tools
+package de.github.dudrie.hamster.editor.tools
 
-import de.github.dudrie.hamster.internal.model.territory.EditableGameTile
+import de.github.dudrie.hamster.editor.model.EditableGameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
 /**
