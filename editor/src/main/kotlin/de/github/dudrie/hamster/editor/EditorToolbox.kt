@@ -57,6 +57,14 @@ fun EditorToolbox(modifier: Modifier = Modifier) {
     }
 }
 
+/**
+ * Button like composable which is used to select a tool.
+ *
+ * @param tool Tool to select. Can be `null`. If it is `null` the button will deselect the currently selected tool.
+ * @param icon Icon to show on the left of the button.
+ * @param text Text to show to the right of the [icon].
+ * @param modifier [Modifier] applied to the underlying [Surface].
+ */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SelectTileToolButton(

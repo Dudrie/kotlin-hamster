@@ -23,6 +23,9 @@ class EditableGameTile(
 
     private val typeState = mutableStateOf(type)
 
+    /**
+     * Type of this tile.
+     */
     override var type: GameTileType by typeState
 
     /**

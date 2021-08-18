@@ -13,10 +13,20 @@ import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 class EditableHamster(tile: EditableGameTile, direction: Direction, grainCount: Int = 0) :
     HamsterTileContent(tile, direction, grainCount) {
 
+    /**
+     * Sets the [direction] the hamster faces in.
+     */
     public override fun setDirection(direction: Direction) {
         super.setDirection(direction)
     }
 
+    /**
+     * Sets the amount of grains the hamster has in its mouth to the [newCount].
+     *
+     * [newCount] has to be zero or positive.
+     *
+     * @see HamsterTileContent.grainCount
+     */
     public override fun setGrainCount(newCount: Int) {
         super.setGrainCount(newCount)
     }
