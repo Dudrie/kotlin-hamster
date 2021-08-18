@@ -13,5 +13,4 @@ abstract class AbstractEditableTerritory : AbstractTerritory() {
      */
     abstract override fun getTileAt(location: Location): EditableGameTile
 
-    // TODO: Add members
 }

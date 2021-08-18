@@ -50,7 +50,6 @@ fun EditPanelTile(tile: EditableGameTile) {
 
         IconButtonWithText(
             onClick = { tile.type = GameTileType.Floor },
-            //enabled = tile.type != GameTileType.Floor,
             icon = {
                 Box(
                     Modifier.background(if (tile.type == GameTileType.Floor) GameTheme.colors.floor else Color.Gray)

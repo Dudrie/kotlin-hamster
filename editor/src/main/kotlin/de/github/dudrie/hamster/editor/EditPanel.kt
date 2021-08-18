@@ -23,9 +23,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun EditPanel(onClose: () -> Unit, modifier: Modifier = Modifier) {
     Surface(modifier = modifier, elevation = 16.dp) {
-        // TODO: Make column scrollable?!
         Column(Modifier.padding(8.dp)) {
-            // TODO: Make whole panel prettier
             // TODO: Add "validation" & user feedback (error props, ...)
             IconButton(onClick = onClose, modifier = Modifier.align(Alignment.End)) {
                 Icon(Icons.Rounded.Close, contentDescription = null)
