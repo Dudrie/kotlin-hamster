@@ -29,7 +29,7 @@ fun MainEditorUI(territory: AbstractEditableTerritory) {
         Row(modifier = Modifier.fillMaxSize()) {
             BoardForEditor(territory, Modifier.weight(1f).fillMaxHeight())
 
-            EditorToolbox(Modifier.fillMaxHeight().width(300.dp).background(Color.Magenta))
+            EditorSidepanel(Modifier.fillMaxHeight().width(300.dp).background(Color.Magenta))
         }
     }
 }
