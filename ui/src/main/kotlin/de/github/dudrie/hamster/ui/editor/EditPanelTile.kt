@@ -44,7 +44,7 @@ fun EditPanelTile(tile: EditableGameTile) {
     Row(Modifier.padding(vertical = 16.dp)) {
         IconButtonWithText(
             onClick = { tile.type = GameTileType.Wall },
-            enabled = !tile.hasHamsterContent() && tile.grainCount == 0,
+            enabled = tile.canTileBeAWall(),
             icon = {
                 val icon = remember { ResourceReader(R.images.wall).getContentAsImage().asImageBitmap() }
 
@@ -63,7 +63,7 @@ fun EditPanelTile(tile: EditableGameTile) {
             //enabled = tile.type != GameTileType.Floor,
             icon = {
                 Box(
-                    Modifier.background(if (tile.type == GameTileType.Floor) GameTheme.colors.floorColor else Color.Gray)
+                    Modifier.background(if (tile.type == GameTileType.Floor) GameTheme.colors.floor else Color.Gray)
                         .border(1.dp, Color.Black)
                         .size(40.dp)
                 )

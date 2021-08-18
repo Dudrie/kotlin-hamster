@@ -1,8 +1,8 @@
 package de.github.dudrie.hamster.ui.theme
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
-import de.github.dudrie.hamster.ui.application.GameColorsLocal
 
 /**
  * Object holding colors important to the game.
@@ -13,12 +13,12 @@ internal object GameColors {
      *
      * Can be used to change the main color of the image if one has multiple hamsters.
      */
-    val defaultHamsterColor: Color = Color(68, 114, 196)
+    val defaultHamster: Color = Color(68, 114, 196)
 
     /**
      * Color of a [floor][de.github.dudrie.hamster.internal.model.territory.GameTileType.Floor] tile.
      */
-    val floorColor: Color = Color(255, 221, 136)
+    val floor: Color = Color(255, 221, 136)
 }
 
 /**
@@ -33,5 +33,9 @@ internal object GameTheme {
     val colors: GameColors
         @Composable
         get() = GameColorsLocal.current
-
 }
+
+/**
+ * Provides the current [GameColors] object.
+ */
+internal val GameColorsLocal = compositionLocalOf<GameColors> { error("No game colors were provided.") }

@@ -27,5 +27,6 @@ internal object R {
         const val slowSpeed = "/icons/speedometer-slow.png"
         const val fastSpeed = "/icons/speedometer.png"
         const val scrollDown = "/icons/round_south_black_36dp.png"
+        const val selectTool = "/icons/outline_highlight_alt_black_36dp.png"
     }
 }

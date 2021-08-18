@@ -20,6 +20,7 @@ fun MainEditorUI(territory: AbstractEditableTerritory) {
     Scaffold(
         topBar = {
             TopAppBar(elevation = 8.dp, contentPadding = PaddingValues(horizontal = 16.dp)) {
+                // TODO: Add: New, Save, Load, Size-Change
                 Text("MENU & TOOLS & SETTINGS", color = MaterialTheme.colors.onPrimary)
             }
         }

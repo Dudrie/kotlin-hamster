@@ -2,7 +2,6 @@ package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -30,7 +29,7 @@ fun BoardExceptionDialog(runtimeException: RuntimeException?) {
             Surface(
                 elevation = 24.dp,
                 modifier = Modifier.widthIn(min = 300.dp, max = 500.dp),
-                shape = RoundedCornerShape(8.dp)
+                shape = MaterialTheme.shapes.medium
             ) {
                 Column {
                     Box(

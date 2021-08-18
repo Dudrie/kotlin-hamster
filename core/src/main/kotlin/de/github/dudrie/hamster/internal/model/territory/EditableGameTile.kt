@@ -45,4 +45,13 @@ class EditableGameTile(
 
         return false
     }
+
+    /**
+     * Can this tile be a wall?
+     *
+     * A tile can be a wall if it does not have any [grains][grainCount] and it does not have a hamster on it.
+     *
+     * @see hasHamsterContent
+     */
+    fun canTileBeAWall(): Boolean = grainCount == 0 && !hasHamsterContent()
 }

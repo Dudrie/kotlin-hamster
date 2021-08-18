@@ -28,7 +28,7 @@ fun BoardTileBackground(tile: GameTile) {
             )
         }
         GameTileType.Floor -> {
-            Box(modifier = Modifier.background(color = GameTheme.colors.floorColor).fillMaxSize()) {}
+            Box(modifier = Modifier.background(color = GameTheme.colors.floor).fillMaxSize()) {}
         }
     }
 }

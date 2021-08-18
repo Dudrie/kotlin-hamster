@@ -8,6 +8,7 @@ import de.github.dudrie.hamster.interfaces.AbstractEditableTerritory
 import de.github.dudrie.hamster.internal.model.hamster.EditableHamster
 import de.github.dudrie.hamster.internal.model.territory.EditableGameTile
 import de.github.dudrie.hamster.ui.application.EditorTerritoryLocal
+import de.github.dudrie.hamster.ui.editor.tools.TileTool
 
 /**
  * State of the editor.
@@ -27,10 +28,16 @@ object EditorState {
         @Composable
         get() = EditorTerritoryLocal.current
 
+
+    /**
+     * Currently selected tool for manipulating tiles in the editor.
+     */
+    val selectedTool = mutableStateOf<TileTool?>(null)
+
     /**
      * Hamster which contains the information about the initially spawned hamster in a game.
      */
-    val startingHamster = mutableStateOf<EditableHamster?>(null)
+    private val startingHamster = mutableStateOf<EditableHamster?>(null)
 
     /**
      * Sets the tile of the [startingHamster] to the given one.
@@ -43,6 +50,11 @@ object EditorState {
         hamster.setTile(tile)
         startingHamster.value = hamster
     }
+
+    /**
+     * Returns the currently selected tool.
+     */
+    fun getCurrentlySelectedTool(): TileTool? = selectedTool.value
 
     /**
      * Returns a default hamster.

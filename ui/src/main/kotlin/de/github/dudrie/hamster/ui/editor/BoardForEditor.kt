@@ -41,7 +41,13 @@ fun BoardForEditor(territory: AbstractEditableTerritory, modifier: Modifier = Mo
             LaunchedEffect(interactionSource) {
                 interactionSource.interactions.collect {
                     if (it is PressInteraction.Release) {
-                        editedTile = EditedTile(tile)
+                        val tool = EditorState.getCurrentlySelectedTool()
+
+                        if (tool != null) {
+                            tool.applyToTile(tile)
+                        } else {
+                            editedTile = EditedTile(tile)
+                        }
                     }
                 }
             }
