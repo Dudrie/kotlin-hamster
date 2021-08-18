@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.editor.dialog.DialogState
 import de.github.dudrie.hamster.ui.components.ControlButtonColors
 
@@ -54,7 +55,10 @@ fun EditorAppBar() {
         ) { Text("LOAD") }
 
         OutlinedButton(
-            { TODO("Not implemented") },
+            {
+                // TODO: Add dialog to set the size!
+                EditorState.setTerritorySize(Size(3, 2))
+            },
             colors = ControlButtonColors,
             border = BorderStroke(1.dp, MaterialTheme.colors.onPrimary),
             modifier = Modifier.padding(end = padding)

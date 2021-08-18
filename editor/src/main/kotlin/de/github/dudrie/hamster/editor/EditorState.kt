@@ -55,13 +55,35 @@ object EditorState {
      *
      * This also resets the [editedTile], [selectedTool] and the [startingHamster].
      *
+     * @see resetTools
      * @see getDefaultTerritory
      */
     fun resetTerritory() {
-        editedTile.value = null
+        resetTools()
         startingHamster.value = null
-        selectedTool.value = null
         territory.value = getDefaultTerritory()
+    }
+
+    /**
+     * Sets the size of the territory to the [newSize].
+     *
+     * All tiles will be kept if they are still inside the [newSize]. Empty slots will be filled with default floor tiles.
+     *
+     * While this reset the [editedTile] and the [selectedTool] properties it does **NOT** reset the [startingHamster]. If the [startingHamster] is outside the territory it will get replaced with all its data if the user selects a new tile.
+     *
+     * @see EditableTerritory.setSize
+     */
+    fun setTerritorySize(newSize: Size) {
+        territory.value.setSize(newSize)
+        resetTools()
+    }
+
+    /**
+     * Resets [selectedTool] and [editedTile] properties.
+     */
+    private fun resetTools() {
+        selectedTool.value = null
+        editedTile.value = null
     }
 
     /**
