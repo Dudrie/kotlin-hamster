@@ -2,6 +2,7 @@ package de.github.dudrie.hamster.editor.model
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.interfaces.AbstractTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
 /**
@@ -9,7 +10,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  *
  * @param territorySize Size of the territory.
  */
-class EditableTerritory(override val territorySize: Size) : AbstractEditableTerritory() {
+class EditableTerritory(override val territorySize: Size) : AbstractTerritory() {
 
     /**
      * Tiles currently present in the territory.

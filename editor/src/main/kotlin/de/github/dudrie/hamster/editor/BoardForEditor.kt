@@ -11,7 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.editor.model.AbstractEditableTerritory
+import de.github.dudrie.hamster.editor.model.EditableTerritory
 import de.github.dudrie.hamster.ui.components.board.BoardGrid
 import de.github.dudrie.hamster.ui.components.board.BoardTile
 import kotlinx.coroutines.flow.collect
@@ -23,7 +23,7 @@ import kotlinx.coroutines.flow.collect
  * @param modifier Modifiers applied to the underlying [Box].
  */
 @Composable
-fun BoardForEditor(territory: AbstractEditableTerritory, modifier: Modifier = Modifier) {
+fun BoardForEditor(territory: EditableTerritory, modifier: Modifier = Modifier) {
     val size = territory.territorySize
 
     val minWidth = Integer.min(size.columnCount * 32, 300)

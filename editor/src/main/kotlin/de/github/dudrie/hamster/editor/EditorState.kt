@@ -1,13 +1,12 @@
 package de.github.dudrie.hamster.editor
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
-import de.github.dudrie.hamster.editor.model.AbstractEditableTerritory
+import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.editor.model.EditableGameTile
 import de.github.dudrie.hamster.editor.model.EditableHamster
+import de.github.dudrie.hamster.editor.model.EditableTerritory
 import de.github.dudrie.hamster.editor.tools.TileTool
 
 /**
@@ -21,13 +20,8 @@ object EditorState {
 
     /**
      * Territory that currently gets edited.
-     *
-     * @see EditorTerritoryLocal
      */
-    val territory: AbstractEditableTerritory
-        @Composable
-        get() = EditorTerritoryLocal.current
-
+    val territory = mutableStateOf(getDefaultTerritory())
 
     /**
      * Currently selected tool for manipulating tiles in the editor.
@@ -57,9 +51,28 @@ object EditorState {
     fun getCurrentlySelectedTool(): TileTool? = selectedTool.value
 
     /**
+     * Resets the [territory] to be a default empty territory.
+     *
+     * This also resets the [editedTile], [selectedTool] and the [startingHamster].
+     *
+     * @see getDefaultTerritory
+     */
+    fun resetTerritory() {
+        editedTile.value = null
+        startingHamster.value = null
+        selectedTool.value = null
+        territory.value = getDefaultTerritory()
+    }
+
+    /**
      * Returns a default hamster.
      */
     private fun getDefaultHamster(tile: EditableGameTile) = EditableHamster(tile, Direction.East, 0)
+
+    /**
+     * Creates and returns a default empty [EditableTerritory].
+     */
+    private fun getDefaultTerritory(): EditableTerritory = EditableTerritory(Size(5, 3))
 }
 
 /**
@@ -73,9 +86,3 @@ data class EditedTile(val tile: EditableGameTile) {
      */
     val location: Location = tile.location
 }
-
-/**
- * Provides the [AbstractEditableTerritory] object for the editor.
- */
-internal val EditorTerritoryLocal =
-    compositionLocalOf<AbstractEditableTerritory> { error("No editable territory was provided.") }

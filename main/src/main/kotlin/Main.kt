@@ -20,6 +20,10 @@ private fun runSampleGame(game: HamsterGame) {
         paule.move()
     }
 
+    repeat(25) {
+        paule.talk("I said something :) #$it")
+    }
+
     repeat(2) {
         paule.dropGrain()
     }
