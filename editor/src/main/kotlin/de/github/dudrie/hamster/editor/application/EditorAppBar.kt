@@ -22,6 +22,7 @@ fun EditorAppBar() {
     TopAppBar(elevation = 8.dp, contentPadding = PaddingValues(horizontal = 16.dp)) {
         val padding = 16.dp
         val scope = rememberCoroutineScope()
+        val snackbarHost = SnackbarHostLocal.current
 
         AppBarButton(
             {
@@ -42,7 +43,13 @@ fun EditorAppBar() {
 
         AppBarButton(
             onClick = {
-                scope.launch { DialogService.askForFileToSave()?.let { path -> EditorState.saveToFile(path) } }
+                scope.launch {
+                    DialogService.askForFileToSave()?.let { path ->
+                        EditorState.saveToFile(path)
+                        // TODO: Show depending on the success.
+                        snackbarHost.showSnackbar("FILE SAVED", "CLOSE")
+                    }
+                }
             },
             modifier = Modifier.padding(end = padding),
         ) { Text(ResString.get("editor.appbar.button.save")) }
@@ -51,7 +58,11 @@ fun EditorAppBar() {
             onClick = {
                 scope.launch {
                     // TODO: Add confirmation if user really wants to load a new territory -> Old one gets overridden.
-                    DialogService.askForFileToLoad()?.let { path -> EditorState.loadFromFile(path) }
+                    DialogService.askForFileToLoad()?.let { path ->
+                        EditorState.loadFromFile(path)
+                        // TODO: Show depending on the success.
+                        snackbarHost.showSnackbar("LOADED", "CLOSE")
+                    }
                 }
             },
             modifier = Modifier.padding(end = padding),
