@@ -5,6 +5,6 @@ import androidx.compose.runtime.getValue
 
 @Composable
 fun DialogManager() {
-    val dialog by DialogState.dialog
+    val dialog by DialogService.dialog
     dialog?.let { it() }
 }
