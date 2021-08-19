@@ -47,11 +47,15 @@ fun EditorAppBar() {
                     DialogService.askForFileToSave()?.let { path ->
                         EditorState.saveToFile(path)
                         // TODO: Show depending on the success.
-                        snackbarHost.showSnackbar("FILE SAVED", "CLOSE")
+                        snackbarHost.showSnackbar(
+                            ResString.get("editor.snackbar.file.saved.success"),
+                            ResString.get("snackbar.close")
+                        )
                     }
                 }
             },
-            modifier = Modifier.padding(end = padding),
+            enabled = EditorState.hasStartingHamster,
+            modifier = Modifier.padding(end = padding)
         ) { Text(ResString.get("editor.appbar.button.save")) }
 
         AppBarButton(
@@ -61,7 +65,10 @@ fun EditorAppBar() {
                     DialogService.askForFileToLoad()?.let { path ->
                         EditorState.loadFromFile(path)
                         // TODO: Show depending on the success.
-                        snackbarHost.showSnackbar("LOADED", "CLOSE")
+                        snackbarHost.showSnackbar(
+                            ResString.get("editor.snackbar.file.loaded.success"),
+                            ResString.get("snackbar.close")
+                        )
                     }
                 }
             },
