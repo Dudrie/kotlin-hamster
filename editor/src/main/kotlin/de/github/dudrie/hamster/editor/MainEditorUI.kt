@@ -18,11 +18,12 @@ fun MainEditorUI() {
     Scaffold(topBar = { EditorAppBar() }) {
         Row(modifier = Modifier.fillMaxSize()) {
             val territory by EditorState.territory
-            var showBoard by remember(territory) { mutableStateOf(false) }
+            var showBoard by remember { mutableStateOf(false) }
 
             LaunchedEffect(territory) {
                 // Make sure the old board gets "cleaned" end properly recreated.
                 // This makes all internal state subscriptions invalid.
+                showBoard = false
                 delay(250L)
                 showBoard = true
             }

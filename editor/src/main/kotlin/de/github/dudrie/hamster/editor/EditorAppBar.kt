@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
@@ -37,51 +38,66 @@ fun EditorAppBar() {
             colors = ControlButtonColors,
             border = BorderStroke(1.dp, MaterialTheme.colors.onPrimary),
             modifier = Modifier.padding(start = padding, end = padding)
-        ) { Text("NEW") }
+        ) { Text(ResString.get("editor.appbar.button.new")) }
 
         OutlinedButton(
             { TODO("Not implemented") },
             colors = ControlButtonColors,
             border = BorderStroke(1.dp, MaterialTheme.colors.onPrimary),
             modifier = Modifier.padding(end = padding)
-        ) { Text("SAVE") }
+        ) { Text(ResString.get("editor.appbar.button.save")) }
 
         OutlinedButton(
             { TODO("Not implemented") },
             colors = ControlButtonColors,
             border = BorderStroke(1.dp, MaterialTheme.colors.onPrimary),
             modifier = Modifier.padding(end = padding)
-        ) { Text("LOAD") }
+        ) { Text(ResString.get("editor.appbar.button.open")) }
 
         OutlinedButton(
-            {
-                DialogState.showDialog { SizeChangeDialog(onSizeAccept = { println(it) }) }
-            },
+            { DialogState.showDialog { SizeChangeDialog(onSizeAccept = { EditorState.setTerritorySize(it) }) } },
             colors = ControlButtonColors,
             border = BorderStroke(1.dp, MaterialTheme.colors.onPrimary),
             modifier = Modifier.padding(end = padding)
-        ) { Text("CHANGE SIZE") }
+        ) { Text(ResString.get("editor.appbar.button.change.size")) }
     }
 }
 
+/**
+ * Special dialog in which the user can enter a new size.
+ *
+ * The text fields only allow values up to the [maximum value][EditorState.maxColumnAndRowCount] defined in [EditorState].
+ */
 @Composable
 fun SizeChangeDialog(onSizeAccept: (size: Size) -> Unit) {
     val columnState = rememberTextFieldForNumbersState(EditorState.territory.value.territorySize.columnCount)
     val rowState = rememberTextFieldForNumbersState(EditorState.territory.value.territorySize.rowCount)
 
+    LaunchedEffect(columnState.value) {
+        columnState.isError = columnState.value > EditorState.maxColumnAndRowCount
+    }
+
+    LaunchedEffect(rowState.value) {
+        rowState.isError = rowState.value > EditorState.maxColumnAndRowCount
+    }
+
     DefaultDialog(
         onDismissRequest = DialogState::dismissDialog,
-        title = { Text("NEW TERRITORY SIZE") },
+        title = { Text(ResString.get("editor.dialog.change.size.title")) },
         text = {
             Column {
-                Text("CHANGE SIZE TO ${columnState.value} x ${rowState.value}")
+                Text(ResString.get("editor.dialog.change.size.text"))
 
                 Row(Modifier.padding(top = 16.dp)) {
-                    TextFieldForNumbers(state = columnState, label = { Text("COLUMNS") })
+                    TextFieldForNumbers(
+                        state = columnState,
+                        label = { Text(ResString.get("editor.dialog.change.size.text.field.columns.label")) })
 
-                    Spacer(Modifier.width(16.dp))
+                    Spacer(Modifier.width(32.dp))
 
-                    TextFieldForNumbers(state = rowState, label = { Text("ROWS") })
+                    TextFieldForNumbers(
+                        state = rowState,
+                        label = { Text(ResString.get("editor.dialog.change.size.text.field.rows.label")) })
                 }
             }
         },
@@ -93,7 +109,7 @@ fun SizeChangeDialog(onSizeAccept: (size: Size) -> Unit) {
                         DialogState.dismissDialog()
                     }
                 },
-                content = { Text("CHANGE SIZE") },
+                content = { Text(ResString.get("editor.dialog.change.size.confirm")) },
                 enabled = !columnState.isError && !rowState.isError
             )
         }

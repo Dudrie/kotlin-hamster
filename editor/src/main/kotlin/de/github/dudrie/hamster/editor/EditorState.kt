@@ -14,6 +14,13 @@ import de.github.dudrie.hamster.editor.tools.TileTool
  */
 object EditorState {
     /**
+     * Maximum amount of columns or rows of a territory.
+     *
+     * The maximums size is: `maxColumnAndRowCount` x `maxColumnAndRowCount`.
+     */
+    const val maxColumnAndRowCount = 30
+
+    /**
      * Currently edited tile. If no tile is edited this is `null`.
      */
     val editedTile = mutableStateOf<EditedTile?>(null)
