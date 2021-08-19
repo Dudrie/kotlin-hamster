@@ -73,7 +73,7 @@ fun EditPanelTile(tile: EditableGameTile) {
     TextFieldForNumbers(
         value = tile.grainCount,
         onValueChanged = {
-            if (it > 0) {
+            if (it >= 0) {
                 tile.setGrainCount(it)
             }
         },

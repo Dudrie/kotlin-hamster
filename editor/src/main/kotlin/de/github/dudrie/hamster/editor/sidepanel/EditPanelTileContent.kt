@@ -60,7 +60,7 @@ fun EditPanelHamsterTileContent(content: EditableHamster) {
     TextFieldForNumbers(
         value = content.grainCount,
         onValueChanged = {
-            if (it > 0) {
+            if (it >= 0) {
                 content.setGrainCount(it)
             }
         },
