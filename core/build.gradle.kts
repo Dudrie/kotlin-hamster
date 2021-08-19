@@ -8,6 +8,9 @@ plugins {
 
 dependencies {
     implementation(compose.desktop.currentOs)
+
+    implementation("com.google.code.gson:gson:2.8.7")
+
     testImplementation(kotlin("test"))
 }
 

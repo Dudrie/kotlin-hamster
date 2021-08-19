@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor
+package de.github.dudrie.hamster.editor.application
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -10,6 +10,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.editor.components.BoardForEditor
+import de.github.dudrie.hamster.editor.sidepanel.EditorSidepanel
 
 /**
  * Main composable for the editor UI.

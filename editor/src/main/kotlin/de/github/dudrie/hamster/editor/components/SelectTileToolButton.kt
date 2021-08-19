@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor
+package de.github.dudrie.hamster.editor.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.tools.TileTool
 
 /**

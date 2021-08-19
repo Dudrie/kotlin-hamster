@@ -17,7 +17,7 @@ fun AppBarButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    content: @Composable() (RowScope.() -> Unit)
+    content: @Composable (RowScope.() -> Unit)
 ) {
     OutlinedButton(
         onClick = onClick,

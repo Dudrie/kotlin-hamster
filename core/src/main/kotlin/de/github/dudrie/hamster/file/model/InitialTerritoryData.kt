@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.importer.data
+package de.github.dudrie.hamster.file.model
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
@@ -7,12 +7,12 @@ import de.github.dudrie.hamster.importer.helpers.stringifyJson
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
 /**
- * Data used to generate the initial [Territory][de.github.dudrie.hamster.external.model.Territory].
+ * Data used to generate the initial territory.
  *
  * @param territorySize [Size] of the territory.
- * @param initialHamster Data to generate the initial, default [Hamster][de.github.dudrie.hamster.external.model.Hamster].
+ * @param initialHamster Data to generate the initial, default hamster.
  */
-class InitialTerritoryData(val territorySize: Size, val initialHamster: HamsterData) {
+class InitialTerritoryData(val territorySize: Size, val initialHamster: InitialHamsterData) {
 
     /**
      * Exposes function to instantiate the [InitialTerritoryData] from JSON.

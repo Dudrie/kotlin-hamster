@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor
+package de.github.dudrie.hamster.editor.sidepanel
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth

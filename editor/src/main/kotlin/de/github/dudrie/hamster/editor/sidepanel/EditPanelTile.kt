@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor
+package de.github.dudrie.hamster.editor.sidepanel
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.model.EditableGameTile
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.territory.GameTileType

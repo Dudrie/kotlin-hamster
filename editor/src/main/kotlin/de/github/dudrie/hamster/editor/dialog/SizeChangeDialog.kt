@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.datatypes.Size
-import de.github.dudrie.hamster.editor.EditorState
+import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.ui.components.TextFieldForNumbers
 import de.github.dudrie.hamster.ui.components.rememberTextFieldForNumbersState
 
@@ -33,7 +33,7 @@ fun SizeChangeDialog(onSizeAccept: (size: Size) -> Unit, onDismiss: () -> Unit) 
 
     DefaultDialog(
         onDismissRequest = onDismiss,
-        title = { },
+        title = { Text("editor.dialog.change.size.title") },
         text = {
             Column {
                 Text(ResString.get("editor.dialog.change.size.text"))

@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor
+package de.github.dudrie.hamster.editor.sidepanel
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.MutableTransitionState
@@ -7,6 +7,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.editor.application.EditorState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

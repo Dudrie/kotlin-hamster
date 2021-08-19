@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor
+package de.github.dudrie.hamster.editor.sidepanel
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.editor.components.SelectTileToolButton
 import de.github.dudrie.hamster.editor.tools.MakeFloorTool
 import de.github.dudrie.hamster.editor.tools.MakeWallTool
 import de.github.dudrie.hamster.ui.R

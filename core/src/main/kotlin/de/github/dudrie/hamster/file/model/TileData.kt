@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.importer.data
+package de.github.dudrie.hamster.file.model
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.internal.model.territory.GameTileType

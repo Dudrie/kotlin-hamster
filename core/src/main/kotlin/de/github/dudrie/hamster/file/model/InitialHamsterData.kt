@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.importer.data
+package de.github.dudrie.hamster.file.model
 
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.datatypes.Location
@@ -10,4 +10,4 @@ import de.github.dudrie.hamster.datatypes.Location
  * @param direction Initial [Direction] the hamster faces in.
  * @param grainCount Initial amount of grains the hamster has in its mouth.
  */
-data class HamsterData(val location: Location, val direction: Direction, val grainCount: Int)
+data class InitialHamsterData(val location: Location, val direction: Direction, val grainCount: Int)

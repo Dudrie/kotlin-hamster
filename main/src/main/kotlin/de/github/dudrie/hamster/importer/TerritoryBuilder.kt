@@ -3,7 +3,7 @@ package de.github.dudrie.hamster.importer
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.execptions.InitialTerritoryInvalidException
-import de.github.dudrie.hamster.importer.data.TileData
+import de.github.dudrie.hamster.file.model.TileData
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType

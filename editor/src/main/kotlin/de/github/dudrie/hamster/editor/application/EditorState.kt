@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor
+package de.github.dudrie.hamster.editor.application
 
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Direction

@@ -3,8 +3,8 @@ package de.github.dudrie.hamster.importer
 import de.github.dudrie.hamster.external.model.Hamster
 import de.github.dudrie.hamster.external.model.HamsterGame
 import de.github.dudrie.hamster.external.model.Territory
+import de.github.dudrie.hamster.file.model.InitialTerritoryData
 import de.github.dudrie.hamster.importer.InitialGameImporter.Companion.DEFAULT_FILE
-import de.github.dudrie.hamster.importer.data.InitialTerritoryData
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 
 /**
