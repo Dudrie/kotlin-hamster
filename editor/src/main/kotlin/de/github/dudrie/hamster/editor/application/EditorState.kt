@@ -177,6 +177,30 @@ object EditorState {
     }
 
     /**
+     * Fills all tiles around the territory with [walls][GameTileType.Wall].
+     *
+     * However, only tiles that are empty are being replaced with walls
+     */
+    fun surroundTerritoryWithWalls() {
+        val territory = territory.value
+        val (columnCount, rowCount) = territory.territorySize
+
+        for (column in 0 until columnCount) {
+            val locationTop = Location(column, 0)
+            val locationBottom = Location(column, rowCount - 1)
+            territory.getTileAt(locationTop).makeWallIfPossible()
+            territory.getTileAt(locationBottom).makeWallIfPossible()
+        }
+
+        for (row in 1 until rowCount - 1) {
+            val locationLeft = Location(0, row)
+            val locationRight = Location(columnCount - 1, row)
+            territory.getTileAt(locationLeft).makeWallIfPossible()
+            territory.getTileAt(locationRight).makeWallIfPossible()
+        }
+    }
+
+    /**
      * Resets [selectedTool] and [editedTile] properties.
      */
     private fun resetTools() {

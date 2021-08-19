@@ -1,15 +1,16 @@
 package de.github.dudrie.hamster.editor.components
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.tools.TileTool
@@ -22,13 +23,12 @@ import de.github.dudrie.hamster.editor.tools.TileTool
  * @param text Text to show to the right of the [icon].
  * @param modifier [Modifier] applied to the underlying [Surface].
  */
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SelectTileToolButton(
     tool: TileTool?,
     icon: @Composable () -> Unit,
     text: @Composable () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
 ) {
     var selectedTileTool by EditorState.selectedTool
     val isSelected by produceState(false, selectedTileTool, tool) { value = selectedTileTool == tool }
@@ -43,25 +43,12 @@ fun SelectTileToolButton(
         MaterialTheme.colors.surface
     }
 
-    Surface(
+    EditorToolboxButton(
         onClick = { selectedTileTool = tool },
-        role = Role.Button,
+        icon = icon,
+        text = text,
         color = color,
-        contentColor = MaterialTheme.colors.contentColorFor(color),
-        shape = MaterialTheme.shapes.small,
         border = border,
         modifier = modifier
-    ) {
-        Row(
-            modifier = Modifier.defaultMinSize(minWidth = ButtonDefaults.MinWidth, minHeight = 48.dp).padding(8.dp),
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            icon()
-
-            Box(Modifier.padding(start = 8.dp)) {
-                text()
-            }
-        }
-    }
+    )
 }

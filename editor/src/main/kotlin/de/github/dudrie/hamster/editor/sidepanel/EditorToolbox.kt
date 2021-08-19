@@ -3,6 +3,7 @@ package de.github.dudrie.hamster.editor.sidepanel
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -11,6 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.editor.application.EditorState
+import de.github.dudrie.hamster.editor.components.EditorToolboxButton
 import de.github.dudrie.hamster.editor.components.SelectTileToolButton
 import de.github.dudrie.hamster.editor.tools.MakeFloorTool
 import de.github.dudrie.hamster.editor.tools.MakeWallTool
@@ -36,15 +39,13 @@ fun EditorToolbox(modifier: Modifier = Modifier) {
         SelectTileToolButton(
             tool = remember { null },
             icon = { ResourceIcon(R.icons.selectTool, modifier = Modifier.size(iconSize.value)) },
-            text = { Text(ResString.get("editor.toolbox.tool.selection")) },
-            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+            text = { Text(ResString.get("editor.toolbox.tool.selection")) }
         )
 
         SelectTileToolButton(
             tool = remember { MakeWallTool() },
             icon = { ResourceIcon(R.images.wall, size = iconSize, tint = Color.Unspecified) },
-            text = { Text(ResString.get("editor.toolbox.tool.wall")) },
-            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+            text = { Text(ResString.get("editor.toolbox.tool.wall")) }
         )
 
         SelectTileToolButton(
@@ -55,8 +56,22 @@ fun EditorToolbox(modifier: Modifier = Modifier) {
                         .size(iconSize.value)
                 )
             },
-            text = { Text(ResString.get("editor.toolbox.tool.floor")) },
-            modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
+            text = { Text(ResString.get("editor.toolbox.tool.floor")) }
+        )
+
+        Divider(Modifier.padding(vertical = 16.dp))
+
+        Text(
+            "ACTIONS",
+            style = MaterialTheme.typography.h5,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        EditorToolboxButton(
+            onClick = { EditorState.surroundTerritoryWithWalls() },
+            icon = { ResourceIcon(R.icons.surroundWithWalls, size = iconSize, tint = Color.Unspecified) },
+            text = { Text(ResString.get("editor.toolbox.surround.with.walls")) },
+            modifier = Modifier.fillMaxWidth()
         )
     }
 }
