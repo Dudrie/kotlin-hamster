@@ -23,7 +23,6 @@ fun EditorAppBar() {
         val padding = 16.dp
         val scope = rememberCoroutineScope()
 
-        // TODO: Make abstract AppBarButton which is used here and in ControlButton (:ui).
         AppBarButton(
             {
                 scope.launch {
@@ -39,32 +38,32 @@ fun EditorAppBar() {
                 }
             },
             modifier = Modifier.padding(start = padding, end = padding),
-            true
         ) { Text(ResString.get("editor.appbar.button.new")) }
 
         AppBarButton(
-            { TODO("Not implemented") },
+            onClick = {
+                scope.launch { DialogService.askForFileToSave()?.let { path -> EditorState.saveToFile(path) } }
+            },
             modifier = Modifier.padding(end = padding),
-            true
         ) { Text(ResString.get("editor.appbar.button.save")) }
 
         AppBarButton(
-            { TODO("Not implemented") },
-            modifier = Modifier.padding(end = padding),
-            true
-        ) { Text(ResString.get("editor.appbar.button.open")) }
-
-        AppBarButton(
-            {
+            onClick = {
                 scope.launch {
-                    val size = DialogService.askForNewTerritorySize()
-                    if (size != null) {
-                        EditorState.setTerritorySize(size)
-                    }
+                    // TODO: Add confirmation if user really wants to load a new territory -> Old one gets overridden.
+                    DialogService.askForFileToLoad()?.let { path -> EditorState.loadFromFile(path) }
                 }
             },
             modifier = Modifier.padding(end = padding),
-            true
+        ) { Text(ResString.get("editor.appbar.button.open")) }
+
+        AppBarButton(
+            onClick = {
+                scope.launch {
+                    DialogService.askForNewTerritorySize()?.let { size -> EditorState.setTerritorySize(size) }
+                }
+            },
+            modifier = Modifier.padding(end = padding),
         ) { Text(ResString.get("editor.appbar.button.change.size")) }
     }
 }

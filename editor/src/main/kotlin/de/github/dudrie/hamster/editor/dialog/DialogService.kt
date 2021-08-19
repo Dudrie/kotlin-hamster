@@ -3,11 +3,11 @@ package de.github.dudrie.hamster.editor.dialog
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.ui.window.FrameWindowScope
+import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.datatypes.Size
-import kotlinx.coroutines.CompletableDeferred
+import java.nio.file.Path
 
 /**
  * Handles the state used by the [DialogManager].
@@ -16,12 +16,12 @@ internal object DialogService {
     /**
      * Dialog to show.
      */
-    val dialog = mutableStateOf<@Composable (() -> Unit)?>(null)
+    val dialog = mutableStateOf<@Composable (FrameWindowScope.() -> Unit)?>(null)
 
     /**
      * Shows the given dialog.
      */
-    private fun showDialog(dialog: @Composable () -> Unit) {
+    private fun showDialog(dialog: @Composable FrameWindowScope.() -> Unit) {
         this.dialog.value = dialog
     }
 
@@ -80,6 +80,38 @@ internal object DialogService {
     }
 
     /**
+     * Shows the user a dialog to pick a file to open.
+     *
+     * Returns the selected [Path] or `null` if no path got selected.
+     */
+    suspend fun askForFileToLoad(): Path? =
+        showFileDialog(title = ResString.get("dialog.file.load.title"), isOpenFile = true)
+
+    /**
+     * Shows the user a dialog to pick a path to save to.
+     *
+     * Returns the selected [Path] or `null` if no path got selected.
+     */
+    suspend fun askForFileToSave(): Path? =
+        showFileDialog(title = ResString.get("dialog.file.save.title"), isOpenFile = false)
+
+    /**
+     * Helper function showing a dialog for file handling.
+     *
+     * The dialog will have the given [title] and is either an opening of a saving dialog depending on [isOpenFile]. The chosen file path will get returned or `null` if the user did not select any path.
+     */
+    private suspend fun showFileDialog(title: String, isOpenFile: Boolean): Path? {
+        val state = DialogState<Path?>()
+        showDialog {
+            FileDialog(title = title, isOpenFile = isOpenFile, onFileSelection = {
+                state.setResult(it)
+                dismissDialog()
+            })
+        }
+        return state.awaitResult()
+    }
+
+    /**
      * Show a confirmation dialog to the user.
      */
     private fun showConfirmDialog(
@@ -118,35 +150,6 @@ internal object DialogService {
                 }
             )
         }
-    }
-}
-
-/**
- * A state used to abstract logic while waiting on a response from a dialog.
- */
-private class DialogState<T> {
-    /**
-     * Handles the waiting and storing the result.
-     */
-    private var onResult: CompletableDeferred<T>? by mutableStateOf(null)
-
-    /**
-     * Waits until a result is set via [setResult].
-     */
-    suspend fun awaitResult(): T {
-        onResult = onResult ?: CompletableDeferred()
-        val result = onResult!!.await()
-        onResult = null
-        return result
-    }
-
-    /**
-     * Sets the [result] of this state if there is at least one awaiting the result.
-     *
-     * Makes [awaitResult] return with the given [result].
-     */
-    fun setResult(result: T) {
-        onResult?.complete(result)
     }
 }
 

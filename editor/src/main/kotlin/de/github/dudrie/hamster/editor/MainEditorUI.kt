@@ -10,7 +10,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.editor.dialog.DialogManager
 
 /**
  * Main composable for the editor UI.
@@ -28,6 +27,4 @@ fun MainEditorUI() {
             EditorSidepanel(Modifier.fillMaxHeight().width(300.dp))
         }
     }
-
-    DialogManager()
 }

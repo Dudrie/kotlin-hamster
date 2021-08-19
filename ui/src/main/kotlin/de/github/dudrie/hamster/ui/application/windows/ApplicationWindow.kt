@@ -3,10 +3,7 @@ package de.github.dudrie.hamster.ui.application.windows
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Window
-import androidx.compose.ui.window.WindowSize
-import androidx.compose.ui.window.WindowState
-import androidx.compose.ui.window.launchApplication
+import androidx.compose.ui.window.*
 import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,7 +22,7 @@ abstract class ApplicationWindow(private val windowTitle: String) {
      * Renders the content of the window.
      */
     @Composable
-    abstract fun content()
+    abstract fun FrameWindowScope.content()
 
     /**
      * Starts the Compose application.

@@ -2,6 +2,7 @@ package de.github.dudrie.hamster.ui.application.windows
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.window.FrameWindowScope
 import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.interfaces.AbstractHamsterGame
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
@@ -18,7 +19,7 @@ class GameWindow(private val hamsterGame: AbstractHamsterGame) : ApplicationWind
      * Renders the UI for the game.
      */
     @Composable
-    override fun content() {
+    override fun FrameWindowScope.content() {
         CompositionLocalProvider(
             HamsterGameLocal provides hamsterGame
         ) {

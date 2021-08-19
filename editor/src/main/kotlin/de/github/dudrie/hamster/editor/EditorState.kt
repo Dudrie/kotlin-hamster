@@ -8,6 +8,11 @@ import de.github.dudrie.hamster.editor.model.EditableGameTile
 import de.github.dudrie.hamster.editor.model.EditableHamster
 import de.github.dudrie.hamster.editor.model.EditableTerritory
 import de.github.dudrie.hamster.editor.tools.TileTool
+import de.github.dudrie.hamster.file.model.InitialHamsterData
+import de.github.dudrie.hamster.file.model.InitialTerritoryData
+import de.github.dudrie.hamster.internal.model.territory.GameTileType
+import java.io.FileWriter
+import java.nio.file.Path
 
 /**
  * State of the editor.
@@ -39,6 +44,15 @@ object EditorState {
      * Hamster which contains the information about the initially spawned hamster in a game.
      */
     private val startingHamster = mutableStateOf<EditableHamster?>(null)
+
+    /**
+     * Has the editor a starting hamster present and is it visible on the current territory?
+     */
+    val hasStartingHamster: Boolean
+        get() {
+            val hamster = startingHamster.value
+            return hamster != null && territory.value.territorySize.isLocationInside(hamster.currentTile.location)
+        }
 
     /**
      * Sets the tile of the [startingHamster] to the given one.
@@ -86,6 +100,59 @@ object EditorState {
     }
 
     /**
+     * Saves the current territory to the file at the given [path].
+     */
+    fun saveToFile(path: Path) {
+        val hamster = startingHamster.value
+        val territory = territory.value
+        val size = territory.territorySize
+
+        // TODO: Don't allow the creation without default hamster -> User feedback earlier
+        require(hamster != null) { "The starting hamster must be present on the territory." }
+
+        val hamsterData = InitialHamsterData(
+            location = hamster.currentTile.location,
+            direction = hamster.direction,
+            grainCount = hamster.grainCount
+        )
+        val territoryData = InitialTerritoryData(territorySize = size, initialHamster = hamsterData)
+
+        size.getAllLocationsInside().forEach { location ->
+            val tile = territory.getTileAt(location)
+
+            if (tile.grainCount > 0) {
+                territoryData.addGrains(tile.grainCount, location)
+            }
+
+            if (tile.type == GameTileType.Wall) {
+                territoryData.addWallTile(location)
+            }
+        }
+
+        var filePath = path
+        if (!filePath.endsWith(".json")) {
+            filePath = filePath.resolveSibling("${path.fileName}.json")
+        }
+
+        val writer = FileWriter(filePath.toFile(), Charsets.UTF_8)
+        writer.use {
+            writer.write(territoryData.toJson())
+        }
+
+        // TODO: Catch exceptions!
+
+        // TODO: Inform user, writing was successful!
+    }
+
+    /**
+     * Loads a territory from the file at the given [path].
+     */
+    fun loadFromFile(path: Path) {
+        // TODO: Check extension!
+        TODO("Not yet implemented")
+    }
+
+    /**
      * Resets [selectedTool] and [editedTile] properties.
      */
     private fun resetTools() {
@@ -102,6 +169,7 @@ object EditorState {
      * Creates and returns a default empty [EditableTerritory].
      */
     private fun getDefaultTerritory(): EditableTerritory = EditableTerritory(Size(5, 3))
+
 }
 
 /**
