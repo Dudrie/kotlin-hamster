@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.importer
+package de.github.dudrie.hamster.importer.helpers
 
 import de.github.dudrie.hamster.datatypes.Location
 import de.github.dudrie.hamster.datatypes.Size
@@ -13,7 +13,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  *
  * @param territorySize [Size] of the territory that will be generated.
  */
-class TerritoryBuilder(private val territorySize: Size) {
+open class TerritoryBuilder(val territorySize: Size) {
     /**
      * Tiles of the tutorial.
      */
@@ -24,7 +24,7 @@ class TerritoryBuilder(private val territorySize: Size) {
      *
      * If there are locations without a tile inside [territorySize] those will be filled with empty floor tiles before the territory gets generated.
      */
-    fun build(): GameTerritory {
+    fun buildGameTerritory(): GameTerritory {
         fillEmptyTiles()
 
         return GameTerritory(territorySize, tiles)
@@ -55,6 +55,11 @@ class TerritoryBuilder(private val territorySize: Size) {
     }
 
     /**
+     * Returns a copy of the list of all tiles.
+     */
+    protected fun getAllTiles(): List<GameTile> = tiles.toList()
+
+    /**
      * Adds an empty floor tile at the [location].
      */
     private fun addDefaultTile(location: Location) {
@@ -66,7 +71,7 @@ class TerritoryBuilder(private val territorySize: Size) {
      *
      * @see addDefaultTile
      */
-    private fun fillEmptyTiles() {
+    protected fun fillEmptyTiles() {
         for (location in territorySize.getAllLocationsInside()) {
             if (!hasLocationATile(location)) {
                 addDefaultTile(location)

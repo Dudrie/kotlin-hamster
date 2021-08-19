@@ -6,6 +6,7 @@ import de.github.dudrie.hamster.external.model.Territory
 import de.github.dudrie.hamster.file.model.InitialTerritoryData
 import de.github.dudrie.hamster.importer.InitialGameImporter.Companion.DEFAULT_FILE
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
+import de.github.dudrie.hamster.importer.helpers.TerritoryBuilder
 
 /**
  * Importer to import the initial game data from a corresponding file.
@@ -59,7 +60,7 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
         val builder = TerritoryBuilder(size)
         initSpecialTiles(builder)
 
-        val gameTerritory = builder.build()
+        val gameTerritory = builder.buildGameTerritory()
         territory = Territory(hamsterGame, gameTerritory)
     }
 

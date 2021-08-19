@@ -23,6 +23,11 @@ class EditableTerritory(initialSize: Size) : AbstractTerritory() {
      */
     private val tiles = mutableListOf<EditableGameTile>()
 
+    constructor(initialSize: Size, tiles: List<EditableGameTile>) : this(initialSize) {
+        this.tiles.clear()
+        this.tiles.addAll(tiles)
+    }
+
     init {
         for (location in territorySize.getAllLocationsInside()) {
             tiles.add(createDefaultTile(location))

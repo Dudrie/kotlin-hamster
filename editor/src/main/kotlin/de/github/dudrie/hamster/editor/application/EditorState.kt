@@ -7,12 +7,15 @@ import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.editor.model.EditableGameTile
 import de.github.dudrie.hamster.editor.model.EditableHamster
 import de.github.dudrie.hamster.editor.model.EditableTerritory
+import de.github.dudrie.hamster.editor.model.builder.EditableTerritoryBuilder
 import de.github.dudrie.hamster.editor.tools.TileTool
 import de.github.dudrie.hamster.file.model.InitialHamsterData
 import de.github.dudrie.hamster.file.model.InitialTerritoryData
+import de.github.dudrie.hamster.importer.helpers.parseJson
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
-import java.io.FileWriter
+import java.nio.file.Files
 import java.nio.file.Path
+import kotlin.io.path.name
 
 /**
  * State of the editor.
@@ -130,17 +133,16 @@ object EditorState {
         }
 
         var filePath = path
-        if (!filePath.endsWith(".json")) {
+        if (!filePath.name.endsWith(".json")) {
             filePath = filePath.resolveSibling("${path.fileName}.json")
         }
 
-        val writer = FileWriter(filePath.toFile(), Charsets.UTF_8)
+        val writer = Files.newBufferedWriter(filePath, Charsets.UTF_8)
         writer.use {
             writer.write(territoryData.toJson())
         }
 
         // TODO: Catch exceptions!
-
         // TODO: Inform user, writing was successful!
     }
 
@@ -148,8 +150,30 @@ object EditorState {
      * Loads a territory from the file at the given [path].
      */
     fun loadFromFile(path: Path) {
-        // TODO: Check extension!
-        TODO("Not yet implemented")
+        if (!path.name.endsWith(".json")) {
+            throw Exception("Only json files are supported.")
+        }
+
+        val reader = Files.newBufferedReader(path, Charsets.UTF_8)
+        reader.use {
+            val data = parseJson<InitialTerritoryData>(reader.readText())
+            val builder = EditableTerritoryBuilder(data.territorySize)
+
+            data.getAllSpecialTiles().forEach { tile ->
+                builder.addSpecialTile(tile)
+            }
+
+            territory.value = builder.buildEditableTerritory()
+            val hamsterTile = territory.value.getTileAt(data.initialHamster.location)
+
+            startingHamster.value =
+                EditableHamster(hamsterTile, data.initialHamster.direction, data.initialHamster.grainCount)
+            hamsterTile.addContent(startingHamster.value!!)
+            resetTools()
+        }
+
+        // TODO: Catch exceptions!
+        // TODO: Inform user, writing was successful!
     }
 
     /**
