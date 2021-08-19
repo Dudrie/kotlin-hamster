@@ -62,7 +62,7 @@ fun EditorToolbox(modifier: Modifier = Modifier) {
         Divider(Modifier.padding(vertical = 16.dp))
 
         Text(
-            "ACTIONS",
+            ResString.get("editor.toolbox.actions.title"),
             style = MaterialTheme.typography.h5,
             modifier = Modifier.padding(bottom = 16.dp)
         )
