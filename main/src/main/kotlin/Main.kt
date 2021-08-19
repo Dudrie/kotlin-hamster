@@ -16,12 +16,9 @@ private fun runSampleGame(game: HamsterGame) {
     repeat(3) {
         paule.turnLeft()
     }
+
     repeat(2) {
         paule.move()
-    }
-
-    repeat(25) {
-        paule.talk("I said something :) #$it")
     }
 
     repeat(2) {

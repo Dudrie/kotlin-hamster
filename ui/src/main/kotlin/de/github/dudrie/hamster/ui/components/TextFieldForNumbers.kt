@@ -23,6 +23,8 @@ fun TextFieldForNumbers(
     label: @Composable () -> Unit,
     enabled: Boolean = true,
     hint: String? = null,
+    isError: Boolean = false,
+    onError: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Column(modifier) {
@@ -32,14 +34,64 @@ fun TextFieldForNumbers(
             value = textFieldState,
             onValueChange = { newValue ->
                 textFieldState = newValue
-                newValue.toIntOrNull()?.let { onValueChanged(it) }
+                val parsedValue = newValue.toIntOrNull()
+
+                if (parsedValue == null) {
+                    onError()
+                } else {
+                    onValueChanged(parsedValue)
+                }
             },
             label = label,
             maxLines = 1,
+            isError = isError,
             enabled = enabled
         )
 
         hint?.let { Text(it) }
     }
-
 }
+
+@Composable
+fun TextFieldForNumbers(
+    state: TextFieldForNumbersState,
+    label: @Composable () -> Unit,
+    enabled: Boolean = true,
+    hint: String? = null,
+    modifier: Modifier = Modifier
+) {
+    TextFieldForNumbers(
+        value = state.value,
+        onValueChanged = {
+            state.value = it
+            state.isError = false
+        },
+        isError = state.isError,
+        onError = { state.isError = true },
+        label = label,
+        enabled = enabled,
+        hint = hint,
+        modifier = modifier
+    )
+}
+
+data class TextFieldForNumbersState(
+    private val valueState: MutableState<Int>,
+    private val isErrorState: MutableState<Boolean>
+) {
+    var value: Int
+        get() = valueState.value
+        set(value) {
+            valueState.value = value
+        }
+
+    var isError: Boolean
+        get() = isErrorState.value
+        set(value) {
+            isErrorState.value = value
+        }
+}
+
+@Composable
+fun rememberTextFieldForNumbersState(initialValue: Int): TextFieldForNumbersState =
+    remember { TextFieldForNumbersState(mutableStateOf(initialValue), mutableStateOf(false)) }
