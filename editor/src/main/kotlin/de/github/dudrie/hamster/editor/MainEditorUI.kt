@@ -21,7 +21,7 @@ fun MainEditorUI() {
         Row(modifier = Modifier.fillMaxSize()) {
             val territory by EditorState.territory
 
-            key(territory) {
+            key(territory, territory.territorySize) {
                 BoardForEditor(territory, Modifier.weight(1f).fillMaxHeight())
             }
 
