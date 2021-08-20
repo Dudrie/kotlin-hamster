@@ -85,7 +85,6 @@ class GameHamster(
      * However, the grain count of the tile is **NOT** updated by this function.
      */
     fun pickGrain() {
-        require(currentTile.grainCount > 0) { "The tile beneath the hamster does not have any grains on it." }
         setGrainCount(grainCount + 1)
     }
 
@@ -97,9 +96,7 @@ class GameHamster(
      * The grain count of the tile the hamster stands on is **NOT** updated.
      */
     fun dropGrain() {
-        require(grainCount > 0) {
-            "Hamster does not have a grain to drop."
-        }
+        require(grainCount > 0) { "Hamster does not have a grain to drop." }
         setGrainCount(grainCount - 1)
     }
 
