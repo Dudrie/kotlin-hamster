@@ -56,6 +56,6 @@ interface IHamster {
     /**
      * Prints a [message] to the game's console.
      */
-    fun talk(message: String)
+    fun say(message: String)
 
 }

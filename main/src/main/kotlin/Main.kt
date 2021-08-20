@@ -10,7 +10,7 @@ private fun runSampleGame(game: HamsterGame) {
     paule.move()
 
     repeat(5) {
-        paule.talk("I said something :) #$it")
+        paule.say("I said something :) #$it")
     }
 
     repeat(3) {

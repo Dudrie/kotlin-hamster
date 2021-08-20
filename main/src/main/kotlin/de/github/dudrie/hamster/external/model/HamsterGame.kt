@@ -48,6 +48,13 @@ class HamsterGame(territoryFile: String? = null) : AbstractHamsterGame() {
     }
 
     /**
+     * Stops a running game.
+     */
+    override fun stopGame() {
+        gameCommands.stopGame()
+    }
+
+    /**
      * Executes the given [command] to change the state of this game.
      */
     override fun executeCommand(command: Command) {

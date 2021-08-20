@@ -106,7 +106,7 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     /**
      * Prints a [message] to the game's console.
      */
-    override fun talk(message: String) {
+    override fun say(message: String) {
         game.executeCommand(WriteMessageCommand(message))
     }
 

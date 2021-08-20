@@ -1,7 +1,12 @@
-import de.github.dudrie.hamster.imperative.startGame
+import de.github.dudrie.hamster.imperative.*
 
 internal fun main() {
     startGame()
 
-    println("Hello imperative world!!")
+    say("Hello imperative world!!")
+    move()
+    move()
+    pickGrain()
+
+    stopGame()
 }

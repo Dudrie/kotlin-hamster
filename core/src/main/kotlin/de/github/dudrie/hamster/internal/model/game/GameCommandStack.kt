@@ -221,7 +221,7 @@ class GameCommandStack : CommandStack() {
         }
     }
 
-    private fun stopGame() {
+    fun stopGame() {
         executionLock.lock()
         try {
             modeState.value = GameMode.Stopped

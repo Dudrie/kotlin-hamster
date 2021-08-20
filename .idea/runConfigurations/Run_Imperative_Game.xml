@@ -1,9 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run Test Game" type="JetRunConfigurationType">
+  <configuration default="false" name="Run Imperative Game" type="JetRunConfigurationType">
     <option name="MAIN_CLASS_NAME" value="MainKt" />
-    <module name="kotlin-hamster.main.main" />
+    <module name="kotlin-hamster.imperative.main" />
     <shortenClasspath name="NONE" />
-    <option name="WORKING_DIRECTORY" value="$ProjectFileDir$" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

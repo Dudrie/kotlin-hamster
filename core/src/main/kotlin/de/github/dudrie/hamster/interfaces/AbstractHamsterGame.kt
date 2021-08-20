@@ -51,10 +51,14 @@ abstract class AbstractHamsterGame {
     abstract fun startGame(startPaused: Boolean = true)
 
     /**
+     * Stops the game.
+     */
+    abstract fun stopGame()
+
+    /**
      * Executes the given [command] to change the state of this game.
      */
     abstract fun executeCommand(command: Command)
-
 
     /**
      * The territory of the game.
@@ -73,4 +77,5 @@ abstract class AbstractHamsterGame {
      */
     @Composable
     operator fun component3(): GameTile? = tileToHighlight
+
 }
