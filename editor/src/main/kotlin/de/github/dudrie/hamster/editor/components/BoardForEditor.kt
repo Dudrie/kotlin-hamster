@@ -11,9 +11,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.editor.application.EditedTile
 import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.model.EditableTerritory
+import de.github.dudrie.hamster.editor.model.EditedTile
 import de.github.dudrie.hamster.ui.components.board.BoardGrid
 import de.github.dudrie.hamster.ui.components.board.BoardTile
 import kotlinx.coroutines.flow.collect

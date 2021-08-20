@@ -23,7 +23,6 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
          * Path to the default territory file which gets loaded if [territoryFile] is not specified.
          */
         private const val DEFAULT_FILE = "/territories/defaultTerritory.json"
-        // TODO: Create this file actually!
     }
 
     /**

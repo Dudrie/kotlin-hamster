@@ -9,7 +9,9 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.ResString
-import de.github.dudrie.hamster.editor.dialog.ConfirmDialogResult
+import de.github.dudrie.hamster.editor.application.helpers.handleCreateNewTerritory
+import de.github.dudrie.hamster.editor.application.helpers.handleOpenTerritory
+import de.github.dudrie.hamster.editor.application.helpers.handleSaveTerritory
 import de.github.dudrie.hamster.editor.dialog.DialogService
 import de.github.dudrie.hamster.ui.components.appbar.AppBarButton
 import kotlinx.coroutines.launch
@@ -25,53 +27,18 @@ fun EditorAppBar() {
         val snackbarHost = SnackbarHostLocal.current
 
         AppBarButton(
-            {
-                scope.launch {
-                    val result = DialogService.askForConfirmation(
-                        text = { Text(ResString.get("editor.dialog.new.territory.text")) },
-                        title = { Text(ResString.get("editor.dialog.new.territory.title")) },
-                        confirm = { Text(ResString.get("editor.dialog.new.territory.confirm")) },
-                        dismiss = { Text(ResString.get("button.cancel")) },
-                    )
-                    if (result == ConfirmDialogResult.Confirm) {
-                        EditorState.resetTerritory()
-                    }
-                }
-            },
+            onClick = { scope.launch { handleCreateNewTerritory() } },
             modifier = Modifier.padding(start = padding, end = padding),
         ) { Text(ResString.get("editor.appbar.button.new")) }
 
         AppBarButton(
-            onClick = {
-                scope.launch {
-                    DialogService.askForFileToSave()?.let { path ->
-                        EditorState.saveToFile(path)
-                        // TODO: Show depending on the success.
-                        snackbarHost.showSnackbar(
-                            ResString.get("editor.snackbar.file.saved.success"),
-                            ResString.get("snackbar.close")
-                        )
-                    }
-                }
-            },
+            onClick = { scope.launch { handleSaveTerritory(snackbarHost) } },
             enabled = EditorState.hasStartingHamster,
             modifier = Modifier.padding(end = padding)
         ) { Text(ResString.get("editor.appbar.button.save")) }
 
         AppBarButton(
-            onClick = {
-                scope.launch {
-                    // TODO: Add confirmation if user really wants to load a new territory -> Old one gets overridden.
-                    DialogService.askForFileToLoad()?.let { path ->
-                        EditorState.loadFromFile(path)
-                        // TODO: Show depending on the success.
-                        snackbarHost.showSnackbar(
-                            ResString.get("editor.snackbar.file.loaded.success"),
-                            ResString.get("snackbar.close")
-                        )
-                    }
-                }
-            },
+            onClick = { scope.launch { handleOpenTerritory(snackbarHost) } },
             modifier = Modifier.padding(end = padding),
         ) { Text(ResString.get("editor.appbar.button.open")) }
 
