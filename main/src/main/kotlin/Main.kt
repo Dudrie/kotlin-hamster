@@ -9,7 +9,7 @@ private fun runSampleGame(game: HamsterGame) {
     }
     paule.move()
 
-    repeat(25) {
+    repeat(5) {
         paule.talk("I said something :) #$it")
     }
 
@@ -29,7 +29,7 @@ private fun runSampleGame(game: HamsterGame) {
 
 internal fun main() {
     val game = HamsterGame("/territories/testTer01.json")
-    game.startGame(false)
+    game.startGame()
 
     runSampleGame(game)
 }
