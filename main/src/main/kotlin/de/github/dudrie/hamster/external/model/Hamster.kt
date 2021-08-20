@@ -88,7 +88,7 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     /**
      * Is the tile in front of the hamster free for movement?
      */
-    override fun canIMove(): Boolean {
+    override fun canYouMove(): Boolean {
         val location = internalHamster.getLocationAfterMove()
         return territory.isFree(location)
     }
@@ -96,12 +96,12 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     /**
      * Has the tile the hamster stands on at least one grain?
      */
-    override fun hasMyTileAGrain(): Boolean = territory.getNumbersOfGrainsAt(location) > 0
+    override fun hasYourTileAGrain(): Boolean = territory.getNumbersOfGrainsAt(location) > 0
 
     /**
      * Is the mouth of the hamster empty?
      */
-    override fun isMouthEmpty(): Boolean = internalHamster.grainCount > 0
+    override fun isYourMouthEmpty(): Boolean = internalHamster.grainCount > 0
 
     /**
      * Prints a [message] to the game's console.

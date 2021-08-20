@@ -41,17 +41,17 @@ interface IHamster {
     /**
      * Is the tile in front of the hamster free for movement?
      */
-    fun canIMove(): Boolean
+    fun canYouMove(): Boolean
 
     /**
      * Has the tile the hamster stands on at least one grain?
      */
-    fun hasMyTileAGrain(): Boolean
+    fun hasYourTileAGrain(): Boolean
 
     /**
      * Is the mouth of the hamster empty?
      */
-    fun isMouthEmpty(): Boolean
+    fun isYourMouthEmpty(): Boolean
 
     /**
      * Prints a [message] to the game's console.
