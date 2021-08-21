@@ -1,5 +1,6 @@
 package de.github.dudrie.hamster.imperative
 
+import de.github.dudrie.hamster.i18n.ErrorString
 import de.github.dudrie.hamster.internal.model.game.GameMode
 
 /**
@@ -10,7 +11,7 @@ import de.github.dudrie.hamster.internal.model.game.GameMode
  * - The [imperativeGlobalGame] is [stopped][GameMode.Aborted]
  */
 internal fun isGameStarted() {
-    require(imperativeGlobalGame != null) { "The game has to be started using the startGame() method." }
-    require(imperativeGlobalGame?.gameCommands?.mode != GameMode.Aborted) { "The game must not be aborted in order to execute commands." }
-    require(imperativeGlobalGame?.gameCommands?.mode != GameMode.Stopped) { "The game must not be stopped in order to execute commands." }
+    require(imperativeGlobalGame != null) { ErrorString.get("error.execute.command.GAME_HAS_TO_BE_STARTED") }
+    require(imperativeGlobalGame?.gameCommands?.mode != GameMode.Aborted) { ErrorString.get("error.execute.command.GAME_IS_ABORTED") }
+    require(imperativeGlobalGame?.gameCommands?.mode != GameMode.Stopped) { ErrorString.get("error.execute.command.GAME_IS_STOPPED") }
 }

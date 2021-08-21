@@ -4,6 +4,7 @@ internal fun main() {
     startGame()
     setGameSpeed(6f)
 
+    stopGame()
     say("Hello imperative world!!")
     move()
     move()

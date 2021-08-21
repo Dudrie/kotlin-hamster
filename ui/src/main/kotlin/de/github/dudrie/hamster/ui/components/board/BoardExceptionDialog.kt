@@ -8,7 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
-import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.components.ResourceIcon
 import de.github.dudrie.hamster.ui.components.ResourceIconSize
@@ -37,7 +37,7 @@ fun BoardExceptionDialog(runtimeException: RuntimeException?) {
                             .fillMaxWidth()
                     ) {
                         Text(
-                            text = ResString.get("dialog.exception.title"),
+                            text = HamsterString.get("dialog.exception.title"),
                             style = MaterialTheme.typography.h5.copy(color = MaterialTheme.colors.onError)
                         )
                     }
@@ -53,7 +53,7 @@ fun BoardExceptionDialog(runtimeException: RuntimeException?) {
                         )
 
                         Text(
-                            text = "${ResString.get("dialog.exception.pretext")}:\n\"$runtimeException\"",
+                            text = "${HamsterString.get("dialog.exception.pretext")}:\n\"$runtimeException\"",
                             style = MaterialTheme.typography.body2,
                             modifier = Modifier.padding(start = 8.dp)
                         )
@@ -65,7 +65,7 @@ fun BoardExceptionDialog(runtimeException: RuntimeException?) {
                             colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colors.onSurface)
                         ) {
                             Text(
-                                ResString.get("button.okay").uppercase()
+                                HamsterString.get("button.okay").uppercase()
                             )
                         }
                     }

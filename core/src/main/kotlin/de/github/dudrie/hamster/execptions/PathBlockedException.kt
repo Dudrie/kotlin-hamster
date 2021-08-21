@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.execptions
 
-import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 
 /**
@@ -14,5 +14,5 @@ class PathBlockedException(destinationTile: GameTile) : TileRelatedException(des
     /**
      * @return String representation of this exception
      */
-    override fun toString(): String = ResString.getWithFormat("error.path.blocked", tile.location)
+    override fun toString(): String = HamsterString.getWithFormat("error.path.blocked", tile.location)
 }

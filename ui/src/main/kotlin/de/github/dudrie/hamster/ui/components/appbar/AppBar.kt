@@ -10,7 +10,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
@@ -36,7 +36,7 @@ fun AppBar() {
         val canPauseOrResume by commands.canPauseOrResumeGame
 
         val speedText by produceState("", commands.speed) {
-            value = "${ResString.get("appbar.speed.label")}: ${floor(commands.speed)}"
+            value = "${HamsterString.get("appbar.speed.label")}: ${floor(commands.speed)}"
         }
 
         Spacer(Modifier.width(64.dp))
@@ -74,7 +74,7 @@ fun AppBar() {
         SpeedSlider(modifier = Modifier.width(400.dp).padding(start = padding * 2))
 
         Text(
-            text = "${ResString.getForGameMode(commands.mode)} | $speedText",
+            text = "${HamsterString.getForGameMode(commands.mode)} | $speedText",
             textAlign = TextAlign.End,
             modifier = Modifier.fillMaxWidth().weight(0.5f)
         )

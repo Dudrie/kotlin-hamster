@@ -2,10 +2,10 @@ package de.github.dudrie.hamster.editor.application.helpers
 
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Text
-import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.dialog.ConfirmDialogResult
 import de.github.dudrie.hamster.editor.dialog.DialogService
+import de.github.dudrie.hamster.i18n.HamsterString
 
 /**
  * Helper function used in the [EditorAppBar][de.github.dudrie.hamster.editor.application.EditorAppBar] to create a new territory.
@@ -14,10 +14,10 @@ import de.github.dudrie.hamster.editor.dialog.DialogService
  */
 internal suspend fun handleCreateNewTerritory() {
     val result = DialogService.askForConfirmation(
-        text = { Text(ResString.get("editor.dialog.new.territory.text")) },
-        title = { Text(ResString.get("editor.dialog.new.territory.title")) },
-        confirm = { Text(ResString.get("editor.dialog.new.territory.confirm")) },
-        dismiss = { Text(ResString.get("button.cancel")) },
+        text = { Text(HamsterString.get("editor.dialog.new.territory.text")) },
+        title = { Text(HamsterString.get("editor.dialog.new.territory.title")) },
+        confirm = { Text(HamsterString.get("editor.dialog.new.territory.confirm")) },
+        dismiss = { Text(HamsterString.get("button.cancel")) },
     )
     if (result == ConfirmDialogResult.Confirm) {
         EditorState.resetTerritory()
@@ -31,10 +31,10 @@ internal suspend fun handleCreateNewTerritory() {
  */
 internal suspend fun handleOpenTerritory(snackbarHost: SnackbarHostState) {
     val confirm = DialogService.askForConfirmation(
-        text = { Text(ResString.get("editor.dialog.confirm.open.territory.text")) },
-        title = { Text(ResString.get("editor.dialog.confirm.open.territory.title")) },
-        confirm = { Text(ResString.get("editor.dialog.confirm.open.territory.button.confirm")) },
-        dismiss = { Text(ResString.get("button.cancel")) })
+        text = { Text(HamsterString.get("editor.dialog.confirm.open.territory.text")) },
+        title = { Text(HamsterString.get("editor.dialog.confirm.open.territory.title")) },
+        confirm = { Text(HamsterString.get("editor.dialog.confirm.open.territory.button.confirm")) },
+        dismiss = { Text(HamsterString.get("button.cancel")) })
 
     if (confirm == ConfirmDialogResult.Dismiss) {
         return
@@ -45,16 +45,16 @@ internal suspend fun handleOpenTerritory(snackbarHost: SnackbarHostState) {
 
         if (result.isSuccess) {
             snackbarHost.showSnackbar(
-                ResString.get("editor.snackbar.file.loaded.success"),
-                ResString.get("snackbar.close")
+                HamsterString.get("editor.snackbar.file.loaded.success"),
+                HamsterString.get("snackbar.close")
             )
         } else {
             snackbarHost.showSnackbar(
-                ResString.getWithFormat(
+                HamsterString.getWithFormat(
                     "snackbar.error",
-                    result.error?.localizedMessage ?: ResString.get("error.unknown")
+                    result.error?.localizedMessage ?: HamsterString.get("error.unknown")
                 ),
-                ResString.get("snackbar.close")
+                HamsterString.get("snackbar.close")
             )
         }
     }
@@ -68,16 +68,16 @@ internal suspend fun handleSaveTerritory(snackbarHost: SnackbarHostState) {
         val result = EditorState.saveToFile(path)
         if (result.isSuccess) {
             snackbarHost.showSnackbar(
-                ResString.get("editor.snackbar.file.saved.success"),
-                ResString.get("snackbar.close")
+                HamsterString.get("editor.snackbar.file.saved.success"),
+                HamsterString.get("snackbar.close")
             )
         } else {
             snackbarHost.showSnackbar(
-                ResString.getWithFormat(
+                HamsterString.getWithFormat(
                     "snackbar.error",
-                    result.error?.localizedMessage ?: ResString.get("error.unknown")
+                    result.error?.localizedMessage ?: HamsterString.get("error.unknown")
                 ),
-                ResString.get("snackbar.close")
+                HamsterString.get("snackbar.close")
             )
         }
     }

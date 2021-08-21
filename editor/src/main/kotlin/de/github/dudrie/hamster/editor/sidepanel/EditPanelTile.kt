@@ -17,9 +17,9 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.model.EditableGameTile
+import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import de.github.dudrie.hamster.ui.R
@@ -46,7 +46,7 @@ fun EditPanelTile(tile: EditableGameTile) {
                     modifier = Modifier.size(40.dp)
                 )
             },
-            text = { Text(ResString.getForGameTileType(GameTileType.Wall)) }
+            text = { Text(HamsterString.getForGameTileType(GameTileType.Wall)) }
         )
 
         IconButtonWithText(
@@ -58,7 +58,7 @@ fun EditPanelTile(tile: EditableGameTile) {
                         .size(40.dp)
                 )
             },
-            text = { Text(ResString.getForGameTileType(GameTileType.Floor)) }
+            text = { Text(HamsterString.getForGameTileType(GameTileType.Floor)) }
         )
     }
 
@@ -67,7 +67,7 @@ fun EditPanelTile(tile: EditableGameTile) {
         enabled = !tile.hasHamsterContent() && !tile.blocked,
         modifier = Modifier.padding(bottom = 16.dp)
     ) {
-        Text(ResString.get("editor.side.edit.tile.set.hamster.start"))
+        Text(HamsterString.get("editor.side.edit.tile.set.hamster.start"))
     }
 
     TextFieldForNumbers(
@@ -77,7 +77,7 @@ fun EditPanelTile(tile: EditableGameTile) {
                 tile.setGrainCount(it)
             }
         },
-        label = { Text(ResString.get("editor.side.edit.tile.grain.count")) },
+        label = { Text(HamsterString.get("editor.side.edit.tile.grain.count")) },
         enabled = !tile.blocked
     )
 }

@@ -5,8 +5,8 @@ import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.window.FrameWindowScope
-import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.i18n.HamsterString
 import java.nio.file.Path
 
 /**
@@ -85,7 +85,7 @@ internal object DialogService {
      * Returns the selected [Path] or `null` if no path got selected.
      */
     suspend fun askForFileToLoad(): Path? =
-        showFileDialog(title = ResString.get("dialog.file.load.title"), isOpenFile = true)
+        showFileDialog(title = HamsterString.get("dialog.file.load.title"), isOpenFile = true)
 
     /**
      * Shows the user a dialog to pick a path to save to.
@@ -93,7 +93,7 @@ internal object DialogService {
      * Returns the selected [Path] or `null` if no path got selected.
      */
     suspend fun askForFileToSave(): Path? =
-        showFileDialog(title = ResString.get("dialog.file.save.title"), isOpenFile = false)
+        showFileDialog(title = HamsterString.get("dialog.file.save.title"), isOpenFile = false)
 
     /**
      * Helper function showing a dialog for file handling.

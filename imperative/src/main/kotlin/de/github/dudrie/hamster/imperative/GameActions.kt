@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.imperative
 
 import de.github.dudrie.hamster.external.model.HamsterGame
+import de.github.dudrie.hamster.i18n.ErrorString
 
 /**
  * The game used by the imperative commands.
@@ -19,7 +20,7 @@ internal var imperativeGlobalGame: HamsterGame? = null
  * @param territoryFile File to load the territory from. Has to be in the resources/ folder. If not provided a default territory gets loaded.
  */
 fun startGame(territoryFile: String? = null) {
-    require(imperativeGlobalGame == null) { "There can only be one game used at a time." }
+    require(imperativeGlobalGame == null) { ErrorString.get("error.ONLY_ONE_GAME_IMPERATIVE_GAME_ALLOWED") }
     val game = HamsterGame(territoryFile)
     game.startGame(true)
     imperativeGlobalGame = game

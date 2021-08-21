@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster
+package de.github.dudrie.hamster.i18n
 
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.internal.model.game.GameMode
@@ -7,11 +7,12 @@ import java.text.MessageFormat
 import java.util.*
 
 /**
- * Object with helper methods to display i18n text.
+ * Holds some helper functions to deal with i18n support.
+ *
+ * @param bundleName Name of the resource bundle used by the helper.
  */
-object ResString {
-
-    private val bundle: ResourceBundle = ResourceBundle.getBundle("bundles/hamsterText")
+class InternationalizationHelper(bundleName: String) {
+    private val bundle: ResourceBundle = ResourceBundle.getBundle(bundleName)
 
     /**
      * Returns the string associated with the given [key].

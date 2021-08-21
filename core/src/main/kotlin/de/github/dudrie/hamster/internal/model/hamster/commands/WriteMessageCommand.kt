@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.internal.model.hamster.commands
 
-import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 
@@ -21,6 +21,6 @@ class WriteMessageCommand(private val message: String) : Command() {
 
     override fun getExceptionsFromCommandExecution(): List<RuntimeException> = listOf()
 
-    override fun getCommandLogMessage(): String = ResString.getWithFormat("command.write.log", message)
+    override fun getCommandLogMessage(): String = HamsterString.getWithFormat("command.write.log", message)
 
 }

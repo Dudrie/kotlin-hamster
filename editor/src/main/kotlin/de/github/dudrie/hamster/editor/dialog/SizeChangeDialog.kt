@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.ResString
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.editor.application.EditorState
+import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.ui.components.TextFieldForNumbers
 import de.github.dudrie.hamster.ui.components.rememberTextFieldForNumbersState
 
@@ -36,18 +36,18 @@ fun SizeChangeDialog(onSizeAccept: (size: Size) -> Unit, onDismiss: () -> Unit) 
         title = { Text("editor.dialog.change.size.title") },
         text = {
             Column {
-                Text(ResString.get("editor.dialog.change.size.text"))
+                Text(HamsterString.get("editor.dialog.change.size.text"))
 
                 Row(Modifier.padding(top = 16.dp)) {
                     TextFieldForNumbers(
                         state = columnState,
-                        label = { Text(ResString.get("editor.dialog.change.size.text.field.columns.label")) })
+                        label = { Text(HamsterString.get("editor.dialog.change.size.text.field.columns.label")) })
 
                     Spacer(Modifier.width(32.dp))
 
                     TextFieldForNumbers(
                         state = rowState,
-                        label = { Text(ResString.get("editor.dialog.change.size.text.field.rows.label")) })
+                        label = { Text(HamsterString.get("editor.dialog.change.size.text.field.rows.label")) })
                 }
             }
         },
@@ -58,7 +58,7 @@ fun SizeChangeDialog(onSizeAccept: (size: Size) -> Unit, onDismiss: () -> Unit) 
                         onSizeAccept(Size(columnState.value, rowState.value))
                     }
                 },
-                content = { Text(ResString.get("editor.dialog.change.size.confirm")) },
+                content = { Text(HamsterString.get("editor.dialog.change.size.confirm")) },
                 enabled = !columnState.isError && !rowState.isError
             )
         }

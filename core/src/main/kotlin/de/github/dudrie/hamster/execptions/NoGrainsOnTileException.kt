@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.execptions
 
-import de.github.dudrie.hamster.ResString
+import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 
 /**
@@ -14,5 +14,5 @@ class NoGrainsOnTileException(tile: GameTile) : TileRelatedException(tile) {
     /**
      * @return String representation of this exception
      */
-    override fun toString(): String = ResString.getWithFormat("error.no.grains.on.tile", tile.location)
+    override fun toString(): String = HamsterString.getWithFormat("error.no.grains.on.tile", tile.location)
 }
