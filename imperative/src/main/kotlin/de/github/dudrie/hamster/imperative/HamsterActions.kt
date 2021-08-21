@@ -53,7 +53,7 @@ fun canYouMove(): Boolean {
 }
 
 /**
- * Has the hamster at least one grain in its mouth?
+ * Is the hamster's mouth empty?
  *
  * If yes this function returns `true`, otherwise `false`.
  */
