@@ -2,11 +2,7 @@ package de.github.dudrie.hamster.ui.helpers
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asAwtImage
-import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.graphics.toArgb
-import de.github.dudrie.hamster.ui.helpers.ImageColorChanger.Companion.rememberReplaceColor
+import androidx.compose.ui.graphics.*
 import org.jetbrains.skija.Image
 import org.jetbrains.skiko.toImage
 
@@ -17,18 +13,26 @@ import org.jetbrains.skiko.toImage
  *
  * @param image [Image] to replace the color.
  */
-class ImageColorChanger private constructor(private val image: Image) {
+class ImageColorChanger(image: Image) {
 
     /**
-     * Provides a function to instantiate an [ImageColorChanger].
+     * Image which gets replaced by new images if any replacement function of this object is called.
+     *
+     * @see replaceAllColors
+     * @see replaceColor
      */
-    companion object {
-        /**
-         * Instantiate an [ImageColorChanger] and applies the [replaceColor] function. The result is [remembered][remember].
-         */
-        @Composable
-        fun rememberReplaceColor(image: Image, original: Color, replacement: Color): Image =
-            remember { ImageColorChanger(image).replaceColor(original, replacement) }
+    var image: Image = image
+        private set
+
+    /**
+     * Replaces all colors in the [image] according to the given [colorMap].
+     *
+     * @param colorMap Map which indicates which color should be converted into which other color. The keys represent the original colors and their values the color into which they should be converted.
+     */
+    fun replaceAllColors(colorMap: Map<Color, Color>) {
+        for ((original, replacement) in colorMap) {
+            replaceColor(original, replacement)
+        }
     }
 
     /**
@@ -36,7 +40,7 @@ class ImageColorChanger private constructor(private val image: Image) {
      *
      * This is done pixel per pixel.
      */
-    private fun replaceColor(original: Color, replacement: Color): Image {
+    private fun replaceColor(original: Color, replacement: Color) {
         val adjustedImage = image.asImageBitmap().asAwtImage()
         val originalARGB = original.toArgb()
 
@@ -50,6 +54,27 @@ class ImageColorChanger private constructor(private val image: Image) {
             }
         }
 
-        return adjustedImage.toImage()
+        image = adjustedImage.toImage()
     }
 }
+
+/**
+ * Changes the colors of the [image] according to the given [colorMap].
+ *
+ * The result is [remembered][remember] before it is returned.
+ */
+@Composable
+fun rememberReplaceColor(image: () -> Image, colorMap: Map<Color, Color>): ImageBitmap =
+    remember {
+        val changer = ImageColorChanger(image())
+        changer.replaceAllColors(colorMap)
+        changer.image.asImageBitmap()
+    }
+
+//
+///**
+// * Instantiate an [ImageColorChanger] and applies the [replaceColor] function. The result is [remembered][remember].
+// */
+//@Composable
+//fun rememberReplaceColor(image: () -> Image, original: Color, replacement: Color): Image =
+//    remember { ImageColorChanger(image()).replaceColor(original, replacement) }
