@@ -20,7 +20,12 @@ enum class GameMode {
     Paused,
 
     /**
-     * The game is stopped due because all commands have been executed.
+     * The game is stopped due to an exception during the game.
+     */
+    Aborted,
+
+    /**
+     * The game is stopped due to either all command being executed or a corresponding API got called.
      */
     Stopped
 }

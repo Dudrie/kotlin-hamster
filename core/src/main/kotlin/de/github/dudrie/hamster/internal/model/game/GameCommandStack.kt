@@ -77,14 +77,14 @@ class GameCommandStack : CommandStack() {
      */
     val canUndoCommand: State<Boolean>
         @Composable
-        get() = rememberUpdatedState(hasCommandsToUndo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
+        get() = rememberUpdatedState(hasCommandsToUndo.value && isInModeToUndoOrRedo() && !isUndoingOrRedoing)
 
     /**
      * Is the game in a state in which a [Command] can be redone?
      */
     val canRedoCommand: State<Boolean>
         @Composable
-        get() = rememberUpdatedState(hasCommandsToRedo.value && mode == GameMode.Paused && !isUndoingOrRedoing)
+        get() = rememberUpdatedState(hasCommandsToRedo.value && isInModeToUndoOrRedo() && !isUndoingOrRedoing)
 
     /**
      * Is the game in a state in which it can be [paused][GameMode.Paused] or [resumed][GameMode.Running]?
@@ -92,6 +92,9 @@ class GameCommandStack : CommandStack() {
     val canPauseOrResumeGame: State<Boolean>
         @Composable
         get() = rememberUpdatedState(mode == GameMode.Running || mode == GameMode.Paused && !isUndoingOrRedoing)
+
+    private fun isInModeToUndoOrRedo(): Boolean =
+        mode == GameMode.Paused || mode == GameMode.Stopped || mode == GameMode.Aborted
 
     /**
      * Set the speed of the game.
@@ -121,7 +124,7 @@ class GameCommandStack : CommandStack() {
      *
      * It checks whether the [Command] can be executed, first. If so, the command gets actually [executed][CommandStack.execute] and the corresponding message gets added to the [GameLog]. Afterwards the stack waits before the next command can be executed.
      *
-     * If the command can not be executed the corresponding [RuntimeException] is saved in [runtimeException] and the game is [stopped][GameMode.Stopped].
+     * If the command can not be executed the corresponding [RuntimeException] is saved in [runtimeException] and the game is [aborted][GameMode.Aborted].
      *
      * @param command [Command] which should be executed.
      *
@@ -140,17 +143,21 @@ class GameCommandStack : CommandStack() {
                 super.execute(command)
                 gameLog.addMessage(command.getCommandLogMessage())
             } catch (e: Exception) {
-                modeState.value = GameMode.Stopped
+                abortGame()
                 throw e
             }
         } catch (e: RuntimeException) {
             runtimeExceptionState.value = e
             println("[GameException] $e")
-            stopGame()
+            abortGame()
         } finally {
             executionLock.unlock()
         }
-        delayNextCommand()
+
+        // If a command gets executed while the game is stopped or aborted it's because the user is redoing this command. This should happen without a delay.
+        if (mode != GameMode.Stopped && mode != GameMode.Aborted) {
+            delayNextCommand()
+        }
     }
 
     /**
@@ -165,7 +172,7 @@ class GameCommandStack : CommandStack() {
     override fun undo() {
         executionLock.lock()
         try {
-            require(mode == GameMode.Stopped || mode == GameMode.Paused) { "One can only undo a command if the game is paused or stopped." }
+            require(isInModeToUndoOrRedo()) { "One can only undo a command if the game is in a mode that allows to undo commands. The current mode $mode does NOT allow undoing commands.." }
             isUndoingOrRedoing = true
             super.undo()
             gameLog.removeLastMessage()
@@ -185,7 +192,7 @@ class GameCommandStack : CommandStack() {
     override fun redo() {
         executionLock.lock()
         try {
-            require(mode == GameMode.Stopped || mode == GameMode.Paused) { "One can only redo a command if the game is paused or stopped." }
+            require(isInModeToUndoOrRedo()) { "One can only redo a command if the game is in a mode that allows to redo commands. The current mode $mode does NOT allow redoing commands.." }
             isUndoingOrRedoing = true
             super.redo()
         } finally {
@@ -221,17 +228,13 @@ class GameCommandStack : CommandStack() {
         }
     }
 
+    /**
+     * Stops the game.
+     *
+     * Only a [running][GameMode.Running] can be stopped. A stopped game will stay in this mode forever it cannot be restarted from within the game window. To pause a game use [pauseGame] instead.
+     */
     fun stopGame() {
-        executionLock.lock()
-        try {
-            modeState.value = GameMode.Stopped
-        } finally {
-            executionLock.unlock()
-        }
-        try {
-            pauseLock.acquire()
-        } catch (e: InterruptedException) {
-        }
+        haltGame(GameMode.Stopped)
     }
 
     /**
@@ -240,19 +243,7 @@ class GameCommandStack : CommandStack() {
      * This prevents all [Command] execution until [resumeGame] is called. The game must be [running][GameMode.Running] to be [paused][GameMode.Paused].
      */
     fun pauseGame() {
-        executionLock.lock()
-        try {
-            require(mode == GameMode.Running) { "One can only pause a running game." }
-            modeState.value = GameMode.Paused
-        } finally {
-            executionLock.unlock()
-        }
-
-        try {
-            pauseLock.acquire()
-        } catch (e: InterruptedException) {
-        }
-
+        haltGame(GameMode.Paused)
     }
 
     /**
@@ -272,15 +263,44 @@ class GameCommandStack : CommandStack() {
         pauseLock.release()
     }
 
+    /**
+     * Aborts the game.
+     *
+     * This indicates that the game got halted due to an exception during its execution.
+     *
+     * Only a [running][GameMode.Running] can be stopped. An aborted game will stay in this mode forever it cannot be restarted from within the game window.
+     */
+    private fun abortGame() {
+        executionLock.unlock()
+        haltGame(GameMode.Aborted)
+    }
+
+    /**
+     * Halts the game setting the [mode] to the [newMode].
+     *
+     * Only a [running][GameMode.Running] game can be halted.
+     */
+    private fun haltGame(newMode: GameMode) {
+        executionLock.lock()
+        try {
+            require(mode == GameMode.Running) { "One can only change the mode of a running game to $newMode." }
+            modeState.value = newMode
+        } finally {
+            executionLock.unlock()
+        }
+        try {
+            pauseLock.acquire()
+        } catch (e: InterruptedException) {
+        }
+    }
+
     private fun checkCommandCanBeExecuted(command: Command) {
         checkModeAllowsCommandExecution()
         checkCommandThrowsNoExceptions(command)
-        require(mode != GameMode.Stopped) { "Can not executed command because the game is stopped." }
     }
 
     private fun checkCommandThrowsNoExceptions(command: Command) {
         if (!command.canBeExecuted()) {
-            modeState.value = GameMode.Stopped
             throw command.getExceptionsFromCommandExecution()[0]
         }
     }
@@ -290,9 +310,9 @@ class GameCommandStack : CommandStack() {
             GameMode.Initializing -> {
                 throw IllegalStateException("One cannot run commands if the game is still initializing.")
             }
-            GameMode.Stopped -> {
-                throw IllegalStateException("One cannot execute commands if the game is stopped.")
-            }
+//            GameMode.Aborted -> {
+//                throw IllegalStateException("One cannot execute commands if the game is stopped.")
+//            }
             else -> return
         }
     }

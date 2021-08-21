@@ -44,6 +44,7 @@ object ResString {
             GameMode.Initializing -> "gamemode.initializing"
             GameMode.Running -> "gamemode.running"
             GameMode.Paused -> "gamemode.paused"
+            GameMode.Aborted -> "gamemode.aborted"
             GameMode.Stopped -> "gamemode.stopped"
         }
     )
