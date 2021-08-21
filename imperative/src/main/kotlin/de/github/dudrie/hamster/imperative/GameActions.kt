@@ -33,3 +33,14 @@ fun startGame(territoryFile: String? = null) {
 fun stopGame() {
     imperativeGlobalGame?.stopGame()
 }
+
+/**
+ * Sets the [speed] of the game.
+ *
+ * Must be between [minSpeed][de.github.dudrie.hamster.internal.model.game.GameCommandStack.minSpeed] and [maxSpeed][de.github.dudrie.hamster.internal.model.game.GameCommandStack.maxSpeed].
+ *
+ * Must be called after calling [startGame] to have an effect.
+ */
+fun setGameSpeed(speed: Float) {
+    imperativeGlobalGame?.gameCommands?.setSpeed(speed)
+}
