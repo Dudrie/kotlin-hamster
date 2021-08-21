@@ -8,3 +8,4 @@ pluginManagement {
 rootProject.name = "kotlin-hamster"
 
 include("core", "main", "ui", "imperative", "editor")
+include("imperative-de")

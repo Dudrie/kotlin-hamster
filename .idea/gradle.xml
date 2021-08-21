@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/editor" />
             <option value="$PROJECT_DIR$/imperative" />
+            <option value="$PROJECT_DIR$/imperative-de" />
             <option value="$PROJECT_DIR$/main" />
             <option value="$PROJECT_DIR$/ui" />
           </set>
