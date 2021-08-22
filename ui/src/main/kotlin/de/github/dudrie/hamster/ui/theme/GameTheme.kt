@@ -16,12 +16,13 @@ data class HamsterColors(val lightPart: Color, val darkPart: Color)
  * Object holding colors important to the game.
  */
 object GameColors {
+    /**
+     * Color of the hamster image used by game.
+     */
     val hamsterImage = HamsterColors(lightPart = Color(217, 163, 0), darkPart = Color(184, 138, 0))
 
     /**
-     * Default color used in the hamster's image.
-     *
-     * Can be used to change the main color of the image if one has multiple hamsters.
+     * Color of the default hamster.
      */
     val defaultHamster = HamsterColors(lightPart = Color(155, 213, 255), darkPart = Color(99, 164, 255))
 

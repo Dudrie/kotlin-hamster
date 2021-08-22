@@ -7,6 +7,9 @@ package de.github.dudrie.hamster.datatypes
  * @param row Row index of the location (zero based). Must be zero or positive.
  */
 data class Location(val column: Int, val row: Int) {
+    /**
+     * Helper companion object.
+     */
     companion object {
         /**
          * Location of the board's origin (0, 0).

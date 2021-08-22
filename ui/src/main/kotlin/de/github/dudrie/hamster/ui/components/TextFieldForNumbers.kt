@@ -52,6 +52,15 @@ fun TextFieldForNumbers(
     }
 }
 
+/**
+ * Special [TextField] that helps handle inputs which should be numbers.
+ *
+ * @param state Object resembling the state of this text field.
+ * @param label Is shown as [label].
+ * @param enabled Is this [TextField] currently enabled?
+ * @param hint Optional text which gets shown below the [TextField] if provided.
+ * @param modifier Modifier that gets applied to the underlying [Column].
+ */
 @Composable
 fun TextFieldForNumbers(
     state: TextFieldForNumbersState,
@@ -75,16 +84,32 @@ fun TextFieldForNumbers(
     )
 }
 
+/**
+ * State representing the current state of a [TextFieldForNumbers].
+ *
+ * One can create a remembered instance with the [rememberTextFieldForNumbersState] function.
+ *
+ * @param valueState State of the text field's value.
+ * @param isErrorState State that indicates if the text field is in an erroneous state.
+ */
 data class TextFieldForNumbersState(
     private val valueState: MutableState<Int>,
     private val isErrorState: MutableState<Boolean>
 ) {
+    /**
+     * Current value of the text field.
+     *
+     * If the text field is in an erroneous state this is the last **valid** value the text field had.
+     */
     var value: Int
         get() = valueState.value
         set(value) {
             valueState.value = value
         }
 
+    /**
+     * Is true if the text field is in an erroneous state (ie the entered text is not parseable to an [Int]).
+     */
     var isError: Boolean
         get() = isErrorState.value
         set(value) {
@@ -92,6 +117,11 @@ data class TextFieldForNumbersState(
         }
 }
 
+/**
+ * Creates and returns a new [TextFieldForNumbersState] with the [initialValue].
+ *
+ * The created state is [remembered][remember] before being returned.
+ */
 @Composable
 fun rememberTextFieldForNumbersState(initialValue: Int): TextFieldForNumbersState =
     remember { TextFieldForNumbersState(mutableStateOf(initialValue), mutableStateOf(false)) }
