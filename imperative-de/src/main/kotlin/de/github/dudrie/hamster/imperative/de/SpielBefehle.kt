@@ -27,4 +27,4 @@ fun stoppeSpiel() = stopGame()
  *
  * Muss zwischen der [minimalen][de.github.dudrie.hamster.internal.model.game.GameCommandStack.minSpeed] und [maximalen][de.github.dudrie.hamster.internal.model.game.GameCommandStack.maxSpeed] Geschwindigkeit liegen.
  */
-fun setztSpielGeschwindigkeit(geschwindigkeit: Float) = setGameSpeed(geschwindigkeit)
+fun setzeSpielGeschwindigkeit(geschwindigkeit: Float) = setGameSpeed(geschwindigkeit)
