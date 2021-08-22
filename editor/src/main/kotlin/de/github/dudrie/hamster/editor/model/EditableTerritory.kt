@@ -15,6 +15,9 @@ class EditableTerritory(initialSize: Size) : AbstractTerritory() {
 
     private val territorySizeState = mutableStateOf(initialSize)
 
+    /**
+     * The [Size] of the territory.
+     */
     override val territorySize: Size
         get() = territorySizeState.value
 
