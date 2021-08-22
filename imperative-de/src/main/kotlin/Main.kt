@@ -2,11 +2,10 @@ import de.github.dudrie.hamster.imperative.de.*
 
 internal fun main() {
     starteSpiel()
-    setztSpielGeschwindigkeit(6f)
 
-    sage("Hallo imperative Welt :)")
-    bewegen()
-    bewegen()
+    sage("Hallo ich bin ein Hamster :)")
+    laufe()
+    laufe()
     sammleKornAuf()
 
     stoppeSpiel()

@@ -3,13 +3,13 @@ package de.github.dudrie.hamster.imperative.de
 import de.github.dudrie.hamster.imperative.*
 
 /**
- * Bewegt den Hamster ein Feld in Blickrichtung.
+ * Lässt den Hamster ein Feld in Blickrichtung laufen.
  *
  * Das Zielfeld darf nicht blockiert sein.
  *
  * @see kannstDuDichBewegen
  */
-fun bewegen() = move()
+fun laufe() = move()
 
 /**
  * Dreht den Hamster 90° gegen den Uhrzeigersinn.
