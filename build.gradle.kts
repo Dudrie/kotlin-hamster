@@ -3,41 +3,28 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val artifactPrefix = rootProject.name
 group = "de.github.dudrie"
-version = "1.0"
+version = "0.1"
 
 plugins {
     kotlin("jvm") version "1.5.21"
 
     id("org.jetbrains.compose") version "1.0.0-alpha1"
     id("org.jetbrains.dokka") version "1.5.0"
-    id("maven-publish")
+
+    `maven-publish`
 }
 
 allprojects {
-    group = "de.github.dudrie"
-    version = "0.1"
+    group = rootProject.group
+    version = rootProject.version
 
-    plugins.apply("maven-publish")
-    plugins.apply("org.jetbrains.dokka")
+    apply(plugin = "maven-publish")
+    apply(plugin = "org.jetbrains.dokka")
 
     repositories {
         google()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         mavenCentral()
-    }
-
-    afterEvaluate {
-        publishing {
-            publications {
-                create<MavenPublication>("maven") {
-                    groupId = group.toString()
-                    artifactId = "$artifactPrefix-${project.name}"
-                    version = version
-
-                    from(components["java"])
-                }
-            }
-        }
     }
 
     tasks.withType<KotlinCompile> {
@@ -49,6 +36,22 @@ allprojects {
             configureEach {
                 reportUndocumented.set(true)
                 includeNonPublic.set(false)
+            }
+        }
+    }
+}
+
+subprojects {
+    publishing {
+        publications {
+            register<MavenPublication>("gpr") {
+                groupId = group.toString()
+                artifactId = "$artifactPrefix-${project.name}"
+                version = version
+
+                afterEvaluate {
+                    from(components["java"])
+                }
             }
         }
     }
