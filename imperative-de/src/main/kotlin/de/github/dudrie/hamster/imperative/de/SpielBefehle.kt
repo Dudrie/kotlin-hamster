@@ -5,11 +5,13 @@ import de.github.dudrie.hamster.imperative.startGame
 import de.github.dudrie.hamster.imperative.stopGame
 
 /**
- * Started ein neues Hamsterspiel.
+ * Startet ein neues Hamsterspiel.
  *
- * Nachdem das Spiel geladen und gestartet wurde, können Befehle ausgeführt werden.
+ * Nachdem das Spiel geladen und gestartet wurde, können Befehle ausgeführt werden. Das Spiel startet pausiert.
  *
  * Es kann immer nur ein Spiel gleichzeitig gestartet sein.
+ *
+ * @param territoriumsDatei Das Territorium, das geladen werden kann. Wird keines übergeben, so wird das Standardterritorium geladen.
  */
 fun starteSpiel(territoriumsDatei: String? = null) {
     startGame(territoriumsDatei)
