@@ -12,9 +12,9 @@ val gprUser = properties["gpr.user"] as String?
 val gprToken = properties["gpr.token"] as String?
 
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "1.5.30"
 
-    id("org.jetbrains.compose") version "1.0.0-alpha1"
+    id("org.jetbrains.compose") version "1.0.0-alpha3"
     id("org.jetbrains.dokka") version "1.5.0"
 
     `maven-publish`
