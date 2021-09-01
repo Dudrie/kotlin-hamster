@@ -4,6 +4,7 @@ import androidx.compose.desktop.DesktopMaterialTheme
 import androidx.compose.foundation.LocalScrollbarStyle
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
+import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
@@ -16,7 +17,18 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ThemeWrapper(content: @Composable () -> Unit) {
     val shapes = remember { Shapes(medium = RoundedCornerShape(8.dp)) }
-    DesktopMaterialTheme(shapes = shapes) {
+    val colors = remember {
+        lightColors(
+            primary = Color(0xFF0d47a1),
+            primaryVariant = Color(0xFF1565C0),
+            onPrimary = Color.White,
+            secondary = Color(0xFFd84315),
+            secondaryVariant = Color(0xFFe64a19),
+            onSecondary = Color.Black
+        )
+    }
+
+    DesktopMaterialTheme(shapes = shapes, colors = colors) {
         val scrollbarStyle = LocalScrollbarStyle.current.copy(
             unhoverColor = Color.Black.copy(alpha = 0.2f),
             shape = RoundedCornerShape(50),
