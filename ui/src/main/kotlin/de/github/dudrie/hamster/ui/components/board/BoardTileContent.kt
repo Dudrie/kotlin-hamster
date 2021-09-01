@@ -57,7 +57,7 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
                     Surface(
                         color = Color.Gray.copy(alpha = 0.8f),
                         shape = RoundedCornerShape(50),
-                        modifier = Modifier.size(36.dp).align(Alignment.BottomEnd)
+                        modifier = Modifier.padding(2.dp).size(36.dp).align(Alignment.BottomEnd)
                     ) {
                         Box(Modifier.fillMaxHeight(), contentAlignment = Alignment.Center) {
                             Text(
