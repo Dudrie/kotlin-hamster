@@ -12,8 +12,6 @@ dependencies {
     implementation(project(":ui"))
     implementation(compose.desktop.currentOs)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
-
-    testImplementation(kotlin("test"))
 }
 
 compose.desktop {
@@ -22,7 +20,8 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "kotlin-hamster-editor"
-            packageVersion = "1.0.0"
+            // Add a ".0" to the end, so it conforms with the MSI versioning scheme
+            packageVersion = "${rootProject.version}.0"
         }
     }
 }
