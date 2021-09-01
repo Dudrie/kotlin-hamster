@@ -25,11 +25,6 @@ object GameColors {
      * Color of the default hamster.
      */
     val defaultHamster = HamsterColors(lightPart = Color(155, 213, 255), darkPart = Color(99, 164, 255))
-
-    /**
-     * Color of a [floor][de.github.dudrie.hamster.internal.model.territory.GameTileType.Floor] tile.
-     */
-    val floor: Color = Color(255, 221, 136)
 }
 
 /**

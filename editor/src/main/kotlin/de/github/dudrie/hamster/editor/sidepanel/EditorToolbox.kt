@@ -1,8 +1,9 @@
 package de.github.dudrie.hamster.editor.sidepanel
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -17,10 +18,11 @@ import de.github.dudrie.hamster.editor.components.SelectTileToolButton
 import de.github.dudrie.hamster.editor.tools.MakeFloorTool
 import de.github.dudrie.hamster.editor.tools.MakeWallTool
 import de.github.dudrie.hamster.i18n.HamsterString
+import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.components.ResourceIcon
 import de.github.dudrie.hamster.ui.components.ResourceIconSize
-import de.github.dudrie.hamster.ui.theme.GameTheme
+import de.github.dudrie.hamster.ui.helpers.getResource
 
 /**
  * Toolbox composable which contains different tools to use in the editor.
@@ -44,18 +46,13 @@ fun EditorToolbox(modifier: Modifier = Modifier) {
 
         SelectTileToolButton(
             tool = remember { MakeWallTool() },
-            icon = { ResourceIcon(R.images.wall, size = iconSize, tint = Color.Unspecified) },
+            icon = { ResourceIcon(GameTileType.Wall.getResource(), size = iconSize, tint = Color.Unspecified) },
             text = { Text(HamsterString.get("editor.toolbox.tool.wall")) }
         )
 
         SelectTileToolButton(
             tool = remember { MakeFloorTool() },
-            icon = {
-                Box(
-                    Modifier.background(GameTheme.colors.floor).border(1.dp, MaterialTheme.colors.onSurface)
-                        .size(iconSize.value)
-                )
-            },
+            icon = { ResourceIcon(GameTileType.Floor.getResource(), size = iconSize, tint = Color.Unspecified) },
             text = { Text(HamsterString.get("editor.toolbox.tool.floor")) }
         )
 
