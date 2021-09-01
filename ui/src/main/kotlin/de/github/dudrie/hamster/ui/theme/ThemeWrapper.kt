@@ -24,6 +24,7 @@ fun ThemeWrapper(content: @Composable () -> Unit) {
 
         CompositionLocalProvider(
             GameColorsLocal provides GameColors,
+            GameTypographyLocal provides GameTypography,
             LocalScrollbarStyle provides scrollbarStyle
         ) {
             content()

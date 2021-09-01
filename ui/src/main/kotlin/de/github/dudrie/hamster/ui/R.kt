@@ -13,7 +13,7 @@ object R {
         const val wall = "/images/wall.png"
         const val floor = "/images/floor.png"
         const val hamster = "/images/hamster.png"
-        const val grain = "/images/grain.png"
+        const val grain = "/icons/round_grain_black_48dp.png"
     }
 
     /**

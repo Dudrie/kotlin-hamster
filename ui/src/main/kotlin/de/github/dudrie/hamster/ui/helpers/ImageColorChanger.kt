@@ -64,17 +64,19 @@ class ImageColorChanger(image: Image) {
  * The result is [remembered][remember] before it is returned.
  */
 @Composable
-fun rememberReplaceColor(image: () -> Image, colorMap: Map<Color, Color>): ImageBitmap =
+fun rememberReplaceColor(colorMap: Map<Color, Color>, image: () -> Image): ImageBitmap =
     remember {
         val changer = ImageColorChanger(image())
         changer.replaceAllColors(colorMap)
         changer.image.asImageBitmap()
     }
 
-//
-///**
-// * Instantiate an [ImageColorChanger] and applies the [replaceColor] function. The result is [remembered][remember].
-// */
-//@Composable
-//fun rememberReplaceColor(image: () -> Image, original: Color, replacement: Color): Image =
-//    remember { ImageColorChanger(image()).replaceColor(original, replacement) }
+/**
+ * Replaces the [current] color of the [image] with the [replacement] color.
+ *
+ * The result is [remembered][remember] before it is returned.
+ */
+@Composable
+fun rememberReplaceColor(current: Color, replacement: Color, image: () -> Image): ImageBitmap = rememberReplaceColor(
+    mapOf(Pair(current, replacement)), image
+)

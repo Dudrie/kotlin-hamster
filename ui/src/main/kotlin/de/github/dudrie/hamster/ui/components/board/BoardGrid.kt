@@ -25,6 +25,7 @@ fun BoardGrid(
 
     Column(
         modifier = Modifier.height(IntrinsicSize.Min).width(IntrinsicSize.Min).background(Color.Black)
+            .padding(vertical = borderWidth)
     ) {
         for (row in 0 until size.rowCount) {
             Row(

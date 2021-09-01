@@ -1,24 +1,27 @@
 package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.ui.R
+import de.github.dudrie.hamster.ui.helpers.rememberReplaceColor
+import de.github.dudrie.hamster.ui.theme.GameTheme
 
 /**
  * Returns the amount of degrees the hamster's image has to be turned to visually face in the [direction].
@@ -37,22 +40,32 @@ fun getDegreesForDirection(direction: Direction): Float = when (direction) {
 fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         if (tile.grainCount > 0) {
-            val grain = remember { ResourceReader(R.images.grain).getContentAsImage().asImageBitmap() }
+            val grain = rememberReplaceColor(Color.Black, GameTheme.colors.grainColor) {
+                ResourceReader(R.images.grain).getContentAsImage()
+            }
 
             Box(
-                modifier = Modifier.fillMaxSize().padding(4.dp),
-                contentAlignment = Alignment.TopEnd
+                modifier = Modifier.fillMaxSize().padding(8.dp),
+                contentAlignment = Alignment.Center
             ) {
-                Box(
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        bitmap = grain,
-                        contentDescription = null,
-                        modifier = Modifier.graphicsLayer().width(56.dp)
-                    )
-                    if (tile.grainCount > 1) {
-                        Text("${tile.grainCount}")
+                Image(
+                    bitmap = grain,
+                    contentDescription = null,
+                    modifier = Modifier.graphicsLayer().aspectRatio(1f).fillMaxSize()
+                )
+                if (tile.grainCount > 1) {
+                    Surface(
+                        color = Color.Gray.copy(alpha = 0.8f),
+                        shape = RoundedCornerShape(50),
+                        modifier = Modifier.size(36.dp).align(Alignment.BottomEnd)
+                    ) {
+                        Box(Modifier.fillMaxHeight(), contentAlignment = Alignment.Center) {
+                            Text(
+                                text = "${tile.grainCount}",
+                                style = GameTheme.typography.grainCount,
+                                textAlign = TextAlign.Center
+                            )
+                        }
                     }
                 }
             }
