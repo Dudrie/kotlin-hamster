@@ -24,7 +24,7 @@ fun BoardTile(tile: GameTile, showBorder: Boolean = false, modifier: Modifier = 
     var border: BorderStroke? = null
 
     if (showBorder) {
-        border = BorderStroke(8.dp, Color.Blue)
+        border = BorderStroke(4.dp, Color.Blue)
     }
 
     Surface(modifier = modifier, border = border) {
