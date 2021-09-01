@@ -5,7 +5,7 @@ import java.util.*
 
 val jvmTarget = "11"
 group = "de.github.dudrie"
-version = "0.1"
+version = "1.0"
 
 var gprUser: String? = null
 var gprToken: String? = null
