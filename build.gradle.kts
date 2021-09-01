@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
 import java.util.*
 
-val artifactPrefix = rootProject.name
+val jvmTarget = "11"
 group = "de.github.dudrie"
 version = "0.1"
 
@@ -20,7 +20,7 @@ try {
 }
 
 plugins {
-    kotlin("jvm") version "1.5.30"
+    kotlin("jvm") version "1.5.21"
 
     id("org.jetbrains.compose") version "1.0.0-alpha3"
     id("org.jetbrains.dokka") version "1.5.0"
@@ -48,7 +48,7 @@ allprojects {
     }
 
     tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
+        kotlinOptions.jvmTarget = jvmTarget
     }
 
     tasks.withType<DokkaTaskPartial>().configureEach {
@@ -66,7 +66,7 @@ subprojects {
         publications {
             register<MavenPublication>("gpr") {
                 groupId = group.toString()
-                artifactId = "$artifactPrefix-${project.name}"
+                artifactId = "${rootProject.name}-${project.name}"
                 version = version
 
                 afterEvaluate {
