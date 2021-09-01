@@ -1,15 +1,23 @@
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.io.FileNotFoundException
 import java.util.*
 
 val artifactPrefix = rootProject.name
 group = "de.github.dudrie"
 version = "0.1"
 
-val properties = Properties()
-properties.load(project.file("local.properties").inputStream())
-val gprUser = properties["gpr.user"] as String?
-val gprToken = properties["gpr.token"] as String?
+var gprUser: String? = null
+var gprToken: String? = null
+
+try {
+    val properties = Properties()
+    properties.load(project.file("local.properties").inputStream())
+    gprUser = properties["gpr.user"] as String?
+    gprToken = properties["gpr.token"] as String?
+} catch (e: FileNotFoundException) {
+    println("[INFO] local.properties file is missing. Make sure to add one if you want to publish the artifacts.")
+}
 
 plugins {
     kotlin("jvm") version "1.5.30"
