@@ -45,7 +45,7 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
             }
 
             Box(
-                modifier = Modifier.fillMaxSize().padding(8.dp),
+                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
                 Image(
