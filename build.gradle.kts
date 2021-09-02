@@ -5,19 +5,12 @@ import java.util.*
 
 val jvmTarget = "11"
 group = "de.github.dudrie"
-version = "1.0"
+version = getProjectVersion()
 
 var gprUser: String? = null
 var gprToken: String? = null
 
-try {
-    val properties = Properties()
-    properties.load(project.file("local.properties").inputStream())
-    gprUser = properties["gpr.user"] as String?
-    gprToken = properties["gpr.token"] as String?
-} catch (e: FileNotFoundException) {
-    println("[INFO] local.properties file is missing. Make sure to add one if you want to publish the artifacts.")
-}
+loadProperties()
 
 plugins {
     kotlin("jvm") version "1.5.21"
@@ -90,4 +83,21 @@ subprojects {
 
 tasks.dokkaHtmlMultiModule.configure {
     outputDirectory.set(buildDir.resolve("kdoc"))
+}
+
+fun getProjectVersion(): String {
+    val version = project.findProperty("version") as String?
+
+    return if (version == null || version == "unspecified") "1.0" else version
+}
+
+fun loadProperties() {
+    val properties = Properties()
+    try {
+        properties.load(project.file("local.properties").inputStream())
+    } catch (e: FileNotFoundException) {
+        println("[INFO] local.properties not found. Falling back to environmental variables.")
+    }
+    gprUser = properties["gpr.user"] as String? ?: System.getenv("GPR_ACTOR")
+    gprToken = properties["gpr.token"] as String? ?: System.getenv("GPR_TOKEN")
 }
