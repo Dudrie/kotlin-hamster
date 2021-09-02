@@ -5,7 +5,7 @@ import java.util.*
 
 val jvmTarget = "11"
 group = "de.github.dudrie"
-version = getProjectVersion()
+version = getProjectVersion("1.0")
 
 var gprUser: String? = null
 var gprToken: String? = null
@@ -37,6 +37,7 @@ allprojects {
     afterEvaluate {
         java {
             withJavadocJar()
+            withSourcesJar()
         }
     }
 
@@ -85,10 +86,10 @@ tasks.dokkaHtmlMultiModule.configure {
     outputDirectory.set(buildDir.resolve("kdoc"))
 }
 
-fun getProjectVersion(): String {
+fun getProjectVersion(fallbackVersion: String): String {
     val version = project.findProperty("version") as String?
 
-    return if (version == null || version == "unspecified") "1.0" else version
+    return if (version == null || version == "unspecified") fallbackVersion else version
 }
 
 fun loadProperties() {
