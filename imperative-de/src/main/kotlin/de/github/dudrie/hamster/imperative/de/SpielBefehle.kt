@@ -7,9 +7,7 @@ import de.github.dudrie.hamster.imperative.stopGame
 /**
  * Startet ein neues Hamsterspiel.
  *
- * Nachdem das Spiel geladen und gestartet wurde, können Befehle ausgeführt werden. Das Spiel startet pausiert.
- *
- * Es kann immer nur ein Spiel gleichzeitig gestartet sein.
+ * Nachdem das Spiel geladen und gestartet wurde, können Befehle ausgeführt werden. Es kann immer nur ein Spiel gleichzeitig gestartet sein.
  *
  * @param territoriumsDatei Das Territorium, das geladen werden kann. Wird keines übergeben, so wird das Standardterritorium geladen.
  */

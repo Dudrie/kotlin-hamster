@@ -22,7 +22,7 @@ internal var imperativeGlobalGame: HamsterGame? = null
 fun startGame(territoryFile: String? = null) {
     require(imperativeGlobalGame == null) { ErrorString.get("error.ONLY_ONE_GAME_IMPERATIVE_GAME_ALLOWED") }
     val game = HamsterGame(territoryFile)
-    game.startGame(true)
+    game.startGame(false)
     imperativeGlobalGame = game
 }
 
