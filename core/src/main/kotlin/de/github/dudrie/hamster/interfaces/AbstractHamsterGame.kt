@@ -26,8 +26,8 @@ abstract class AbstractHamsterGame {
     private val tileToHighlightState: State<GameTile?>
         @Composable
         get() {
-            return produceState<GameTile?>(null, gameCommands.runtimeException) {
-                val exception = gameCommands.runtimeException
+            return produceState<GameTile?>(null, gameCommands.gameException) {
+                val exception = gameCommands.gameException?.exception
                 value = if (exception is TileRelatedException) {
                     exception.tile
                 } else {

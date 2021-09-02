@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.internal.model.game
 
 import androidx.compose.runtime.*
+import de.github.dudrie.hamster.execptions.GameException
 import java.util.concurrent.Semaphore
 
 /**
@@ -49,12 +50,12 @@ class GameCommandStack : CommandStack() {
     private val isUndoingOrRedoingState = mutableStateOf(false)
     private var isUndoingOrRedoing: Boolean by isUndoingOrRedoingState
 
-    private val runtimeExceptionState = mutableStateOf<RuntimeException?>(null)
+    private val gameExceptionState = mutableStateOf<GameException?>(null)
 
     /**
-     * Last thrown [RuntimeException] that would have been thrown if the current [Command] would have been executed.
+     * Exception that contains a [Command] and the [RuntimeException] that this command would have thrown.
      */
-    val runtimeException: RuntimeException? by runtimeExceptionState
+    val gameException: GameException? by gameExceptionState
 
     private val gameLog: GameLog = GameLog()
 
@@ -124,7 +125,7 @@ class GameCommandStack : CommandStack() {
      *
      * It checks whether the [Command] can be executed, first. If so, the command gets actually [executed][CommandStack.execute] and the corresponding message gets added to the [GameLog]. Afterwards the stack waits before the next command can be executed.
      *
-     * If the command can not be executed the corresponding [RuntimeException] is saved in [runtimeException] and the game is [aborted][GameMode.Aborted].
+     * If the command can not be executed the corresponding [RuntimeException] is saved in [gameException] and the game is [aborted][GameMode.Aborted].
      *
      * @param command [Command] which should be executed.
      *
@@ -147,7 +148,7 @@ class GameCommandStack : CommandStack() {
                 throw e
             }
         } catch (e: RuntimeException) {
-            runtimeExceptionState.value = e
+            gameExceptionState.value = GameException(e, command)
             println("[GameException] $e")
             abortGame()
         } finally {

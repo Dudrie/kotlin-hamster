@@ -89,13 +89,24 @@ fun produceMessagesForList(): State<List<GameMessage>> {
     val commands = HamsterGameLocal.current.gameCommands
     val canRedo by commands.canRedoCommand
 
-    return produceState(listOf(), commands.gameMessageCount, commands.runtimeException, commands.mode, canRedo) {
+    return produceState(listOf(), commands.gameMessageCount, commands.gameException, commands.mode, canRedo) {
         val messages = mutableListOf<GameMessage>()
 
         messages.addAll(commands.gameMessages.map { GameMessage(it, GameMessageType.COMMAND) })
 
         if (!canRedo) {
-            commands.runtimeException?.let { messages.add(GameMessage(it.toString(), GameMessageType.ERROR)) }
+            commands.gameException?.let {
+                messages.add(
+                    GameMessage(
+                        HamsterString.getWithFormat(
+                            "console.game.exception",
+                            it.failedCommand.getCommandLogMessage(),
+                            it.exception.toString()
+                        ),
+                        GameMessageType.ERROR
+                    )
+                )
+            }
 
             if (commands.mode == GameMode.Stopped) {
                 messages.add(

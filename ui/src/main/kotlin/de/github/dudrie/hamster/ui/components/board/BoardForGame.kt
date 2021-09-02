@@ -37,6 +37,6 @@ fun BoardForGame(modifier: Modifier = Modifier) {
             )
         }
 
-        BoardExceptionDialog(gameCommands.runtimeException)
+        BoardExceptionDialog(gameCommands.gameException?.exception)
     }
 }
