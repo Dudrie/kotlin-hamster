@@ -1,8 +1,6 @@
 package de.github.dudrie.hamster.imperative.de
 
-import de.github.dudrie.hamster.imperative.setGameSpeed
-import de.github.dudrie.hamster.imperative.startGame
-import de.github.dudrie.hamster.imperative.stopGame
+import de.github.dudrie.hamster.imperative.*
 
 /**
  * Startet ein neues Hamsterspiel.
@@ -21,6 +19,22 @@ fun starteSpiel(territoriumsDatei: String? = null) {
  * Anschließend können keine weiteren Befehle ausgeführt werden.
  */
 fun stoppeSpiel() = stopGame()
+
+/**
+ * Pausiert das aktuelle Spiel.
+ *
+ * Es kann mit [setzeSpielFort] fortgesetzt werden.
+ *
+ * @see setzeSpielFort
+ */
+fun pausiereSpiel() = pauseGame()
+
+/**
+ * Setzt ein vorher mit [pausiereSpiel] pausiertes Spiel fort.
+ *
+ * @see pausiereSpiel
+ */
+fun setzeSpielFort() = resumeGame()
 
 /**
  * Ändert die Spielgeschwindigkeit auf die gegebene [geschwindigkeit].

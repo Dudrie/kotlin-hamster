@@ -36,6 +36,20 @@ fun stopGame() {
 }
 
 /**
+ * Pauses the current game (if started and present).
+ */
+fun pauseGame() {
+    imperativeGlobalGame?.pauseGame()
+}
+
+/**
+ * Resumes a paused game.
+ */
+fun resumeGame() {
+    imperativeGlobalGame?.resumeGame()
+}
+
+/**
  * Sets the [speed] of the game.
  *
  * Must be between [minSpeed][de.github.dudrie.hamster.internal.model.game.GameCommandStack.minSpeed] and [maxSpeed][de.github.dudrie.hamster.internal.model.game.GameCommandStack.maxSpeed].

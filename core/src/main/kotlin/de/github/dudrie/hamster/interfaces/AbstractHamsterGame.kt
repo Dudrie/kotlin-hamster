@@ -51,9 +51,19 @@ abstract class AbstractHamsterGame {
     abstract fun startGame(startPaused: Boolean = true)
 
     /**
-     * Stops the game.
+     * Stops a running game.
      */
-    abstract fun stopGame()
+    fun stopGame() = gameCommands.stopGame()
+
+    /**
+     * Pauses a running game.
+     */
+    fun pauseGame() = gameCommands.pauseGame()
+
+    /**
+     * Resumes a paused game.
+     */
+    fun resumeGame() = gameCommands.resumeGame()
 
     /**
      * Executes the given [command] to change the state of this game.
