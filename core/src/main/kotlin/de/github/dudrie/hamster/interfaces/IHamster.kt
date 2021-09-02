@@ -41,7 +41,7 @@ interface IHamster {
     /**
      * Is the tile in front of the hamster free for movement?
      */
-    fun canYouMove(): Boolean
+    fun isFrontClear(): Boolean
 
     /**
      * Has the tile the hamster stands on at least one grain?

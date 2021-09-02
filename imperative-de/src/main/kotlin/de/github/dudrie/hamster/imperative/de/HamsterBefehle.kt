@@ -7,7 +7,7 @@ import de.github.dudrie.hamster.imperative.*
  *
  * Das Zielfeld darf nicht blockiert sein.
  *
- * @see kannstDuDichBewegen
+ * @see istVorDirFrei
  */
 fun laufe() = move()
 
@@ -35,7 +35,7 @@ fun legeKornAb() = dropGrain()
 /**
  * Kann der Hamster sich auf das Feld direkt vor ihm bewegen?
  */
-fun kannstDuDichBewegen(): Boolean = canYouMove()
+fun istVorDirFrei(): Boolean = isFrontClear()
 
 /**
  * Ist der Mund des Hamsters leer?

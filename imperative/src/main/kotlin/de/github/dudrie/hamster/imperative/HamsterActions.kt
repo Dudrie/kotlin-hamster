@@ -5,7 +5,7 @@ package de.github.dudrie.hamster.imperative
  *
  * The destination tile must not be blocked.
  *
- * @see canYouMove
+ * @see isFrontClear
  */
 fun move() {
     isGameStarted()
@@ -47,9 +47,9 @@ fun dropGrain() {
  *
  * If yes this function returns `true`, otherwise `false.
  */
-fun canYouMove(): Boolean {
+fun isFrontClear(): Boolean {
     isGameStarted()
-    return imperativeGlobalGame?.paule?.canYouMove() ?: false
+    return imperativeGlobalGame?.paule?.isFrontClear() ?: false
 }
 
 /**

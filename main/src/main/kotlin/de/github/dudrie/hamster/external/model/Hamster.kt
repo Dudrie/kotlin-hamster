@@ -88,7 +88,7 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     /**
      * Is the tile in front of the hamster free for movement?
      */
-    override fun canYouMove(): Boolean {
+    override fun isFrontClear(): Boolean {
         val location = internalHamster.getLocationAfterMove()
         return territory.isFree(location)
     }
