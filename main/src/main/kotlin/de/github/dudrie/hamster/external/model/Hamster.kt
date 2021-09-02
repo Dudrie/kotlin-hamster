@@ -101,7 +101,7 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     /**
      * Is the mouth of the hamster empty?
      */
-    override fun isYourMouthEmpty(): Boolean = internalHamster.grainCount > 0
+    override fun isYourMouthEmpty(): Boolean = internalHamster.grainCount == 0
 
     /**
      * Prints a [message] to the game's console.
