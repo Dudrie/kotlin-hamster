@@ -18,6 +18,6 @@ jobs:
 
       - name: Publish artifacts 📦
         env:
-          GPR_ACTOR: ${{ GITHUB_ACTOR }}
+          GPR_ACTOR: ${{ github.actor }}
           GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew -Pversion="${{ github.event.release.tag_name }}" publish
