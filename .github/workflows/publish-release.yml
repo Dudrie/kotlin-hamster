@@ -7,7 +7,7 @@ on:
 jobs:
   publish-release:
     name: Publish release 🚀
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout 🛎️
