@@ -37,4 +37,5 @@ de.github.dudrie.hamster.ui.components.board
 de.github.dudrie.hamster.ui.components.console
 de.github.dudrie.hamster.ui.game
 de.github.dudrie.hamster.ui.helpers
+de.github.dudrie.hamster.ui.model
 de.github.dudrie.hamster.ui.theme
