@@ -8,7 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.mouse.MouseScrollEvent
 import androidx.compose.ui.input.mouse.mouseScrollFilter
 import androidx.compose.ui.unit.IntSize
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.ui.model.GameMessage
+import de.github.dudrie.hamster.ui.model.GameMessageType
 
 /**
  *
@@ -17,27 +18,25 @@ import de.github.dudrie.hamster.ui.application.HamsterGameLocal
  */
 @Composable
 fun ConsoleMessageList(
+    messages: List<GameMessage>,
     scrollState: LazyListState,
     onMouseScroll: (event: MouseScrollEvent, bounds: IntSize) -> Boolean = { _, _ -> false },
     modifier: Modifier = Modifier
 ) {
-    val commands = HamsterGameLocal.current.gameCommands
-    val messages = commands.gameMessages
-
     val rowModifier = Modifier.mouseScrollFilter(onMouseScroll)
 
     LazyColumn(modifier = modifier, state = scrollState) {
-        itemsIndexed(messages.toList()) { index, message ->
-            if (index % 2 == 0) {
-                ConsoleDarkRow(text = message, modifier = rowModifier)
-            } else {
-                ConsoleLightRow(text = message, modifier = rowModifier)
-            }
-        }
-
-        if (commands.runtimeException != null) {
-            item {
-                ConsoleErrorRow(exception = commands.runtimeException!!, modifier = rowModifier)
+        itemsIndexed(messages) { index, message ->
+            when (message.type) {
+                GameMessageType.COMMAND -> {
+                    if (index % 2 == 0) {
+                        ConsoleDarkRow(text = message.text, modifier = rowModifier)
+                    } else {
+                        ConsoleLightRow(text = message.text, modifier = rowModifier)
+                    }
+                }
+                GameMessageType.ERROR -> ConsoleErrorRow(text = message.text, modifier = rowModifier)
+                GameMessageType.INFO -> ConsoleInfoRow(text = message.text, modifier = rowModifier)
             }
         }
     }

@@ -51,26 +51,33 @@ fun ConsoleLightRow(text: String, modifier: Modifier = Modifier) {
  * @see ConsoleRow
  */
 @Composable
-fun ConsoleDarkRow(text: String, modifier: Modifier = Modifier) {
-    ConsoleRow(
-        text = text,
-        modifier = modifier,
-        backgroundColor = Color.Gray,
-        textColor = Color.White
-    )
-}
+fun ConsoleDarkRow(text: String, modifier: Modifier = Modifier) = ConsoleRow(
+    text = text,
+    modifier = modifier,
+    backgroundColor = Color.Gray,
+    textColor = Color.White
+)
 
 /**
- * [ConsoleRow] that displays the [exception] on a row which has the [error][MaterialTheme.colors] background.
+ * [ConsoleRow] that displays the [text] on a row which has the [primary][MaterialTheme.colors] background.
+ */
+@Composable
+fun ConsoleInfoRow(text: String, modifier: Modifier = Modifier) = ConsoleRow(
+    text = text,
+    modifier = modifier,
+    backgroundColor = MaterialTheme.colors.primary,
+    textColor = MaterialTheme.colors.onPrimary
+)
+
+/**
+ * [ConsoleRow] that displays the [text] on a row which has the [error][MaterialTheme.colors] background.
  *
  * @see ConsoleRow
  */
 @Composable
-fun ConsoleErrorRow(exception: RuntimeException, modifier: Modifier = Modifier) {
-    ConsoleRow(
-        text = "$exception",
-        modifier = modifier,
-        backgroundColor = MaterialTheme.colors.error,
-        textColor = MaterialTheme.colors.onError
-    )
-}
+fun ConsoleErrorRow(text: String, modifier: Modifier = Modifier) = ConsoleRow(
+    text = text,
+    modifier = modifier,
+    backgroundColor = MaterialTheme.colors.error,
+    textColor = MaterialTheme.colors.onError
+)

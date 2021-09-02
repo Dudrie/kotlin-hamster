@@ -15,7 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.i18n.HamsterString
+import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.ui.model.GameMessage
+import de.github.dudrie.hamster.ui.model.GameMessageType
 
 /**
  * Shows the game messages in a list.
@@ -29,11 +33,13 @@ import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 @Composable
 fun ConsolePanel(modifier: Modifier = Modifier) {
     Box(modifier = modifier.background(brush = SolidColor(Color.Black), alpha = 0.05f)) {
-        val messageCount by produceMessageCountOnCommandStack()
+        val messages by produceMessagesForList()
+        val messageCount = messages.size
         val (doAutoScrollState, scrollState, interactionSource) = handleAutoScrolling(messageCount)
         var doAutoScroll by doAutoScrollState
 
         ConsoleMessageList(
+            messages = messages,
             scrollState = scrollState,
             onMouseScroll = { _, _ ->
                 if (scrollState.firstVisibleItemScrollOffset > 0) {
@@ -74,19 +80,35 @@ suspend fun LazyListState.scrollToLastMessage(messageCount: Int) {
 }
 
 /**
- * Calculates and returns the number of messages which should be shown.
+ * Creates a list of messages shown in the console.
  *
- * This includes not only the [game messages][de.github.dudrie.hamster.internal.model.game.GameLog.messages] but also any [exception][de.github.dudrie.hamster.internal.model.game.GameCommandStack.runtimeException] present in the [GameCommandStack][de.github.dudrie.hamster.internal.model.game.GameCommandStack].
+ * The list is served as a [State].
  */
 @Composable
-fun produceMessageCountOnCommandStack(): State<Int> {
+fun produceMessagesForList(): State<List<GameMessage>> {
     val commands = HamsterGameLocal.current.gameCommands
-    return produceState(0, commands.gameMessageCount, commands.runtimeException) {
-        var newValue = commands.gameMessageCount.value
-        if (commands.runtimeException != null) {
-            newValue++
+    val canRedo by commands.canRedoCommand
+
+    return produceState(listOf(), commands.gameMessageCount, commands.runtimeException, commands.mode, canRedo) {
+        val messages = mutableListOf<GameMessage>()
+
+        messages.addAll(commands.gameMessages.map { GameMessage(it, GameMessageType.COMMAND) })
+
+        if (!canRedo) {
+            commands.runtimeException?.let { messages.add(GameMessage(it.toString(), GameMessageType.ERROR)) }
+
+            if (commands.mode == GameMode.Stopped) {
+                messages.add(
+                    GameMessage(
+                        HamsterString.getWithFormat(
+                            "console.executed.commands.count",
+                            commands.commandCount
+                        ), GameMessageType.INFO
+                    )
+                )
+            }
         }
-        value = newValue
+
+        value = messages
     }
 }
-

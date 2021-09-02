@@ -67,7 +67,7 @@ class GameCommandStack : CommandStack() {
     /**
      * Amount of messages saved in the game log.
      */
-    val gameMessageCount: State<Int>
+    val gameMessageCount: Int
         get() = gameLog.messageCount
 
     private val pauseLock: Semaphore = Semaphore(1, true)

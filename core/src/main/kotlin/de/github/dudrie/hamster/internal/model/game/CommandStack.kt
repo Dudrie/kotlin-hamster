@@ -28,6 +28,12 @@ abstract class CommandStack {
     val hasCommandsToRedo = mutableStateOf(false)
 
     /**
+     * Sum of all command either executed or undone.
+     */
+    val commandCount: Int
+        get() = executedCommands.size + undoneCommands.size
+
+    /**
      * Lock which is used to ensure that commands are executed in sequence and that no two commands are executed at the same time.
      */
     protected val executionLock: ReentrantLock = ReentrantLock(true)
