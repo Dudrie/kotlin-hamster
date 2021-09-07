@@ -1,5 +1,6 @@
 pluginManagement {
     repositories {
+        google()
         gradlePluginPortal()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
@@ -7,5 +8,4 @@ pluginManagement {
 
 rootProject.name = "kotlin-hamster"
 
-include("core", "main", "ui", "imperative", "editor")
-include("imperative-de")
+include("core", "main", "ui", "imperative", "editor", "imperative-de")
