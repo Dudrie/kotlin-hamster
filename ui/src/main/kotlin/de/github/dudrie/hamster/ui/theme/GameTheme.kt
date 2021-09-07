@@ -62,6 +62,11 @@ object GameTheme {
         @Composable
         get() = GameColorsLocal.current
 
+    /**
+     * Typography related to the game.
+     *
+     * @see [GameTypography]
+     */
     val typography: GameTypography
         @Composable
         get() = GameTypographyLocal.current
