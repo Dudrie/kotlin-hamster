@@ -7,7 +7,7 @@ import de.github.dudrie.hamster.imperative.*
  *
  * Nachdem das Spiel geladen und gestartet wurde, können Befehle ausgeführt werden. Es kann immer nur ein Spiel gleichzeitig gestartet sein.
  *
- * @param territoriumsDatei Das Territorium, das geladen werden kann. Wird keines übergeben, so wird das Standardterritorium geladen.
+ * @param territoriumsDatei Das Territorium, das geladen werden soll. Wird keines übergeben, so wird das Standardterritorium geladen.
  */
 fun starteSpiel(territoriumsDatei: String? = null) {
     startGame(territoriumsDatei)
