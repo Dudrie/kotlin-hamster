@@ -10,8 +10,10 @@ plugins {
 dependencies {
     implementation(project(":core"))
     implementation(project(":ui"))
-    implementation(compose.desktop.currentOs)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
+
+    // Must be of a different type than the one in :ui because otherwise the dependencies will clash inside the IDE.
+    compileOnly(compose.desktop.currentOs)
+    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
 }
 
 compose.desktop {
