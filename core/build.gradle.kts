@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation(compose.desktop.currentOs)
+    implementation(compose.desktop.common)
 
     implementation("com.google.code.gson:gson:2.8.7")
 
