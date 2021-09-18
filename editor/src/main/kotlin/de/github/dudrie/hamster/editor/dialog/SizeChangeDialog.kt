@@ -33,7 +33,7 @@ fun SizeChangeDialog(onSizeAccept: (size: Size) -> Unit, onDismiss: () -> Unit) 
 
     DefaultDialog(
         onDismissRequest = onDismiss,
-        title = { Text("editor.dialog.change.size.title") },
+        title = { Text(HamsterString.get("editor.dialog.change.size.title")) },
         text = {
             Column {
                 Text(HamsterString.get("editor.dialog.change.size.text"))
