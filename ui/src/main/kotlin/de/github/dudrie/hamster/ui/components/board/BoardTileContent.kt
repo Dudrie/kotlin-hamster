@@ -6,12 +6,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -75,7 +73,11 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
         for (content in tile.tileContent) {
             if (content is HamsterTileContent) {
                 val degrees = getDegreesForDirection(content.direction)
-                val hamster = remember { ResourceReader(R.images.hamster).getContentAsImage().asImageBitmap() }
+                val colors = GameTheme.colors
+                val hamster = rememberReplaceColor({ResourceReader(R.images.hamster).getContentAsImage()}) {
+                    addColorReplacement(colors.hamsterImage.lightPart, colors.defaultHamster.lightPart)
+                    addColorReplacement(colors.hamsterImage.darkPart, colors.defaultHamster.darkPart)
+                }
 
                 Image(
                     bitmap = hamster,

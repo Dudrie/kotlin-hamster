@@ -14,6 +14,9 @@ import org.jetbrains.skiko.toImage
  * @param image [Image] to replace the color.
  */
 class ImageColorChanger(image: Image) {
+    private val originalImage: Image = image
+
+    private val colorInfoMap: MutableMap<Color, Color> = mutableMapOf()
 
     /**
      * Image which gets replaced by new images if any replacement function of this object is called.
@@ -21,16 +24,31 @@ class ImageColorChanger(image: Image) {
      * @see replaceAllColors
      * @see replaceColor
      */
-    var image: Image = image
-        private set
+    private var adjustedImage: Image = image
 
     /**
-     * Replaces all colors in the [image] according to the given [colorMap].
-     *
-     * @param colorMap Map which indicates which color should be converted into which other color. The keys represent the original colors and their values the color into which they should be converted.
+     * The [adjustedImage] as [ImageBitmap].
      */
-    fun replaceAllColors(colorMap: Map<Color, Color>) {
-        for ((original, replacement) in colorMap) {
+    val imageAsBitmap: ImageBitmap
+        get() = adjustedImage.asImageBitmap()
+
+    /**
+     * Adds the information that on a replacement call the [original] color should get replaced with the [replacement] color.
+     *
+     * @see replaceAllColors
+     */
+    fun addColorReplacement(original: Color, replacement: Color) {
+        colorInfoMap[original] = replacement
+    }
+
+    /**
+     * Replaces all colors in the [adjustedImage] according information given by the configuration functions like [addColorReplacement].
+     *
+     * @see addColorReplacement
+     */
+    fun replaceAllColors() {
+        adjustedImage = originalImage
+        for ((original, replacement) in colorInfoMap) {
             replaceColor(original, replacement)
         }
     }
@@ -41,7 +59,7 @@ class ImageColorChanger(image: Image) {
      * This is done pixel per pixel.
      */
     private fun replaceColor(original: Color, replacement: Color) {
-        val adjustedImage = image.asImageBitmap().asAwtImage()
+        val adjustedImage = adjustedImage.asImageBitmap().asAwtImage()
         val originalARGB = original.toArgb()
 
         for (x in 0 until adjustedImage.width) {
@@ -54,21 +72,22 @@ class ImageColorChanger(image: Image) {
             }
         }
 
-        image = adjustedImage.toImage()
+        this.adjustedImage = adjustedImage.toImage()
     }
 }
 
 /**
- * Changes the colors of the [image] according to the given [colorMap].
+ * Changes the colors of the [image] according to the given [configuration][configure].
  *
  * The result is [remembered][remember] before it is returned.
  */
 @Composable
-fun rememberReplaceColor(colorMap: Map<Color, Color>, image: () -> Image): ImageBitmap =
+fun rememberReplaceColor(image: () -> Image, configure: ImageColorChanger.() -> Unit): ImageBitmap =
     remember {
         val changer = ImageColorChanger(image())
-        changer.replaceAllColors(colorMap)
-        changer.image.asImageBitmap()
+        configure(changer)
+        changer.replaceAllColors()
+        changer.imageAsBitmap
     }
 
 /**
@@ -77,6 +96,5 @@ fun rememberReplaceColor(colorMap: Map<Color, Color>, image: () -> Image): Image
  * The result is [remembered][remember] before it is returned.
  */
 @Composable
-fun rememberReplaceColor(current: Color, replacement: Color, image: () -> Image): ImageBitmap = rememberReplaceColor(
-    mapOf(Pair(current, replacement)), image
-)
+fun rememberReplaceColor(current: Color, replacement: Color, image: () -> Image): ImageBitmap =
+    rememberReplaceColor(image) { addColorReplacement(current, replacement) }

@@ -27,7 +27,7 @@ object GameColors {
     /**
      * Color of the default hamster.
      */
-    val defaultHamster = HamsterColors(lightPart = Color(155, 213, 255), darkPart = Color(99, 164, 255))
+    val defaultHamster = HamsterColors(lightPart = Color(15, 147, 242), darkPart = Color(57, 112, 250))
 
     /**
      * Color of the grains on the board.
