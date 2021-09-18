@@ -31,3 +31,7 @@ A translation of the `imperative` module's API into the german language so stude
 An editor UI to create / edit the territories used by the game. It allows loading and exporting of territory files which can then be used for the exercises. This UI also uses [Compose for Desktop][compose-for-desktop]
 
 [compose-for-desktop]: https://www.jetbrains.com/de-de/lp/compose/
+
+# Attributions
+
+- Icon used for grains mady by [Freepik](https://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com/).

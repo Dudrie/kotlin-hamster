@@ -100,7 +100,7 @@ fun loadProperties() {
     try {
         properties.load(project.file("local.properties").inputStream())
     } catch (e: FileNotFoundException) {
-        println("[INFO] local.properties not found. Falling back to environmental variables.")
+        println("[INFO] local.properties not found. Falling back to environmental variables for publishing the produced artifacts.")
     }
     gprUser = properties["gpr.user"] as String? ?: System.getenv("GPR_ACTOR")
     gprToken = properties["gpr.token"] as String? ?: System.getenv("GPR_TOKEN")
