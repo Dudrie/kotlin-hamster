@@ -27,9 +27,15 @@ class GameHamster(
     }
 
     /**
+     * Number of moves this hamster has taken.
+     */
+    var movesTaken: Int = 0
+        private set
+
+    /**
      * Move one step in the [Direction] the hamster is facing.
      *
-     * The destination tile must not be blocked.
+     * The destination tile must not be blocked. After a successful move [movesTaken] is increased by 1.
      *
      * @see moveTo
      */
@@ -37,12 +43,13 @@ class GameHamster(
         val newLocation = getLocationAfterMove()
         val newTile = territory.getTileAt(newLocation)
         moveTo(newTile)
+        movesTaken++
     }
 
     /**
      * Moves the hamster to the given [GameTile].
      *
-     * The [tile] must not be blocked. After executing this function the hamster is on the new [GameTile] and both tiles, the old and the new one, were updated accordingly.
+     * The [tile] must not be blocked. After executing this function the hamster is on the new [GameTile] and both tiles, the old and the new one, were updated accordingly. The [movesTaken] variable **NOT** changed within this function!
      *
      * @param tile [GameTile] the hamster should be placed on.
      */
@@ -50,6 +57,14 @@ class GameHamster(
         require(isTileWalkable(tile)) { "The destination tile is blocked or outside the territory. Destination tile's location: ${tile.location}." }
 
         setTile(tile)
+    }
+
+    /**
+     * Decreases the [movesTaken] of this hamster by on.
+     */
+    internal fun decreaseMovesTakenByOne() {
+        require(movesTaken > 0) { "The move count must be greater than zero to be decreased." }
+        movesTaken--
     }
 
     /**

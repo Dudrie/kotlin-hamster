@@ -53,3 +53,8 @@ fun liegtEinKornAufDeinemFeld(): Boolean = hasYourTileAGrain()
  * Sie wird in der Spielkonsole ausgegeben.
  */
 fun sage(nachricht: String) = say(nachricht)
+
+/**
+ * Gibt die Anzahl der vom Hamster zurückgelegten Schritte zurück.
+ */
+fun holeAnzahlSchritte(): Int = getNumberOfHamsterMovesTaken()

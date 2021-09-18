@@ -15,3 +15,10 @@ internal fun isGameStarted() {
     require(imperativeGlobalGame?.gameCommands?.mode != GameMode.Aborted) { ErrorString.get("error.execute.command.GAME_IS_ABORTED") }
     require(imperativeGlobalGame?.gameCommands?.mode != GameMode.Stopped) { ErrorString.get("error.execute.command.GAME_IS_STOPPED") }
 }
+
+/**
+ * Throws a [RuntimeException] which indicates that the game was not properly initialized.
+ */
+internal fun throwGameNotInitializedException(): Nothing {
+    throw RuntimeException(ErrorString.get("error.game.not.initialized"))
+}

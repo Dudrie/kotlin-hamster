@@ -56,7 +56,7 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
      */
     private fun initTerritory() {
         val size = data.territorySize.copy()
-        val builder = TerritoryBuilder(size)
+        val builder = TerritoryBuilder(size, data.tileToMeterScaling)
         initSpecialTiles(builder)
 
         val gameTerritory = builder.buildGameTerritory()

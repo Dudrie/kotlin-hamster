@@ -9,7 +9,7 @@ import de.github.dudrie.hamster.datatypes.Size
  * @param size [Size] of the [GameTerritory]
  * @param tiles [List] of all [GameTiles][GameTile] of the [GameTerritory]. Every [Location] that is inside the [size] must have a [GameTile] in this [List].
  */
-class GameTerritory(val size: Size, private val tiles: List<GameTile>) {
+class GameTerritory(val size: Size, private val tiles: List<GameTile>, val tileToMeterScaling: Double) {
 
     init {
         require(tiles.size == size.columnCount * size.rowCount) { "Count of tiles (${tiles.size}) does not match the size size." }

@@ -39,6 +39,7 @@ class MoveCommand(private val hamster: GameHamster) : Command() {
     override fun undo() {
         oldTile?.let {
             hamster.moveTo(it)
+            hamster.decreaseMovesTakenByOne()
             oldTile = null
         }
     }

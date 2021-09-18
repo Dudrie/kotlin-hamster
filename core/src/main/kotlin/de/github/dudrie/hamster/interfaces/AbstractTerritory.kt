@@ -14,6 +14,11 @@ abstract class AbstractTerritory {
     abstract val territorySize: Size
 
     /**
+     * Scaling how many meters one single tile represents.
+     */
+    abstract val tileToMeterScaling: Double
+
+    /**
      * Returns the [GameTile] at the [location].
      *
      * The [location] must be inside this territory.

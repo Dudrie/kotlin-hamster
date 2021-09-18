@@ -8,5 +8,9 @@ internal fun main() {
     laufe()
     sammleKornAuf()
 
+    val anzahlSchritte = holeAnzahlSchritte()
+    val gelaufeneMeter = anzahlSchritte * holeFeldZuMeterSkalierung()
+    sage("Ich bin ${gelaufeneMeter}m gelaufen.")
+
     stoppeSpiel()
 }

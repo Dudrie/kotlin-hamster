@@ -20,6 +20,12 @@ class Territory(val hamsterGame: HamsterGame, internal val internalTerritory: Ga
     override val territorySize: Size = internalTerritory.size
 
     /**
+     * Meters a single tile in this territory represents.
+     */
+    override val tileToMeterScaling: Double
+        get() = internalTerritory.tileToMeterScaling
+
+    /**
      * Returns the [GameTile] at the [location].
      *
      * The [location] must be inside this territory.

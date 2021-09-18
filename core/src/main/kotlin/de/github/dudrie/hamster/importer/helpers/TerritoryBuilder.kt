@@ -13,7 +13,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  *
  * @param territorySize [Size] of the territory that will be generated.
  */
-open class TerritoryBuilder(val territorySize: Size) {
+open class TerritoryBuilder(val territorySize: Size, private val tileToMeterScaling: Double) {
     /**
      * Tiles of the tutorial.
      */
@@ -27,7 +27,7 @@ open class TerritoryBuilder(val territorySize: Size) {
     fun buildGameTerritory(): GameTerritory {
         fillEmptyTiles()
 
-        return GameTerritory(territorySize, tiles)
+        return GameTerritory(size = territorySize,tiles = tiles, tileToMeterScaling = tileToMeterScaling)
     }
 
     /**

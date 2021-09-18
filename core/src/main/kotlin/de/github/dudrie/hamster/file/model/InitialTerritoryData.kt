@@ -12,7 +12,11 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  * @param territorySize [Size] of the territory.
  * @param initialHamster Data to generate the initial, default hamster.
  */
-class InitialTerritoryData(val territorySize: Size, val initialHamster: InitialHamsterData) {
+class InitialTerritoryData(
+    val territorySize: Size,
+    val initialHamster: InitialHamsterData,
+    val tileToMeterScaling: Double = 0.5
+) {
 
     /**
      * Exposes function to instantiate the [InitialTerritoryData] from JSON.

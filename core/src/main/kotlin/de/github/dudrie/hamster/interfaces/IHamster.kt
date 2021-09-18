@@ -19,6 +19,11 @@ interface IHamster {
     val direction: Direction
 
     /**
+     * Number of moves the hamster has taken.
+     */
+    val movesTaken: Int
+
+    /**
      * Moves the hamster one step.
      */
     fun move()

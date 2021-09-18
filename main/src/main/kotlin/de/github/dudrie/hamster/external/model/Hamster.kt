@@ -40,6 +40,9 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     override val direction: Direction
         get() = internalHamster.direction
 
+    override val movesTaken: Int
+        get() = internalHamster.movesTaken
+
     init {
         val tile = territory.getTileAt(location)
         internalHamster =

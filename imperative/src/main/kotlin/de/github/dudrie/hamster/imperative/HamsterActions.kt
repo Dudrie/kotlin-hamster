@@ -79,3 +79,10 @@ fun say(message: String) {
     isGameStarted()
     imperativeGlobalGame?.paule?.say(message)
 }
+
+/**
+ * Returns the number of moves taken by the hamster.
+ */
+fun getNumberOfHamsterMovesTaken(): Int {
+    return imperativeGlobalGame?.paule?.movesTaken ?: throwGameNotInitializedException()
+}
