@@ -15,7 +15,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
 class InitialTerritoryData(
     val territorySize: Size,
     val initialHamster: InitialHamsterData,
-    val tileToMeterScaling: Double = 0.5
+    val tileToMeterScaling: Double
 ) {
 
     /**

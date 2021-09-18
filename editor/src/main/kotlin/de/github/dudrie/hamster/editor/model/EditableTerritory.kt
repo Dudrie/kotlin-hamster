@@ -11,9 +11,11 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  *
  * @param initialSize Initial size of the territory.
  */
-class EditableTerritory(initialSize: Size) : AbstractTerritory() {
+class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : AbstractTerritory() {
 
     private val territorySizeState = mutableStateOf(initialSize)
+
+    private val tileToMeterScalingState = mutableStateOf(initialTileToMeterScaling)
 
     /**
      * The [Size] of the territory.
@@ -22,11 +24,23 @@ class EditableTerritory(initialSize: Size) : AbstractTerritory() {
         get() = territorySizeState.value
 
     /**
+     * The scaling how many meters a tile in the territory represents.
+     */
+    override var tileToMeterScaling: Double
+        get() = tileToMeterScalingState.value
+        set(value) {
+            tileToMeterScalingState.value = value
+        }
+
+    /**
      * Tiles currently present in the territory.
      */
     private val tiles = mutableListOf<EditableGameTile>()
 
-    constructor(initialSize: Size, tiles: List<EditableGameTile>) : this(initialSize) {
+    constructor(initialSize: Size, initialTileToMeterScaling: Double, tiles: List<EditableGameTile>) : this(
+        initialSize,
+        initialTileToMeterScaling
+    ) {
         this.tiles.clear()
         this.tiles.addAll(tiles)
     }

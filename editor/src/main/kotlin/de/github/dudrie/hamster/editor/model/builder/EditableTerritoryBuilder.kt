@@ -8,7 +8,7 @@ import de.github.dudrie.hamster.importer.helpers.TerritoryBuilder
 /**
  * Builder to build an [EditableTerritory].
  */
-class EditableTerritoryBuilder(territorySize: Size) : TerritoryBuilder(territorySize) {
+class EditableTerritoryBuilder(territorySize: Size, tileToMeterScaling: Double) : TerritoryBuilder(territorySize, tileToMeterScaling) {
     /**
      * Builds an [EditableTerritory] based upon the information present in the builder and returns it.
      *
@@ -17,6 +17,6 @@ class EditableTerritoryBuilder(territorySize: Size) : TerritoryBuilder(territory
     fun buildEditableTerritory(): EditableTerritory {
         fillEmptyTiles()
         val tiles = getAllTiles().map { EditableGameTile(it.location, it.type, it.grainCount) }
-        return EditableTerritory(territorySize, tiles)
+        return EditableTerritory(territorySize, tileToMeterScaling, tiles)
     }
 }

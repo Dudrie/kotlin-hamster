@@ -102,6 +102,13 @@ object EditorState {
     }
 
     /**
+     * Sets the tile to meter scaling of the currently edited territory.
+     */
+    fun setTerritoryTileToMeterScaling(scaling: Double) {
+        territory.value.tileToMeterScaling = scaling
+    }
+
+    /**
      * Saves the current territory to the file at the given [path].
      */
     fun saveToFile(path: Path): IOOperationResult {
@@ -135,7 +142,7 @@ object EditorState {
             val reader = Files.newBufferedReader(path, Charsets.UTF_8)
             reader.use {
                 val data = parseJson<InitialTerritoryData>(reader.readText())
-                val builder = EditableTerritoryBuilder(data.territorySize)
+                val builder = EditableTerritoryBuilder(data.territorySize, data.tileToMeterScaling)
 
                 data.getAllSpecialTiles().forEach { tile ->
                     builder.addSpecialTile(tile)
@@ -196,7 +203,11 @@ object EditorState {
             direction = hamster.direction,
             grainCount = hamster.grainCount
         )
-        val territoryData = InitialTerritoryData(territorySize = size, initialHamster = hamsterData)
+        val territoryData = InitialTerritoryData(
+            territorySize = size,
+            initialHamster = hamsterData,
+            tileToMeterScaling = territory.tileToMeterScaling
+        )
         size.getAllLocationsInside().forEach { location ->
             val tile = territory.getTileAt(location)
 
@@ -227,6 +238,6 @@ object EditorState {
     /**
      * Creates and returns a default empty [EditableTerritory].
      */
-    private fun getDefaultTerritory(): EditableTerritory = EditableTerritory(Size(5, 3))
+    private fun getDefaultTerritory(): EditableTerritory = EditableTerritory(Size(5, 3), 0.5)
 
 }

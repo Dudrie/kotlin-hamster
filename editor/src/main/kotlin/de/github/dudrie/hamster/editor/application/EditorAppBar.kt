@@ -45,7 +45,10 @@ fun EditorAppBar() {
         AppBarButton(
             onClick = {
                 scope.launch {
-                    DialogService.askForNewTerritorySize()?.let { size -> EditorState.setTerritorySize(size) }
+                    DialogService.askForNewTerritorySize()?.let { result ->
+                        EditorState.setTerritorySize(result.size)
+                        EditorState.setTerritoryTileToMeterScaling(result.tileToMeterScaling)
+                    }
                 }
             },
             modifier = Modifier.padding(end = padding),

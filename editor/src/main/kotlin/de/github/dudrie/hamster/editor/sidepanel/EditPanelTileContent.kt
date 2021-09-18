@@ -5,17 +5,19 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.editor.components.textfield.TextFieldForIntegers
+import de.github.dudrie.hamster.editor.components.textfield.rememberTextFieldForNumbersState
 import de.github.dudrie.hamster.editor.model.EditableHamster
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.territory.GameTileContent
 import de.github.dudrie.hamster.ui.components.Select
-import de.github.dudrie.hamster.ui.components.TextFieldForNumbers
 
 /**
  * Edit panel that allows to change the configuration of the given [content].
@@ -34,6 +36,13 @@ fun EditPanelTileContent(content: GameTileContent) {
  */
 @Composable
 fun EditPanelHamsterTileContent(content: EditableHamster) {
+    val grainCountState = rememberTextFieldForNumbersState(content.grainCount, content) { newValue, state ->
+        if (newValue >= 0) {
+            content.setGrainCount(newValue)
+        }
+        state.isError = newValue < 0
+    }
+
     Text(
         HamsterString.get("editor.side.edit.hamster.title"),
         modifier = Modifier.fillMaxWidth(),
@@ -57,13 +66,8 @@ fun EditPanelHamsterTileContent(content: EditableHamster) {
         )
     }
 
-    TextFieldForNumbers(
-        value = content.grainCount,
-        onValueChanged = {
-            if (it >= 0) {
-                content.setGrainCount(it)
-            }
-        },
+    TextFieldForIntegers(
+        state = grainCountState,
         label = { Text(HamsterString.get("editor.side.edit.hamster.grain.count.label")) },
         hint = HamsterString.getWithFormat("editor.side.edit.hamster.grain.count.hint", content.grainCount)
     )

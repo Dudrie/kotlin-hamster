@@ -63,11 +63,11 @@ internal object DialogService {
      *
      * Returns the entered [Size] or `null` if the dialog is dismissed.
      */
-    suspend fun askForNewTerritorySize(): Size? {
-        val state = DialogState<Size?>()
+    suspend fun askForNewTerritorySize(): SizeChangeDialogResult? {
+        val state = DialogState<SizeChangeDialogResult?>()
 
         showDialog {
-            SizeChangeDialog(onSizeAccept = {
+            SizeChangeDialog(onAccept = {
                 dismissDialog()
                 state.setResult(it)
             }, onDismiss = {
