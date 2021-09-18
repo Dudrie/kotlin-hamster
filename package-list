@@ -16,6 +16,7 @@ de.github.dudrie.hamster.internal.model.territory
 module:editor
 de.github.dudrie.hamster.editor.application
 de.github.dudrie.hamster.editor.components
+de.github.dudrie.hamster.editor.components.textfield
 de.github.dudrie.hamster.editor.dialog
 de.github.dudrie.hamster.editor.model
 de.github.dudrie.hamster.editor.model.builder
