@@ -43,7 +43,7 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
         private set
 
     init {
-        val json = ResourceReader(getPathToTerritoryFile()).getContentAsText()
+        val json = ResourceReader(getPathToTerritoryFile(), territoryFile != null).getContentAsText()
         data = InitialTerritoryData.fromJson(json)
         initTerritory()
         initHamster()

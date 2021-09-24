@@ -10,15 +10,15 @@ import java.net.URL
  * Supports reading resources either as text through [getContentAsText] or as [Image] through [getContentAsImage].
  *
  * @param filePath Path to the resource.
+ * @param fromOuterModule If `true` the file gets loading from outside the module. Defaults to `false`.
  *
  * @throws FileNotFoundException If the resource at the `filePath` could not be found.
  */
-class ResourceReader(filePath: String) {
+class ResourceReader(private val filePath: String, private val fromOuterModule: Boolean = false) {
     private val resource: URL
 
     init {
-        resource = this::class.java.getResource(filePath)
-            ?: throw FileNotFoundException("The resource at \"$filePath\" could not be found.")
+        resource = this.loadResource()
     }
 
     /**
@@ -36,4 +36,14 @@ class ResourceReader(filePath: String) {
      * @return Content of the resource as [Image].
      */
     fun getContentAsImage(): Image = Image.makeFromEncoded(resource.readBytes())
+
+    private fun loadResource(): URL {
+        val url = if (fromOuterModule) {
+            this::class.java.classLoader.getResource(filePath)
+        } else {
+            this::class.java.getResource(filePath)
+        }
+
+        return url ?: throw FileNotFoundException("The resource at \"$filePath\" could not be found.")
+    }
 }
