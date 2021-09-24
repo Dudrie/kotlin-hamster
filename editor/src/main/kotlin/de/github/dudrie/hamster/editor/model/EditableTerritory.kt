@@ -94,5 +94,5 @@ class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : 
      * Creates and returns an empty floor tile.
      */
     private fun createDefaultTile(location: Location): EditableGameTile =
-        EditableGameTile(location, GameTileType.Floor, 0)
+        EditableGameTile(location = location,type=  GameTileType.Floor,grainCount= 0, hideGrainCount = false)
 }

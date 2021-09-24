@@ -12,6 +12,7 @@ import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.components.textfield.TextFieldForDoubles
 import de.github.dudrie.hamster.editor.components.textfield.TextFieldForIntegers
 import de.github.dudrie.hamster.editor.components.textfield.rememberTextFieldForNumbersState
+import de.github.dudrie.hamster.editor.i18n.EditorString
 import de.github.dudrie.hamster.i18n.HamsterString
 
 /**
@@ -39,27 +40,27 @@ fun SizeChangeDialog(onAccept: (result: SizeChangeDialogResult) -> Unit, onDismi
 
     DefaultDialog(
         onDismissRequest = onDismiss,
-        title = { Text(HamsterString.get("editor.dialog.change.size.title")) },
+        title = { Text(EditorString.get("editor.dialog.change.size.title")) },
         text = {
             Column {
-                Text(HamsterString.get("editor.dialog.change.size.text"))
+                Text(EditorString.get("editor.dialog.change.size.text"))
 
                 Row(Modifier.padding(top = 16.dp)) {
                     TextFieldForIntegers(
                         state = columnState,
-                        label = { Text(HamsterString.get("editor.dialog.change.size.text.field.columns.label")) })
+                        label = { Text(EditorString.get("editor.dialog.change.size.text.field.columns.label")) })
 
                     Spacer(Modifier.width(32.dp))
 
                     TextFieldForIntegers(
                         state = rowState,
-                        label = { Text(HamsterString.get("editor.dialog.change.size.text.field.rows.label")) })
+                        label = { Text(EditorString.get("editor.dialog.change.size.text.field.rows.label")) })
                 }
 
                 Row(Modifier.padding(top = 8.dp)) {
                     TextFieldForDoubles(
                         state = scalingState,
-                        label = { Text(HamsterString.get("editor.dialog.change.size.text.field.scaling.label")) }
+                        label = { Text(EditorString.get("editor.dialog.change.size.text.field.scaling.label")) }
                     )
                 }
             }
@@ -69,7 +70,7 @@ fun SizeChangeDialog(onAccept: (result: SizeChangeDialogResult) -> Unit, onDismi
                 onClick = {
                     onAccept(SizeChangeDialogResult(Size(columnState.value, rowState.value), scalingState.value))
                 },
-                content = { Text(HamsterString.get("editor.dialog.change.size.confirm")) },
+                content = { Text(EditorString.get("editor.dialog.change.size.confirm")) },
                 enabled = !columnState.isError && !rowState.isError && !scalingState.isError
             )
         }

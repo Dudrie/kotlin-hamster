@@ -18,15 +18,22 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
 class EditableGameTile(
     location: Location,
     type: GameTileType,
+    hideGrainCount: Boolean,
     grainCount: Int = 0
-) : GameTile(location, type, grainCount) {
+) : GameTile(location, type, hideGrainCount, grainCount) {
 
     private val typeState = mutableStateOf(type)
+    private val hideGrainCountState = mutableStateOf(hideGrainCount)
 
     /**
      * Type of this tile.
      */
     override var type: GameTileType by typeState
+
+    /**
+     * Indicates if the grain count of this tile is hidden.
+     */
+    override var hideGrainCount by hideGrainCountState
 
     /**
      * Sets the grain count on this tile to the given [count].

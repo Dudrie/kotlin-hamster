@@ -12,6 +12,7 @@ import de.github.dudrie.hamster.editor.application.helpers.handleCreateNewTerrit
 import de.github.dudrie.hamster.editor.application.helpers.handleOpenTerritory
 import de.github.dudrie.hamster.editor.application.helpers.handleSaveTerritory
 import de.github.dudrie.hamster.editor.dialog.DialogService
+import de.github.dudrie.hamster.editor.i18n.EditorString
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.ui.components.appbar.AppBarButton
 import kotlinx.coroutines.launch
@@ -29,18 +30,18 @@ fun EditorAppBar() {
         AppBarButton(
             onClick = { scope.launch { handleCreateNewTerritory() } },
             modifier = Modifier.padding(start = padding, end = padding),
-        ) { Text(HamsterString.get("editor.appbar.button.new")) }
+        ) { Text(EditorString.get("editor.appbar.button.new")) }
 
         AppBarButton(
             onClick = { scope.launch { handleSaveTerritory(snackbarHost) } },
             enabled = EditorState.hasStartingHamster,
             modifier = Modifier.padding(end = padding)
-        ) { Text(HamsterString.get("editor.appbar.button.save")) }
+        ) { Text(EditorString.get("editor.appbar.button.save")) }
 
         AppBarButton(
             onClick = { scope.launch { handleOpenTerritory(snackbarHost) } },
             modifier = Modifier.padding(end = padding),
-        ) { Text(HamsterString.get("editor.appbar.button.open")) }
+        ) { Text(EditorString.get("editor.appbar.button.open")) }
 
         AppBarButton(
             onClick = {
@@ -52,6 +53,6 @@ fun EditorAppBar() {
                 }
             },
             modifier = Modifier.padding(end = padding),
-        ) { Text(HamsterString.get("editor.appbar.button.change.size")) }
+        ) { Text(EditorString.get("editor.appbar.button.change.size")) }
     }
 }

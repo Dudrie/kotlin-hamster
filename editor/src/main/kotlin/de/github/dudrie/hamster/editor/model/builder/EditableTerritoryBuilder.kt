@@ -16,7 +16,7 @@ class EditableTerritoryBuilder(territorySize: Size, tileToMeterScaling: Double) 
      */
     fun buildEditableTerritory(): EditableTerritory {
         fillEmptyTiles()
-        val tiles = getAllTiles().map { EditableGameTile(it.location, it.type, it.grainCount) }
+        val tiles = getAllTiles().map { EditableGameTile(it.location, it.type, it.hideGrainCount, it.grainCount) }
         return EditableTerritory(territorySize, tileToMeterScaling, tiles)
     }
 }

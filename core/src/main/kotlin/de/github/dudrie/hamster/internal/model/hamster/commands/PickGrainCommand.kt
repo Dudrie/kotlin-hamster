@@ -27,7 +27,7 @@ class PickGrainCommand(private val hamster: GameHamster) : Command() {
      */
     override fun execute() {
         require(canBeExecuted()) { "Pick grain command cannot be executed." }
-        val tile = hamster.currentTile
+        val tile = hamster.tile
         tile.removeGrainFromTile()
         hamster.pickGrain()
         tileGrainWasPickedFrom = tile
@@ -54,8 +54,8 @@ class PickGrainCommand(private val hamster: GameHamster) : Command() {
      * @return A list as described above.
      */
     override fun getExceptionsFromCommandExecution(): List<RuntimeException> {
-        if (hamster.currentTile.grainCount <= 0) {
-            return listOf(NoGrainsOnTileException(hamster.currentTile))
+        if (hamster.tile.grainCount <= 0) {
+            return listOf(NoGrainsOnTileException(hamster.tile))
         }
         return listOf()
     }

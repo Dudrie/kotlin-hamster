@@ -28,7 +28,7 @@ class DropGrainCommand(private val hamster: GameHamster) : Command() {
      */
     override fun execute() {
         require(canBeExecuted()) { "Drop grain command cannot be executed." }
-        val tile = hamster.currentTile
+        val tile = hamster.tile
         hamster.dropGrain()
         tile.addGrainToTile()
         tileGrainWasPutOn = tile

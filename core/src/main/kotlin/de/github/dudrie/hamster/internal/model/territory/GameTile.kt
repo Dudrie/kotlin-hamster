@@ -25,11 +25,13 @@ enum class GameTileType {
  *
  * @param location [Location] this tile sits on.
  * @param type Type of this tile.
+ * @param hideGrainCount Indicates that the tile should hide its exact grain count. It should only show an indicator if it has zero or at least one grain.
  * @param grainCount Initial amount of grains laying on this tile.
  */
 open class GameTile(
     val location: Location,
     open val type: GameTileType,
+    open val hideGrainCount: Boolean,
     grainCount: Int = 0
 ) {
 

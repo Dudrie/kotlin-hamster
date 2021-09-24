@@ -7,7 +7,7 @@ abstract class GameTileContent {
     /**
      * Current tile this content sits on.
      */
-    abstract val currentTile: GameTile
+    abstract val tile: GameTile
 
     /**
      * Does this content prevent movement onto its tile?

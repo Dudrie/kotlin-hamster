@@ -20,7 +20,6 @@ import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.ui.R
-import de.github.dudrie.hamster.ui.helpers.rememberReplaceColor
 import de.github.dudrie.hamster.ui.theme.GameTheme
 
 /**
@@ -40,8 +39,17 @@ fun getDegreesForDirection(direction: Direction): Float = when (direction) {
 fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         if (tile.grainCount > 0) {
-            val grain = rememberReplaceColor(Color.Black, GameTheme.colors.grainColor) {
-                ResourceReader(R.images.grain).getContentAsImage()
+            val grain = remember {
+                ResourceReader(R.images.grain).getContentAsImage().asImageBitmap()
+            }
+            val infoText: String? = remember(tile.grainCount, tile.hideGrainCount) {
+                if (tile.hideGrainCount) {
+                    "?"
+                } else if (tile.grainCount == 1) {
+                    null
+                } else {
+                    "${tile.grainCount}"
+                }
             }
 
             Box(
@@ -53,7 +61,7 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
                     contentDescription = null,
                     modifier = Modifier.graphicsLayer().aspectRatio(1f).fillMaxSize()
                 )
-                if (tile.grainCount > 1) {
+                if (infoText != null) {
                     Surface(
                         color = Color.Gray.copy(alpha = 0.8f),
                         shape = RoundedCornerShape(50),
@@ -61,7 +69,7 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
                     ) {
                         Box(Modifier.fillMaxHeight(), contentAlignment = Alignment.Center) {
                             Text(
-                                text = "${tile.grainCount}",
+                                text = infoText,
                                 style = GameTheme.typography.grainCount,
                                 textAlign = TextAlign.Center
                             )

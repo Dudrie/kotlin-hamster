@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Direction
 import de.github.dudrie.hamster.editor.components.textfield.TextFieldForIntegers
 import de.github.dudrie.hamster.editor.components.textfield.rememberTextFieldForNumbersState
+import de.github.dudrie.hamster.editor.i18n.EditorString
 import de.github.dudrie.hamster.editor.model.EditableHamster
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.territory.GameTileContent
@@ -44,13 +44,13 @@ fun EditPanelHamsterTileContent(content: EditableHamster) {
     }
 
     Text(
-        HamsterString.get("editor.side.edit.hamster.title"),
+        EditorString.get("editor.side.edit.hamster.title"),
         modifier = Modifier.fillMaxWidth(),
         textAlign = TextAlign.Center
     )
 
     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 16.dp)) {
-        Text("${HamsterString.get("editor.side.edit.hamster.direction.of.view")}:", Modifier.padding(end = 8.dp))
+        Text("${EditorString.get("editor.side.edit.hamster.direction.of.view")}:", Modifier.padding(end = 8.dp))
         Select(
             items = remember {
                 listOf(
@@ -68,7 +68,7 @@ fun EditPanelHamsterTileContent(content: EditableHamster) {
 
     TextFieldForIntegers(
         state = grainCountState,
-        label = { Text(HamsterString.get("editor.side.edit.hamster.grain.count.label")) },
-        hint = HamsterString.getWithFormat("editor.side.edit.hamster.grain.count.hint", content.grainCount)
+        label = { Text(EditorString.get("editor.side.edit.hamster.grain.count.label")) },
+        hint = EditorString.getWithFormat("editor.side.edit.hamster.grain.count.hint", content.grainCount)
     )
 }

@@ -32,7 +32,7 @@ class Hamster(private val territory: Territory, location: Location, direction: D
      * The current [Location] of the hamster.
      */
     override val location: Location
-        get() = internalHamster.currentTile.location
+        get() = internalHamster.tile.location
 
     /**
      * The current [Direction] the hamster is facing in.

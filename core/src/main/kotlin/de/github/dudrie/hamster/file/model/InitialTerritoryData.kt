@@ -12,7 +12,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  * @param territorySize [Size] of the territory.
  * @param initialHamster Data to generate the initial, default hamster.
  */
-class InitialTerritoryData(
+open class InitialTerritoryData(
     val territorySize: Size,
     val initialHamster: InitialHamsterData,
     val tileToMeterScaling: Double
@@ -42,20 +42,8 @@ class InitialTerritoryData(
         require(isInside(location)) { "Location $location is not inside the territory. Territory size: $territorySize." }
         checkIfLocationAlreadyHasSpecialTile(location)
 
-        specialTiles[location] = TileData(location = location, tileType = GameTileType.Wall)
-    }
-
-    /**
-     * Add [grainCount] grains onto the given [location].
-     *
-     * The [location] must be inside the territory, must not be a wall (or similar blocked tile) and [grainCount] must be zero or greater.
-     */
-    fun addGrains(grainCount: Int, location: Location) {
-        require(isInside(location)) { "Location $location is not inside the territory. Territory size: $territorySize." }
-        require(!hasWallAtLocation(location)) { "Grains must not be put on a wall tile. Location: $location" }
-        require(grainCount > 0) { "Grain count must be 1 or greater. Grain count: $grainCount" }
-
-        specialTiles[location] = TileData(location = location, grainCount = grainCount)
+        specialTiles[location] =
+            TileData(location = location, tileType = GameTileType.Wall, hideGrainCount = false, grainCount = 0)
     }
 
     /**
@@ -73,12 +61,31 @@ class InitialTerritoryData(
     /**
      * Checks if the [location] is inside the territory.
      */
-    private fun isInside(location: Location): Boolean = territorySize.isLocationInside(location)
+    protected fun isInside(location: Location): Boolean = territorySize.isLocationInside(location)
 
     /**
      * Checks if the territory has a wall at the [location].
      */
-    private fun hasWallAtLocation(location: Location): Boolean = specialTiles[location]?.tileType == GameTileType.Wall
+    protected fun hasWallAtLocation(location: Location): Boolean = specialTiles[location]?.tileType == GameTileType.Wall
+
+    /**
+     * Sets the special tile at the [location] the given [tile].
+     */
+    protected fun setSpecialTileAt(location: Location, tile: TileData) {
+        specialTiles[location] = tile
+    }
+
+    /**
+     * Returns the special tile at the [location].
+     *
+     * If there is no special tile a default tile will be generated and returned.
+     */
+    protected fun getSpecialTileAt(location: Location): TileData = specialTiles[location] ?: TileData(
+        location = location,
+        grainCount = 0,
+        tileType = GameTileType.Floor,
+        hideGrainCount = false
+    )
 
     /**
      * Checks if the territory already has a special tile at the [location].

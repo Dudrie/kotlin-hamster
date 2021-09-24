@@ -21,7 +21,7 @@ abstract class HamsterTileContent(tile: GameTile, direction: Direction, grainCou
     /**
      * The [GameTile] the hamster is currently on.
      */
-    override val currentTile: GameTile by tileState
+    override val tile: GameTile by tileState
 
     /**
      * The [Direction] the hamster currently faces.
@@ -41,7 +41,7 @@ abstract class HamsterTileContent(tile: GameTile, direction: Direction, grainCou
      * Both tiles, the old and the new ones, have their contents updated accordingly.
      */
     protected fun setTile(newTile: GameTile) {
-        currentTile.removeContent(this)
+        tile.removeContent(this)
         newTile.addContent(this)
 
         tileState.value = newTile

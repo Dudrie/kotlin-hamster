@@ -51,7 +51,7 @@ open class TerritoryBuilder(val territorySize: Size, val tileToMeterScaling: Dou
             throw InitialTerritoryInvalidException("The tile at ${specialTile.location} would have a wall with grains on it. This is NOT allowed.")
         }
 
-        tiles += GameTile(location = location, type = specialTile.tileType, grainCount = specialTile.grainCount)
+        tiles += GameTile(location = location, type = specialTile.tileType, grainCount = specialTile.grainCount, hideGrainCount = specialTile.hideGrainCount)
     }
 
     /**
@@ -63,7 +63,7 @@ open class TerritoryBuilder(val territorySize: Size, val tileToMeterScaling: Dou
      * Adds an empty floor tile at the [location].
      */
     private fun addDefaultTile(location: Location) {
-        tiles += GameTile(location = location, type = GameTileType.Floor)
+        tiles += GameTile(location = location, type = GameTileType.Floor, hideGrainCount = false, grainCount = 0)
     }
 
     /**

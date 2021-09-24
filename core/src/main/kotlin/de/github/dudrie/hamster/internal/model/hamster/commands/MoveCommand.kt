@@ -27,7 +27,7 @@ class MoveCommand(private val hamster: GameHamster) : Command() {
      */
     override fun execute() {
         require(canBeExecuted()) { "Move command cannot be executed." }
-        oldTile = hamster.currentTile
+        oldTile = hamster.tile
         hamster.move()
     }
 

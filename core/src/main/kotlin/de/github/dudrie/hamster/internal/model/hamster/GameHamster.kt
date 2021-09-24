@@ -73,7 +73,7 @@ class GameHamster(
      * @return The location directly in front of the hamster.
      */
     fun getLocationAfterMove(): Location {
-        return currentTile.location.translate(direction.directionVector)
+        return tile.location.translate(direction.directionVector)
     }
 
     /**

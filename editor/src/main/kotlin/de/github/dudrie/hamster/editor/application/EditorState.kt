@@ -53,7 +53,7 @@ object EditorState {
     val hasStartingHamster: Boolean
         get() {
             val hamster = startingHamster.value
-            return hamster != null && territory.value.territorySize.isLocationInside(hamster.currentTile.location)
+            return hamster != null && territory.value.territorySize.isLocationInside(hamster.tile.location)
         }
 
     /**
@@ -199,11 +199,11 @@ object EditorState {
         require(hamster != null) { "The starting hamster must be present on the territory." }
 
         val hamsterData = InitialHamsterData(
-            location = hamster.currentTile.location,
+            location = hamster.tile.location,
             direction = hamster.direction,
             grainCount = hamster.grainCount
         )
-        val territoryData = InitialTerritoryData(
+        val territoryData = EditableTerritoryData(
             territorySize = size,
             initialHamster = hamsterData,
             tileToMeterScaling = territory.tileToMeterScaling
@@ -212,7 +212,7 @@ object EditorState {
             val tile = territory.getTileAt(location)
 
             if (tile.grainCount > 0) {
-                territoryData.addGrains(tile.grainCount, location)
+                territoryData.addGrainTile(tile)
             }
 
             if (tile.type == GameTileType.Wall) {
