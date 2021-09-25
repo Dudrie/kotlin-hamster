@@ -70,3 +70,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           directory: ./template
+          repository: Dudrie/kotlin-hamster-template-action-test
