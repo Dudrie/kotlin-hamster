@@ -56,8 +56,8 @@ jobs:
       - name: Copy dependencies to template 🗂
         working-directory: ./dependencies
         run: |
-          del /s /q ..\template\libs
-          copy libs ..\template\libs
+          Remove-Item ../template/libs -Recurse
+          Copy-Item ./libs ../template/libs -Recurse
 
       - name: Commit changes ✔
         working-directory: ./template
