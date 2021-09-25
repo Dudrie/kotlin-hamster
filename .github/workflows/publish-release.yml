@@ -69,5 +69,6 @@ jobs:
       - name: Push template repository 📤
         uses: ad-m/github-push-action@master
         with:
+          github_token: ${{ secrets.TOKEN_FOR_OTHER_REPO }}
           directory: ./template
           repository: Dudrie/kotlin-hamster-template-action-test
