@@ -21,3 +21,49 @@ jobs:
           GPR_ACTOR: ${{ github.actor }}
           GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./gradlew -Pversion="${{ github.event.release.tag_name }}" publish
+
+  update-template-repo:
+    name: Update template repository 📝
+    runs-on: windows-latest
+    needs:
+      - publish-release
+
+    steps:
+      - name: Checkout template repository 🛎️
+        uses: actions/checkout@v2
+        with:
+          repository: Dudrie/kotlin-hamster-template-action-test
+          path: ./template
+
+      - name: Checkout template repository 🛎️
+        uses: actions/checkout@v2
+        with:
+          repository: Dudrie/kotlin-hamster-for-action
+          path: ./dependencies
+
+      - name: Validate Gradle wrapper 🐘
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Download dependencies to local 📥
+        working-directory: ./dependencies
+        run: ./gradlew copyDependencies
+        env:
+          HAMSTER_VERSION: ${{ github.event.release.tag_name }}
+
+      - name: Copy dependencies to template 🗂
+        working-directory: ./dependencies
+        run: |
+          del /s /q ../template/libs
+          copy ./libs ../template/libs
+
+      - name: Commit changes ✔
+        working-directory: ./template
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Bump hamster version to ${{ github.event.release.tag_name }}" -a
+
+      - name: Push template repository 📤
+        uses: ad-m/github-push-action@master
+        with:
+          directory: ./template
