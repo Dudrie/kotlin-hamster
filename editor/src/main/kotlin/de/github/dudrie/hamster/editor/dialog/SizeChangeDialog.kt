@@ -13,7 +13,6 @@ import de.github.dudrie.hamster.editor.components.textfield.TextFieldForDoubles
 import de.github.dudrie.hamster.editor.components.textfield.TextFieldForIntegers
 import de.github.dudrie.hamster.editor.components.textfield.rememberTextFieldForNumbersState
 import de.github.dudrie.hamster.editor.i18n.EditorString
-import de.github.dudrie.hamster.i18n.HamsterString
 
 /**
  * Special dialog in which the user can enter a new size.

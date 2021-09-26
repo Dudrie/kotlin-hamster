@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.editor.components.textfield
 
-import androidx.compose.runtime.Composable
 import androidx.compose.material.TextField
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 /**

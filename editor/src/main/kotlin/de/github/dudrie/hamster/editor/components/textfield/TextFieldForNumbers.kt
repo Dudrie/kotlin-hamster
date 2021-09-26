@@ -101,7 +101,7 @@ fun <T : Number> rememberTextFieldForNumbersState(
     vararg keys: Any?,
     onValueChange: ((newValue: T, state: TextFieldForNumbersState<T>) -> Unit)? = null
 ): TextFieldForNumbersState<T> =
-    remember(*keys) {        TextFieldForNumbersState(mutableStateOf(initialValue), mutableStateOf(false), onValueChange)    }
+    remember(*keys) { TextFieldForNumbersState(mutableStateOf(initialValue), mutableStateOf(false), onValueChange) }
 
 ///**
 // * Creates and returns a new [TextFieldForNumbersState] for with the [initialValue].

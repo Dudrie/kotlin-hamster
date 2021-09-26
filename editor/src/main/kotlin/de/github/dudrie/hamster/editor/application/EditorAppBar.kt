@@ -13,7 +13,6 @@ import de.github.dudrie.hamster.editor.application.helpers.handleOpenTerritory
 import de.github.dudrie.hamster.editor.application.helpers.handleSaveTerritory
 import de.github.dudrie.hamster.editor.dialog.DialogService
 import de.github.dudrie.hamster.editor.i18n.EditorString
-import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.ui.components.appbar.AppBarButton
 import kotlinx.coroutines.launch
 

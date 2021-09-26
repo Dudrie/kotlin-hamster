@@ -8,7 +8,8 @@ import de.github.dudrie.hamster.importer.helpers.TerritoryBuilder
 /**
  * Builder to build an [EditableTerritory].
  */
-class EditableTerritoryBuilder(territorySize: Size, tileToMeterScaling: Double) : TerritoryBuilder(territorySize, tileToMeterScaling) {
+class EditableTerritoryBuilder(territorySize: Size, tileToMeterScaling: Double) :
+    TerritoryBuilder(territorySize, tileToMeterScaling) {
     /**
      * Builds an [EditableTerritory] based upon the information present in the builder and returns it.
      *

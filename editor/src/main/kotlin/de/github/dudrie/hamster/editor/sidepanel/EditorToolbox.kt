@@ -20,7 +20,6 @@ import de.github.dudrie.hamster.editor.tools.AddGrainToTileTool
 import de.github.dudrie.hamster.editor.tools.MakeFloorTool
 import de.github.dudrie.hamster.editor.tools.MakeWallTool
 import de.github.dudrie.hamster.editor.tools.RemoveGrainFromTileTool
-import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.components.ResourceIcon
