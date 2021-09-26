@@ -16,8 +16,10 @@ import de.github.dudrie.hamster.editor.application.EditorState
 import de.github.dudrie.hamster.editor.components.EditorToolboxButton
 import de.github.dudrie.hamster.editor.components.SelectTileToolButton
 import de.github.dudrie.hamster.editor.i18n.EditorString
+import de.github.dudrie.hamster.editor.tools.AddGrainToTileTool
 import de.github.dudrie.hamster.editor.tools.MakeFloorTool
 import de.github.dudrie.hamster.editor.tools.MakeWallTool
+import de.github.dudrie.hamster.editor.tools.RemoveGrainFromTileTool
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import de.github.dudrie.hamster.ui.R
@@ -55,6 +57,18 @@ fun EditorToolbox(modifier: Modifier = Modifier) {
             tool = remember { MakeFloorTool() },
             icon = { ResourceIcon(GameTileType.Floor.getResource(), size = iconSize, tint = Color.Unspecified) },
             text = { Text(EditorString.get("editor.toolbox.tool.floor")) }
+        )
+
+        SelectTileToolButton(
+            tool = remember { AddGrainToTileTool() },
+            icon = { ResourceIcon(R.icons.addGrainTool, size = iconSize, tint = Color.Unspecified) },
+            text = { Text(EditorString.get("editor.toolbox.tool.grain.add")) }
+        )
+
+        SelectTileToolButton(
+            tool = remember { RemoveGrainFromTileTool() },
+            icon = { ResourceIcon(R.icons.removeGrainTool, size = iconSize, tint = Color.Unspecified) },
+            text = { Text(EditorString.get("editor.toolbox.tool.grain.remove")) }
         )
 
         Divider(Modifier.padding(vertical = 16.dp))
