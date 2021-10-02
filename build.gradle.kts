@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
 import java.util.*
 
-val jvmTarget = "11"
 group = "de.github.dudrie"
 version = getProjectVersion("1.0")
 
