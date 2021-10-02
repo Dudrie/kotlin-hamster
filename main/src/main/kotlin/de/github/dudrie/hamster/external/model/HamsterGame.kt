@@ -1,11 +1,14 @@
 package de.github.dudrie.hamster.external.model
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.importer.InitialGameImporter
 import de.github.dudrie.hamster.interfaces.AbstractHamsterGame
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.game.HamsterGameCompose
+import kotlinx.coroutines.*
 
 /**
  * Base game class to load and start a hamster game.
@@ -21,20 +24,35 @@ class HamsterGame(territoryFile: String? = null) : AbstractHamsterGame() {
 
     /**
      * [Territory] of this game.
+     *
+     * Is only initialized if [isInitialized] is `true`.
      */
-    override val territory: Territory
+    override lateinit var territory: Territory
+        private set
+
+    /**
+     * The game is initialized after the corresponding territory is fully loaded.
+     */
+    override val isInitialized: MutableState<Boolean> = mutableStateOf(false)
 
     /**
      * Default [Hamster] used in the game.
+     *
+     * Is only initialized if [isInitialized] is `true`.
      */
-    val paule: Hamster
+    lateinit var paule: Hamster
+        private set
 
     private val composeGameHandler: HamsterGameCompose = HamsterGameCompose(this)
 
     init {
-        val importer = InitialGameImporter(hamsterGame = this, territoryFile = territoryFile)
-        territory = importer.territory
-        paule = importer.hamster
+        CoroutineScope(Dispatchers.IO).launch {
+            val importer = InitialGameImporter(hamsterGame = this@HamsterGame, territoryFile = territoryFile)
+
+            territory = importer.territory
+            paule = importer.hamster
+            isInitialized.value = true
+        }
     }
 
     /**

@@ -14,12 +14,12 @@ class HamsterGameCompose(hamsterGame: AbstractHamsterGame) {
     /**
      * Indicates when the [GameWindow] is ready.
      */
-    private val initLatch = CountDownLatch(1)
+    private val initLatch = CountDownLatch(2)
 
     /**
      * Window showing the actual game.
      */
-    private val window: GameWindow = GameWindow(hamsterGame)
+    private val window: GameWindow = GameWindow(hamsterGame, initLatch)
 
     /**
      * Starts the game.

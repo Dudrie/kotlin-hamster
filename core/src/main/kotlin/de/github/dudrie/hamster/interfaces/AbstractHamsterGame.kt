@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.interfaces
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.produceState
 import de.github.dudrie.hamster.execptions.TileRelatedException
@@ -23,6 +24,16 @@ abstract class AbstractHamsterGame {
      */
     abstract val territory: AbstractTerritory
 
+    /**
+     * State which tracks if the game is initialized.
+     */
+    abstract val isInitialized: MutableState<Boolean>
+
+    /**
+     * State that holds the tile which should be highlighted.
+     *
+     * If there is no such tile the state holds `null`.
+     */
     private val tileToHighlightState: State<GameTile?>
         @Composable
         get() {
