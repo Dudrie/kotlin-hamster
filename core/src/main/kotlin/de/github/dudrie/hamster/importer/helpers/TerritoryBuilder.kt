@@ -12,6 +12,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  * Builder used to build the initial [GameTerritory].
  *
  * @param territorySize [Size] of the territory that will be generated.
+ * @param tileToMeterScaling The amount of meters a single tile represents in the territory.
  */
 open class TerritoryBuilder(val territorySize: Size, val tileToMeterScaling: Double) {
     /**

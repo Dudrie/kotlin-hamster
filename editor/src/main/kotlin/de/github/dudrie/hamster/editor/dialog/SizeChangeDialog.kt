@@ -76,4 +76,10 @@ fun SizeChangeDialog(onAccept: (result: SizeChangeDialogResult) -> Unit, onDismi
     )
 }
 
+/**
+ * The final result of a [SizeChangeDialog] if the user accepts the changes.
+ *
+ * @param size The [Size] the user entered.
+ * @param tileToMeterScaling The amount of meters a single tile represents in the territory as entered by the user.
+ */
 data class SizeChangeDialogResult(val size: Size, val tileToMeterScaling: Double)

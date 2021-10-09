@@ -11,6 +11,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  *
  * @param territorySize [Size] of the territory.
  * @param initialHamster Data to generate the initial, default hamster.
+ * @param tileToMeterScaling The amount of meters a single tile represents in the territory.
  */
 open class InitialTerritoryData(
     val territorySize: Size,

@@ -5,6 +5,9 @@ import de.github.dudrie.hamster.file.model.InitialHamsterData
 import de.github.dudrie.hamster.file.model.InitialTerritoryData
 import de.github.dudrie.hamster.file.model.TileData
 
+/**
+ * Holds the data of a territory with additional functions which allow changing the data of the territory.
+ */
 class EditableTerritoryData(
     territorySize: Size,
     initialHamster: InitialHamsterData,

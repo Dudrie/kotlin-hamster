@@ -40,6 +40,9 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     override val direction: Direction
         get() = internalHamster.direction
 
+    /**
+     * The number of steps this hamster has taken.
+     */
     override val movesTaken: Int
         get() = internalHamster.movesTaken
 

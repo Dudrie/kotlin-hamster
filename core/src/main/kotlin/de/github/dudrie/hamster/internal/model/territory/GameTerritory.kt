@@ -8,6 +8,7 @@ import de.github.dudrie.hamster.datatypes.Size
  *
  * @param size [Size] of the [GameTerritory]
  * @param tiles [List] of all [GameTiles][GameTile] of the [GameTerritory]. Every [Location] that is inside the [size] must have a [GameTile] in this [List].
+ * @param tileToMeterScaling The amount of meters a single tile represents in the territory.
  */
 class GameTerritory(val size: Size, private val tiles: List<GameTile>, val tileToMeterScaling: Double) {
 
