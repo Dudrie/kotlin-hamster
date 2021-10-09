@@ -7,7 +7,6 @@ import androidx.compose.ui.window.*
 import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import java.util.concurrent.CountDownLatch
 import kotlin.system.exitProcess
 
@@ -44,9 +43,7 @@ abstract class ApplicationWindow(private val windowTitle: String) {
                 state = WindowState(size = WindowSize(1000.dp, 750.dp))
             ) {
                 LaunchedEffect(true) {
-                    // Allow the window a short time to run the first render.
-                    delay(100L)
-                    initLatch.countDown()
+                    window.addWindowListener(AppWindowListener(initLatch))
                 }
 
                 ThemeWrapper {
