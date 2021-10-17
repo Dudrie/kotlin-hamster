@@ -9,6 +9,8 @@ import androidx.compose.ui.window.FrameWindowScope
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.interfaces.AbstractHamsterGame
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.ui.application.UIStateLocal
+import de.github.dudrie.hamster.ui.application.state.UIState
 import de.github.dudrie.hamster.ui.components.appbar.AppBar
 import de.github.dudrie.hamster.ui.game.MainGameUI
 import kotlinx.coroutines.delay
@@ -23,13 +25,16 @@ import java.util.concurrent.CountDownLatch
 class GameWindow(private val hamsterGame: AbstractHamsterGame, private val initLatch: CountDownLatch) :
     ApplicationWindow(HamsterString.get("window.game.title")) {
 
+    private val uiState = UIState()
+
     /**
      * Renders the UI for the game.
      */
     @Composable
     override fun FrameWindowScope.content() {
         CompositionLocalProvider(
-            HamsterGameLocal provides hamsterGame
+            HamsterGameLocal provides hamsterGame,
+            UIStateLocal provides uiState
         ) {
             val isGameInitialized by hamsterGame.isInitialized
 

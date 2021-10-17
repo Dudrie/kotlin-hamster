@@ -14,6 +14,7 @@ import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.R
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.ui.application.UIStateLocal
 import de.github.dudrie.hamster.ui.components.ControlButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,6 +28,8 @@ import kotlin.math.floor
 @Composable
 fun AppBar() {
     TopAppBar(elevation = 8.dp, contentPadding = PaddingValues(horizontal = 16.dp)) {
+        val uiState = UIStateLocal.current
+        val isHamsterHidden = uiState.hideHamster
         val scope = rememberCoroutineScope { Dispatchers.Default }
         val padding = 8.dp
 
@@ -51,7 +54,7 @@ fun AppBar() {
         ControlButton(
             resourcePath = if (commands.mode == GameMode.Running) R.icons.pause else R.icons.play,
             modifier = Modifier.padding(start = padding),
-            enabled = canPauseOrResume,
+            enabled = canPauseOrResume && !isHamsterHidden,
             onClick = {
                 scope.launch {
                     if (commands.mode == GameMode.Running) {
@@ -69,6 +72,13 @@ fun AppBar() {
             onClick = { scope.launch { commands.redo() } },
             modifier = Modifier.padding(start = padding),
             enabled = canRedo
+        )
+
+        ControlButton(
+            resourcePath = if (isHamsterHidden) R.icons.hamsterInvisible else R.icons.hamsterVisible,
+            onClick = { scope.launch { uiState.setHamsterHiddenState(!uiState.hideHamster) } },
+            modifier = Modifier.padding(start = padding * 2),
+            enabled = commands.mode != GameMode.Running
         )
 
         SpeedSlider(modifier = Modifier.width(400.dp).padding(start = padding * 2))

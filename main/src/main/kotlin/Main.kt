@@ -28,7 +28,7 @@ private fun runSampleGame(game: HamsterGame) {
 }
 
 internal fun main() {
-    val game = HamsterGame("/territories/testTer01.json")
+    val game = HamsterGame("territories/testTer01.json")
 
     game.startGame()
     runSampleGame(game)

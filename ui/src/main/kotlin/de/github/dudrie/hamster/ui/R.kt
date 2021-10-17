@@ -32,5 +32,7 @@ object R {
         const val addGrainTool = "/icons/grain_plus_one.png"
         const val removeGrainTool = "/icons/grain_minus_one.png"
         const val surroundWithWalls = "/icons/dots-square.png"
+        const val hamsterVisible = "/icons/hamster_visible.png"
+        const val hamsterInvisible = "/icons/hamster_invisible.png"
     }
 }
