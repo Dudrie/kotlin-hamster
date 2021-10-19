@@ -2,11 +2,11 @@
 
 This is an implementation of the ["Java Hamster Model"](https://www.java-hamster-modell.de/simulator.html) written in [Kotlin](https://kotlinlang.org/). The simulator is a mini world which can be used to teach programming to students or pupils.
 
-## Modules
+# Modules
 
 This repository contains several modules which all together represent the implementation of the Java Hamster Model.
 
-### core
+## core
 
 This module contains all code which other modules can use. It contains the basic types, interfaces, ... needed to create a working hamster game. It also contains the game engine which controls the game state through commands that get executed.
 
