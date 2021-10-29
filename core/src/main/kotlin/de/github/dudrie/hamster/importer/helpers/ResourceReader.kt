@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.importer.helpers
 
-import org.jetbrains.skija.Image
+//import org.jetbrains.skija.Image
+import org.jetbrains.skia.Image
 import java.io.FileNotFoundException
 import java.net.URL
 

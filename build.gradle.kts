@@ -12,9 +12,9 @@ var gprToken: String? = null
 loadProperties()
 
 plugins {
-    kotlin("jvm") version "1.5.21"
+    kotlin("jvm") version "1.5.31"
 
-    id("org.jetbrains.compose") version "1.0.0-alpha3"
+    id("org.jetbrains.compose") version "1.0.0-beta5"
     id("org.jetbrains.dokka") version "1.5.0"
 
     `maven-publish`

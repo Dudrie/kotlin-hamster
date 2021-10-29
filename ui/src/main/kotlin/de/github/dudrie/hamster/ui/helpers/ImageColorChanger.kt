@@ -3,7 +3,7 @@ package de.github.dudrie.hamster.ui.helpers
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.*
-import org.jetbrains.skija.Image
+import org.jetbrains.skia.Image
 import org.jetbrains.skiko.toImage
 
 /**
@@ -30,7 +30,7 @@ class ImageColorChanger(image: Image) {
      * The [adjustedImage] as [ImageBitmap].
      */
     val imageAsBitmap: ImageBitmap
-        get() = adjustedImage.asImageBitmap()
+        get() = adjustedImage.toComposeImageBitmap()
 
     /**
      * Adds the information that on a replacement call the [original] color should get replaced with the [replacement] color.
@@ -59,7 +59,7 @@ class ImageColorChanger(image: Image) {
      * This is done pixel per pixel.
      */
     private fun replaceColor(original: Color, replacement: Color) {
-        val adjustedImage = adjustedImage.asImageBitmap().asAwtImage()
+        val adjustedImage = adjustedImage.toComposeImageBitmap().toAwtImage()
         val originalARGB = original.toArgb()
 
         for (x in 0 until adjustedImage.width) {

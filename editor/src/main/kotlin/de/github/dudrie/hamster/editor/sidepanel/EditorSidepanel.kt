@@ -36,8 +36,8 @@ fun EditorSidepanel(modifier: Modifier = Modifier) {
 
         AnimatedVisibility(
             visibleState = drawerState,
-            enter = fadeIn() + slideInHorizontally({ it / 2 }),
-            exit = fadeOut() + slideOutHorizontally({ it / 2 })
+            enter = fadeIn() + slideInHorizontally(initialOffsetX = { it / 2 }),
+            exit = fadeOut() + slideOutHorizontally(targetOffsetX = { it / 2 })
         ) {
             val scope = rememberCoroutineScope()
             EditPanel(onClose = {
