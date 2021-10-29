@@ -7,6 +7,8 @@ import de.github.dudrie.hamster.editor.model.EditableGameTile
  */
 class AddGrainToTileTool : TileTool() {
     override fun applyToTile(tile: EditableGameTile) {
-        tile.addGrainToTile()
+        if (tile.canTileHaveGrains()) {
+            tile.addGrainToTile()
+        }
     }
 }

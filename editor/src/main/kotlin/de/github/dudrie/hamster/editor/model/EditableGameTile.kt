@@ -68,6 +68,11 @@ class EditableGameTile(
     fun canTileBeAWall(): Boolean = grainCount == 0 && !hasHamsterContent()
 
     /**
+     * Can this tile have grains?
+     */
+    fun canTileHaveGrains(): Boolean = type == GameTileType.Floor
+
+    /**
      * Makes this tile a [wall][GameTileType.Wall] if possible.
      *
      * @see canTileBeAWall

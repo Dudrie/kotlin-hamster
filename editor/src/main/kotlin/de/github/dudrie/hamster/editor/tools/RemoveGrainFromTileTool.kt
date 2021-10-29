@@ -7,7 +7,7 @@ import de.github.dudrie.hamster.editor.model.EditableGameTile
  */
 class RemoveGrainFromTileTool : TileTool() {
     override fun applyToTile(tile: EditableGameTile) {
-        if (tile.grainCount > 0) {
+        if (tile.canTileHaveGrains() && tile.grainCount > 0) {
             tile.removeGrainFromTile()
         }
     }
