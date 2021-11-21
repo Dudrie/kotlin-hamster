@@ -12,4 +12,4 @@ internal val HamsterGameLocal = compositionLocalOf<AbstractHamsterGame> { error(
 /**
  * Provides the [UIState] of the app.
  */
-internal val UIStateLocal = compositionLocalOf<UIState> { error("No UIState local was provided.") }
+val UIStateLocal = compositionLocalOf<UIState> { error("No UIState local was provided.") }
