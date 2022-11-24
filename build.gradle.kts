@@ -6,8 +6,8 @@ import java.util.*
 group = "de.github.dudrie"
 version = getProjectVersion("1.0")
 
-var gprUser: String? = null
-var gprToken: String? = null
+var mavenUser: String? = null
+var mavenPass: String? = null
 
 loadProperties()
 
@@ -17,6 +17,7 @@ plugins {
     id("org.jetbrains.compose") version "1.0.0-beta5"
     id("org.jetbrains.dokka") version "1.5.0"
 
+    signing
     `maven-publish`
 }
 
@@ -60,7 +61,7 @@ allprojects {
 subprojects {
     publishing {
         publications {
-            register<MavenPublication>("gpr") {
+            register<MavenPublication>("maven") {
                 groupId = group.toString()
                 artifactId = "${rootProject.name}-${project.name}"
                 version = version
@@ -73,11 +74,11 @@ subprojects {
 
         repositories {
             maven {
-                name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/Dudrie/kotlin-hamster")
+                name = "Reposilite"
+                url = uri("https://maven.dudrie.de/releases")
                 credentials {
-                    username = gprUser
-                    password = gprToken
+                    username = mavenUser
+                    password = mavenPass
                 }
             }
         }
@@ -101,6 +102,6 @@ fun loadProperties() {
     } catch (e: FileNotFoundException) {
         println("[INFO] local.properties not found. Falling back to environmental variables for publishing the produced artifacts.")
     }
-    gprUser = properties["gpr.user"] as String? ?: System.getenv("GPR_ACTOR")
-    gprToken = properties["gpr.token"] as String? ?: System.getenv("GPR_TOKEN")
+    mavenUser = properties["maven.user"] as String? ?: System.getenv("MAVEN_USER")
+    mavenPass = properties["maven.password"] as String? ?: System.getenv("MAVEN_PASSWORD")
 }
