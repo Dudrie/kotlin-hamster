@@ -32,14 +32,14 @@ jobs:
       - name: Checkout template repository 🛎️
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.TOKEN_FOR_OTHER_REPO }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: Dudrie/kotlin-hamster-template
           path: ./template
 
       - name: Checkout dependency gathering repository 🛎️
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.TOKEN_FOR_OTHER_REPO }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: Dudrie/kotlin-hamster-for-action
           path: ./dependencies
 
@@ -51,7 +51,7 @@ jobs:
         run: ./gradlew copyDependencies
         env:
           HAMSTER_VERSION: ${{ github.event.release.tag_name }}
-          SECRET_TOKEN: ${{ secrets.TOKEN_FOR_OTHER_REPO }}
+          SECRET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Copy dependencies to template 🗂
         working-directory: ./dependencies
@@ -70,6 +70,6 @@ jobs:
       - name: Push template repository 📤
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.TOKEN_FOR_OTHER_REPO }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: ./template
           repository: Dudrie/kotlin-hamster-template
