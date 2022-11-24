@@ -32,6 +32,7 @@ de.github.dudrie.hamster.external.model
 de.github.dudrie.hamster.importer
 module:ui
 de.github.dudrie.hamster.ui
+de.github.dudrie.hamster.ui.application
 de.github.dudrie.hamster.ui.application.state
 de.github.dudrie.hamster.ui.application.windows
 de.github.dudrie.hamster.ui.components
