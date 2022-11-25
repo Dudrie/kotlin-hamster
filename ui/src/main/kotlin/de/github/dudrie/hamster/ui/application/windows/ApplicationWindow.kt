@@ -35,7 +35,7 @@ abstract class ApplicationWindow(private val windowTitle: String) {
      * After launching the application the [initLatch] will get counted down by 1.
      */
     fun show(initLatch: CountDownLatch) {
-        val scope = CoroutineScope(Dispatchers.Main)
+        val scope = CoroutineScope(Dispatchers.Default)
 
         scope.launchApplication {
             Window(
