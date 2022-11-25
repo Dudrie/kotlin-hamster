@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
-import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
@@ -35,7 +35,7 @@ fun EditPanelTileTypeButton(
         onClick = { onClick(type) },
         enabled = enabled,
         icon = {
-            val icon = remember { ResourceReader(type.getResource()).getContentAsImage().asImageBitmap() }
+            val icon = remember { ResourceReader(type.getResource()).getContentAsImage().toComposeImageBitmap() }
 
             Image(
                 icon,

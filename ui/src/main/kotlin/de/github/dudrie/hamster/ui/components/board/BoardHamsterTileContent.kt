@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.DefaultAlpha
-import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
@@ -25,7 +25,7 @@ fun BoardHamsterTileContent(content: HamsterTileContent) {
     val hideHamster = UIStateLocal.current.hideHamster
 
     val degrees = getDegreesForDirection(content.direction)
-    val hamster = remember { ResourceReader(R.images.hamster).getContentAsImage().asImageBitmap() }
+    val hamster = remember { ResourceReader(R.images.hamster).getContentAsImage().toComposeImageBitmap() }
 
     Image(
         bitmap = hamster,

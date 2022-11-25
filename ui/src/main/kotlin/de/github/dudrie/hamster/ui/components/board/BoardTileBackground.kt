@@ -4,7 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.toComposeImageBitmap
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
@@ -17,7 +17,7 @@ import de.github.dudrie.hamster.ui.helpers.getResource
 fun BoardTileBackground(tile: GameTile) {
     val res = ResourceReader(tile.type.getResource())
     Image(
-        bitmap = res.getContentAsImage().asImageBitmap(),
+        bitmap = res.getContentAsImage().toComposeImageBitmap(),
         contentDescription = null,
         modifier = Modifier.fillMaxSize()
     )

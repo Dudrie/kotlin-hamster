@@ -10,8 +10,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.datatypes.Direction
@@ -39,7 +39,7 @@ fun BoardTileContent(tile: GameTile, modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         if (tile.grainCount > 0) {
             val grain = remember {
-                ResourceReader(R.images.grain).getContentAsImage().asImageBitmap()
+                ResourceReader(R.images.grain).getContentAsImage().toComposeImageBitmap()
             }
             val infoText: String? = remember(tile.grainCount, tile.hideGrainCount) {
                 if (tile.hideGrainCount) {
