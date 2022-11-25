@@ -1,162 +1,176 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>de.github.dudrie.hamster.editor.model</title>
-</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script><script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.model////PointingToDeclaration//589151099">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../index.html">editor</a>/<a href="index.html">de.github.dudrie.hamster.editor.model</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Package de.</span><wbr><span>github.</span><wbr><span>dudrie.</span><wbr><span>hamster.</span><wbr><span>editor.</span><wbr><span>model</span></h1>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
-            <div class="tabs-section-body">
-              <h2 class="">Types</h2>
-              <div class="table" data-togglable="Types"><a data-name="-636589817%2FClasslikes%2F589151099" anchor-label="EditableGameTile" id="-636589817%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-editable-game-tile/index.html">EditableGameTile</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-636589817%2FClasslikes%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">class <a href="-editable-game-tile/index.html">EditableGameTile</a>(location: <a href="../../core/de.github.dudrie.hamster.datatypes/-location/index.html">Location</a>, type: <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a>, hideGrainCount: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>, grainCount: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>) : <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.model////PointingToDeclaration//589151099">
+  <div class="breadcrumbs"><a href="../index.html">editor</a><span class="delimiter">/</span><span class="current">de.github.dudrie.hamster.editor.model</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
   </div>
-<a data-name="-636589817%2FClasslikes%2F589151099" anchor-label="EditableGameTile" id="-636589817%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-636589817%2FClasslikes%2F589151099" anchor-label="EditableGameTile" id="-636589817%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Holds the information about a <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a> that gets used in the editor and which configuration can be changed.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1973586361%2FClasslikes%2F589151099" anchor-label="EditableHamster" id="1973586361%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-editable-hamster/index.html">EditableHamster</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1973586361%2FClasslikes%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">class <a href="-editable-hamster/index.html">EditableHamster</a>(tile: <a href="-editable-game-tile/index.html">EditableGameTile</a>, direction: <a href="../../core/de.github.dudrie.hamster.datatypes/-direction/index.html">Direction</a>, grainCount: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a>) : <a href="../../core/de.github.dudrie.hamster.internal.model.hamster/-hamster-tile-content/index.html">HamsterTileContent</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1973586361%2FClasslikes%2F589151099" anchor-label="EditableHamster" id="1973586361%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1973586361%2FClasslikes%2F589151099" anchor-label="EditableHamster" id="1973586361%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Holds all state related to a hamster in the editor.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-924185215%2FClasslikes%2F589151099" anchor-label="EditableTerritory" id="-924185215%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-editable-territory/index.html">EditableTerritory</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-924185215%2FClasslikes%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">class <a href="-editable-territory/index.html">EditableTerritory</a>(initialSize: <a href="../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a>, initialTileToMeterScaling: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>) : <a href="../../core/de.github.dudrie.hamster.interfaces/-abstract-territory/index.html">AbstractTerritory</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-924185215%2FClasslikes%2F589151099" anchor-label="EditableTerritory" id="-924185215%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-924185215%2FClasslikes%2F589151099" anchor-label="EditableTerritory" id="-924185215%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Holds the data and helpers necessary to edit a territory.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="756971767%2FClasslikes%2F589151099" anchor-label="EditableTerritoryData" id="756971767%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-editable-territory-data/index.html">EditableTerritoryData</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="756971767%2FClasslikes%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">class <a href="-editable-territory-data/index.html">EditableTerritoryData</a>(territorySize: <a href="../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a>, initialHamster: <a href="../../core/de.github.dudrie.hamster.file.model/-initial-hamster-data/index.html">InitialHamsterData</a>, tileToMeterScaling: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>) : <a href="../../core/de.github.dudrie.hamster.file.model/-initial-territory-data/index.html">InitialTerritoryData</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="756971767%2FClasslikes%2F589151099" anchor-label="EditableTerritoryData" id="756971767%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="756971767%2FClasslikes%2F589151099" anchor-label="EditableTerritoryData" id="756971767%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Holds the data of a territory with additional functions which allow changing the data of the territory.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="455311796%2FClasslikes%2F589151099" anchor-label="EditedTile" id="455311796%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-edited-tile/index.html">EditedTile</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="455311796%2FClasslikes%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">data class <a href="-edited-tile/index.html">EditedTile</a>(tile: <a href="-editable-game-tile/index.html">EditableGameTile</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="455311796%2FClasslikes%2F589151099" anchor-label="EditedTile" id="455311796%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="455311796%2FClasslikes%2F589151099" anchor-label="EditedTile" id="455311796%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Information about a <a href="-edited-tile/tile.html">tile</a> that gets currently edited by the editor.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1878883865%2FClasslikes%2F589151099" anchor-label="IOOperationResult" id="1878883865%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-i-o-operation-result/index.html">IOOperationResult</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1878883865%2FClasslikes%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">data class <a href="-i-o-operation-result/index.html">IOOperationResult</a>(error: <a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html">IOException</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1878883865%2FClasslikes%2F589151099" anchor-label="IOOperationResult" id="1878883865%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1878883865%2FClasslikes%2F589151099" anchor-label="IOOperationResult" id="1878883865%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Indicates the result of an IO operation.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="-736088316%2FFunctions%2F589151099" anchor-label="copy" id="-736088316%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="copy.html">copy</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-736088316%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="../../core/de.github.dudrie.hamster.file.model/-tile-data/index.html">TileData</a>.<a href="copy.html">copy</a>(from: <a href="-editable-game-tile/index.html">EditableGameTile</a>): <a href="../../core/de.github.dudrie.hamster.file.model/-tile-data/index.html">TileData</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-736088316%2FFunctions%2F589151099" anchor-label="copy" id="-736088316%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-736088316%2FFunctions%2F589151099" anchor-label="copy" id="-736088316%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Creates a copy of the tile with the data from the <a href="copy.html">given tile</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Types</h2>
+      <div class="table" data-togglable="Types"><a data-name="-636589817%2FClasslikes%2F589151099" anchor-label="EditableGameTile" id="-636589817%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-editable-game-tile/index.html"><span>Editable</span><wbr><span>Game</span><wbr><span><span>Tile</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-636589817%2FClasslikes%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-editable-game-tile/index.html">EditableGameTile</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">location<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.datatypes/-location/index.html">Location</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a><span class="token punctuation">, </span></span><span class="parameter ">hideGrainCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">grainCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></span></span><span class="token punctuation">)</span> : <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a></div><div class="brief "><p class="paragraph">Holds the information about a <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a> that gets used in the editor and which configuration can be changed.</p></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+<a data-name="1973586361%2FClasslikes%2F589151099" anchor-label="EditableHamster" id="1973586361%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-editable-hamster/index.html"><span>Editable</span><wbr><span><span>Hamster</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1973586361%2FClasslikes%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-editable-hamster/index.html">EditableHamster</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tile<span class="token operator">: </span><a href="-editable-game-tile/index.html">EditableGameTile</a><span class="token punctuation">, </span></span><span class="parameter ">direction<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.datatypes/-direction/index.html">Direction</a><span class="token punctuation">, </span></span><span class="parameter ">grainCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></span></span><span class="token punctuation">)</span> : <a href="../../core/de.github.dudrie.hamster.internal.model.hamster/-hamster-tile-content/index.html">HamsterTileContent</a></div><div class="brief "><p class="paragraph">Holds all state related to a hamster in the editor.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-924185215%2FClasslikes%2F589151099" anchor-label="EditableTerritory" id="-924185215%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-editable-territory/index.html"><span>Editable</span><wbr><span><span>Territory</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-924185215%2FClasslikes%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-editable-territory/index.html">EditableTerritory</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initialSize<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a><span class="token punctuation">, </span></span><span class="parameter ">initialTileToMeterScaling<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span> : <a href="../../core/de.github.dudrie.hamster.interfaces/-abstract-territory/index.html">AbstractTerritory</a></div><div class="brief "><p class="paragraph">Holds the data and helpers necessary to edit a territory.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="756971767%2FClasslikes%2F589151099" anchor-label="EditableTerritoryData" id="756971767%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-editable-territory-data/index.html"><span>Editable</span><wbr><span>Territory</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="756971767%2FClasslikes%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-editable-territory-data/index.html">EditableTerritoryData</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">territorySize<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a><span class="token punctuation">, </span></span><span class="parameter ">initialHamster<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.file.model/-initial-hamster-data/index.html">InitialHamsterData</a><span class="token punctuation">, </span></span><span class="parameter ">tileToMeterScaling<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span> : <a href="../../core/de.github.dudrie.hamster.file.model/-initial-territory-data/index.html">InitialTerritoryData</a></div><div class="brief "><p class="paragraph">Holds the data of a territory with additional functions which allow changing the data of the territory.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="455311796%2FClasslikes%2F589151099" anchor-label="EditedTile" id="455311796%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-edited-tile/index.html"><span>Edited</span><wbr><span><span>Tile</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="455311796%2FClasslikes%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-edited-tile/index.html">EditedTile</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>tile<span class="token operator">: </span><a href="-editable-game-tile/index.html">EditableGameTile</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Information about a <a href="-edited-tile/tile.html">tile</a> that gets currently edited by the editor.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1878883865%2FClasslikes%2F589151099" anchor-label="IOOperationResult" id="1878883865%2FClasslikes%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-i-o-operation-result/index.html"><span>IOOperation</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1878883865%2FClasslikes%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-i-o-operation-result/index.html">IOOperationResult</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>error<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html">IOException</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Indicates the result of an IO operation.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-736088316%2FFunctions%2F589151099" anchor-label="copy" id="-736088316%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="copy.html"><span><span>copy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-736088316%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../core/de.github.dudrie.hamster.file.model/-tile-data/index.html">TileData</a><span class="token punctuation">.</span><a href="copy.html"><span class="token function">copy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">from<span class="token operator">: </span><a href="-editable-game-tile/index.html">EditableGameTile</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.file.model/-tile-data/index.html">TileData</a></div><div class="brief "><p class="paragraph">Creates a copy of the tile with the data from the <a href="copy.html">given tile</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 

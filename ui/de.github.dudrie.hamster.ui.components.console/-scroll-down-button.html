@@ -1,40 +1,63 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>ScrollDownButton</title>
-</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script><script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui.components.console//ScrollDownButton/#kotlin.Boolean#kotlin.coroutines.SuspendFunction1[kotlinx.coroutines.CoroutineScope,kotlin.Unit]#androidx.compose.ui.Modifier/PointingToDeclaration//1275902132">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../index.html">ui</a>/<a href="index.html">de.github.dudrie.hamster.ui.components.console</a>/<a href="-scroll-down-button.html">ScrollDownButton</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Scroll</span><wbr><span>Down</span><wbr><span>Button</span></h1>
-          </div>
-<div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-scroll-down-button.html">ScrollDownButton</a>(visible: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>, onClick: suspend <span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span>.() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui.components.console//ScrollDownButton/#kotlin.Boolean#kotlin.coroutines.SuspendFunction1[kotlinx.coroutines.CoroutineScope,kotlin.Unit]#androidx.compose.ui.Modifier/PointingToDeclaration//1275902132">
+  <div class="breadcrumbs"><a href="../index.html">ui</a><span class="delimiter">/</span><a href="index.html">de.github.dudrie.hamster.ui.components.console</a><span class="delimiter">/</span><span class="current">ScrollDownButton</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Scroll</span><wbr><span>Down</span><wbr><span><span>Button</span></span></h1>
   </div>
-<p class="paragraph">Renders a special FAB which is used in the <a href="-console-panel.html">ConsolePanel</a> so the user can scroll to the bottom of the message list.</p><h2 class="">Parameters</h2><div data-togglable="Parameters"><div class="platform-hinted WithExtraAttributes" data-platform-hinted="data-platform-hinted" data-togglable="Parameters"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex">visible</span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Is the FAB visible?</p></div></div></div></div></div><div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex">onClick</span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Gets called if the user clicks on the button. For convenience this gets executed inside a coroutine. This is done so one can easily call any list scroll position manipulating functions.</p></div></div></div></div></div><div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex">modifier</span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Modifiers which get applied to the wrapping <span data-unresolved-link="androidx.compose.animation//AnimatedVisibility/#androidx.compose.animation.core.MutableTransitionState[kotlin.Boolean]#androidx.compose.ui.Modifier#androidx.compose.animation.EnterTransition#androidx.compose.animation.ExitTransition#kotlin.String#kotlin.Function1[androidx.compose.animation.AnimatedVisibilityScope,kotlin.Unit]/PointingToDeclaration/">AnimatedVisibility</span> composable.</p></div></div></div></div></div></div></div></div></div></div></div>
-        </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-scroll-down-button.html"><span class="token function">ScrollDownButton</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">visible<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">onClick<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token keyword"></span><span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><p class="paragraph">Renders a special FAB which is used in the <a href="-console-panel.html">ConsolePanel</a> so the user can scroll to the bottom of the message list.</p><h4 class="">Parameters</h4><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>visible</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Is the FAB visible?</p></div></div></div></div></div><div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>on</span><wbr><span><span>Click</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Gets called if the user clicks on the button. For convenience this gets executed inside a coroutine. This is done so one can easily call any list scroll position manipulating functions.</p></div></div></div></div></div><div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>modifier</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">Modifiers which get applied to the wrapping <span data-unresolved-link="androidx.compose.animation//AnimatedVisibility/#androidx.compose.animation.core.MutableTransitionState[kotlin.Boolean]#androidx.compose.ui.Modifier#androidx.compose.animation.EnterTransition#androidx.compose.animation.ExitTransition#kotlin.String#kotlin.Function1[androidx.compose.animation.AnimatedVisibilityScope,kotlin.Unit]/PointingToDeclaration/">AnimatedVisibility</span> composable.</p></div></div></div></div></div></div></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
     </div>
-  
-</body></html>
+</div>
 
+</body></html>
 

@@ -1,296 +1,294 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>de.github.dudrie.hamster.imperative</title>
-</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script><script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="imperative::de.github.dudrie.hamster.imperative////PointingToDeclaration//-516149924">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../index.html">imperative</a>/<a href="index.html">de.github.dudrie.hamster.imperative</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Package de.</span><wbr><span>github.</span><wbr><span>dudrie.</span><wbr><span>hamster.</span><wbr><span>imperative</span></h1>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
-            <div class="tabs-section-body">
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="-515772962%2FFunctions%2F-516149924" anchor-label="dropGrain" id="-515772962%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="drop-grain.html">dropGrain</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-515772962%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="drop-grain.html">dropGrain</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="imperative::de.github.dudrie.hamster.imperative////PointingToDeclaration//-516149924">
+  <div class="breadcrumbs"><a href="../index.html">imperative</a><span class="delimiter">/</span><span class="current">de.github.dudrie.hamster.imperative</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
   </div>
-<a data-name="-515772962%2FFunctions%2F-516149924" anchor-label="dropGrain" id="-515772962%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-515772962%2FFunctions%2F-516149924" anchor-label="dropGrain" id="-515772962%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>The hamster drops a grain on the tile beneath it.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1717905921%2FFunctions%2F-516149924" anchor-label="getNumberOfHamsterMovesTaken" id="-1717905921%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="get-number-of-hamster-moves-taken.html">getNumberOfHamsterMovesTaken</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1717905921%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="get-number-of-hamster-moves-taken.html">getNumberOfHamsterMovesTaken</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1717905921%2FFunctions%2F-516149924" anchor-label="getNumberOfHamsterMovesTaken" id="-1717905921%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1717905921%2FFunctions%2F-516149924" anchor-label="getNumberOfHamsterMovesTaken" id="-1717905921%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Returns the number of moves taken by the hamster.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1227470893%2FFunctions%2F-516149924" anchor-label="getTileToMeterScaling" id="1227470893%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="get-tile-to-meter-scaling.html">getTileToMeterScaling</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1227470893%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="get-tile-to-meter-scaling.html">getTileToMeterScaling</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1227470893%2FFunctions%2F-516149924" anchor-label="getTileToMeterScaling" id="1227470893%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1227470893%2FFunctions%2F-516149924" anchor-label="getTileToMeterScaling" id="1227470893%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Returns the tile to meter scaling of the territory.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1700922091%2FFunctions%2F-516149924" anchor-label="hasYourTileAGrain" id="-1700922091%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="has-your-tile-a-grain.html">hasYourTileAGrain</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1700922091%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="has-your-tile-a-grain.html">hasYourTileAGrain</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1700922091%2FFunctions%2F-516149924" anchor-label="hasYourTileAGrain" id="-1700922091%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1700922091%2FFunctions%2F-516149924" anchor-label="hasYourTileAGrain" id="-1700922091%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Has the tile on which the hamster sits at least one grain on it?</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-488667518%2FFunctions%2F-516149924" anchor-label="isFrontClear" id="-488667518%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="is-front-clear.html">isFrontClear</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-488667518%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="is-front-clear.html">isFrontClear</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-488667518%2FFunctions%2F-516149924" anchor-label="isFrontClear" id="-488667518%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-488667518%2FFunctions%2F-516149924" anchor-label="isFrontClear" id="-488667518%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Can the hamster move one tile in its facing direction?</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="231048173%2FFunctions%2F-516149924" anchor-label="isYourMouthEmpty" id="231048173%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="is-your-mouth-empty.html">isYourMouthEmpty</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="231048173%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="is-your-mouth-empty.html">isYourMouthEmpty</a>(): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="231048173%2FFunctions%2F-516149924" anchor-label="isYourMouthEmpty" id="231048173%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="231048173%2FFunctions%2F-516149924" anchor-label="isYourMouthEmpty" id="231048173%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Is the hamster's mouth empty?</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-2117760641%2FFunctions%2F-516149924" anchor-label="move" id="-2117760641%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="move.html">move</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2117760641%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="move.html">move</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-2117760641%2FFunctions%2F-516149924" anchor-label="move" id="-2117760641%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-2117760641%2FFunctions%2F-516149924" anchor-label="move" id="-2117760641%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Moves the hamster one tile in the direction it faces.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-877097694%2FFunctions%2F-516149924" anchor-label="pauseGame" id="-877097694%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="pause-game.html">pauseGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-877097694%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="pause-game.html">pauseGame</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-877097694%2FFunctions%2F-516149924" anchor-label="pauseGame" id="-877097694%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-877097694%2FFunctions%2F-516149924" anchor-label="pauseGame" id="-877097694%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Pauses the current game (if started and present).</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-2024105072%2FFunctions%2F-516149924" anchor-label="pickGrain" id="-2024105072%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="pick-grain.html">pickGrain</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2024105072%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="pick-grain.html">pickGrain</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-2024105072%2FFunctions%2F-516149924" anchor-label="pickGrain" id="-2024105072%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-2024105072%2FFunctions%2F-516149924" anchor-label="pickGrain" id="-2024105072%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>The hamster picks up a grain from the tile beneath it.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-808148719%2FFunctions%2F-516149924" anchor-label="resumeGame" id="-808148719%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="resume-game.html">resumeGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-808148719%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="resume-game.html">resumeGame</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-808148719%2FFunctions%2F-516149924" anchor-label="resumeGame" id="-808148719%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-808148719%2FFunctions%2F-516149924" anchor-label="resumeGame" id="-808148719%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Resumes a paused game.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="953510917%2FFunctions%2F-516149924" anchor-label="say" id="953510917%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="say.html">say</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="953510917%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="say.html">say</a>(message: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="953510917%2FFunctions%2F-516149924" anchor-label="say" id="953510917%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="953510917%2FFunctions%2F-516149924" anchor-label="say" id="953510917%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>The hamster "says" the given <a href="say.html">message</a> printing it to the game log.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-2040942226%2FFunctions%2F-516149924" anchor-label="setGameSpeed" id="-2040942226%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="set-game-speed.html">setGameSpeed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2040942226%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="set-game-speed.html">setGameSpeed</a>(speed: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-2040942226%2FFunctions%2F-516149924" anchor-label="setGameSpeed" id="-2040942226%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-2040942226%2FFunctions%2F-516149924" anchor-label="setGameSpeed" id="-2040942226%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Sets the <a href="set-game-speed.html">speed</a> of the game.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-173791723%2FFunctions%2F-516149924" anchor-label="startGame" id="-173791723%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="start-game.html">startGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-173791723%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="start-game.html">startGame</a>(territoryFile: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-173791723%2FFunctions%2F-516149924" anchor-label="startGame" id="-173791723%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-173791723%2FFunctions%2F-516149924" anchor-label="startGame" id="-173791723%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Starts a new hamster game with the given <a href="start-game.html">territoryFile</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1352957468%2FFunctions%2F-516149924" anchor-label="stopGame" id="1352957468%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="stop-game.html">stopGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1352957468%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="stop-game.html">stopGame</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1352957468%2FFunctions%2F-516149924" anchor-label="stopGame" id="1352957468%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1352957468%2FFunctions%2F-516149924" anchor-label="stopGame" id="1352957468%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Stops the current game (if started and present).</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1335527156%2FFunctions%2F-516149924" anchor-label="turnLeft" id="-1335527156%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="turn-left.html">turnLeft</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1335527156%2FFunctions%2F-516149924"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="turn-left.html">turnLeft</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1335527156%2FFunctions%2F-516149924" anchor-label="turnLeft" id="-1335527156%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1335527156%2FFunctions%2F-516149924" anchor-label="turnLeft" id="-1335527156%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>Turns the hamster 90 degrees counterclockwise.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-515772962%2FFunctions%2F-516149924" anchor-label="dropGrain" id="-515772962%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="drop-grain.html"><span>drop</span><wbr><span><span>Grain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-515772962%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="drop-grain.html"><span class="token function">dropGrain</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The hamster drops a grain on the tile beneath it.</p></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+<a data-name="-1717905921%2FFunctions%2F-516149924" anchor-label="getNumberOfHamsterMovesTaken" id="-1717905921%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-number-of-hamster-moves-taken.html"><span>get</span><wbr><span>Number</span><wbr><span>Of</span><wbr><span>Hamster</span><wbr><span>Moves</span><wbr><span><span>Taken</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1717905921%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-number-of-hamster-moves-taken.html"><span class="token function">getNumberOfHamsterMovesTaken</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Returns the number of moves taken by the hamster.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1227470893%2FFunctions%2F-516149924" anchor-label="getTileToMeterScaling" id="1227470893%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-tile-to-meter-scaling.html"><span>get</span><wbr><span>Tile</span><wbr><span>To</span><wbr><span>Meter</span><wbr><span><span>Scaling</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1227470893%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-tile-to-meter-scaling.html"><span class="token function">getTileToMeterScaling</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></div><div class="brief "><p class="paragraph">Returns the tile to meter scaling of the territory.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1700922091%2FFunctions%2F-516149924" anchor-label="hasYourTileAGrain" id="-1700922091%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="has-your-tile-a-grain.html"><span>has</span><wbr><span>Your</span><wbr><span>Tile</span><wbr><span><span>AGrain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1700922091%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-your-tile-a-grain.html"><span class="token function">hasYourTileAGrain</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Has the tile on which the hamster sits at least one grain on it?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-488667518%2FFunctions%2F-516149924" anchor-label="isFrontClear" id="-488667518%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-front-clear.html"><span>is</span><wbr><span>Front</span><wbr><span><span>Clear</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-488667518%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-front-clear.html"><span class="token function">isFrontClear</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Can the hamster move one tile in its facing direction?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="231048173%2FFunctions%2F-516149924" anchor-label="isYourMouthEmpty" id="231048173%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-your-mouth-empty.html"><span>is</span><wbr><span>Your</span><wbr><span>Mouth</span><wbr><span><span>Empty</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="231048173%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-your-mouth-empty.html"><span class="token function">isYourMouthEmpty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Is the hamster's mouth empty?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2117760641%2FFunctions%2F-516149924" anchor-label="move" id="-2117760641%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="move.html"><span><span>move</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2117760641%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="move.html"><span class="token function">move</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Moves the hamster one tile in the direction it faces.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-877097694%2FFunctions%2F-516149924" anchor-label="pauseGame" id="-877097694%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="pause-game.html"><span>pause</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-877097694%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="pause-game.html"><span class="token function">pauseGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Pauses the current game (if started and present).</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2024105072%2FFunctions%2F-516149924" anchor-label="pickGrain" id="-2024105072%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="pick-grain.html"><span>pick</span><wbr><span><span>Grain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2024105072%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="pick-grain.html"><span class="token function">pickGrain</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The hamster picks up a grain from the tile beneath it.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-808148719%2FFunctions%2F-516149924" anchor-label="resumeGame" id="-808148719%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="resume-game.html"><span>resume</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-808148719%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="resume-game.html"><span class="token function">resumeGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Resumes a paused game.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="953510917%2FFunctions%2F-516149924" anchor-label="say" id="953510917%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="say.html"><span><span>say</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="953510917%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="say.html"><span class="token function">say</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">The hamster "says" the given <a href="say.html">message</a> printing it to the game log.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2040942226%2FFunctions%2F-516149924" anchor-label="setGameSpeed" id="-2040942226%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="set-game-speed.html"><span>set</span><wbr><span>Game</span><wbr><span><span>Speed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2040942226%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-game-speed.html"><span class="token function">setGameSpeed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">speed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the <a href="set-game-speed.html">speed</a> of the game.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-173791723%2FFunctions%2F-516149924" anchor-label="startGame" id="-173791723%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="start-game.html"><span>start</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-173791723%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="start-game.html"><span class="token function">startGame</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">territoryFile<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Starts a new hamster game with the given <a href="start-game.html">territoryFile</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1352957468%2FFunctions%2F-516149924" anchor-label="stopGame" id="1352957468%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="stop-game.html"><span>stop</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1352957468%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="stop-game.html"><span class="token function">stopGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stops the current game (if started and present).</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1335527156%2FFunctions%2F-516149924" anchor-label="turnLeft" id="-1335527156%2FFunctions%2F-516149924" data-filterable-set=":imperative:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":imperative:dokkaHtmlPartial/main" data-filterable-set=":imperative:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="turn-left.html"><span>turn</span><wbr><span><span>Left</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1335527156%2FFunctions%2F-516149924"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":imperative:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="turn-left.html"><span class="token function">turnLeft</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Turns the hamster 90 degrees counterclockwise.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 

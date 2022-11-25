@@ -1,224 +1,280 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>icons</title>
-</head><body><link href="../../../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script><script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script><link href="../../../../styles/style.css" rel="Stylesheet"><link href="../../../../styles/logo-styles.css" rel="Stylesheet"><link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui/R.icons///PointingToDeclaration//1275902132">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../../../index.html">ui</a>/<a href="../../index.html">de.github.dudrie.hamster.ui</a>/<a href="../index.html">R</a>/<a href="index.html">icons</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>icons</span></h1>
-            <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">object <a href="index.html">icons</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Path to icons</p></div></div>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Properties">Properties</button></div>
-            <div class="tabs-section-body">
-              <h2 class="">Properties</h2>
-              <div class="table" data-togglable="Properties"><a data-name="1791353152%2FProperties%2F1275902132" anchor-label="addGrainTool" id="1791353152%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="add-grain-tool.html">addGrainTool</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1791353152%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1791353152%2FProperties%2F1275902132" anchor-label="addGrainTool" id="1791353152%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="add-grain-tool.html">addGrainTool</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1314190848%2FProperties%2F1275902132" anchor-label="error" id="1314190848%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="error.html">error</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1314190848%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1314190848%2FProperties%2F1275902132" anchor-label="error" id="1314190848%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="error.html">error</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="2012723869%2FProperties%2F1275902132" anchor-label="fastSpeed" id="2012723869%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="fast-speed.html">fastSpeed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2012723869%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="2012723869%2FProperties%2F1275902132" anchor-label="fastSpeed" id="2012723869%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="fast-speed.html">fastSpeed</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="409308039%2FProperties%2F1275902132" anchor-label="hamsterInvisible" id="409308039%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="hamster-invisible.html">hamsterInvisible</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="409308039%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="409308039%2FProperties%2F1275902132" anchor-label="hamsterInvisible" id="409308039%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="hamster-invisible.html">hamsterInvisible</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1678631902%2FProperties%2F1275902132" anchor-label="hamsterVisible" id="-1678631902%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="hamster-visible.html">hamsterVisible</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1678631902%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1678631902%2FProperties%2F1275902132" anchor-label="hamsterVisible" id="-1678631902%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="hamster-visible.html">hamsterVisible</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="924862930%2FProperties%2F1275902132" anchor-label="pause" id="924862930%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="pause.html">pause</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="924862930%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="924862930%2FProperties%2F1275902132" anchor-label="pause" id="924862930%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="pause.html">pause</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1698101854%2FProperties%2F1275902132" anchor-label="play" id="1698101854%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="play.html">play</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1698101854%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1698101854%2FProperties%2F1275902132" anchor-label="play" id="1698101854%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="play.html">play</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1147829548%2FProperties%2F1275902132" anchor-label="redo" id="-1147829548%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="redo.html">redo</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1147829548%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1147829548%2FProperties%2F1275902132" anchor-label="redo" id="-1147829548%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="redo.html">redo</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1794041959%2FProperties%2F1275902132" anchor-label="removeGrainTool" id="-1794041959%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="remove-grain-tool.html">removeGrainTool</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1794041959%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1794041959%2FProperties%2F1275902132" anchor-label="removeGrainTool" id="-1794041959%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="remove-grain-tool.html">removeGrainTool</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-981508829%2FProperties%2F1275902132" anchor-label="scrollDown" id="-981508829%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="scroll-down.html">scrollDown</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-981508829%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-981508829%2FProperties%2F1275902132" anchor-label="scrollDown" id="-981508829%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="scroll-down.html">scrollDown</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="180841758%2FProperties%2F1275902132" anchor-label="selectTool" id="180841758%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="select-tool.html">selectTool</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="180841758%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="180841758%2FProperties%2F1275902132" anchor-label="selectTool" id="180841758%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="select-tool.html">selectTool</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="416488834%2FProperties%2F1275902132" anchor-label="slowSpeed" id="416488834%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="slow-speed.html">slowSpeed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="416488834%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="416488834%2FProperties%2F1275902132" anchor-label="slowSpeed" id="416488834%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="slow-speed.html">slowSpeed</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1407084291%2FProperties%2F1275902132" anchor-label="surroundWithWalls" id="1407084291%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="surround-with-walls.html">surroundWithWalls</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1407084291%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1407084291%2FProperties%2F1275902132" anchor-label="surroundWithWalls" id="1407084291%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="surround-with-walls.html">surroundWithWalls</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1361153362%2FProperties%2F1275902132" anchor-label="undo" id="-1361153362%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="undo.html">undo</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1361153362%2FProperties%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1361153362%2FProperties%2F1275902132" anchor-label="undo" id="-1361153362%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace">const val <a href="undo.html">undo</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui/R.icons///PointingToDeclaration//1275902132">
+  <div class="breadcrumbs"><a href="../../../index.html">ui</a><span class="delimiter">/</span><a href="../../index.html">de.github.dudrie.hamster.ui</a><span class="delimiter">/</span><a href="../index.html">R</a><span class="delimiter">/</span><span class="current">icons</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>icons</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">icons</a></div><p class="paragraph">Path to icons</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="1791353152%2FProperties%2F1275902132" anchor-label="addGrainTool" id="1791353152%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="add-grain-tool.html"><span>add</span><wbr><span>Grain</span><wbr><span><span>Tool</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1791353152%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1791353152%2FProperties%2F1275902132" anchor-label="addGrainTool" id="1791353152%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="add-grain-tool.html">addGrainTool</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+<a data-name="1314190848%2FProperties%2F1275902132" anchor-label="error" id="1314190848%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="error.html"><span><span>error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1314190848%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1314190848%2FProperties%2F1275902132" anchor-label="error" id="1314190848%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="error.html">error</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2012723869%2FProperties%2F1275902132" anchor-label="fastSpeed" id="2012723869%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="fast-speed.html"><span>fast</span><wbr><span><span>Speed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2012723869%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="2012723869%2FProperties%2F1275902132" anchor-label="fastSpeed" id="2012723869%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="fast-speed.html">fastSpeed</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="409308039%2FProperties%2F1275902132" anchor-label="hamsterInvisible" id="409308039%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="hamster-invisible.html"><span>hamster</span><wbr><span><span>Invisible</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="409308039%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="409308039%2FProperties%2F1275902132" anchor-label="hamsterInvisible" id="409308039%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="hamster-invisible.html">hamsterInvisible</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1678631902%2FProperties%2F1275902132" anchor-label="hamsterVisible" id="-1678631902%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="hamster-visible.html"><span>hamster</span><wbr><span><span>Visible</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1678631902%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1678631902%2FProperties%2F1275902132" anchor-label="hamsterVisible" id="-1678631902%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="hamster-visible.html">hamsterVisible</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="924862930%2FProperties%2F1275902132" anchor-label="pause" id="924862930%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="pause.html"><span><span>pause</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="924862930%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="924862930%2FProperties%2F1275902132" anchor-label="pause" id="924862930%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="pause.html">pause</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1698101854%2FProperties%2F1275902132" anchor-label="play" id="1698101854%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="play.html"><span><span>play</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1698101854%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1698101854%2FProperties%2F1275902132" anchor-label="play" id="1698101854%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="play.html">play</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1147829548%2FProperties%2F1275902132" anchor-label="redo" id="-1147829548%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="redo.html"><span><span>redo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1147829548%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1147829548%2FProperties%2F1275902132" anchor-label="redo" id="-1147829548%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="redo.html">redo</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1794041959%2FProperties%2F1275902132" anchor-label="removeGrainTool" id="-1794041959%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="remove-grain-tool.html"><span>remove</span><wbr><span>Grain</span><wbr><span><span>Tool</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1794041959%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1794041959%2FProperties%2F1275902132" anchor-label="removeGrainTool" id="-1794041959%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="remove-grain-tool.html">removeGrainTool</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-981508829%2FProperties%2F1275902132" anchor-label="scrollDown" id="-981508829%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="scroll-down.html"><span>scroll</span><wbr><span><span>Down</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-981508829%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-981508829%2FProperties%2F1275902132" anchor-label="scrollDown" id="-981508829%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="scroll-down.html">scrollDown</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="180841758%2FProperties%2F1275902132" anchor-label="selectTool" id="180841758%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="select-tool.html"><span>select</span><wbr><span><span>Tool</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="180841758%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="180841758%2FProperties%2F1275902132" anchor-label="selectTool" id="180841758%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="select-tool.html">selectTool</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="416488834%2FProperties%2F1275902132" anchor-label="slowSpeed" id="416488834%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="slow-speed.html"><span>slow</span><wbr><span><span>Speed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="416488834%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="416488834%2FProperties%2F1275902132" anchor-label="slowSpeed" id="416488834%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="slow-speed.html">slowSpeed</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1407084291%2FProperties%2F1275902132" anchor-label="surroundWithWalls" id="1407084291%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="surround-with-walls.html"><span>surround</span><wbr><span>With</span><wbr><span><span>Walls</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1407084291%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="1407084291%2FProperties%2F1275902132" anchor-label="surroundWithWalls" id="1407084291%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="surround-with-walls.html">surroundWithWalls</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1361153362%2FProperties%2F1275902132" anchor-label="undo" id="-1361153362%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="undo.html"><span><span>undo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1361153362%2FProperties%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><a data-name="-1361153362%2FProperties%2F1275902132" anchor-label="undo" id="-1361153362%2FProperties%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="undo.html">undo</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 

@@ -1,136 +1,164 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>EditableTerritoryBuilder</title>
-</head><body><link href="../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script><script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.model.builder/EditableTerritoryBuilder///PointingToDeclaration//589151099">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../../index.html">editor</a>/<a href="../index.html">de.github.dudrie.hamster.editor.model.builder</a>/<a href="index.html">EditableTerritoryBuilder</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Editable</span><wbr><span>Territory</span><wbr><span>Builder</span></h1>
-            <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">class <a href="index.html">EditableTerritoryBuilder</a>(territorySize: <a href="../../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a>, tileToMeterScaling: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>) : <a href="../../../core/de.github.dudrie.hamster.importer.helpers/-territory-builder/index.html">TerritoryBuilder</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Builder to build an <a href="../../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a>.</p></div></div>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
-            <div class="tabs-section-body">
-              <h2 class="tabbedcontent">Constructors</h2>
-              <div class="table" data-togglable="Constructors"><a data-name="-151438049%2FConstructors%2F589151099" anchor-label="EditableTerritoryBuilder" id="-151438049%2FConstructors%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue TabbedContent">
-                    <div class=""><span class="inline-flex"><a href="-editable-territory-builder.html">EditableTerritoryBuilder</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-151438049%2FConstructors%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="-editable-territory-builder.html">EditableTerritoryBuilder</a>(territorySize: <a href="../../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a>, tileToMeterScaling: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="1132616896%2FFunctions%2F589151099" anchor-label="addSpecialTile" id="1132616896%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="index.html#1132616896%2FFunctions%2F589151099">addSpecialTile</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1132616896%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="index.html#1132616896%2FFunctions%2F589151099">addSpecialTile</a>(specialTile: <a href="../../../core/de.github.dudrie.hamster.file.model/-tile-data/index.html">TileData</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.model.builder/EditableTerritoryBuilder///PointingToDeclaration//589151099">
+  <div class="breadcrumbs"><a href="../../index.html">editor</a><span class="delimiter">/</span><a href="../index.html">de.github.dudrie.hamster.editor.model.builder</a><span class="delimiter">/</span><span class="current">EditableTerritoryBuilder</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Editable</span><wbr><span>Territory</span><wbr><span><span>Builder</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">EditableTerritoryBuilder</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">territorySize<span class="token operator">: </span><a href="../../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a><span class="token punctuation">, </span></span><span class="parameter ">tileToMeterScaling<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span> : <a href="../../../core/de.github.dudrie.hamster.importer.helpers/-territory-builder/index.html">TerritoryBuilder</a></div><p class="paragraph">Builder to build an <a href="../../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a>.</p></div></div>
   </div>
-</div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1309406244%2FFunctions%2F589151099" anchor-label="buildEditableTerritory" id="1309406244%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="build-editable-territory.html">buildEditableTerritory</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1309406244%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="build-editable-territory.html">buildEditableTerritory</a>(): <a href="../../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1309406244%2FFunctions%2F589151099" anchor-label="buildEditableTerritory" id="1309406244%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1309406244%2FFunctions%2F589151099" anchor-label="buildEditableTerritory" id="1309406244%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Builds an <a href="../../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a> based upon the information present in the builder and returns it.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1482175642%2FFunctions%2F589151099" anchor-label="buildGameTerritory" id="1482175642%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="index.html#1482175642%2FFunctions%2F589151099">buildGameTerritory</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1482175642%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="index.html#1482175642%2FFunctions%2F589151099">buildGameTerritory</a>(): <a href="../../../core/de.github.dudrie.hamster.internal.model.territory/-game-territory/index.html">GameTerritory</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-</div>
-</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Properties</h2>
-              <div class="table" data-togglable="Properties"><a data-name="2020900691%2FProperties%2F589151099" anchor-label="territorySize" id="2020900691%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="index.html#2020900691%2FProperties%2F589151099">territorySize</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2020900691%2FProperties%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><a data-name="2020900691%2FProperties%2F589151099" anchor-label="territorySize" id="2020900691%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="index.html#2020900691%2FProperties%2F589151099">territorySize</a>: <a href="../../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-508734043%2FProperties%2F589151099" anchor-label="tileToMeterScaling" id="-508734043%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="index.html#-508734043%2FProperties%2F589151099">tileToMeterScaling</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-508734043%2FProperties%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><a data-name="-508734043%2FProperties%2F589151099" anchor-label="tileToMeterScaling" id="-508734043%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="index.html#-508734043%2FProperties%2F589151099">tileToMeterScaling</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="-151438049%2FConstructors%2F589151099" anchor-label="EditableTerritoryBuilder" id="-151438049%2FConstructors%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-editable-territory-builder.html"><span>Editable</span><wbr><span>Territory</span><wbr><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-151438049%2FConstructors%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-editable-territory-builder.html"><span class="token function">EditableTerritoryBuilder</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">territorySize<span class="token operator">: </span><a href="../../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a><span class="token punctuation">, </span></span><span class="parameter ">tileToMeterScaling<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1132616896%2FFunctions%2F589151099" anchor-label="addSpecialTile" id="1132616896%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1132616896%2FFunctions%2F589151099"><span>add</span><wbr><span>Special</span><wbr><span><span>Tile</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1132616896%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1132616896%2FFunctions%2F589151099"><span class="token function">addSpecialTile</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">specialTile<span class="token operator">: </span><a href="../../../core/de.github.dudrie.hamster.file.model/-tile-data/index.html">TileData</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1309406244%2FFunctions%2F589151099" anchor-label="buildEditableTerritory" id="1309406244%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="build-editable-territory.html"><span>build</span><wbr><span>Editable</span><wbr><span><span>Territory</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1309406244%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="build-editable-territory.html"><span class="token function">buildEditableTerritory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a></div><div class="brief "><p class="paragraph">Builds an <a href="../../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a> based upon the information present in the builder and returns it.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1482175642%2FFunctions%2F589151099" anchor-label="buildGameTerritory" id="1482175642%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1482175642%2FFunctions%2F589151099"><span>build</span><wbr><span>Game</span><wbr><span><span>Territory</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1482175642%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1482175642%2FFunctions%2F589151099"><span class="token function">buildGameTerritory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../core/de.github.dudrie.hamster.internal.model.territory/-game-territory/index.html">GameTerritory</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-1317482901%2FProperties%2F589151099" anchor-label="territorySize" id="-1317482901%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1317482901%2FProperties%2F589151099"><span>territory</span><wbr><span><span>Size</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1317482901%2FProperties%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><a data-name="-1317482901%2FProperties%2F589151099" anchor-label="territorySize" id="-1317482901%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html#-1317482901%2FProperties%2F589151099">territorySize</a><span class="token operator">: </span><a href="../../../core/de.github.dudrie.hamster.datatypes/-size/index.html">Size</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1560889971%2FProperties%2F589151099" anchor-label="tileToMeterScaling" id="-1560889971%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1560889971%2FProperties%2F589151099"><span>tile</span><wbr><span>To</span><wbr><span>Meter</span><wbr><span><span>Scaling</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1560889971%2FProperties%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><a data-name="-1560889971%2FProperties%2F589151099" anchor-label="tileToMeterScaling" id="-1560889971%2FProperties%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html#-1560889971%2FProperties%2F589151099">tileToMeterScaling</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 

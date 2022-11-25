@@ -1,109 +1,129 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>de.github.dudrie.hamster.editor.components</title>
-</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script><script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.components////PointingToDeclaration//589151099">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../index.html">editor</a>/<a href="index.html">de.github.dudrie.hamster.editor.components</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Package de.</span><wbr><span>github.</span><wbr><span>dudrie.</span><wbr><span>hamster.</span><wbr><span>editor.</span><wbr><span>components</span></h1>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
-            <div class="tabs-section-body">
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="288848661%2FFunctions%2F589151099" anchor-label="BoardForEditor" id="288848661%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-for-editor.html">BoardForEditor</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="288848661%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-for-editor.html">BoardForEditor</a>(territory: <a href="../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a>, modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.components////PointingToDeclaration//589151099">
+  <div class="breadcrumbs"><a href="../index.html">editor</a><span class="delimiter">/</span><span class="current">de.github.dudrie.hamster.editor.components</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
   </div>
-<a data-name="288848661%2FFunctions%2F589151099" anchor-label="BoardForEditor" id="288848661%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="288848661%2FFunctions%2F589151099" anchor-label="BoardForEditor" id="288848661%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Board used in the editor.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1997239232%2FFunctions%2F589151099" anchor-label="EditorToolboxButton" id="-1997239232%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-editor-toolbox-button.html">EditorToolboxButton</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1997239232%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-editor-toolbox-button.html">EditorToolboxButton</a>(onClick: () -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, icon: <span>@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()&nbsp;</span>() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, text: <span>@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()&nbsp;</span>() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, color: <span data-unresolved-link="androidx.compose.ui.graphics/Color///PointingToDeclaration/">Color</span> = MaterialTheme.colors.surface, border: <span data-unresolved-link="androidx.compose.foundation/BorderStroke///PointingToDeclaration/">BorderStroke</span>? = ButtonDefaults.outlinedBorder, modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier.fillMaxWidth().padding(bottom = 8.dp))<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1997239232%2FFunctions%2F589151099" anchor-label="EditorToolboxButton" id="-1997239232%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1997239232%2FFunctions%2F589151099" anchor-label="EditorToolboxButton" id="-1997239232%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Button used in the toolbox.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1877550028%2FFunctions%2F589151099" anchor-label="EditPanelTileTypeButton" id="1877550028%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-edit-panel-tile-type-button.html">EditPanelTileTypeButton</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1877550028%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-edit-panel-tile-type-button.html">EditPanelTileTypeButton</a>(type: <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a>, onClick: (type: <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a>) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, isSelected: (type: <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a>) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>, enabled: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1877550028%2FFunctions%2F589151099" anchor-label="EditPanelTileTypeButton" id="1877550028%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1877550028%2FFunctions%2F589151099" anchor-label="EditPanelTileTypeButton" id="1877550028%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Special button which shows the icon and the text corresponding to the <a href="-edit-panel-tile-type-button.html">type</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1879366776%2FFunctions%2F589151099" anchor-label="SelectTileToolButton" id="1879366776%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-select-tile-tool-button.html">SelectTileToolButton</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1879366776%2FFunctions%2F589151099"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-select-tile-tool-button.html">SelectTileToolButton</a>(tool: <a href="../de.github.dudrie.hamster.editor.tools/-tile-tool/index.html">TileTool</a>?, icon: <span>@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()&nbsp;</span>() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, text: <span>@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()&nbsp;</span>() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier.fillMaxWidth().padding(bottom = 8.dp))<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1879366776%2FFunctions%2F589151099" anchor-label="SelectTileToolButton" id="1879366776%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1879366776%2FFunctions%2F589151099" anchor-label="SelectTileToolButton" id="1879366776%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>Button like composable which is used to select a tool.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="288848661%2FFunctions%2F589151099" anchor-label="BoardForEditor" id="288848661%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-for-editor.html"><span>Board</span><wbr><span>For</span><wbr><span><span>Editor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="288848661%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-for-editor.html"><span class="token function">BoardForEditor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">territory<span class="token operator">: </span><a href="../de.github.dudrie.hamster.editor.model/-editable-territory/index.html">EditableTerritory</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Board used in the editor.</p></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+<a data-name="-1997239232%2FFunctions%2F589151099" anchor-label="EditorToolboxButton" id="-1997239232%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-editor-toolbox-button.html"><span>Editor</span><wbr><span>Toolbox</span><wbr><span><span>Button</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1997239232%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-editor-toolbox-button.html"><span class="token function">EditorToolboxButton</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">onClick<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">icon<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span>&nbsp;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">text<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span>&nbsp;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">color<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui.graphics/Color///PointingToDeclaration/">Color</span><span class="token operator"> = </span>MaterialTheme.colors.surface<span class="token punctuation">, </span></span><span class="parameter ">border<span class="token operator">: </span><span data-unresolved-link="androidx.compose.foundation/BorderStroke///PointingToDeclaration/">BorderStroke</span><span class="token operator">?</span><span class="token operator"> = </span>ButtonDefaults.outlinedBorder<span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier.fillMaxWidth().padding(bottom = 8.dp)</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Button used in the toolbox.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1877550028%2FFunctions%2F589151099" anchor-label="EditPanelTileTypeButton" id="1877550028%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-edit-panel-tile-type-button.html"><span>Edit</span><wbr><span>Panel</span><wbr><span>Tile</span><wbr><span>Type</span><wbr><span><span>Button</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1877550028%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-edit-panel-tile-type-button.html"><span class="token function">EditPanelTileTypeButton</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a><span class="token punctuation">, </span></span><span class="parameter ">onClick<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>type<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">isSelected<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>type<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">GameTileType</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Special button which shows the icon and the text corresponding to the <a href="-edit-panel-tile-type-button.html">type</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1879366776%2FFunctions%2F589151099" anchor-label="SelectTileToolButton" id="1879366776%2FFunctions%2F589151099" data-filterable-set=":editor:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-select-tile-tool-button.html"><span>Select</span><wbr><span>Tile</span><wbr><span>Tool</span><wbr><span><span>Button</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1879366776%2FFunctions%2F589151099"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-select-tile-tool-button.html"><span class="token function">SelectTileToolButton</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tool<span class="token operator">: </span><a href="../de.github.dudrie.hamster.editor.tools/-tile-tool/index.html">TileTool</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">icon<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span>&nbsp;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">text<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span>&nbsp;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier.fillMaxWidth().padding(bottom = 8.dp)</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Button like composable which is used to select a tool.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 

@@ -1,40 +1,63 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>TextFieldForDoubles</title>
-</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script><script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.components.textfield//TextFieldForDoubles/#de.github.dudrie.hamster.editor.components.textfield.TextFieldForNumbersState[kotlin.Double]#kotlin.Function0[kotlin.Unit]#kotlin.Boolean#kotlin.String?#androidx.compose.ui.Modifier/PointingToDeclaration//589151099">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../index.html">editor</a>/<a href="index.html">de.github.dudrie.hamster.editor.components.textfield</a>/<a href="-text-field-for-doubles.html">TextFieldForDoubles</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Text</span><wbr><span>Field</span><wbr><span>For</span><wbr><span>Doubles</span></h1>
-          </div>
-<div class="divergent-group" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-text-field-for-doubles.html">TextFieldForDoubles</a>(state: <a href="-text-field-for-numbers-state/index.html">TextFieldForNumbersState</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a>&gt;, label: <span>@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()&nbsp;</span>() -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>, enabled: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = true, hint: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>? = null, modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="editor::de.github.dudrie.hamster.editor.components.textfield//TextFieldForDoubles/#de.github.dudrie.hamster.editor.components.textfield.TextFieldForNumbersState[kotlin.Double]#kotlin.Function0[kotlin.Unit]#kotlin.Boolean#kotlin.String?#androidx.compose.ui.Modifier/PointingToDeclaration//589151099">
+  <div class="breadcrumbs"><a href="../index.html">editor</a><span class="delimiter">/</span><a href="index.html">de.github.dudrie.hamster.editor.components.textfield</a><span class="delimiter">/</span><span class="current">TextFieldForDoubles</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Text</span><wbr><span>Field</span><wbr><span>For</span><wbr><span><span>Doubles</span></span></h1>
   </div>
-<p class="paragraph">Special <span data-unresolved-link="androidx.compose.material//TextField/#androidx.compose.ui.text.input.TextFieldValue#kotlin.Function1[androidx.compose.ui.text.input.TextFieldValue,kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Boolean#androidx.compose.ui.text.TextStyle#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Boolean#androidx.compose.ui.text.input.VisualTransformation#androidx.compose.foundation.text.KeyboardOptions#androidx.compose.foundation.text.KeyboardActions#kotlin.Boolean#kotlin.Int#androidx.compose.foundation.interaction.MutableInteractionSource#androidx.compose.ui.graphics.Shape#androidx.compose.material.TextFieldColors/PointingToDeclaration/">TextField</span> that helps handle inputs which should be <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">doubles</a>.</p><p class="paragraph">For a description of the parameters see <a href="-text-field-for-numbers.html">TextFieldForNumbers</a>.</p><h2 class="">See also</h2><div data-togglable="See also"><div class="platform-hinted WithExtraAttributes" data-platform-hinted="data-platform-hinted" data-togglable="See also"><div class="content sourceset-depenent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div data-togglable="See also"><div class="table" data-togglable="See also"><div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes RowTitle"><div class=""><span class="inline-flex"><a href="-text-field-for-numbers.html">TextFieldForNumbers</a></span><span class="inline-flex"><div data-togglable="See also"></div></span></div><div></div></div></div></div></div></div></div></div></div>
-        </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":editor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-text-field-for-doubles.html"><span class="token function">TextFieldForDoubles</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">state<span class="token operator">: </span><a href="-text-field-for-numbers-state/index.html">TextFieldForNumbersState</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span>&nbsp;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter ">hint<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><p class="paragraph">Special <span data-unresolved-link="androidx.compose.material//TextField/#androidx.compose.ui.text.input.TextFieldValue#kotlin.Function1[androidx.compose.ui.text.input.TextFieldValue,kotlin.Unit]#androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Boolean#androidx.compose.ui.text.TextStyle#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Function0[kotlin.Unit]?#kotlin.Boolean#androidx.compose.ui.text.input.VisualTransformation#androidx.compose.foundation.text.KeyboardOptions#androidx.compose.foundation.text.KeyboardActions#kotlin.Boolean#kotlin.Int#androidx.compose.foundation.interaction.MutableInteractionSource#androidx.compose.ui.graphics.Shape#androidx.compose.material.TextFieldColors/PointingToDeclaration/">TextField</span> that helps handle inputs which should be <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">doubles</a>.</p><p class="paragraph">For a description of the parameters see <a href="-text-field-for-numbers.html">TextFieldForNumbers</a>.</p><h4 class="">See also</h4><div data-togglable="See also"><div class="table" data-togglable="See also"><div class="table-row" data-filterable-current=":editor:dokkaHtmlPartial/main" data-filterable-set=":editor:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><a href="-text-field-for-numbers.html"><span>Text</span><wbr><span>Field</span><wbr><span>For</span><wbr><span><span>Numbers</span></span></a></div></span></div><div></div></div></div></div></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
     </div>
-  
-</body></html>
+</div>
 
+</body></html>
 

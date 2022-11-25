@@ -1,176 +1,192 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>AppWindowListener</title>
-</head><body><link href="../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script><script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui.application.windows/AppWindowListener///PointingToDeclaration//1275902132">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../../index.html">ui</a>/<a href="../index.html">de.github.dudrie.hamster.ui.application.windows</a>/<a href="index.html">AppWindowListener</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>App</span><wbr><span>Window</span><wbr><span>Listener</span></h1>
-            <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">class <a href="index.html">AppWindowListener</a>(initLatch: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html">CountDownLatch</a>) : <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowListener.html">WindowListener</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Listener used for the main window.</p></div></div>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
-            <div class="tabs-section-body">
-              <h2 class="tabbedcontent">Constructors</h2>
-              <div class="table" data-togglable="Constructors"><a data-name="1793861619%2FConstructors%2F1275902132" anchor-label="AppWindowListener" id="1793861619%2FConstructors%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue TabbedContent">
-                    <div class=""><span class="inline-flex"><a href="-app-window-listener.html">AppWindowListener</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1793861619%2FConstructors%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="-app-window-listener.html">AppWindowListener</a>(initLatch: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html">CountDownLatch</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="1080020%2FFunctions%2F1275902132" anchor-label="windowActivated" id="1080020%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="window-activated.html">windowActivated</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1080020%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="window-activated.html">windowActivated</a>(e: <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui.application.windows/AppWindowListener///PointingToDeclaration//1275902132">
+  <div class="breadcrumbs"><a href="../../index.html">ui</a><span class="delimiter">/</span><a href="../index.html">de.github.dudrie.hamster.ui.application.windows</a><span class="delimiter">/</span><span class="current">AppWindowListener</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>App</span><wbr><span>Window</span><wbr><span><span>Listener</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">AppWindowListener</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initLatch<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html">CountDownLatch</a></span></span><span class="token punctuation">)</span> : <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowListener.html">WindowListener</a></div><p class="paragraph">Listener used for the main window.</p></div></div>
   </div>
-<a data-name="1080020%2FFunctions%2F1275902132" anchor-label="windowActivated" id="1080020%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1080020%2FFunctions%2F1275902132" anchor-label="windowActivated" id="1080020%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Invoked when the Window is set to be the active Window.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1628012279%2FFunctions%2F1275902132" anchor-label="windowClosed" id="-1628012279%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="window-closed.html">windowClosed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1628012279%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="window-closed.html">windowClosed</a>(e: <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1628012279%2FFunctions%2F1275902132" anchor-label="windowClosed" id="-1628012279%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1628012279%2FFunctions%2F1275902132" anchor-label="windowClosed" id="-1628012279%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Invoked when a window has been closed as the result of calling dispose on the window.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1479057288%2FFunctions%2F1275902132" anchor-label="windowClosing" id="-1479057288%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="window-closing.html">windowClosing</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1479057288%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="window-closing.html">windowClosing</a>(e: <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1479057288%2FFunctions%2F1275902132" anchor-label="windowClosing" id="-1479057288%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1479057288%2FFunctions%2F1275902132" anchor-label="windowClosing" id="-1479057288%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Invoked when the user attempts to close the window from the window's system menu.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1058021683%2FFunctions%2F1275902132" anchor-label="windowDeactivated" id="1058021683%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="window-deactivated.html">windowDeactivated</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1058021683%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="window-deactivated.html">windowDeactivated</a>(e: <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1058021683%2FFunctions%2F1275902132" anchor-label="windowDeactivated" id="1058021683%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1058021683%2FFunctions%2F1275902132" anchor-label="windowDeactivated" id="1058021683%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Invoked when a Window is no longer the active Window.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-692250476%2FFunctions%2F1275902132" anchor-label="windowDeiconified" id="-692250476%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="window-deiconified.html">windowDeiconified</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-692250476%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="window-deiconified.html">windowDeiconified</a>(e: <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-692250476%2FFunctions%2F1275902132" anchor-label="windowDeiconified" id="-692250476%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-692250476%2FFunctions%2F1275902132" anchor-label="windowDeiconified" id="-692250476%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Invoked when a window is changed from a minimized to a normal state.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1749192139%2FFunctions%2F1275902132" anchor-label="windowIconified" id="-1749192139%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="window-iconified.html">windowIconified</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1749192139%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="window-iconified.html">windowIconified</a>(e: <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1749192139%2FFunctions%2F1275902132" anchor-label="windowIconified" id="-1749192139%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1749192139%2FFunctions%2F1275902132" anchor-label="windowIconified" id="-1749192139%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Invoked when a window is changed from a normal to a minimized state.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-174140538%2FFunctions%2F1275902132" anchor-label="windowOpened" id="-174140538%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="window-opened.html">windowOpened</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-174140538%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="window-opened.html">windowOpened</a>(e: <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-174140538%2FFunctions%2F1275902132" anchor-label="windowOpened" id="-174140538%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-174140538%2FFunctions%2F1275902132" anchor-label="windowOpened" id="-174140538%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>This will count down the provided <a href="../../../ui/de.github.dudrie.hamster.ui.application.windows/-app-window-listener/init-latch.html">initLatch</a> by 1.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="1793861619%2FConstructors%2F1275902132" anchor-label="AppWindowListener" id="1793861619%2FConstructors%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-app-window-listener.html"><span>App</span><wbr><span>Window</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1793861619%2FConstructors%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-app-window-listener.html"><span class="token function">AppWindowListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initLatch<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CountDownLatch.html">CountDownLatch</a></span></span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1080020%2FFunctions%2F1275902132" anchor-label="windowActivated" id="1080020%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="window-activated.html"><span>window</span><wbr><span><span>Activated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1080020%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="window-activated.html"><span class="token function">windowActivated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Invoked when the Window is set to be the active Window. Only a Frame or a Dialog can be the active Window. The native windowing system may denote the active Window or its children with special decorations, such as a highlighted title bar. The active Window is always either the focused Window, or the first Frame or Dialog that is an owner of the focused Window.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1628012279%2FFunctions%2F1275902132" anchor-label="windowClosed" id="-1628012279%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="window-closed.html"><span>window</span><wbr><span><span>Closed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1628012279%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="window-closed.html"><span class="token function">windowClosed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Invoked when a window has been closed as the result of calling dispose on the window.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1479057288%2FFunctions%2F1275902132" anchor-label="windowClosing" id="-1479057288%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="window-closing.html"><span>window</span><wbr><span><span>Closing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1479057288%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="window-closing.html"><span class="token function">windowClosing</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Invoked when the user attempts to close the window from the window's system menu.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1058021683%2FFunctions%2F1275902132" anchor-label="windowDeactivated" id="1058021683%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="window-deactivated.html"><span>window</span><wbr><span><span>Deactivated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1058021683%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="window-deactivated.html"><span class="token function">windowDeactivated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Invoked when a Window is no longer the active Window. Only a Frame or a Dialog can be the active Window. The native windowing system may denote the active Window or its children with special decorations, such as a highlighted title bar. The active Window is always either the focused Window, or the first Frame or Dialog that is an owner of the focused Window.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-692250476%2FFunctions%2F1275902132" anchor-label="windowDeiconified" id="-692250476%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="window-deiconified.html"><span>window</span><wbr><span><span>Deiconified</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-692250476%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="window-deiconified.html"><span class="token function">windowDeiconified</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Invoked when a window is changed from a minimized to a normal state.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1749192139%2FFunctions%2F1275902132" anchor-label="windowIconified" id="-1749192139%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="window-iconified.html"><span>window</span><wbr><span><span>Iconified</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1749192139%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="window-iconified.html"><span class="token function">windowIconified</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Invoked when a window is changed from a normal to a minimized state. For many platforms, a minimized window is displayed as the icon specified in the window's iconImage property.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-174140538%2FFunctions%2F1275902132" anchor-label="windowOpened" id="-174140538%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="window-opened.html"><span>window</span><wbr><span><span>Opened</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-174140538%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="window-opened.html"><span class="token function">windowOpened</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">e<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/event/WindowEvent.html">WindowEvent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">This will count down the provided <a href="../../../ui/de.github.dudrie.hamster.ui.application.windows/-app-window-listener/init-latch.html">initLatch</a> by 1.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 

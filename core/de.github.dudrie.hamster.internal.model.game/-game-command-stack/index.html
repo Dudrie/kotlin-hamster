@@ -1,357 +1,391 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>GameCommandStack</title>
-</head><body><link href="../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script><script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script><link href="../../../styles/style.css" rel="Stylesheet"><link href="../../../styles/logo-styles.css" rel="Stylesheet"><link href="../../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="core::de.github.dudrie.hamster.internal.model.game/GameCommandStack///PointingToDeclaration//537371977">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../../index.html">core</a>/<a href="../index.html">de.github.dudrie.hamster.internal.model.game</a>/<a href="index.html">GameCommandStack</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Game</span><wbr><span>Command</span><wbr><span>Stack</span></h1>
-            <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">class <a href="index.html">GameCommandStack</a> : <a href="../-command-stack/index.html">CommandStack</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Stack to handle <a href="../-command/index.html">Command</a> execution with the game context.</p></div></div>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
-            <div class="tabs-section-body">
-              <h2 class="tabbedcontent">Constructors</h2>
-              <div class="table" data-togglable="Constructors"><a data-name="1125050678%2FConstructors%2F537371977" anchor-label="GameCommandStack" id="1125050678%2FConstructors%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue TabbedContent">
-                    <div class=""><span class="inline-flex"><a href="-game-command-stack.html">GameCommandStack</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1125050678%2FConstructors%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="-game-command-stack.html">GameCommandStack</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Types</h2>
-              <div class="table" data-togglable="Types"><a data-name="-1426853828%2FClasslikes%2F537371977" anchor-label="Companion" id="-1426853828%2FClasslikes%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-companion/index.html">Companion</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1426853828%2FClasslikes%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">object <a href="-companion/index.html">Companion</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="core::de.github.dudrie.hamster.internal.model.game/GameCommandStack///PointingToDeclaration//537371977">
+  <div class="breadcrumbs"><a href="../../index.html">core</a><span class="delimiter">/</span><a href="../index.html">de.github.dudrie.hamster.internal.model.game</a><span class="delimiter">/</span><span class="current">GameCommandStack</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Game</span><wbr><span>Command</span><wbr><span><span>Stack</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">GameCommandStack</a> : <a href="../-command-stack/index.html">CommandStack</a></div><p class="paragraph">Stack to handle <a href="../-command/index.html">Command</a> execution with the game context.</p></div></div>
   </div>
-<a data-name="-1426853828%2FClasslikes%2F537371977" anchor-label="Companion" id="-1426853828%2FClasslikes%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1426853828%2FClasslikes%2F537371977" anchor-label="Companion" id="-1426853828%2FClasslikes%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Object holding general settings for the game's execution.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="355709963%2FFunctions%2F537371977" anchor-label="executeCommand" id="355709963%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="execute-command.html">executeCommand</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="355709963%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="execute-command.html">executeCommand</a>(command: <a href="../-command/index.html">Command</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="355709963%2FFunctions%2F537371977" anchor-label="executeCommand" id="355709963%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="355709963%2FFunctions%2F537371977" anchor-label="executeCommand" id="355709963%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Tells the stack to execute the given <a href="../-command/index.html">Command</a> within the game context if the game is <a href="../-game-mode/-running/index.html">running</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1282940141%2FFunctions%2F537371977" anchor-label="pauseGame" id="1282940141%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="pause-game.html">pauseGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1282940141%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="pause-game.html">pauseGame</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1282940141%2FFunctions%2F537371977" anchor-label="pauseGame" id="1282940141%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1282940141%2FFunctions%2F537371977" anchor-label="pauseGame" id="1282940141%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Pauses the game setting the mode to <a href="../-game-mode/-paused/index.html">paused</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1413956935%2FFunctions%2F537371977" anchor-label="redo" id="1413956935%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="redo.html">redo</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1413956935%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="redo.html">redo</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1413956935%2FFunctions%2F537371977" anchor-label="redo" id="1413956935%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1413956935%2FFunctions%2F537371977" anchor-label="redo" id="1413956935%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Redoes the <a href="../-command/index.html">Command</a> that got undone last.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1728514726%2FFunctions%2F537371977" anchor-label="resumeGame" id="1728514726%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="resume-game.html">resumeGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1728514726%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="resume-game.html">resumeGame</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1728514726%2FFunctions%2F537371977" anchor-label="resumeGame" id="1728514726%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1728514726%2FFunctions%2F537371977" anchor-label="resumeGame" id="1728514726%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Resumes the game back into it's <a href="../-game-mode/-running/index.html">running mode</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1629457841%2FFunctions%2F537371977" anchor-label="setSpeed" id="1629457841%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="set-speed.html">setSpeed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1629457841%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="set-speed.html">setSpeed</a>(speed: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1629457841%2FFunctions%2F537371977" anchor-label="setSpeed" id="1629457841%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1629457841%2FFunctions%2F537371977" anchor-label="setSpeed" id="1629457841%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Set the speed of the game.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1485342842%2FFunctions%2F537371977" anchor-label="startGame" id="-1485342842%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="start-game.html">startGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1485342842%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="start-game.html">startGame</a>(startPaused: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1485342842%2FFunctions%2F537371977" anchor-label="startGame" id="-1485342842%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1485342842%2FFunctions%2F537371977" anchor-label="startGame" id="-1485342842%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Starts the game.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1625405199%2FFunctions%2F537371977" anchor-label="stopGame" id="-1625405199%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="stop-game.html">stopGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1625405199%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="stop-game.html">stopGame</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1625405199%2FFunctions%2F537371977" anchor-label="stopGame" id="-1625405199%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1625405199%2FFunctions%2F537371977" anchor-label="stopGame" id="-1625405199%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Stops the game.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1200633121%2FFunctions%2F537371977" anchor-label="undo" id="1200633121%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="undo.html">undo</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1200633121%2FFunctions%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace">open override fun <a href="undo.html">undo</a>()<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1200633121%2FFunctions%2F537371977" anchor-label="undo" id="1200633121%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1200633121%2FFunctions%2F537371977" anchor-label="undo" id="1200633121%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Undoes the <a href="../-command/index.html">Command</a> that got executed last.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Properties</h2>
-              <div class="table" data-togglable="Properties"><a data-name="1355148125%2FProperties%2F537371977" anchor-label="canPauseOrResumeGame" id="1355148125%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="can-pause-or-resume-game.html">canPauseOrResumeGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1355148125%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="1355148125%2FProperties%2F537371977" anchor-label="canPauseOrResumeGame" id="1355148125%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="can-pause-or-resume-game.html">canPauseOrResumeGame</a>: <span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="1355148125%2FProperties%2F537371977" anchor-label="canPauseOrResumeGame" id="1355148125%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Is the game in a state in which it can be <a href="../-game-mode/-paused/index.html">paused</a> or <a href="../-game-mode/-running/index.html">resumed</a>?</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-305956696%2FProperties%2F537371977" anchor-label="canRedoCommand" id="-305956696%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="can-redo-command.html">canRedoCommand</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-305956696%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-305956696%2FProperties%2F537371977" anchor-label="canRedoCommand" id="-305956696%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="can-redo-command.html">canRedoCommand</a>: <span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-305956696%2FProperties%2F537371977" anchor-label="canRedoCommand" id="-305956696%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Is the game in a state in which a <a href="../-command/index.html">Command</a> can be redone?</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-400564338%2FProperties%2F537371977" anchor-label="canUndoCommand" id="-400564338%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="can-undo-command.html">canUndoCommand</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-400564338%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-400564338%2FProperties%2F537371977" anchor-label="canUndoCommand" id="-400564338%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="can-undo-command.html">canUndoCommand</a>: <span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-400564338%2FProperties%2F537371977" anchor-label="canUndoCommand" id="-400564338%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Is the game in a state in which a <a href="../-command/index.html">Command</a> can be undone?</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-284147327%2FProperties%2F537371977" anchor-label="commandCount" id="-284147327%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="index.html#-284147327%2FProperties%2F537371977">commandCount</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-284147327%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-284147327%2FProperties%2F537371977" anchor-label="commandCount" id="-284147327%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="index.html#-284147327%2FProperties%2F537371977">commandCount</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-284147327%2FProperties%2F537371977" anchor-label="commandCount" id="-284147327%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Sum of all command either executed or undone.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="13362456%2FProperties%2F537371977" anchor-label="gameException" id="13362456%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="game-exception.html">gameException</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="13362456%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="13362456%2FProperties%2F537371977" anchor-label="gameException" id="13362456%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="game-exception.html">gameException</a>: <a href="../../de.github.dudrie.hamster.execptions/-game-exception/index.html">GameException</a>?<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="13362456%2FProperties%2F537371977" anchor-label="gameException" id="13362456%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Exception that contains a <a href="../-command/index.html">Command</a> and the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a> that this command would have thrown.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1028751253%2FProperties%2F537371977" anchor-label="gameMessageCount" id="-1028751253%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="game-message-count.html">gameMessageCount</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1028751253%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-1028751253%2FProperties%2F537371977" anchor-label="gameMessageCount" id="-1028751253%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="game-message-count.html">gameMessageCount</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-1028751253%2FProperties%2F537371977" anchor-label="gameMessageCount" id="-1028751253%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Amount of messages saved in the game log.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1093895143%2FProperties%2F537371977" anchor-label="gameMessages" id="1093895143%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="game-messages.html">gameMessages</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1093895143%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="1093895143%2FProperties%2F537371977" anchor-label="gameMessages" id="1093895143%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="game-messages.html">gameMessages</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html">Iterable</a>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="1093895143%2FProperties%2F537371977" anchor-label="gameMessages" id="1093895143%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>All messages currently available in the <a href="../-game-log/index.html">GameLog</a>.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1553594790%2FProperties%2F537371977" anchor-label="hasCommandsToRedo" id="-1553594790%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="index.html#-1553594790%2FProperties%2F537371977">hasCommandsToRedo</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1553594790%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-1553594790%2FProperties%2F537371977" anchor-label="hasCommandsToRedo" id="-1553594790%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="index.html#-1553594790%2FProperties%2F537371977">hasCommandsToRedo</a>: <span data-unresolved-link="androidx.compose.runtime/MutableState///PointingToDeclaration/">MutableState</span>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-1553594790%2FProperties%2F537371977" anchor-label="hasCommandsToRedo" id="-1553594790%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Does this stack hold any commands that can be redone?</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1766918604%2FProperties%2F537371977" anchor-label="hasCommandsToUndo" id="-1766918604%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="index.html#-1766918604%2FProperties%2F537371977">hasCommandsToUndo</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1766918604%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-1766918604%2FProperties%2F537371977" anchor-label="hasCommandsToUndo" id="-1766918604%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="index.html#-1766918604%2FProperties%2F537371977">hasCommandsToUndo</a>: <span data-unresolved-link="androidx.compose.runtime/MutableState///PointingToDeclaration/">MutableState</span>&lt;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a>&gt;<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-1766918604%2FProperties%2F537371977" anchor-label="hasCommandsToUndo" id="-1766918604%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Does this stack hold any commands that can be undone?</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-614147774%2FProperties%2F537371977" anchor-label="mode" id="-614147774%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="mode.html">mode</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-614147774%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-614147774%2FProperties%2F537371977" anchor-label="mode" id="-614147774%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="mode.html">mode</a>: <a href="../-game-mode/index.html">GameMode</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-614147774%2FProperties%2F537371977" anchor-label="mode" id="-614147774%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Current <a href="../-game-mode/index.html">GameMode</a> of the game.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-251492210%2FProperties%2F537371977" anchor-label="speed" id="-251492210%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="speed.html">speed</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-251492210%2FProperties%2F537371977"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-251492210%2FProperties%2F537371977" anchor-label="speed" id="-251492210%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace">val <a href="speed.html">speed</a>: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="-251492210%2FProperties%2F537371977" anchor-label="speed" id="-251492210%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>Current speed of the game.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="1125050678%2FConstructors%2F537371977" anchor-label="GameCommandStack" id="1125050678%2FConstructors%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-game-command-stack.html"><span>Game</span><wbr><span>Command</span><wbr><span><span>Stack</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1125050678%2FConstructors%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-game-command-stack.html"><span class="token function">GameCommandStack</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+      </div>
+      <h2 class="">Types</h2>
+      <div class="table" data-togglable="Types"><a data-name="-1426853828%2FClasslikes%2F537371977" anchor-label="Companion" id="-1426853828%2FClasslikes%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1426853828%2FClasslikes%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div><div class="brief "><p class="paragraph">Object holding general settings for the game's execution.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="355709963%2FFunctions%2F537371977" anchor-label="executeCommand" id="355709963%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="execute-command.html"><span>execute</span><wbr><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="355709963%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="execute-command.html"><span class="token function">executeCommand</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command<span class="token operator">: </span><a href="../-command/index.html">Command</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Tells the stack to execute the given <a href="../-command/index.html">Command</a> within the game context if the game is <a href="../-game-mode/-running/index.html">running</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1282940141%2FFunctions%2F537371977" anchor-label="pauseGame" id="1282940141%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="pause-game.html"><span>pause</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1282940141%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="pause-game.html"><span class="token function">pauseGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Pauses the game setting the mode to <a href="../-game-mode/-paused/index.html">paused</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1413956935%2FFunctions%2F537371977" anchor-label="redo" id="1413956935%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="redo.html"><span><span>redo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1413956935%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="redo.html"><span class="token function">redo</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Redoes the <a href="../-command/index.html">Command</a> that got undone last.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1728514726%2FFunctions%2F537371977" anchor-label="resumeGame" id="1728514726%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="resume-game.html"><span>resume</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1728514726%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="resume-game.html"><span class="token function">resumeGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Resumes the game back into it's <a href="../-game-mode/-running/index.html">running mode</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1629457841%2FFunctions%2F537371977" anchor-label="setSpeed" id="1629457841%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="set-speed.html"><span>set</span><wbr><span><span>Speed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1629457841%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-speed.html"><span class="token function">setSpeed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">speed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Set the speed of the game.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1485342842%2FFunctions%2F537371977" anchor-label="startGame" id="-1485342842%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="start-game.html"><span>start</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1485342842%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="start-game.html"><span class="token function">startGame</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">startPaused<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Starts the game.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1625405199%2FFunctions%2F537371977" anchor-label="stopGame" id="-1625405199%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="stop-game.html"><span>stop</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1625405199%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="stop-game.html"><span class="token function">stopGame</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stops the game.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1200633121%2FFunctions%2F537371977" anchor-label="undo" id="1200633121%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="undo.html"><span><span>undo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1200633121%2FFunctions%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="undo.html"><span class="token function">undo</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Undoes the <a href="../-command/index.html">Command</a> that got executed last.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="1355148125%2FProperties%2F537371977" anchor-label="canPauseOrResumeGame" id="1355148125%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="can-pause-or-resume-game.html"><span>can</span><wbr><span>Pause</span><wbr><span>Or</span><wbr><span>Resume</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1355148125%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="1355148125%2FProperties%2F537371977" anchor-label="canPauseOrResumeGame" id="1355148125%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="can-pause-or-resume-game.html">canPauseOrResumeGame</a><span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1355148125%2FProperties%2F537371977" anchor-label="canPauseOrResumeGame" id="1355148125%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Is the game in a state in which it can be <a href="../-game-mode/-paused/index.html">paused</a> or <a href="../-game-mode/-running/index.html">resumed</a>?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-305956696%2FProperties%2F537371977" anchor-label="canRedoCommand" id="-305956696%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="can-redo-command.html"><span>can</span><wbr><span>Redo</span><wbr><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-305956696%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-305956696%2FProperties%2F537371977" anchor-label="canRedoCommand" id="-305956696%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="can-redo-command.html">canRedoCommand</a><span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-305956696%2FProperties%2F537371977" anchor-label="canRedoCommand" id="-305956696%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Is the game in a state in which a <a href="../-command/index.html">Command</a> can be redone?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-400564338%2FProperties%2F537371977" anchor-label="canUndoCommand" id="-400564338%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="can-undo-command.html"><span>can</span><wbr><span>Undo</span><wbr><span><span>Command</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-400564338%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-400564338%2FProperties%2F537371977" anchor-label="canUndoCommand" id="-400564338%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@get:</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">val </span><a href="can-undo-command.html">canUndoCommand</a><span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-400564338%2FProperties%2F537371977" anchor-label="canUndoCommand" id="-400564338%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Is the game in a state in which a <a href="../-command/index.html">Command</a> can be undone?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-349110801%2FProperties%2F537371977" anchor-label="commandCount" id="-349110801%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-command-stack/command-count.html"><span>command</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-349110801%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-349110801%2FProperties%2F537371977" anchor-label="commandCount" id="-349110801%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="../-command-stack/command-count.html">commandCount</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><a data-name="-349110801%2FProperties%2F537371977" anchor-label="commandCount" id="-349110801%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Sum of all command either executed or undone.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="13362456%2FProperties%2F537371977" anchor-label="gameException" id="13362456%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="game-exception.html"><span>game</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="13362456%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="13362456%2FProperties%2F537371977" anchor-label="gameException" id="13362456%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="game-exception.html">gameException</a><span class="token operator">: </span><a href="../../de.github.dudrie.hamster.execptions/-game-exception/index.html">GameException</a><span class="token operator">?</span></div><div class="brief "><a data-name="13362456%2FProperties%2F537371977" anchor-label="gameException" id="13362456%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Exception that contains a <a href="../-command/index.html">Command</a> and the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a> that this command would have thrown.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1028751253%2FProperties%2F537371977" anchor-label="gameMessageCount" id="-1028751253%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="game-message-count.html"><span>game</span><wbr><span>Message</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1028751253%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-1028751253%2FProperties%2F537371977" anchor-label="gameMessageCount" id="-1028751253%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="game-message-count.html">gameMessageCount</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><a data-name="-1028751253%2FProperties%2F537371977" anchor-label="gameMessageCount" id="-1028751253%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Amount of messages saved in the game log.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1093895143%2FProperties%2F537371977" anchor-label="gameMessages" id="1093895143%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="game-messages.html"><span>game</span><wbr><span><span>Messages</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1093895143%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="1093895143%2FProperties%2F537371977" anchor-label="gameMessages" id="1093895143%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="game-messages.html">gameMessages</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="1093895143%2FProperties%2F537371977" anchor-label="gameMessages" id="1093895143%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">All messages currently available in the <a href="../-game-log/index.html">GameLog</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-972038484%2FProperties%2F537371977" anchor-label="hasCommandsToRedo" id="-972038484%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-command-stack/has-commands-to-redo.html"><span>has</span><wbr><span>Commands</span><wbr><span>To</span><wbr><span><span>Redo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-972038484%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-972038484%2FProperties%2F537371977" anchor-label="hasCommandsToRedo" id="-972038484%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="../-command-stack/has-commands-to-redo.html">hasCommandsToRedo</a><span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/MutableState///PointingToDeclaration/">MutableState</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-972038484%2FProperties%2F537371977" anchor-label="hasCommandsToRedo" id="-972038484%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Does this stack hold any commands that can be redone?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1185362298%2FProperties%2F537371977" anchor-label="hasCommandsToUndo" id="-1185362298%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-command-stack/has-commands-to-undo.html"><span>has</span><wbr><span>Commands</span><wbr><span>To</span><wbr><span><span>Undo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1185362298%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-1185362298%2FProperties%2F537371977" anchor-label="hasCommandsToUndo" id="-1185362298%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="../-command-stack/has-commands-to-undo.html">hasCommandsToUndo</a><span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/MutableState///PointingToDeclaration/">MutableState</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-1185362298%2FProperties%2F537371977" anchor-label="hasCommandsToUndo" id="-1185362298%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Does this stack hold any commands that can be undone?</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-614147774%2FProperties%2F537371977" anchor-label="mode" id="-614147774%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="mode.html"><span><span>mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-614147774%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-614147774%2FProperties%2F537371977" anchor-label="mode" id="-614147774%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="mode.html">mode</a><span class="token operator">: </span><a href="../-game-mode/index.html">GameMode</a></div><div class="brief "><a data-name="-614147774%2FProperties%2F537371977" anchor-label="mode" id="-614147774%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Current <a href="../-game-mode/index.html">GameMode</a> of the game.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-251492210%2FProperties%2F537371977" anchor-label="speed" id="-251492210%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="speed.html"><span><span>speed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-251492210%2FProperties%2F537371977"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><a data-name="-251492210%2FProperties%2F537371977" anchor-label="speed" id="-251492210%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="speed.html">speed</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief "><a data-name="-251492210%2FProperties%2F537371977" anchor-label="speed" id="-251492210%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a><p class="paragraph">Current speed of the game.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 

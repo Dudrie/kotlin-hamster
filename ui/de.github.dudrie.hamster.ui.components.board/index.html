@@ -1,177 +1,189 @@
+<!doctype html>
 <html>
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>de.github.dudrie.hamster.ui.components.board</title>
-</head><body><link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script><script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script><script type="text/javascript" src="../../scripts/main.js" async></script>
-  
-    <div id="container">
-      <div id="leftColumn"><a href="../../index.html">
-            <div id="logo"></div>
-          </a>
-        <div id="paneSearch"></div>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../index.html">
+<span>kotlin-hamster</span>            </a>    </div>
+    <div>1.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
         <div id="sideMenu"></div>
-      </div>
-      <div id="main">
-        <script type="text/javascript" src="../../scripts/main.js"></script><div id="leftToggler"><span class="icon-toggler"></span></div>
-
-        <div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui.components.board////PointingToDeclaration//1275902132">
-          <div class="navigation-wrapper" id="navigation-wrapper">
-            <div class="breadcrumbs"><a href="../index.html">ui</a>/<a href="index.html">de.github.dudrie.hamster.ui.components.board</a></div>
-            <div class="pull-right d-flex">
-              <div id="searchBar"></div>
-            </div>
-          </div>
-          <div class="cover ">
-            <h1 class="cover"><span>Package de.</span><wbr><span>github.</span><wbr><span>dudrie.</span><wbr><span>hamster.</span><wbr><span>ui.</span><wbr><span>components.</span><wbr><span>board</span></h1>
-          </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
-            <div class="tabs-section-body">
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="1154706441%2FFunctions%2F1275902132" anchor-label="BoardExceptionDialog" id="1154706441%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-exception-dialog.html">BoardExceptionDialog</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1154706441%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-exception-dialog.html">BoardExceptionDialog</a>(runtimeException: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a>?)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui.components.board////PointingToDeclaration//1275902132">
+  <div class="breadcrumbs"><a href="../index.html">ui</a><span class="delimiter">/</span><span class="current">de.github.dudrie.hamster.ui.components.board</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
   </div>
-<a data-name="1154706441%2FFunctions%2F1275902132" anchor-label="BoardExceptionDialog" id="1154706441%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1154706441%2FFunctions%2F1275902132" anchor-label="BoardExceptionDialog" id="1154706441%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Special <span data-unresolved-link="androidx.compose.ui.window//Popup/#androidx.compose.ui.Alignment#androidx.compose.ui.unit.IntOffset#kotlin.Boolean#kotlin.Function0[kotlin.Unit]?#kotlin.Function1[androidx.compose.ui.input.key.KeyEvent,kotlin.Boolean]#kotlin.Function1[androidx.compose.ui.input.key.KeyEvent,kotlin.Boolean]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/">Popup</span> which shows the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a> of the game if there is any.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="604266129%2FFunctions%2F1275902132" anchor-label="BoardForGame" id="604266129%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-for-game.html">BoardForGame</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="604266129%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-for-game.html">BoardForGame</a>(modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="604266129%2FFunctions%2F1275902132" anchor-label="BoardForGame" id="604266129%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="604266129%2FFunctions%2F1275902132" anchor-label="BoardForGame" id="604266129%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Wrapper for the basic components for the game board.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-2131752040%2FFunctions%2F1275902132" anchor-label="BoardGrid" id="-2131752040%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-grid.html">BoardGrid</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2131752040%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-grid.html">BoardGrid</a>(territory: <a href="../../core/de.github.dudrie.hamster.interfaces/-abstract-territory/index.html">AbstractTerritory</a>, borderWidth: <span data-unresolved-link="androidx.compose.ui.unit/Dp///PointingToDeclaration/">Dp</span>, tileContent: <span>@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()&nbsp;</span><span data-unresolved-link="androidx.compose.foundation.layout/RowScope///PointingToDeclaration/">RowScope</span>.(location: <a href="../../core/de.github.dudrie.hamster.datatypes/-location/index.html">Location</a>, tileModifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span>) -&gt; <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-2131752040%2FFunctions%2F1275902132" anchor-label="BoardGrid" id="-2131752040%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-2131752040%2FFunctions%2F1275902132" anchor-label="BoardGrid" id="-2131752040%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Renders the game's territory in a grid with square tiles using <a href="-board-tile.html">BoardTiles</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-35411189%2FFunctions%2F1275902132" anchor-label="BoardHamsterTileContent" id="-35411189%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-hamster-tile-content.html">BoardHamsterTileContent</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-35411189%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-hamster-tile-content.html">BoardHamsterTileContent</a>(content: <a href="../../core/de.github.dudrie.hamster.internal.model.hamster/-hamster-tile-content/index.html">HamsterTileContent</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-35411189%2FFunctions%2F1275902132" anchor-label="BoardHamsterTileContent" id="-35411189%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-35411189%2FFunctions%2F1275902132" anchor-label="BoardHamsterTileContent" id="-35411189%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Responsible for displaying a <a href="../../core/de.github.dudrie.hamster.internal.model.hamster/-hamster-tile-content/index.html">HamsterTileContent</a> on a <a href="-board-tile.html">tile</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1804182478%2FFunctions%2F1275902132" anchor-label="BoardTile" id="-1804182478%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-tile.html">BoardTile</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1804182478%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-tile.html">BoardTile</a>(tile: <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a>, showBorder: <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a> = false, modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1804182478%2FFunctions%2F1275902132" anchor-label="BoardTile" id="-1804182478%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1804182478%2FFunctions%2F1275902132" anchor-label="BoardTile" id="-1804182478%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Responsible for rendering a single tile of a territory.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1448375911%2FFunctions%2F1275902132" anchor-label="BoardTileBackground" id="-1448375911%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-tile-background.html">BoardTileBackground</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1448375911%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-tile-background.html">BoardTileBackground</a>(tile: <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a>)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="-1448375911%2FFunctions%2F1275902132" anchor-label="BoardTileBackground" id="-1448375911%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="-1448375911%2FFunctions%2F1275902132" anchor-label="BoardTileBackground" id="-1448375911%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Renders the background of the tile based upon its <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">type</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1039433127%2FFunctions%2F1275902132" anchor-label="BoardTileContent" id="1039433127%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-board-tile-content.html">BoardTileContent</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1039433127%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block">@<span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/">Composable</span>()</div></div>fun <a href="-board-tile-content.html">BoardTileContent</a>(tile: <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a>, modifier: <span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span> = Modifier)<span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1039433127%2FFunctions%2F1275902132" anchor-label="BoardTileContent" id="1039433127%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1039433127%2FFunctions%2F1275902132" anchor-label="BoardTileContent" id="1039433127%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Renders the content of the given <a href="-board-tile-content.html">tile</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1340377360%2FFunctions%2F1275902132" anchor-label="getDegreesForDirection" id="1340377360%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-                <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="get-degrees-for-direction.html">getDegreesForDirection</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1340377360%2FFunctions%2F1275902132"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title"><div class="divergent-group" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main"><div class="with-platform-tags"><span class="pull-right"></span></div>
-
-  <div>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace">fun <a href="get-degrees-for-direction.html">getDegreesForDirection</a>(direction: <a href="../../core/de.github.dudrie.hamster.datatypes/-direction/index.html">Direction</a>): <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-  </div>
-<a data-name="1340377360%2FFunctions%2F1275902132" anchor-label="getDegreesForDirection" id="1340377360%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a><div class="brief "><a data-name="1340377360%2FFunctions%2F1275902132" anchor-label="getDegreesForDirection" id="1340377360%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>Returns the amount of degrees the hamster's image has to be turned to visually face in the <a href="get-degrees-for-direction.html">direction</a>.</div></div>
-</div>
-                    </div>
-                  </div>
-                </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1154706441%2FFunctions%2F1275902132" anchor-label="BoardExceptionDialog" id="1154706441%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-exception-dialog.html"><span>Board</span><wbr><span>Exception</span><wbr><span><span>Dialog</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1154706441%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-exception-dialog.html"><span class="token function">BoardExceptionDialog</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">runtimeException<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Special <span data-unresolved-link="androidx.compose.ui.window//Popup/#androidx.compose.ui.Alignment#androidx.compose.ui.unit.IntOffset#kotlin.Boolean#kotlin.Function0[kotlin.Unit]?#kotlin.Function1[androidx.compose.ui.input.key.KeyEvent,kotlin.Boolean]#kotlin.Function1[androidx.compose.ui.input.key.KeyEvent,kotlin.Boolean]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/">Popup</span> which shows the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/index.html">RuntimeException</a> of the game if there is any.</p></div></div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+<a data-name="604266129%2FFunctions%2F1275902132" anchor-label="BoardForGame" id="604266129%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-for-game.html"><span>Board</span><wbr><span>For</span><wbr><span><span>Game</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="604266129%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-for-game.html"><span class="token function">BoardForGame</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Wrapper for the basic components for the game board.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2131752040%2FFunctions%2F1275902132" anchor-label="BoardGrid" id="-2131752040%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-grid.html"><span>Board</span><wbr><span><span>Grid</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2131752040%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-grid.html"><span class="token function">BoardGrid</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">territory<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.interfaces/-abstract-territory/index.html">AbstractTerritory</a><span class="token punctuation">, </span></span><span class="parameter ">borderWidth<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui.unit/Dp///PointingToDeclaration/">Dp</span><span class="token punctuation">, </span></span><span class="parameter ">tileContent<span class="token operator">: </span><span><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span>&nbsp;</span><span class="token keyword"></span><span data-unresolved-link="androidx.compose.foundation.layout/RowScope///PointingToDeclaration/">RowScope</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token keyword"></span>location<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.datatypes/-location/index.html">Location</a><span class="token punctuation">, </span><span class="token keyword"></span>tileModifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Renders the game's territory in a grid with square tiles using <a href="-board-tile.html">BoardTiles</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-35411189%2FFunctions%2F1275902132" anchor-label="BoardHamsterTileContent" id="-35411189%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-hamster-tile-content.html"><span>Board</span><wbr><span>Hamster</span><wbr><span>Tile</span><wbr><span><span>Content</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-35411189%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-hamster-tile-content.html"><span class="token function">BoardHamsterTileContent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">content<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.hamster/-hamster-tile-content/index.html">HamsterTileContent</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Responsible for displaying a <a href="../../core/de.github.dudrie.hamster.internal.model.hamster/-hamster-tile-content/index.html">HamsterTileContent</a> on a <a href="-board-tile.html">tile</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1804182478%2FFunctions%2F1275902132" anchor-label="BoardTile" id="-1804182478%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-tile.html"><span>Board</span><wbr><span><span>Tile</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1804182478%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-tile.html"><span class="token function">BoardTile</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tile<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a><span class="token punctuation">, </span></span><span class="parameter ">showBorder<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Responsible for rendering a single tile of a territory.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1448375911%2FFunctions%2F1275902132" anchor-label="BoardTileBackground" id="-1448375911%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-tile-background.html"><span>Board</span><wbr><span>Tile</span><wbr><span><span>Background</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1448375911%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-tile-background.html"><span class="token function">BoardTileBackground</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tile<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Renders the background of the tile based upon its <a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile-type/index.html">type</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1039433127%2FFunctions%2F1275902132" anchor-label="BoardTileContent" id="1039433127%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="-board-tile-content.html"><span>Board</span><wbr><span>Tile</span><wbr><span><span>Content</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1039433127%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-board-tile-content.html"><span class="token function">BoardTileContent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">tile<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.internal.model.territory/-game-tile/index.html">GameTile</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Renders the content of the given <a href="-board-tile-content.html">tile</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1340377360%2FFunctions%2F1275902132" anchor-label="getDegreesForDirection" id="1340377360%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-degrees-for-direction.html"><span>get</span><wbr><span>Degrees</span><wbr><span>For</span><wbr><span><span>Direction</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1340377360%2FFunctions%2F1275902132"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-degrees-for-direction.html"><span class="token function">getDegreesForDirection</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">direction<span class="token operator">: </span><a href="../../core/de.github.dudrie.hamster.datatypes/-direction/index.html">Direction</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief "><p class="paragraph">Returns the amount of degrees the hamster's image has to be turned to visually face in the <a href="get-degrees-for-direction.html">direction</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-</body></html>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
 
+</body></html>
 
