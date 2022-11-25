@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.editor.dialog
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -114,6 +115,7 @@ internal object DialogService {
     /**
      * Show a confirmation dialog to the user.
      */
+    @OptIn(ExperimentalMaterialApi::class)
     private fun showConfirmDialog(
         text: @Composable () -> Unit,
         onConfirm: () -> Unit,

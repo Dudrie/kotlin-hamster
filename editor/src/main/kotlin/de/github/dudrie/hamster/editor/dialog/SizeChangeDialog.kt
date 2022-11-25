@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.editor.dialog
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
@@ -19,6 +20,7 @@ import de.github.dudrie.hamster.editor.i18n.EditorString
  *
  * The text fields only allow values up to the [maximum value][EditorState.maxColumnAndRowCount] defined in [EditorState].
  */
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SizeChangeDialog(onAccept: (result: SizeChangeDialogResult) -> Unit, onDismiss: () -> Unit) {
     val columnState = rememberTextFieldForNumbersState(EditorState.territory.value.territorySize.columnCount)

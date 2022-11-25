@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 
 /**
@@ -32,7 +31,6 @@ fun EditorToolboxButton(
 ) {
     Surface(
         onClick = onClick,
-        role = Role.Button,
         color = color,
         contentColor = MaterialTheme.colors.contentColorFor(color),
         shape = MaterialTheme.shapes.small,
