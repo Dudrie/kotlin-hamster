@@ -12,10 +12,10 @@ var mavenPass: String? = null
 loadProperties()
 
 plugins {
-    kotlin("jvm") version "1.5.31"
+    kotlin("jvm") version "1.7.20"
 
-    id("org.jetbrains.compose") version "1.0.0-beta5"
-    id("org.jetbrains.dokka") version "1.5.0"
+    id("org.jetbrains.compose") version "1.2.1"
+    id("org.jetbrains.dokka") version "1.7.20"
 
     signing
     `maven-publish`
@@ -36,6 +36,9 @@ allprojects {
 
     afterEvaluate {
         java {
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
+
             withJavadocJar()
             withSourcesJar()
         }
@@ -43,7 +46,7 @@ allprojects {
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
-            jvmTarget = "11"
+            jvmTarget = "17"
             freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
         }
     }

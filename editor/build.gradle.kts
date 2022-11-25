@@ -1,4 +1,3 @@
-import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
@@ -13,7 +12,7 @@ dependencies {
 
     // Must be of a different type than the one in :ui because otherwise the dependencies will clash inside the IDE.
     compileOnly(compose.desktop.currentOs)
-    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
+    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }
 
 compose.desktop {

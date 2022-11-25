@@ -14,7 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 
 /**
@@ -38,7 +37,6 @@ fun IconButtonWithText(
     Surface(
         onClick = onClick,
         enabled = enabled,
-        role = Role.Button,
         shape = MaterialTheme.shapes.small,
         modifier = modifier.wrapContentSize()
     ) {
