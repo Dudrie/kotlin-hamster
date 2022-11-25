@@ -1,8 +1,8 @@
 package de.github.dudrie.hamster.ui.theme
 
-import androidx.compose.desktop.DesktopMaterialTheme
 import androidx.compose.foundation.LocalScrollbarStyle
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Shapes
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
@@ -28,7 +28,7 @@ fun ThemeWrapper(content: @Composable () -> Unit) {
         )
     }
 
-    DesktopMaterialTheme(shapes = shapes, colors = colors) {
+    MaterialTheme(colors = colors, shapes = shapes) {
         val scrollbarStyle = LocalScrollbarStyle.current.copy(
             unhoverColor = Color.Black.copy(alpha = 0.2f),
             shape = RoundedCornerShape(50),

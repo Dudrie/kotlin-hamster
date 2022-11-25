@@ -2,8 +2,12 @@ package de.github.dudrie.hamster.ui.application.windows
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.*
+import androidx.compose.ui.window.FrameWindowScope
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowState
+import androidx.compose.ui.window.launchApplication
 import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -40,7 +44,7 @@ abstract class ApplicationWindow(private val windowTitle: String) {
                     exitApplication()
                     exitProcess(0) // Make sure the main process gets halted as well.
                 },
-                state = WindowState(size = WindowSize(1000.dp, 750.dp))
+                state = WindowState(size = DpSize(1000.dp, 750.dp))
             ) {
                 LaunchedEffect(true) {
                     window.addWindowListener(AppWindowListener(initLatch))
