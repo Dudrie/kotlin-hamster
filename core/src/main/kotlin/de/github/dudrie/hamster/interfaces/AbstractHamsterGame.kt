@@ -59,7 +59,7 @@ abstract class AbstractHamsterGame {
      *
      * @param startPaused If `true` the game gets fully initialized but will then be moved into the [paused mode][GameMode.Paused] instead of the [running mode][GameMode.Running].
      */
-    abstract fun startGame(startPaused: Boolean = true)
+    abstract fun startGame(startPaused: Boolean = false)
 
     /**
      * Stops a running game.
