@@ -8,7 +8,6 @@ import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.game.HamsterGameCompose
-import kotlinx.coroutines.*
 
 /**
  * Base game class to load and start a hamster game.
@@ -40,19 +39,17 @@ class HamsterGame(territoryFile: String? = null) : AbstractHamsterGame() {
      *
      * Is only initialized if [isInitialized] is `true`.
      */
-    lateinit var paule: Hamster
+    var paule: Hamster
         private set
 
     private val composeGameHandler: HamsterGameCompose = HamsterGameCompose(this)
 
     init {
-        CoroutineScope(Dispatchers.IO).launch {
-            val importer = InitialGameImporter(hamsterGame = this@HamsterGame, territoryFile = territoryFile)
+        val importer = InitialGameImporter(hamsterGame = this@HamsterGame, territoryFile = territoryFile)
 
-            territory = importer.territory
-            paule = importer.hamster
-            isInitialized.value = true
-        }
+        territory = importer.territory
+        paule = importer.hamster
+        isInitialized.value = true
     }
 
     /**
