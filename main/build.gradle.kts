@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core"))
+    api(project(":core"))
     implementation(project(":ui"))
 
     implementation(compose.desktop.common)
