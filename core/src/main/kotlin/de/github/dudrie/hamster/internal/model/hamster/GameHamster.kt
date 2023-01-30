@@ -34,7 +34,6 @@ class GameHamster(
     init {
         require(territory.isTileInside(tile)) { "The tile of the hamster is outside the territory. Tile's location: ${tile.location}" }
         require(grainCount >= 0) { "The grainCount must be zero or positive. Grain count: $grainCount" }
-        tile.addContent(this)
     }
 
     /**

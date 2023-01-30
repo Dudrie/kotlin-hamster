@@ -21,13 +21,16 @@ class HamsterGameCompose(hamsterGame: AbstractHamsterGame) {
      */
     private val window: GameWindow = GameWindow(hamsterGame, initLatch)
 
+    init {
+        window.show(initLatch)
+    }
+
     /**
      * Starts the game.
      *
-     * This functions waits until the [GameWindow] is shown.
+     * This functions waits until the [GameWindow] is shown if it is not already visible.
      */
     fun startGame() {
-        window.show(initLatch)
         initLatch.await()
     }
 }
