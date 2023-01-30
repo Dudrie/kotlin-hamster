@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.external.model
 
 import de.github.dudrie.hamster.datatypes.Direction
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.interfaces.IHamster
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
 import de.github.dudrie.hamster.internal.model.hamster.commands.*
@@ -12,11 +12,12 @@ import de.github.dudrie.hamster.internal.model.hamster.commands.*
  * Creates a corresponding [GameHamster] upon initialization.
  *
  * @param territory [Territory] the hamster is in.
- * @param location [Location] the hamster is at. Must be inside the [Territory].
+ * @param location [HamsterLocation] the hamster is at. Must be inside the [Territory].
  * @param direction Initial [Direction] the hamster faces.
  * @param grainCount Initial amount of grains the hamster has in its mouth.
  */
-class Hamster(private val territory: Territory, location: Location, direction: Direction, grainCount: Int) : IHamster {
+class Hamster(private val territory: Territory, location: HamsterLocation, direction: Direction, grainCount: Int) :
+    IHamster {
 
     /**
      * Reference to the actual [GameHamster].
@@ -29,9 +30,9 @@ class Hamster(private val territory: Territory, location: Location, direction: D
     private val game: HamsterGame = territory.hamsterGame
 
     /**
-     * The current [Location] of the hamster.
+     * The current [HamsterLocation] of the hamster.
      */
-    override val location: Location
+    override val location: HamsterLocation
         get() = internalHamster.tile.location
 
     /**

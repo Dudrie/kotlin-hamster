@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.datatypes
 
 /**
- * Represents a mathematical vector which can be used to translate a [Location].
+ * Represents a mathematical vector which can be used to translate a [HamsterLocation].
  *
  * @param columnDelta Value representing the translation in the column direction.
  * @param rowDelta Value representing the translation in the row direction.

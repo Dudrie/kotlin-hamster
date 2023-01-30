@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.external.model
 
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.interfaces.AbstractTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
@@ -30,6 +30,6 @@ class Territory(val hamsterGame: HamsterGame, internal val internalTerritory: Ga
      *
      * The [location] must be inside this territory.
      */
-    override fun getTileAt(location: Location): GameTile = internalTerritory.getTileAt(location)
+    override fun getTileAt(location: HamsterLocation): GameTile = internalTerritory.getTileAt(location)
 
 }

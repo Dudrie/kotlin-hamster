@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.editor.model
 
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 
 /**
  * Information about a [tile] that gets currently edited by the editor.
@@ -9,7 +9,7 @@ import de.github.dudrie.hamster.datatypes.Location
  */
 data class EditedTile(val tile: EditableGameTile) {
     /**
-     * [Location] of the [tile] that gets edited.
+     * [HamsterLocation] of the [tile] that gets edited.
      */
-    val location: Location = tile.location
+    val location: HamsterLocation = tile.location
 }

@@ -3,7 +3,7 @@ package de.github.dudrie.hamster.editor.model
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
@@ -16,7 +16,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  * @param grainCount Initial number of grains on the tile. Defaults to 0.
  */
 class EditableGameTile(
-    location: Location,
+    location: HamsterLocation,
     type: GameTileType,
     hideGrainCount: Boolean,
     grainCount: Int = 0

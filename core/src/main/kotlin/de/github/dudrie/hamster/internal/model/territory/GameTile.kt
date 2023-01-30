@@ -3,7 +3,7 @@ package de.github.dudrie.hamster.internal.model.territory
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 
 /**
  * Type of [GameTile].
@@ -23,13 +23,13 @@ enum class GameTileType {
 /**
  * Holds all the information about a single tile on the game's board.
  *
- * @param location [Location] this tile sits on.
+ * @param location [HamsterLocation] this tile sits on.
  * @param type Type of this tile.
  * @param hideGrainCount Indicates that the tile should hide its exact grain count. It should only show an indicator if it has zero or at least one grain.
  * @param grainCount Initial amount of grains laying on this tile.
  */
 open class GameTile(
-    val location: Location,
+    val location: HamsterLocation,
     open val type: GameTileType,
     open val hideGrainCount: Boolean,
     grainCount: Int = 0
