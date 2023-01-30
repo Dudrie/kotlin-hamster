@@ -9,28 +9,28 @@ package de.github.dudrie.hamster.datatypes
 data class Size(val columnCount: Int, val rowCount: Int) {
 
     /**
-     * Checks if the given [Location] is inside the boundaries of this [Size].
+     * Checks if the given [HamsterLocation] is inside the boundaries of this [Size].
      *
-     * @return `true` if the given [Location] is inside the boundaries of this [Size].
+     * @return `true` if the given [HamsterLocation] is inside the boundaries of this [Size].
      */
-    fun isLocationInside(location: Location): Boolean = location.row < rowCount && location.column < columnCount
+    fun isLocationInside(location: HamsterLocation): Boolean = location.row < rowCount && location.column < columnCount
 
     /**
-     * Creates an [Iterator] of [Locations][Location] which are inside this [Size].
+     * Creates an [Iterator] of [Locations][HamsterLocation] which are inside this [Size].
      *
-     * [Locations][Location] are iterated from the left to right and top to bottom starting in the upper left corner.
+     * [Locations][HamsterLocation] are iterated from the left to right and top to bottom starting in the upper left corner.
      *
      * @return [Iterator] as described above.
      */
-    fun getAllLocationsInside(): Iterator<Location> {
-        return object : Iterator<Location> {
+    fun getAllLocationsInside(): Iterator<HamsterLocation> {
+        return object : Iterator<HamsterLocation> {
             private var currentCol = 0
             private var currentRow = 0
 
             override fun hasNext(): Boolean = currentRow < rowCount
 
-            override fun next(): Location {
-                val location = Location(currentCol, currentRow)
+            override fun next(): HamsterLocation {
+                val location = HamsterLocation(currentCol, currentRow)
                 currentCol += 1
 
                 if (currentCol >= columnCount) {

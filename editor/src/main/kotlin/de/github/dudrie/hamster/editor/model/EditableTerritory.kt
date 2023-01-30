@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.editor.model
 
 import androidx.compose.runtime.mutableStateOf
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.interfaces.AbstractTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
@@ -56,7 +56,7 @@ class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : 
      *
      * @throws NoSuchElementException If there is no tile at the [location].
      */
-    override fun getTileAt(location: Location): EditableGameTile = tiles.first { it.location == location }
+    override fun getTileAt(location: HamsterLocation): EditableGameTile = tiles.first { it.location == location }
 
     /**
      * Sets the size of the territory.
@@ -82,7 +82,7 @@ class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : 
      *
      * If there is no tile at the given [location] `null` is returned instead.
      */
-    private fun getTileAtOrNull(location: Location): EditableGameTile? {
+    private fun getTileAtOrNull(location: HamsterLocation): EditableGameTile? {
         return try {
             getTileAt(location)
         } catch (e: NoSuchElementException) {
@@ -93,6 +93,6 @@ class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : 
     /**
      * Creates and returns an empty floor tile.
      */
-    private fun createDefaultTile(location: Location): EditableGameTile =
+    private fun createDefaultTile(location: HamsterLocation): EditableGameTile =
         EditableGameTile(location = location, type = GameTileType.Floor, grainCount = 0, hideGrainCount = false)
 }

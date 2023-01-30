@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.interfaces.AbstractTerritory
 
 /**
@@ -19,7 +19,7 @@ import de.github.dudrie.hamster.interfaces.AbstractTerritory
 fun BoardGrid(
     territory: AbstractTerritory,
     borderWidth: Dp,
-    tileContent: @Composable RowScope.(location: Location, tileModifier: Modifier) -> Unit
+    tileContent: @Composable RowScope.(location: HamsterLocation, tileModifier: Modifier) -> Unit
 ) {
     val size = territory.territorySize
 
@@ -32,7 +32,7 @@ fun BoardGrid(
                 modifier = Modifier.weight(1f).padding(start = borderWidth, end = borderWidth)
             ) {
                 for (col in 0 until size.columnCount) {
-                    val location = Location(col, row)
+                    val location = HamsterLocation(col, row)
 
                     tileContent(
                         location,

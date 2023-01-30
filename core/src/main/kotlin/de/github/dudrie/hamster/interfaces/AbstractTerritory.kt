@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.interfaces
 
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 
@@ -23,28 +23,29 @@ abstract class AbstractTerritory {
      *
      * The [location] must be inside this territory.
      */
-    abstract fun getTileAt(location: Location): GameTile
+    abstract fun getTileAt(location: HamsterLocation): GameTile
 
     /**
      * Is the [GameTile] at [location] free for movement?
      *
      * The [location] is considered free if it is inside the territory and not blocked for movement.
      */
-    fun isFree(location: Location): Boolean = territorySize.isLocationInside(location) && !getTileAt(location).blocked
+    fun isFree(location: HamsterLocation): Boolean =
+        territorySize.isLocationInside(location) && !getTileAt(location).blocked
 
     /**
      * Is the [GameTile] at [location] blocked for movement?
      *
      * The [location] must be inside the territory.
      */
-    fun isBlocked(location: Location): Boolean = getTileAt(location).blocked
+    fun isBlocked(location: HamsterLocation): Boolean = getTileAt(location).blocked
 
     /**
      * Returns the number of grains on the [GameTile] at the [location].
      *
      * The [location] must be inside the territory.
      */
-    fun getNumbersOfGrainsAt(location: Location): Int = getTileAt(location).grainCount
+    fun getNumbersOfGrainsAt(location: HamsterLocation): Int = getTileAt(location).grainCount
 
 
 }

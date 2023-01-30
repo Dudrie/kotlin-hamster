@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.internal.model.territory
 
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 
@@ -8,7 +8,7 @@ import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
  * Holds the state of the game's territory.
  *
  * @param size [Size] of the [GameTerritory]
- * @param tiles [List] of all [GameTiles][GameTile] of the [GameTerritory]. Every [Location] that is inside the [size] must have a [GameTile] in this [List].
+ * @param tiles [List] of all [GameTiles][GameTile] of the [GameTerritory]. Every [HamsterLocation] that is inside the [size] must have a [GameTile] in this [List].
  * @param tileToMeterScaling The amount of meters a single tile represents in the territory.
  */
 class GameTerritory(val size: Size, private val tiles: List<GameTile>, val tileToMeterScaling: Double) {
@@ -18,13 +18,13 @@ class GameTerritory(val size: Size, private val tiles: List<GameTile>, val tileT
     }
 
     /**
-     * Gets and returns the [GameTile] at the given [Location].
+     * Gets and returns the [GameTile] at the given [HamsterLocation].
      *
      * There has to be a [GameTile] at the [location].
      *
-     * @param location [Location] to get the tile at.
+     * @param location [HamsterLocation] to get the tile at.
      */
-    fun getTileAt(location: Location): GameTile {
+    fun getTileAt(location: HamsterLocation): GameTile {
         val tile = tiles.find { it.location == location }
         require(tile != null) { "There is not a tile at location $location" }
         return tile
@@ -42,13 +42,13 @@ class GameTerritory(val size: Size, private val tiles: List<GameTile>, val tileT
     }
 
     /**
-     * Checks whether the given [Location] is inside this territory.
+     * Checks whether the given [HamsterLocation] is inside this territory.
      *
-     * @param location [Location] to check.
+     * @param location [HamsterLocation] to check.
      *
      * @return Is the [location] inside this territory?
      */
-    fun isLocationInside(location: Location): Boolean {
+    fun isLocationInside(location: HamsterLocation): Boolean {
         return size.isLocationInside(location)
     }
 

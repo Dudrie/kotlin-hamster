@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.file.model
 
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.importer.helpers.parseJson
 import de.github.dudrie.hamster.importer.helpers.stringifyJson
@@ -32,14 +32,14 @@ open class InitialTerritoryData(
     /**
      * [MutableMap] which contains all data of special tiles of this territory.
      */
-    private val specialTiles: MutableMap<Location, TileData> = mutableMapOf()
+    private val specialTiles: MutableMap<HamsterLocation, TileData> = mutableMapOf()
 
     /**
      * Add a wall [tile][TileData] at the given [location].
      *
      * The [location] must be inside the territory and must not already be a special tile.
      */
-    fun addWallTile(location: Location) {
+    fun addWallTile(location: HamsterLocation) {
         require(isInside(location)) { "Location $location is not inside the territory. Territory size: $territorySize." }
         checkIfLocationAlreadyHasSpecialTile(location)
 
@@ -62,17 +62,18 @@ open class InitialTerritoryData(
     /**
      * Checks if the [location] is inside the territory.
      */
-    protected fun isInside(location: Location): Boolean = territorySize.isLocationInside(location)
+    protected fun isInside(location: HamsterLocation): Boolean = territorySize.isLocationInside(location)
 
     /**
      * Checks if the territory has a wall at the [location].
      */
-    protected fun hasWallAtLocation(location: Location): Boolean = specialTiles[location]?.tileType == GameTileType.Wall
+    protected fun hasWallAtLocation(location: HamsterLocation): Boolean =
+        specialTiles[location]?.tileType == GameTileType.Wall
 
     /**
      * Sets the special tile at the [location] the given [tile].
      */
-    protected fun setSpecialTileAt(location: Location, tile: TileData) {
+    protected fun setSpecialTileAt(location: HamsterLocation, tile: TileData) {
         specialTiles[location] = tile
     }
 
@@ -81,7 +82,7 @@ open class InitialTerritoryData(
      *
      * If there is no special tile a default tile will be generated and returned.
      */
-    protected fun getSpecialTileAt(location: Location): TileData = specialTiles[location] ?: TileData(
+    protected fun getSpecialTileAt(location: HamsterLocation): TileData = specialTiles[location] ?: TileData(
         location = location,
         grainCount = 0,
         tileType = GameTileType.Floor,
@@ -91,7 +92,7 @@ open class InitialTerritoryData(
     /**
      * Checks if the territory already has a special tile at the [location].
      */
-    private fun checkIfLocationAlreadyHasSpecialTile(location: Location) {
+    private fun checkIfLocationAlreadyHasSpecialTile(location: HamsterLocation) {
         require(!specialTiles.containsKey(location)) { "Adding this tile would override the already present special tile at location $location." }
     }
 }

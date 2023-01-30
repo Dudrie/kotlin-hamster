@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.interfaces
 
 import de.github.dudrie.hamster.datatypes.Direction
-import de.github.dudrie.hamster.datatypes.Location
+import de.github.dudrie.hamster.datatypes.HamsterLocation
 
 /**
  * Helper interface for the hamster used during a game.
@@ -11,7 +11,7 @@ interface IHamster {
     /**
      * Current location of the hamster.
      */
-    val location: Location
+    val location: HamsterLocation
 
     /**
      * Current direction the hamster is facing.

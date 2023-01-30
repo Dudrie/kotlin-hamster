@@ -6,7 +6,7 @@ package de.github.dudrie.hamster.datatypes
  * @param column Column index of the location (zero based). Must be zero or positive.
  * @param row Row index of the location (zero based). Must be zero or positive.
  */
-data class Location(val column: Int, val row: Int) {
+data class HamsterLocation(val column: Int, val row: Int) {
     /**
      * Helper companion object.
      */
@@ -14,7 +14,7 @@ data class Location(val column: Int, val row: Int) {
         /**
          * Location of the board's origin (0, 0).
          */
-        val ORIGIN = Location(0, 0)
+        val ORIGIN = HamsterLocation(0, 0)
     }
 
     init {
@@ -23,17 +23,17 @@ data class Location(val column: Int, val row: Int) {
     }
 
     /**
-     * Creates a new [Location] by translating this [Location] with the given [LocationVector].
+     * Creates a new [HamsterLocation] by translating this [HamsterLocation] with the given [LocationVector].
      *
      * @param vector [LocationVector] used for translation.
      *
-     * @return New [Location] translated by the given [vector].
+     * @return New [HamsterLocation] translated by the given [vector].
      */
-    fun translate(vector: LocationVector): Location =
-        Location(column = column + vector.columnDelta, row = row + vector.rowDelta)
+    fun translate(vector: LocationVector): HamsterLocation =
+        HamsterLocation(column = column + vector.columnDelta, row = row + vector.rowDelta)
 
     /**
-     * @return String representation of this [Location].
+     * @return String representation of this [HamsterLocation].
      */
     override fun toString(): String {
         return "(col: $column, row: $row)"
