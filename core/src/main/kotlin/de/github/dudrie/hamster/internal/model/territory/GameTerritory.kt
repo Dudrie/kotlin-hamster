@@ -60,7 +60,7 @@ class GameTerritory(val size: Size, private val tiles: List<GameTile>, val tileT
     /**
      * Returns `true` if the territory has more than one hamster.
      */
-    fun hasMultipleHamsters(): Boolean = getHamsterCount() > 0
+    fun hasMultipleHamsters(): Boolean = getHamsterCount() > 1
 
     /**
      * Returns the current count of hamsters in the territory.
