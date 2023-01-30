@@ -20,17 +20,21 @@ class GameHamster(
     grainCount: Int = 0
 ) : HamsterTileContent(tile, direction, grainCount) {
 
-    init {
-        require(territory.isTileInside(tile)) { "The tile of the hamster is outside the territory. Tile's location: ${tile.location}" }
-        require(grainCount >= 0) { "The grainCount must be zero or positive. Grain count: $grainCount" }
-        tile.addContent(this)
-    }
-
     /**
      * Number of moves this hamster has taken.
      */
     var movesTaken: Int = 0
         private set
+
+    /**
+     * Number of the hamster.
+     */
+    val hamsterNumber = territory.getNextHamsterNumber()
+
+    init {
+        require(territory.isTileInside(tile)) { "The tile of the hamster is outside the territory. Tile's location: ${tile.location}" }
+        require(grainCount >= 0) { "The grainCount must be zero or positive. Grain count: $grainCount" }
+    }
 
     /**
      * Move one step in the [Direction] the hamster is facing.

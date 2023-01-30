@@ -2,6 +2,7 @@ package de.github.dudrie.hamster.internal.model.game
 
 import androidx.compose.runtime.*
 import de.github.dudrie.hamster.execptions.GameException
+import de.github.dudrie.hamster.internal.model.hamster.commands.SpawnHamsterCommand
 import java.util.concurrent.Semaphore
 
 /**
@@ -114,7 +115,7 @@ class GameCommandStack : CommandStack() {
         try {
             pauseLock.acquire()
             execute(command)
-        } catch (e: InterruptedException) {
+        } catch (_: InterruptedException) {
         } finally {
             pauseLock.release()
         }
@@ -142,7 +143,10 @@ class GameCommandStack : CommandStack() {
 
             try {
                 super.execute(command)
-                gameLog.addMessage(command.getCommandLogMessage())
+
+                if (mode != GameMode.Initializing) {
+                    gameLog.addMessage(command.getCommandLogMessage())
+                }
             } catch (e: Exception) {
                 abortGame()
                 throw e
@@ -291,12 +295,12 @@ class GameCommandStack : CommandStack() {
         }
         try {
             pauseLock.acquire()
-        } catch (e: InterruptedException) {
+        } catch (_: InterruptedException) {
         }
     }
 
     private fun checkCommandCanBeExecuted(command: Command) {
-        checkModeAllowsCommandExecution()
+        checkModeAllowsCommandExecution(command)
         checkCommandThrowsNoExceptions(command)
     }
 
@@ -306,14 +310,14 @@ class GameCommandStack : CommandStack() {
         }
     }
 
-    private fun checkModeAllowsCommandExecution() {
+    private fun checkModeAllowsCommandExecution(command: Command) {
         when (mode) {
             GameMode.Initializing -> {
-                throw IllegalStateException("One cannot run commands if the game is still initializing.")
+                if (command !is SpawnHamsterCommand) {
+                    throw IllegalStateException("One cannot run commands if the game is still initializing.")
+                }
             }
-//            GameMode.Aborted -> {
-//                throw IllegalStateException("One cannot execute commands if the game is stopped.")
-//            }
+
             else -> return
         }
     }
@@ -321,7 +325,7 @@ class GameCommandStack : CommandStack() {
     private fun delayNextCommand() {
         try {
             Thread.sleep(((maxSpeed + 1 - speed) / 5.0 * 400.0).toLong())
-        } catch (e: InterruptedException) {
+        } catch (_: InterruptedException) {
         }
     }
 }

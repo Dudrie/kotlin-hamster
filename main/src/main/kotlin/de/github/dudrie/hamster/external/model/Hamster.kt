@@ -56,6 +56,8 @@ class Hamster(private val territory: Territory, location: HamsterLocation, direc
                 direction = direction,
                 grainCount = grainCount
             )
+
+        game.executeCommand(SpawnHamsterCommand(internalHamster))
     }
 
     /**
