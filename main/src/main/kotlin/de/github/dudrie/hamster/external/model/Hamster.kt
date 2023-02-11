@@ -16,7 +16,7 @@ import de.github.dudrie.hamster.internal.model.hamster.commands.*
  * @param direction Initial [Direction] the hamster faces.
  * @param grainCount Initial amount of grains the hamster has in its mouth.
  */
-class Hamster(private val territory: Territory, location: HamsterLocation, direction: Direction, grainCount: Int) :
+class Hamster(val territory: Territory, location: HamsterLocation, direction: Direction, grainCount: Int) :
     IHamster {
 
     /**
