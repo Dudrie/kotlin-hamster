@@ -13,7 +13,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileContent
  * @param direction Initial direction the hamster faces in.
  * @param grainCount Initial number of grains in the hamster's mouth.
  */
-sealed class HamsterTileContent(tile: GameTile, direction: Direction, grainCount: Int = 0) : GameTileContent() {
+abstract class HamsterTileContent(tile: GameTile, direction: Direction, grainCount: Int = 0) : GameTileContent() {
     private val tileState = mutableStateOf(tile)
     private val directionState = mutableStateOf(direction)
     private val grainCountState = mutableStateOf(grainCount)
