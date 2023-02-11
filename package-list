@@ -1,7 +1,9 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:////PointingToDeclaration/editor/[root]/index.html
+$dokka.location:////PointingToDeclaration/main/[root]/index.html
 $dokka.location://main/#/PointingToDeclaration/editor/[root]/main.html
+$dokka.location:/HamsterSpiel///PointingToDeclaration/main/[root]/-hamster-spiel/index.html
+$dokka.location:/HamsterSpiel/HamsterSpiel/#/PointingToDeclaration/main/[root]/-hamster-spiel/-hamster-spiel.html
 module:core
 de.github.dudrie.hamster.datatypes
 de.github.dudrie.hamster.execptions
