@@ -1,7 +1,17 @@
-import de.github.dudrie.hamster.datatypes.Direction
-import de.github.dudrie.hamster.datatypes.HamsterLocation
-import de.github.dudrie.hamster.external.model.Hamster
 import de.github.dudrie.hamster.external.model.HamsterGame
+import de.github.dudrie.hamster.external.model.SimpleHamsterGame
+
+class HamsterSpiel : SimpleHamsterGame() {
+
+    override fun run() {
+        paule.move()
+        paule.move()
+        paule.turnLeft()
+        paule.pickGrain()
+        paule.move()
+    }
+
+}
 
 private fun runSampleGame(game: HamsterGame) {
     game.gameCommands.setSpeed(7f)
@@ -31,11 +41,14 @@ private fun runSampleGame(game: HamsterGame) {
 }
 
 internal fun main() {
-    val game = HamsterGame("territories/testTer01.json")
+    val game = HamsterSpiel()
+    game.doRun()
 
-    Hamster(game.territory, HamsterLocation(0, 2), Direction.South, 0)
-
-    game.startGame()
-    runSampleGame(game)
-    game.stopGame()
+//    val game = HamsterGame("territories/testTer01.json")
+//
+//    Hamster(game.territory, HamsterLocation(0, 2), Direction.South, 0)
+//
+//    game.startGame()
+//    runSampleGame(game)
+//    game.stopGame()
 }
