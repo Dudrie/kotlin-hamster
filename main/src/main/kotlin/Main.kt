@@ -1,7 +1,7 @@
 import de.github.dudrie.hamster.external.model.HamsterGame
 import de.github.dudrie.hamster.external.model.SimpleHamsterGame
 
-class HamsterSpiel : SimpleHamsterGame() {
+private class HamsterSpiel : SimpleHamsterGame() {
 
     override fun run() {
         paule.move()
@@ -43,12 +43,4 @@ private fun runSampleGame(game: HamsterGame) {
 internal fun main() {
     val game = HamsterSpiel()
     game.doRun()
-
-//    val game = HamsterGame("territories/testTer01.json")
-//
-//    Hamster(game.territory, HamsterLocation(0, 2), Direction.South, 0)
-//
-//    game.startGame()
-//    runSampleGame(game)
-//    game.stopGame()
 }
