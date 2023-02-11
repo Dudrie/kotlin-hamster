@@ -40,7 +40,7 @@ jobs:
         run: ./gradlew -Pversion="${{ github.event.release.tag_name }}" publish
 
   update-functional-template-repo:
-    name: Update template repository 📝
+    name: Update functional template repository 📝
     runs-on: windows-latest
     needs:
       - publish-release
@@ -93,7 +93,7 @@ jobs:
           repository: Dudrie/kotlin-hamster-functional-template
 
   update-oop-template-repo:
-    name: Update template repository 📝
+    name: Update oop template repository 📝
     runs-on: windows-latest
     needs:
       - validate-gradle
