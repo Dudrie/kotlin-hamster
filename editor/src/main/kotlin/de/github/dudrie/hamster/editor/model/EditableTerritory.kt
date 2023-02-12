@@ -3,7 +3,7 @@ package de.github.dudrie.hamster.editor.model
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.HamsterLocation
 import de.github.dudrie.hamster.datatypes.Size
-import de.github.dudrie.hamster.interfaces.AbstractTerritory
+import de.github.dudrie.hamster.interfaces.AbstraktesTerritorium
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 
 /**
@@ -11,7 +11,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileType
  *
  * @param initialSize Initial size of the territory.
  */
-class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : AbstractTerritory() {
+class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : AbstraktesTerritorium() {
 
     private val territorySizeState = mutableStateOf(initialSize)
 
@@ -20,13 +20,13 @@ class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : 
     /**
      * The [Size] of the territory.
      */
-    override val territorySize: Size
+    override val abmessungen: Size
         get() = territorySizeState.value
 
     /**
      * The scaling how many meters a tile in the territory represents.
      */
-    override var tileToMeterScaling: Double
+    override var feldZuMeterSkalierung: Double
         get() = tileToMeterScalingState.value
         set(value) {
             tileToMeterScalingState.value = value
@@ -46,17 +46,17 @@ class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : 
     }
 
     init {
-        for (location in territorySize.getAllLocationsInside()) {
+        for (location in abmessungen.getAllLocationsInside()) {
             tiles.add(createDefaultTile(location))
         }
     }
 
     /**
-     * Returns the tile at the given [location].
+     * Returns the tile at the given [ort].
      *
-     * @throws NoSuchElementException If there is no tile at the [location].
+     * @throws NoSuchElementException If there is no tile at the [ort].
      */
-    override fun getTileAt(location: HamsterLocation): EditableGameTile = tiles.first { it.location == location }
+    override fun holeFeldBei(ort: HamsterLocation): EditableGameTile = tiles.first { it.location == ort }
 
     /**
      * Sets the size of the territory.
@@ -84,7 +84,7 @@ class EditableTerritory(initialSize: Size, initialTileToMeterScaling: Double) : 
      */
     private fun getTileAtOrNull(location: HamsterLocation): EditableGameTile? {
         return try {
-            getTileAt(location)
+            holeFeldBei(location)
         } catch (e: NoSuchElementException) {
             null
         }

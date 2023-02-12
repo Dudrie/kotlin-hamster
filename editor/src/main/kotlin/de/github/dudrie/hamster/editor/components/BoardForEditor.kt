@@ -16,7 +16,6 @@ import de.github.dudrie.hamster.editor.model.EditableTerritory
 import de.github.dudrie.hamster.editor.model.EditedTile
 import de.github.dudrie.hamster.ui.components.board.BoardGrid
 import de.github.dudrie.hamster.ui.components.board.BoardTile
-import kotlinx.coroutines.flow.collect
 
 /**
  * Board used in the editor.
@@ -26,7 +25,7 @@ import kotlinx.coroutines.flow.collect
  */
 @Composable
 fun BoardForEditor(territory: EditableTerritory, modifier: Modifier = Modifier) {
-    val size = territory.territorySize
+    val size = territory.abmessungen
 
     val minWidth = Integer.min(size.columnCount * 32, 300)
     val maxWidth = Integer.max(size.columnCount * 64, 1000)
@@ -38,7 +37,7 @@ fun BoardForEditor(territory: EditableTerritory, modifier: Modifier = Modifier) 
         BoardGrid(territory, 1.dp) { location, tileModifier ->
             var editedTile by EditorState.editedTile
             val interactionSource = remember { MutableInteractionSource() }
-            val tile = remember(location) { territory.getTileAt(location) }
+            val tile = remember(location) { territory.holeFeldBei(location) }
 
             LaunchedEffect(interactionSource) {
                 interactionSource.interactions.collect {

@@ -7,116 +7,116 @@ import de.github.dudrie.hamster.internal.model.hamster.GameHamster
 import de.github.dudrie.hamster.internal.model.hamster.commands.*
 
 /**
- * Hamster used in the game.
+ * Hamster, der im Spiel benutzt wird.
  *
- * Creates a corresponding [GameHamster] upon initialization.
+ * Erstellt den zugehörigen [GameHamster] während der Initialisierung.
  *
- * @param territory [Territory] the hamster is in.
- * @param location [HamsterLocation] the hamster is at. Must be inside the [Territory].
- * @param direction Initial [Direction] the hamster faces.
- * @param grainCount Initial amount of grains the hamster has in its mouth.
+ * @param territorium [Territorium] des Hamsters.
+ * @param ort [HamsterLocation] an dem sich der Hamster befindet. Muss innerhalb des [territorium] liegen.
+ * @param richtung [Direction], in die der Hamster anfänglich schaut.
+ * @param kornAnzahl Anzahl der Körner, die der Hamster zu Beginn im Mund hat.
  */
-class Hamster(val territory: Territory, location: HamsterLocation, direction: Direction, grainCount: Int) :
+class Hamster(val territorium: Territorium, ort: HamsterLocation, richtung: Direction, kornAnzahl: Int) :
     IHamster {
 
     /**
-     * Reference to the actual [GameHamster].
+     * Referenz zum tatsächlichen [GameHamster].
      */
     private val internalHamster: GameHamster
 
     /**
-     * [HamsterGame] this hamster is a part of.
+     * [HamsterSpiel], von welchem dieser Hamster ein Teil ist.
      */
-    private val game: HamsterGame = territory.hamsterGame
+    private val spiel: HamsterSpiel = territorium.spiel
 
     /**
-     * The current [HamsterLocation] of the hamster.
+     * Der aktuelle [HamsterLocation] dieses Hamsters.
      */
-    override val location: HamsterLocation
+    override val ort: HamsterLocation
         get() = internalHamster.tile.location
 
     /**
-     * The current [Direction] the hamster is facing in.
+     * Die aktuelle [Direction] in die dieser Hamster schaut.
      */
-    override val direction: Direction
+    override val richtung: Direction
         get() = internalHamster.direction
 
     /**
-     * The number of steps this hamster has taken.
+     * Anzahl der Schritte, die dieser Hamster gemacht hat.
      */
-    override val movesTaken: Int
+    override val gemachteSchritte: Int
         get() = internalHamster.movesTaken
 
     init {
-        val tile = territory.getTileAt(location)
+        val tile = territorium.holeFeldBei(ort)
         internalHamster =
             GameHamster(
-                territory = territory.internalTerritory,
+                territory = territorium.internalTerritory,
                 tile = tile,
-                direction = direction,
-                grainCount = grainCount
+                direction = richtung,
+                grainCount = kornAnzahl
             )
 
-        game.executeCommand(SpawnHamsterCommand(internalHamster))
+        spiel.executeCommand(SpawnHamsterCommand(internalHamster))
     }
 
     /**
-     * Moves the hamster one step.
+     * Bewegt den Hamster einen Schritt in Blickrichtung.
      *
-     * The tile in front of the hamster must not be blocked.
+     * Das Feld vor ihm das nicht blockiert sein.
      */
-    override fun move() {
-        game.executeCommand(MoveCommand(internalHamster))
+    override fun laufe() {
+        spiel.executeCommand(MoveCommand(internalHamster))
     }
 
     /**
-     * Turns the hamster 90 degrees counterclockwise.
+     * Dreht den Hamster 90 Grad gegen den Uhrzeigersinn.
      */
-    override fun turnLeft() {
-        game.executeCommand(TurnLeftCommand(internalHamster))
+    override fun dreheNachLinks() {
+        spiel.executeCommand(TurnLeftCommand(internalHamster))
     }
 
     /**
-     * Picks up a grain from the tile the hamster currently stands on.
+     * Sammelt ein Korn vom Feld des Hamsters auf.
      *
-     * The tile must have a grain to pick up.
+     * Das Feld muss mindestens ein Korn haben, dass aufgesammelt werden kann.
      */
-    override fun pickGrain() {
-        game.executeCommand(PickGrainCommand(internalHamster))
+    override fun sammleKornAuf() {
+        spiel.executeCommand(PickGrainCommand(internalHamster))
     }
 
     /**
-     * Drops a grain unto the tile the hamster currently stand on.
+     * Legt ein Korn auf das Feld des Hamsters.
      *
-     * The hamster must have a grain to drop in its mouth.
+     * Der Hamster muss mindestens ein Korn im Mund haben.
      */
-    override fun dropGrain() {
-        game.executeCommand(DropGrainCommand(internalHamster))
+    override fun legeKornAb() {
+        spiel.executeCommand(DropGrainCommand(internalHamster))
     }
 
     /**
-     * Is the tile in front of the hamster free for movement?
+     * Ist das Feld vor dir frei?
      */
-    override fun isFrontClear(): Boolean {
+    override fun istVorDirFrei(): Boolean {
         val location = internalHamster.getLocationAfterMove()
-        return territory.isFree(location)
+        return territorium.istFrei(location)
     }
 
     /**
-     * Has the tile the hamster stands on at least one grain?
+     * Liegt auf deinem Feld mindestens ein Korn?
      */
-    override fun hasYourTileAGrain(): Boolean = territory.getNumbersOfGrainsAt(location) > 0
+    override fun liegtEinKornAufDeinemFeld(): Boolean = territorium.holeAnzahlKoernerBei(ort) > 0
 
     /**
-     * Is the mouth of the hamster empty?
+     * Ist dein Mund leer?
      */
-    override fun isYourMouthEmpty(): Boolean = internalHamster.grainCount == 0
+    override fun istDeinMundLeer(): Boolean = internalHamster.grainCount == 0
 
     /**
-     * Prints a [message] to the game's console.
+     * Gibt eine [nachricht] auf der Spielekonsole aus.
      */
-    override fun say(message: String) {
-        game.executeCommand(WriteMessageCommand(message))
+    override fun sage(nachricht: String) {
+        spiel.executeCommand(WriteMessageCommand(nachricht))
     }
 
 }

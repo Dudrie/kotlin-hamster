@@ -7,7 +7,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.window.FrameWindowScope
 import de.github.dudrie.hamster.i18n.HamsterString
-import de.github.dudrie.hamster.interfaces.AbstractHamsterGame
+import de.github.dudrie.hamster.interfaces.AbstraktesHamsterSpiel
 import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 import de.github.dudrie.hamster.ui.application.UIStateLocal
 import de.github.dudrie.hamster.ui.application.state.UIState
@@ -22,7 +22,7 @@ import java.util.concurrent.CountDownLatch
  * @param hamsterGame Game which holds the data to display in the window.
  * @param initLatch [CountDownLatch] which is used to track the initialization state of the game during start up.
  */
-class GameWindow(private val hamsterGame: AbstractHamsterGame, private val initLatch: CountDownLatch) :
+class GameWindow(private val hamsterGame: AbstraktesHamsterSpiel, private val initLatch: CountDownLatch) :
     ApplicationWindow(HamsterString.get("window.game.title")) {
 
     private val uiState = UIState()

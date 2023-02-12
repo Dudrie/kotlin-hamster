@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import de.github.dudrie.hamster.datatypes.HamsterLocation
-import de.github.dudrie.hamster.interfaces.AbstractTerritory
+import de.github.dudrie.hamster.interfaces.AbstraktesTerritorium
 
 /**
  * Renders the game's territory in a grid with square tiles using [BoardTiles][BoardTile].
@@ -17,11 +17,11 @@ import de.github.dudrie.hamster.interfaces.AbstractTerritory
  */
 @Composable
 fun BoardGrid(
-    territory: AbstractTerritory,
+    territory: AbstraktesTerritorium,
     borderWidth: Dp,
     tileContent: @Composable RowScope.(location: HamsterLocation, tileModifier: Modifier) -> Unit
 ) {
-    val size = territory.territorySize
+    val size = territory.abmessungen
 
     Column(
         modifier = Modifier.height(IntrinsicSize.Min).width(IntrinsicSize.Min).background(Color.Black)

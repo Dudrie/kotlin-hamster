@@ -1,46 +1,46 @@
-import de.github.dudrie.hamster.external.model.HamsterGame
-import de.github.dudrie.hamster.external.model.SimpleHamsterGame
+import de.github.dudrie.hamster.external.model.HamsterSpiel
+import de.github.dudrie.hamster.external.model.EinfachesHamsterSpiel
 
-private class HamsterSpiel : SimpleHamsterGame("testTer", 2) {
+private class TestHamsterSpiel : EinfachesHamsterSpiel("testTer", 2) {
 
-    override fun run() {
-        paule.move()
-        paule.move()
-        paule.turnLeft()
-        paule.pickGrain()
-        paule.move()
+    override fun fuehreAus() {
+        paule.laufe()
+        paule.laufe()
+        paule.dreheNachLinks()
+        paule.sammleKornAuf()
+        paule.laufe()
     }
 
 }
 
-private fun runSampleGame(game: HamsterGame) {
+private fun runSampleGame(game: HamsterSpiel) {
     game.gameCommands.setSpeed(7f)
     val paule = game.paule
 
     repeat(3) {
-        paule.pickGrain()
+        paule.sammleKornAuf()
     }
-    paule.move()
+    paule.laufe()
 
     repeat(5) {
-        paule.say("I said something :) #$it")
+        paule.sage("I said something :) #$it")
     }
 
     repeat(3) {
-        paule.turnLeft()
+        paule.dreheNachLinks()
     }
 
     repeat(2) {
-        paule.move()
+        paule.laufe()
     }
 
     repeat(2) {
-        paule.dropGrain()
+        paule.legeKornAb()
     }
-    paule.move()
+    paule.laufe()
 }
 
 internal fun main() {
-    val game = HamsterSpiel()
-    game.doRun()
+    val game = TestHamsterSpiel()
+    game.lasseSpielLaufen()
 }

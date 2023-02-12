@@ -11,21 +11,21 @@ import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 
 /**
- * Helper interface for the actual hamster game used during a game.
+ * Interface für das tatsächliche Hamsterspiel.
  */
-abstract class AbstractHamsterGame {
+abstract class AbstraktesHamsterSpiel {
     /**
-     * [GameCommandStack] associated with this [AbstractHamsterGame].
+     * [GameCommandStack], der zu diesem [AbstraktesHamsterSpiel] gehört.
      */
     abstract val gameCommands: GameCommandStack
 
     /**
-     * [AbstractTerritory] of this game.
+     * [AbstraktesTerritorium] dieses Spiels.
      */
-    abstract val territory: AbstractTerritory
+    abstract val territorium: AbstraktesTerritorium
 
     /**
-     * State which tracks if the game is initialized.
+     * State, der überwacht, ob das Spiel initialisiert wurde.
      */
     abstract val isInitialized: MutableState<Boolean>
 
@@ -55,26 +55,43 @@ abstract class AbstractHamsterGame {
         get() = tileToHighlightState.value
 
     /**
-     * Starts a game.
+     * Startet das [AbstraktesHamsterSpiel].
      *
-     * @param startPaused If `true` the game gets fully initialized but will then be moved into the [paused mode][GameMode.Paused] instead of the [running mode][GameMode.Running].
+     * Nachdem das Spiel geladen und gestartet wurde, können Befehle ausgeführt werden.
+     *
+     * @param startePausiert Wenn `true`, wird das Spiel vollständig initialisiert, aber anschließend in den [Pausiert-Modus][GameMode.Paused] anstatt in den [Ausführen-Modus][GameMode.Running] versetzt.
      */
-    abstract fun startGame(startPaused: Boolean = false)
+    abstract fun starteSpiel(startePausiert: Boolean = false)
 
     /**
-     * Stops a running game.
+     * Stoppt das aktuelle Spiel.
+     *
+     * Anschließend können keine weiteren Befehle ausgeführt werden.
      */
-    fun stopGame() = gameCommands.stopGame()
+    fun stoppeSpiel() = gameCommands.stopGame()
 
     /**
-     * Pauses a running game.
+     * Pausiert das aktuelle Spiel.
+     *
+     * Es kann mit [setzeSpielFort] fortgesetzt werden.
+     *
+     * @see setzeSpielFort
      */
-    fun pauseGame() = gameCommands.pauseGame()
+    fun pausiereSpiel() = gameCommands.pauseGame()
 
     /**
-     * Resumes a paused game.
+     * Setzt ein vorher mit [pausiereSpiel] pausiertes Spiel fort.
+     *
+     * @see pausiereSpiel
      */
-    fun resumeGame() = gameCommands.resumeGame()
+    fun setzeSpielFort() = gameCommands.resumeGame()
+
+    /**
+     * Ändert die Spielgeschwindigkeit auf die gegebene [geschwindigkeit].
+     *
+     * Muss zwischen der [minimalen][de.github.dudrie.hamster.internal.model.game.GameCommandStack.minSpeed] und [maximalen][de.github.dudrie.hamster.internal.model.game.GameCommandStack.maxSpeed] Geschwindigkeit liegen.
+     */
+    fun setzeSpielGeschwindigkeit(geschwindigkeit: Float) = gameCommands.setSpeed(geschwindigkeit)
 
     /**
      * Executes the given [command] to change the state of this game.
@@ -84,7 +101,7 @@ abstract class AbstractHamsterGame {
     /**
      * The territory of the game.
      */
-    operator fun component1(): AbstractTerritory = territory
+    operator fun component1(): AbstraktesTerritorium = territorium
 
     /**
      * The command stack of the game.
