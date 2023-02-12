@@ -15,6 +15,15 @@ abstract class SimpleHamsterGame(territoryFile: String? = null) {
      */
     private val game: HamsterGame = HamsterGame(territoryFile)
 
+    /**
+     * Instantiates a [HamsterGame] with a territory file that matches the following pattern:
+     *
+     * `${gameName}_${gameNumber}.json`
+     *
+     * @throws java.io.FileNotFoundException If there is no such territory file.
+     */
+    constructor(gameName: String, gameNumber: Int) : this("territories/${gameName}_$gameNumber.json")
+
     init {
         game.startGame()
 
