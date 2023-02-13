@@ -29,7 +29,6 @@ module:imperative-de
 de.github.dudrie.hamster.imperative.de
 module:main
 de.github.dudrie.hamster.external.model
-de.github.dudrie.hamster.importer
 module:ui
 de.github.dudrie.hamster.ui
 de.github.dudrie.hamster.ui.application
