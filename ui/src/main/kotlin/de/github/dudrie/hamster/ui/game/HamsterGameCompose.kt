@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.ui.game
 
-import de.github.dudrie.hamster.interfaces.AbstractHamsterGame
+import de.github.dudrie.hamster.interfaces.AbstraktesHamsterSpiel
 import de.github.dudrie.hamster.ui.application.windows.GameWindow
 import java.util.concurrent.CountDownLatch
 
@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch
  *
  * @param hamsterGame Game which serves the data to the created window.
  */
-class HamsterGameCompose(hamsterGame: AbstractHamsterGame) {
+class HamsterGameCompose(hamsterGame: AbstraktesHamsterSpiel) {
 
     /**
      * Indicates when the [GameWindow] is ready.

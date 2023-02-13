@@ -9,7 +9,7 @@ package de.github.dudrie.hamster.imperative
  */
 fun move() {
     isGameStarted()
-    imperativeGlobalGame?.paule?.move()
+    imperativeGlobalGame?.paule?.laufe()
 }
 
 /**
@@ -17,7 +17,7 @@ fun move() {
  */
 fun turnLeft() {
     isGameStarted()
-    imperativeGlobalGame?.paule?.turnLeft()
+    imperativeGlobalGame?.paule?.dreheNachLinks()
 }
 
 /**
@@ -27,7 +27,7 @@ fun turnLeft() {
  */
 fun pickGrain() {
     isGameStarted()
-    imperativeGlobalGame?.paule?.pickGrain()
+    imperativeGlobalGame?.paule?.sammleKornAuf()
 }
 
 /**
@@ -39,7 +39,7 @@ fun pickGrain() {
  */
 fun dropGrain() {
     isGameStarted()
-    imperativeGlobalGame?.paule?.dropGrain()
+    imperativeGlobalGame?.paule?.legeKornAb()
 }
 
 /**
@@ -49,7 +49,7 @@ fun dropGrain() {
  */
 fun isFrontClear(): Boolean {
     isGameStarted()
-    return imperativeGlobalGame?.paule?.isFrontClear() ?: false
+    return imperativeGlobalGame?.paule?.istVorDirFrei() ?: false
 }
 
 /**
@@ -59,7 +59,7 @@ fun isFrontClear(): Boolean {
  */
 fun isYourMouthEmpty(): Boolean {
     isGameStarted()
-    return imperativeGlobalGame?.paule?.isYourMouthEmpty() ?: false
+    return imperativeGlobalGame?.paule?.istDeinMundLeer() ?: false
 }
 
 /**
@@ -69,7 +69,7 @@ fun isYourMouthEmpty(): Boolean {
  */
 fun hasYourTileAGrain(): Boolean {
     isGameStarted()
-    return imperativeGlobalGame?.paule?.hasYourTileAGrain() ?: false
+    return imperativeGlobalGame?.paule?.liegtEinKornAufDeinemFeld() ?: false
 }
 
 /**
@@ -77,12 +77,12 @@ fun hasYourTileAGrain(): Boolean {
  */
 fun say(message: String) {
     isGameStarted()
-    imperativeGlobalGame?.paule?.say(message)
+    imperativeGlobalGame?.paule?.sage(message)
 }
 
 /**
  * Returns the number of moves taken by the hamster.
  */
 fun getNumberOfHamsterMovesTaken(): Int {
-    return imperativeGlobalGame?.paule?.movesTaken ?: throwGameNotInitializedException()
+    return imperativeGlobalGame?.paule?.gemachteSchritte ?: throwGameNotInitializedException()
 }

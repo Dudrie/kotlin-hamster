@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.imperative
 
-import de.github.dudrie.hamster.external.model.HamsterGame
+import de.github.dudrie.hamster.external.model.HamsterSpiel
 import de.github.dudrie.hamster.i18n.ErrorString
 
 /**
@@ -8,7 +8,7 @@ import de.github.dudrie.hamster.i18n.ErrorString
  *
  * If no game is started it is `null`.
  */
-internal var imperativeGlobalGame: HamsterGame? = null
+internal var imperativeGlobalGame: HamsterSpiel? = null
 
 /**
  * Starts a new hamster game with the given [territoryFile].
@@ -21,8 +21,8 @@ internal var imperativeGlobalGame: HamsterGame? = null
  */
 fun startGame(territoryFile: String? = null) {
     require(imperativeGlobalGame == null) { ErrorString.get("error.ONLY_ONE_GAME_IMPERATIVE_GAME_ALLOWED") }
-    val game = HamsterGame(territoryFile)
-    game.startGame(false)
+    val game = HamsterSpiel(territoryFile)
+    game.starteSpiel(false)
     imperativeGlobalGame = game
 }
 
@@ -32,21 +32,21 @@ fun startGame(territoryFile: String? = null) {
  * It does **NOT** change the [imperativeGlobalGame].
  */
 fun stopGame() {
-    imperativeGlobalGame?.stopGame()
+    imperativeGlobalGame?.stoppeSpiel()
 }
 
 /**
  * Pauses the current game (if started and present).
  */
 fun pauseGame() {
-    imperativeGlobalGame?.pauseGame()
+    imperativeGlobalGame?.pausiereSpiel()
 }
 
 /**
  * Resumes a paused game.
  */
 fun resumeGame() {
-    imperativeGlobalGame?.resumeGame()
+    imperativeGlobalGame?.setzeSpielFort()
 }
 
 /**

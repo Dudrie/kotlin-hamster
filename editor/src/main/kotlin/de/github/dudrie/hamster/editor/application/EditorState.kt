@@ -53,7 +53,7 @@ object EditorState {
     val hasStartingHamster: Boolean
         get() {
             val hamster = startingHamster.value
-            return hamster != null && territory.value.territorySize.isLocationInside(hamster.tile.location)
+            return hamster != null && territory.value.abmessungen.isLocationInside(hamster.tile.location)
         }
 
     /**
@@ -105,7 +105,7 @@ object EditorState {
      * Sets the tile to meter scaling of the currently edited territory.
      */
     fun setTerritoryTileToMeterScaling(scaling: Double) {
-        territory.value.tileToMeterScaling = scaling
+        territory.value.feldZuMeterSkalierung = scaling
     }
 
     /**
@@ -149,7 +149,7 @@ object EditorState {
                 }
 
                 territory.value = builder.buildEditableTerritory()
-                val hamsterTile = territory.value.getTileAt(data.initialHamster.location)
+                val hamsterTile = territory.value.holeFeldBei(data.initialHamster.location)
 
                 startingHamster.value =
                     EditableHamster(hamsterTile, data.initialHamster.direction, data.initialHamster.grainCount)
@@ -169,20 +169,20 @@ object EditorState {
      */
     fun surroundTerritoryWithWalls() {
         val territory = territory.value
-        val (columnCount, rowCount) = territory.territorySize
+        val (columnCount, rowCount) = territory.abmessungen
 
         for (column in 0 until columnCount) {
             val locationTop = HamsterLocation(column, 0)
             val locationBottom = HamsterLocation(column, rowCount - 1)
-            territory.getTileAt(locationTop).makeWallIfPossible()
-            territory.getTileAt(locationBottom).makeWallIfPossible()
+            territory.holeFeldBei(locationTop).makeWallIfPossible()
+            territory.holeFeldBei(locationBottom).makeWallIfPossible()
         }
 
         for (row in 1 until rowCount - 1) {
             val locationLeft = HamsterLocation(0, row)
             val locationRight = HamsterLocation(columnCount - 1, row)
-            territory.getTileAt(locationLeft).makeWallIfPossible()
-            territory.getTileAt(locationRight).makeWallIfPossible()
+            territory.holeFeldBei(locationLeft).makeWallIfPossible()
+            territory.holeFeldBei(locationRight).makeWallIfPossible()
         }
     }
 
@@ -194,7 +194,7 @@ object EditorState {
     private fun createDataToSave(): InitialTerritoryData {
         val hamster = startingHamster.value
         val territory = territory.value
-        val size = territory.territorySize
+        val size = territory.abmessungen
 
         require(hamster != null) { "The starting hamster must be present on the territory." }
 
@@ -206,10 +206,10 @@ object EditorState {
         val territoryData = EditableTerritoryData(
             territorySize = size,
             initialHamster = hamsterData,
-            tileToMeterScaling = territory.tileToMeterScaling
+            tileToMeterScaling = territory.feldZuMeterSkalierung
         )
         size.getAllLocationsInside().forEach { location ->
-            val tile = territory.getTileAt(location)
+            val tile = territory.holeFeldBei(location)
 
             if (tile.grainCount > 0) {
                 territoryData.addGrainTile(tile)

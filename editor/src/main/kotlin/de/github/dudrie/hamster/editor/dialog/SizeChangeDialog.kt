@@ -23,9 +23,9 @@ import de.github.dudrie.hamster.editor.i18n.EditorString
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SizeChangeDialog(onAccept: (result: SizeChangeDialogResult) -> Unit, onDismiss: () -> Unit) {
-    val columnState = rememberTextFieldForNumbersState(EditorState.territory.value.territorySize.columnCount)
-    val rowState = rememberTextFieldForNumbersState(EditorState.territory.value.territorySize.rowCount)
-    val scalingState = rememberTextFieldForNumbersState(EditorState.territory.value.tileToMeterScaling)
+    val columnState = rememberTextFieldForNumbersState(EditorState.territory.value.abmessungen.columnCount)
+    val rowState = rememberTextFieldForNumbersState(EditorState.territory.value.abmessungen.rowCount)
+    val scalingState = rememberTextFieldForNumbersState(EditorState.territory.value.feldZuMeterSkalierung)
 
     LaunchedEffect(columnState.value) {
         columnState.isError = columnState.value > EditorState.maxColumnAndRowCount

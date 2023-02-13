@@ -24,11 +24,11 @@ fun MainEditorUI(scaffoldState: ScaffoldState) {
         Row(modifier = Modifier.fillMaxSize()) {
             val territory by EditorState.territory
 
-            key(territory, territory.territorySize) {
+            key(territory, territory.abmessungen) {
                 BoardForEditor(territory, Modifier.weight(1f).fillMaxHeight())
             }
 
             EditorSidepanel(Modifier.fillMaxHeight().width(300.dp))
-            }
         }
+    }
 }

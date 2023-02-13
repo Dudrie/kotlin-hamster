@@ -1,8 +1,8 @@
 package de.github.dudrie.hamster.importer
 
 import de.github.dudrie.hamster.external.model.Hamster
-import de.github.dudrie.hamster.external.model.HamsterGame
-import de.github.dudrie.hamster.external.model.Territory
+import de.github.dudrie.hamster.external.model.HamsterSpiel
+import de.github.dudrie.hamster.external.model.Territorium
 import de.github.dudrie.hamster.file.model.InitialTerritoryData
 import de.github.dudrie.hamster.importer.InitialGameImporter.Companion.DEFAULT_FILE
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
@@ -14,7 +14,7 @@ import de.github.dudrie.hamster.importer.helpers.TerritoryBuilder
  * @param hamsterGame Game into which the data should be imported.
  * @param territoryFile File to load the data from. If not provided the default file [DEFAULT_FILE] will be used.
  */
-class InitialGameImporter(private val hamsterGame: HamsterGame, private val territoryFile: String? = null) {
+internal class InitialGameImporter(private val hamsterGame: HamsterSpiel, private val territoryFile: String? = null) {
     /**
      * Object holding some general information
      */
@@ -26,14 +26,14 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
     }
 
     /**
-     * Data used to generate the [Territory] and [Hamster].
+     * Data used to generate the [Territorium] and [Hamster].
      */
     private val data: InitialTerritoryData
 
     /**
      * Generated territory.
      */
-    lateinit var territory: Territory
+    lateinit var territory: Territorium
         private set
 
     /**
@@ -50,7 +50,7 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
     }
 
     /**
-     * Generates the initial [Territory] from the [data].
+     * Generates the initial [Territorium] from the [data].
      *
      * [data] must be loaded before calling this function.
      */
@@ -60,7 +60,7 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
         initSpecialTiles(builder)
 
         val gameTerritory = builder.buildGameTerritory()
-        territory = Territory(hamsterGame, gameTerritory)
+        territory = Territorium(hamsterGame, gameTerritory)
     }
 
     /**
@@ -71,10 +71,10 @@ class InitialGameImporter(private val hamsterGame: HamsterGame, private val terr
     private fun initHamster() {
         val hamsterData = data.initialHamster
         hamster = Hamster(
-            territory = territory,
-            location = hamsterData.location,
-            direction = hamsterData.direction,
-            grainCount = hamsterData.grainCount
+            territorium = territory,
+            ort = hamsterData.location,
+            richtung = hamsterData.direction,
+            kornAnzahl = hamsterData.grainCount
         )
     }
 

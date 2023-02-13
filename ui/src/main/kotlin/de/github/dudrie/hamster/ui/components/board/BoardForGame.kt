@@ -18,7 +18,7 @@ import de.github.dudrie.hamster.ui.application.HamsterGameLocal
 @Composable
 fun BoardForGame(modifier: Modifier = Modifier) {
     val (territory, gameCommands, tileToHighlight) = HamsterGameLocal.current
-    val size = territory.territorySize
+    val size = territory.abmessungen
 
     val minWidth = Integer.min(size.columnCount * 32, 300)
     val maxWidth = Integer.max(size.columnCount * 64, 1000)
@@ -31,7 +31,7 @@ fun BoardForGame(modifier: Modifier = Modifier) {
     ) {
         BoardGrid(territory, borderWidth) { location, tileModifier ->
             BoardTile(
-                tile = territory.getTileAt(location),
+                tile = territory.holeFeldBei(location),
                 showBorder = tileToHighlight?.location == location,
                 modifier = tileModifier
             )

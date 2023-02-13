@@ -11,56 +11,56 @@ interface IHamster {
     /**
      * Current location of the hamster.
      */
-    val location: HamsterLocation
+    val ort: HamsterLocation
 
     /**
      * Current direction the hamster is facing.
      */
-    val direction: Direction
+    val richtung: Direction
 
     /**
      * Number of moves the hamster has taken.
      */
-    val movesTaken: Int
+    val gemachteSchritte: Int
 
     /**
      * Moves the hamster one step.
      */
-    fun move()
+    fun laufe()
 
     /**
      * Turns the hamster 90 degrees counterclockwise.
      */
-    fun turnLeft()
+    fun dreheNachLinks()
 
     /**
      * Picks up a grain from the tile the hamster currently stands on.
      */
-    fun pickGrain()
+    fun sammleKornAuf()
 
     /**
      * Drops a grain unto the tile the hamster currently stand on.
      */
-    fun dropGrain()
+    fun legeKornAb()
 
     /**
      * Is the tile in front of the hamster free for movement?
      */
-    fun isFrontClear(): Boolean
+    fun istVorDirFrei(): Boolean
 
     /**
      * Has the tile the hamster stands on at least one grain?
      */
-    fun hasYourTileAGrain(): Boolean
+    fun liegtEinKornAufDeinemFeld(): Boolean
 
     /**
      * Is the mouth of the hamster empty?
      */
-    fun isYourMouthEmpty(): Boolean
+    fun istDeinMundLeer(): Boolean
 
     /**
-     * Prints a [message] to the game's console.
+     * Prints a [nachricht] to the game's console.
      */
-    fun say(message: String)
+    fun sage(nachricht: String)
 
 }
