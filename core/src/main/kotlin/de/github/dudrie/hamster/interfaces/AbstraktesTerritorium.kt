@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.interfaces
 
-import de.github.dudrie.hamster.datatypes.HamsterLocation
+import de.github.dudrie.hamster.datatypes.HamsterOrt
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 
@@ -23,14 +23,14 @@ abstract class AbstraktesTerritorium {
      *
      * Der [ort] muss in diesem Territorium liegen.
      */
-    abstract fun holeFeldBei(ort: HamsterLocation): GameTile
+    abstract fun holeFeldBei(ort: HamsterOrt): GameTile
 
     /**
      * Kann das [GameTile] bei [ort] betreten werden?
      *
      * Der [ort] wird als "frei" angesehen, wenn er innerhalb des Territoriums liegt und nicht blockiert ist.
      */
-    fun istFrei(ort: HamsterLocation): Boolean =
+    fun istFrei(ort: HamsterOrt): Boolean =
         abmessungen.isLocationInside(ort) && !holeFeldBei(ort).blocked
 
     /**
@@ -38,14 +38,14 @@ abstract class AbstraktesTerritorium {
      *
      * Der [ort] muss innerhalb des Territoriums liegen.
      */
-    fun istBlockiert(ort: HamsterLocation): Boolean = holeFeldBei(ort).blocked
+    fun istBlockiert(ort: HamsterOrt): Boolean = holeFeldBei(ort).blocked
 
     /**
      * Gibt die Anzahl der Körner auf dem [GameTile] bei [ort] zurück.
      *
      * Der [ort] muss innerhalb des Territoriums liegen.
      */
-    fun holeAnzahlKoernerBei(ort: HamsterLocation): Int = holeFeldBei(ort).grainCount
+    fun holeAnzahlKoernerBei(ort: HamsterOrt): Int = holeFeldBei(ort).grainCount
 
 
 }

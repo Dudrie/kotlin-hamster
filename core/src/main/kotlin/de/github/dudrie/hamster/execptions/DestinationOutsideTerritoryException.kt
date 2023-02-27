@@ -1,14 +1,14 @@
 package de.github.dudrie.hamster.execptions
 
-import de.github.dudrie.hamster.datatypes.HamsterLocation
+import de.github.dudrie.hamster.datatypes.HamsterOrt
 import de.github.dudrie.hamster.i18n.HamsterString
 
 /**
- * Indicates that the given [HamsterLocation] is outside the [GameTerritory][de.github.dudrie.hamster.internal.model.territory.GameTerritory].
+ * Indicates that the given [HamsterOrt] is outside the [GameTerritory][de.github.dudrie.hamster.internal.model.territory.GameTerritory].
  *
- * @param location [HamsterLocation] that is outside the [GameTerritory][de.github.dudrie.hamster.internal.model.territory.GameTerritory].
+ * @param location [HamsterOrt] that is outside the [GameTerritory][de.github.dudrie.hamster.internal.model.territory.GameTerritory].
  */
-class DestinationOutsideTerritoryException(private val location: HamsterLocation) : RuntimeException() {
+class DestinationOutsideTerritoryException(private val location: HamsterOrt) : RuntimeException() {
     /**
      * @return String representation of this exception
      */
