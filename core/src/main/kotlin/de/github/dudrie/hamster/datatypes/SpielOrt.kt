@@ -6,7 +6,17 @@ package de.github.dudrie.hamster.datatypes
  * @param spalte Spaltenindex des Ortes (beginnt bei 0). Muss 0 oder größer sein.
  * @param zeile Zeilenindex des Ortes (beginnt bei 0). Muss 0 oder größer sein.
  */
-data class SpielOrt(val spalte: Int, val zeile: Int) {
+data class SpielOrt(
+    /**
+     * Spaltenindex des Ortes (beginnt bei 0). Muss 0 oder größer sein.
+     */
+    val spalte: Int,
+
+    /**
+     * Zeilenindex des Ortes (beginnt bei 0). Muss 0 oder größer sein.
+     */
+    val zeile: Int
+) {
 
     init {
         require(spalte >= 0) { "Spalte muss 0 oder größer sein." }
