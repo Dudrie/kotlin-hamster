@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.datatypes.Richtung
 import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 import de.github.dudrie.hamster.internal.model.territory.GameTile
@@ -24,11 +24,11 @@ import de.github.dudrie.hamster.ui.theme.GameTheme
 /**
  * Returns the amount of degrees the hamster's image has to be turned to visually face in the [direction].
  */
-fun getDegreesForDirection(direction: Direction): Float = when (direction) {
-    Direction.North -> 270f
-    Direction.East -> 0f
-    Direction.South -> 90f
-    Direction.West -> 180f
+fun getDegreesForDirection(direction: Richtung): Float = when (direction) {
+    Richtung.Norden -> 270f
+    Richtung.Osten -> 0f
+    Richtung.Sueden -> 90f
+    Richtung.Westen -> 180f
 }
 
 /**

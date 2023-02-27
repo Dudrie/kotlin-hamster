@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.internal.model.hamster
 
-import de.github.dudrie.hamster.datatypes.Direction
-import de.github.dudrie.hamster.datatypes.HamsterLocation
+import de.github.dudrie.hamster.datatypes.Richtung
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 
@@ -10,13 +10,13 @@ import de.github.dudrie.hamster.internal.model.territory.GameTile
  *
  * @param territory [GameTerritory] this hamster is in.
  * @param tile [GameTile] this hamster is initially on. The tile must be inside the [territory].
- * @param direction The initial [Direction] the hamster faces.
+ * @param direction The initial [Richtung] the hamster faces.
  * @param grainCount The initial amount of grains the hamster has in its mouth. Must be zero or higher.
  */
 class GameHamster(
     val territory: GameTerritory,
     tile: GameTile,
-    direction: Direction,
+    direction: Richtung,
     grainCount: Int = 0
 ) : HamsterTileContent(tile, direction, grainCount) {
 
@@ -37,7 +37,7 @@ class GameHamster(
     }
 
     /**
-     * Move one step in the [Direction] the hamster is facing.
+     * Move one step in the [Richtung] the hamster is facing.
      *
      * The destination tile must not be blocked. After a successful move [movesTaken] is increased by 1.
      *
@@ -76,7 +76,7 @@ class GameHamster(
      *
      * @return The location directly in front of the hamster.
      */
-    fun getLocationAfterMove(): HamsterLocation {
+    fun getLocationAfterMove(): SpielOrt {
         return tile.location.translate(direction.directionVector)
     }
 
@@ -84,15 +84,15 @@ class GameHamster(
      * Turns the hamster 90 degrees counterclockwise.
      */
     fun turnLeft() {
-        turnTo(direction.left())
+        turnTo(direction.nachLinksGedreht())
     }
 
     /**
      * Turns the hamster to face in the [newDirection].
      *
-     * @param newDirection [Direction] the hamster should face in.
+     * @param newDirection [Richtung] the hamster should face in.
      */
-    fun turnTo(newDirection: Direction) {
+    fun turnTo(newDirection: Richtung) {
         setDirection(newDirection)
     }
 

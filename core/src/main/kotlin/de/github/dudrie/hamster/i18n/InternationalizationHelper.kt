@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.i18n
 
-import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.datatypes.Richtung
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 import java.text.MessageFormat
@@ -53,12 +53,12 @@ class InternationalizationHelper(bundleName: String) {
     /**
      * Returns the localized string representation of the given [direction].
      */
-    fun getForDirection(direction: Direction): String = get(
+    fun getForDirection(direction: Richtung): String = get(
         when (direction) {
-            Direction.North -> "direction.north"
-            Direction.East -> "direction.east"
-            Direction.South -> "direction.south"
-            Direction.West -> "direction.west"
+            Richtung.Norden -> "direction.north"
+            Richtung.Osten -> "direction.east"
+            Richtung.Sueden -> "direction.south"
+            Richtung.Westen -> "direction.west"
         }
     )
 

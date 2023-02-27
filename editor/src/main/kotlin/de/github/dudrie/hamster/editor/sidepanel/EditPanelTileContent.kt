@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.datatypes.Richtung
 import de.github.dudrie.hamster.editor.components.textfield.TextFieldForIntegers
 import de.github.dudrie.hamster.editor.components.textfield.rememberTextFieldForNumbersState
 import de.github.dudrie.hamster.editor.i18n.EditorString
@@ -54,10 +54,10 @@ fun EditPanelHamsterTileContent(content: EditableHamster) {
         Select(
             items = remember {
                 listOf(
-                    Direction.North,
-                    Direction.East,
-                    Direction.South,
-                    Direction.West
+                    Richtung.Norden,
+                    Richtung.Osten,
+                    Richtung.Sueden,
+                    Richtung.Westen
                 )
             },
             itemToString = { HamsterString.getForDirection(it) },

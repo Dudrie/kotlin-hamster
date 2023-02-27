@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.editor.model
 
-import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.datatypes.Richtung
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 
 /**
@@ -10,13 +10,13 @@ import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
  * @param direction Initial direction the hamster faces in.
  * @param grainCount Initial number of grains in the hamster's mouth.
  */
-class EditableHamster(tile: EditableGameTile, direction: Direction, grainCount: Int = 0) :
+class EditableHamster(tile: EditableGameTile, direction: Richtung, grainCount: Int = 0) :
     HamsterTileContent(tile, direction, grainCount) {
 
     /**
      * Sets the [direction] the hamster faces in.
      */
-    public override fun setDirection(direction: Direction) {
+    public override fun setDirection(direction: Richtung) {
         super.setDirection(direction)
     }
 

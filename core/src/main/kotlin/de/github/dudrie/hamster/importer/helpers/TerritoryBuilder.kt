@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.importer.helpers
 
-import de.github.dudrie.hamster.datatypes.HamsterLocation
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.execptions.InitialTerritoryInvalidException
 import de.github.dudrie.hamster.file.model.TileData
@@ -68,7 +68,7 @@ open class TerritoryBuilder(val territorySize: Size, val tileToMeterScaling: Dou
     /**
      * Adds an empty floor tile at the [location].
      */
-    private fun addDefaultTile(location: HamsterLocation) {
+    private fun addDefaultTile(location: SpielOrt) {
         tiles += GameTile(location = location, type = GameTileType.Floor, hideGrainCount = false, grainCount = 0)
     }
 
@@ -88,5 +88,5 @@ open class TerritoryBuilder(val territorySize: Size, val tileToMeterScaling: Dou
     /**
      * Checks if the builder already as information for a tile at the [location].
      */
-    private fun hasLocationATile(location: HamsterLocation): Boolean = tiles.find { it.location == location } != null
+    private fun hasLocationATile(location: SpielOrt): Boolean = tiles.find { it.location == location } != null
 }

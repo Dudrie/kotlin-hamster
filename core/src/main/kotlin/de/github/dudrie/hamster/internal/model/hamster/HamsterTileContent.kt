@@ -2,7 +2,7 @@ package de.github.dudrie.hamster.internal.model.hamster
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.datatypes.Richtung
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 import de.github.dudrie.hamster.internal.model.territory.GameTileContent
 
@@ -13,7 +13,7 @@ import de.github.dudrie.hamster.internal.model.territory.GameTileContent
  * @param direction Initial direction the hamster faces in.
  * @param grainCount Initial number of grains in the hamster's mouth.
  */
-abstract class HamsterTileContent(tile: GameTile, direction: Direction, grainCount: Int = 0) : GameTileContent() {
+abstract class HamsterTileContent(tile: GameTile, direction: Richtung, grainCount: Int = 0) : GameTileContent() {
     private val tileState = mutableStateOf(tile)
     private val directionState = mutableStateOf(direction)
     private val grainCountState = mutableStateOf(grainCount)
@@ -24,9 +24,9 @@ abstract class HamsterTileContent(tile: GameTile, direction: Direction, grainCou
     override val tile: GameTile by tileState
 
     /**
-     * The [Direction] the hamster currently faces.
+     * The [Richtung] the hamster currently faces.
      */
-    val direction: Direction by directionState
+    val direction: Richtung by directionState
 
     /**
      * The amount of grains the hamster currently has in its mouth.
@@ -50,7 +50,7 @@ abstract class HamsterTileContent(tile: GameTile, direction: Direction, grainCou
     /**
      * Sets the [direction] of the hamster.
      */
-    protected open fun setDirection(direction: Direction) {
+    protected open fun setDirection(direction: Richtung) {
         directionState.value = direction
     }
 

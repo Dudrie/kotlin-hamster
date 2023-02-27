@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.internal.model.hamster.commands
 
-import de.github.dudrie.hamster.datatypes.Direction
+import de.github.dudrie.hamster.datatypes.Richtung
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
@@ -12,9 +12,9 @@ import de.github.dudrie.hamster.internal.model.hamster.GameHamster
  */
 class TurnLeftCommand(private val hamster: GameHamster) : Command() {
     /**
-     * Set to the old facing [Direction] if this [Command] was successfully executed.
+     * Set to the old facing [Richtung] if this [Command] was successfully executed.
      */
-    private var oldDirection: Direction? = null
+    private var oldDirection: Richtung? = null
 
     /**
      * Turns the [hamster] 90 degrees counterclockwise.
