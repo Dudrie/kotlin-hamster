@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.internal.model.hamster
 
 import de.github.dudrie.hamster.datatypes.Richtung
-import de.github.dudrie.hamster.datatypes.HamsterOrt
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
 
@@ -76,7 +76,7 @@ class GameHamster(
      *
      * @return The location directly in front of the hamster.
      */
-    fun getLocationAfterMove(): HamsterOrt {
+    fun getLocationAfterMove(): SpielOrt {
         return tile.location.translate(direction.directionVector)
     }
 

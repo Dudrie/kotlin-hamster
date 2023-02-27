@@ -2,7 +2,7 @@ package de.github.dudrie.hamster.editor.application
 
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Richtung
-import de.github.dudrie.hamster.datatypes.HamsterOrt
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.editor.model.*
 import de.github.dudrie.hamster.editor.model.builder.EditableTerritoryBuilder
@@ -172,15 +172,15 @@ object EditorState {
         val (columnCount, rowCount) = territory.abmessungen
 
         for (column in 0 until columnCount) {
-            val locationTop = HamsterOrt(column, 0)
-            val locationBottom = HamsterOrt(column, rowCount - 1)
+            val locationTop = SpielOrt(column, 0)
+            val locationBottom = SpielOrt(column, rowCount - 1)
             territory.holeFeldBei(locationTop).makeWallIfPossible()
             territory.holeFeldBei(locationBottom).makeWallIfPossible()
         }
 
         for (row in 1 until rowCount - 1) {
-            val locationLeft = HamsterOrt(0, row)
-            val locationRight = HamsterOrt(columnCount - 1, row)
+            val locationLeft = SpielOrt(0, row)
+            val locationRight = SpielOrt(columnCount - 1, row)
             territory.holeFeldBei(locationLeft).makeWallIfPossible()
             territory.holeFeldBei(locationRight).makeWallIfPossible()
         }

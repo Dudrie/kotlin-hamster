@@ -1,6 +1,6 @@
 package de.github.dudrie.hamster.external.model
 
-import de.github.dudrie.hamster.datatypes.HamsterOrt
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.datatypes.Size
 import de.github.dudrie.hamster.interfaces.AbstraktesTerritorium
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
@@ -30,6 +30,6 @@ class Territorium(val spiel: HamsterSpiel, internal val internalTerritory: GameT
      *
      * The [ort] must be inside this territory.
      */
-    override fun holeFeldBei(ort: HamsterOrt): GameTile = internalTerritory.getTileAt(ort)
+    override fun holeFeldBei(ort: SpielOrt): GameTile = internalTerritory.getTileAt(ort)
 
 }
