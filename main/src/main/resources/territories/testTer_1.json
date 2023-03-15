@@ -5,22 +5,22 @@
   },
   "initialHamster": {
     "location": {
-      "column": 1,
-      "row": 2
+      "spalte": 1,
+      "zeile": 2
     },
-    "direction": "North",
+    "direction": "Norden",
     "grainCount": 0
   },
   "specialTiles": [
     [
       {
-        "column": 0,
-        "row": 1
+        "spalte": 0,
+        "zeile": 1
       },
       {
         "location": {
-          "column": 0,
-          "row": 1
+          "spalte": 0,
+          "zeile": 1
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -28,13 +28,13 @@
     ],
     [
       {
-        "column": 0,
-        "row": 4
+        "spalte": 0,
+        "zeile": 4
       },
       {
         "location": {
-          "column": 0,
-          "row": 4
+          "spalte": 0,
+          "zeile": 4
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -42,13 +42,13 @@
     ],
     [
       {
-        "column": 4,
-        "row": 6
+        "spalte": 4,
+        "zeile": 6
       },
       {
         "location": {
-          "column": 4,
-          "row": 6
+          "spalte": 4,
+          "zeile": 6
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -56,13 +56,13 @@
     ],
     [
       {
-        "column": 3,
-        "row": 2
+        "spalte": 3,
+        "zeile": 2
       },
       {
         "location": {
-          "column": 3,
-          "row": 2
+          "spalte": 3,
+          "zeile": 2
         },
         "tileType": "Floor",
         "grainCount": 8
@@ -70,13 +70,13 @@
     ],
     [
       {
-        "column": 1,
-        "row": 2
+        "spalte": 1,
+        "zeile": 2
       },
       {
         "location": {
-          "column": 1,
-          "row": 2
+          "spalte": 1,
+          "zeile": 2
         },
         "tileType": "Floor",
         "grainCount": 50
