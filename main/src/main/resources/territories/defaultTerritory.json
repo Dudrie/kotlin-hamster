@@ -5,22 +5,22 @@
   },
   "initialHamster": {
     "location": {
-      "column": 1,
-      "row": 1
+      "spalte": 1,
+      "zeile": 1
     },
-    "direction": "East",
+    "direction": "Osten",
     "grainCount": 0
   },
   "specialTiles": [
     [
       {
-        "column": 0,
-        "row": 0
+        "spalte": 0,
+        "zeile": 0
       },
       {
         "location": {
-          "column": 0,
-          "row": 0
+          "spalte": 0,
+          "zeile": 0
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -28,13 +28,13 @@
     ],
     [
       {
-        "column": 1,
-        "row": 0
+        "spalte": 1,
+        "zeile": 0
       },
       {
         "location": {
-          "column": 1,
-          "row": 0
+          "spalte": 1,
+          "zeile": 0
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -42,13 +42,13 @@
     ],
     [
       {
-        "column": 2,
-        "row": 0
+        "spalte": 2,
+        "zeile": 0
       },
       {
         "location": {
-          "column": 2,
-          "row": 0
+          "spalte": 2,
+          "zeile": 0
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -56,13 +56,13 @@
     ],
     [
       {
-        "column": 3,
-        "row": 0
+        "spalte": 3,
+        "zeile": 0
       },
       {
         "location": {
-          "column": 3,
-          "row": 0
+          "spalte": 3,
+          "zeile": 0
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -70,13 +70,13 @@
     ],
     [
       {
-        "column": 4,
-        "row": 0
+        "spalte": 4,
+        "zeile": 0
       },
       {
         "location": {
-          "column": 4,
-          "row": 0
+          "spalte": 4,
+          "zeile": 0
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -84,13 +84,13 @@
     ],
     [
       {
-        "column": 0,
-        "row": 1
+        "spalte": 0,
+        "zeile": 1
       },
       {
         "location": {
-          "column": 0,
-          "row": 1
+          "spalte": 0,
+          "zeile": 1
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -98,13 +98,13 @@
     ],
     [
       {
-        "column": 3,
-        "row": 1
+        "spalte": 3,
+        "zeile": 1
       },
       {
         "location": {
-          "column": 3,
-          "row": 1
+          "spalte": 3,
+          "zeile": 1
         },
         "tileType": "Floor",
         "grainCount": 1
@@ -112,13 +112,13 @@
     ],
     [
       {
-        "column": 4,
-        "row": 1
+        "spalte": 4,
+        "zeile": 1
       },
       {
         "location": {
-          "column": 4,
-          "row": 1
+          "spalte": 4,
+          "zeile": 1
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -126,13 +126,13 @@
     ],
     [
       {
-        "column": 0,
-        "row": 2
+        "spalte": 0,
+        "zeile": 2
       },
       {
         "location": {
-          "column": 0,
-          "row": 2
+          "spalte": 0,
+          "zeile": 2
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -140,13 +140,13 @@
     ],
     [
       {
-        "column": 1,
-        "row": 2
+        "spalte": 1,
+        "zeile": 2
       },
       {
         "location": {
-          "column": 1,
-          "row": 2
+          "spalte": 1,
+          "zeile": 2
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -154,13 +154,13 @@
     ],
     [
       {
-        "column": 2,
-        "row": 2
+        "spalte": 2,
+        "zeile": 2
       },
       {
         "location": {
-          "column": 2,
-          "row": 2
+          "spalte": 2,
+          "zeile": 2
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -168,13 +168,13 @@
     ],
     [
       {
-        "column": 3,
-        "row": 2
+        "spalte": 3,
+        "zeile": 2
       },
       {
         "location": {
-          "column": 3,
-          "row": 2
+          "spalte": 3,
+          "zeile": 2
         },
         "tileType": "Wall",
         "grainCount": 0
@@ -182,13 +182,13 @@
     ],
     [
       {
-        "column": 4,
-        "row": 2
+        "spalte": 4,
+        "zeile": 2
       },
       {
         "location": {
-          "column": 4,
-          "row": 2
+          "spalte": 4,
+          "zeile": 2
         },
         "tileType": "Wall",
         "grainCount": 0
