@@ -6,13 +6,15 @@ plugins {
     id("org.jetbrains.compose")
 }
 
+val coroutinesVersion: String by project
+
 dependencies {
     implementation(project(":core"))
     implementation(project(":ui"))
 
     // Must be of a different type than the one in :ui because otherwise the dependencies will clash inside the IDE.
     compileOnly(compose.desktop.currentOs)
-    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 }
 
 compose.desktop {

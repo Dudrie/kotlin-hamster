@@ -6,10 +6,12 @@ plugins {
     id("org.jetbrains.compose")
 }
 
+val gsonVersion: String by project
+
 dependencies {
     implementation(compose.desktop.common)
 
-    implementation("com.google.code.gson:gson:2.8.8")
+    implementation("com.google.code.gson:gson:$gsonVersion")
 
     testImplementation(kotlin("test"))
 }
