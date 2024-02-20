@@ -41,7 +41,7 @@ class GameWindow(private val hamsterGame: AbstraktesHamsterSpiel, private val in
             LaunchedEffect(isGameInitialized) {
                 if (isGameInitialized) {
                     // Wait a small amount of time to allow the window to change the "scene".
-                    delay(200L)
+                    delay(800)
                     initLatch.countDown()
                 }
             }
