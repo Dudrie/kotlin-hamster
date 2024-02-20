@@ -1,7 +1,6 @@
 package de.github.dudrie.hamster.ui.application.windows
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.FrameWindowScope
@@ -11,7 +10,6 @@ import androidx.compose.ui.window.launchApplication
 import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import java.util.concurrent.CountDownLatch
 import kotlin.system.exitProcess
 
 /**
@@ -31,10 +29,8 @@ abstract class ApplicationWindow(private val windowTitle: String) {
      * Starts the Compose application.
      *
      * The window renders the composable served by [content] which is wrapped in the [ThemeWrapper] composable.
-     *
-     * After launching the application the [initLatch] will get counted down by 1.
      */
-    fun show(initLatch: CountDownLatch) {
+    fun show() {
         val scope = CoroutineScope(Dispatchers.Default)
 
         scope.launchApplication {
