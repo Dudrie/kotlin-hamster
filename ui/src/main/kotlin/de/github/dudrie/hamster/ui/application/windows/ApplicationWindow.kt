@@ -46,10 +46,6 @@ abstract class ApplicationWindow(private val windowTitle: String) {
                 },
                 state = WindowState(size = DpSize(1000.dp, 750.dp))
             ) {
-                LaunchedEffect(true) {
-                    window.addWindowListener(AppWindowListener(initLatch))
-                }
-
                 ThemeWrapper {
                     content()
                 }

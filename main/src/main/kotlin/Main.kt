@@ -1,7 +1,7 @@
 import de.github.dudrie.hamster.external.model.HamsterSpiel
 import de.github.dudrie.hamster.external.model.EinfachesHamsterSpiel
 
-private class TestHamsterSpiel : EinfachesHamsterSpiel("testTer", 2) {
+private class TestHamsterSpiel : EinfachesHamsterSpiel("testTer", 1) {
 
     override fun fuehreAus() {
         paule.laufe()
