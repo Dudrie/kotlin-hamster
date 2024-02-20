@@ -42,7 +42,7 @@ abstract class EinfachesHamsterSpiel(territoryFile: String? = null) {
     /**
      * Führt das Spiel, welches in der [fuehreAus] Methode implementiert wurde, tatsächlich aus.
      */
-    public fun lasseSpielLaufen() {
+    fun lasseSpielLaufen() {
         try {
             fuehreAus()
         } catch (e: RuntimeException) {
