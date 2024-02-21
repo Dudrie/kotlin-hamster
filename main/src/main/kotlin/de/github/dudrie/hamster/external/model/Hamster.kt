@@ -16,8 +16,7 @@ import de.github.dudrie.hamster.internal.model.hamster.commands.*
  * @param richtung [Richtung], in die der Hamster anfänglich schaut.
  * @param kornAnzahl Anzahl der Körner, die der Hamster zu Beginn im Mund hat.
  */
-open class Hamster(val territorium: Territorium, ort: SpielOrt, richtung: Richtung, kornAnzahl: Int) :
-    IHamster {
+open class Hamster(val territorium: Territorium, ort: SpielOrt, richtung: Richtung, kornAnzahl: Int) : IHamster {
 
     /**
      * Referenz zum tatsächlichen [GameHamster].

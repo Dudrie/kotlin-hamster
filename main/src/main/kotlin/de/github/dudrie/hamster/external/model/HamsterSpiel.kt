@@ -1,7 +1,8 @@
 package de.github.dudrie.hamster.external.model
 
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import de.github.dudrie.hamster.importer.InitialGameImporter
 import de.github.dudrie.hamster.interfaces.AbstraktesHamsterSpiel
 import de.github.dudrie.hamster.internal.model.game.Command
@@ -32,7 +33,8 @@ class HamsterSpiel(territoriumsDatei: String? = null) : AbstraktesHamsterSpiel()
     /**
      * Das Spiel ist initialisiert, nachdem das dazugehörige Territorium vollständig geladen wurde.
      */
-    override val isInitialized: MutableState<Boolean> = mutableStateOf(false)
+    override var isInitialized by mutableStateOf(false)
+        private set
 
     /**
      * Standard [Hamster], der im Spiel benutzt wird. Er heißt hier "Paule".
@@ -49,7 +51,7 @@ class HamsterSpiel(territoriumsDatei: String? = null) : AbstraktesHamsterSpiel()
 
         territorium = importer.territory
         paule = importer.hamster
-        isInitialized.value = true
+        isInitialized = true
     }
 
     /**
@@ -68,6 +70,6 @@ class HamsterSpiel(territoriumsDatei: String? = null) : AbstraktesHamsterSpiel()
      * Executes the given [command] to change the state of this game.
      */
     override fun executeCommand(command: Command) {
-        this.gameCommands.executeCommand(command)
+        gameCommands.executeCommand(command)
     }
 }

@@ -36,7 +36,7 @@ class GameWindow(private val hamsterGame: AbstraktesHamsterSpiel, private val in
             HamsterGameLocal provides hamsterGame,
             UIStateLocal provides uiState
         ) {
-            val isGameInitialized by hamsterGame.isInitialized
+            val isGameInitialized = hamsterGame.isInitialized
 
             LaunchedEffect(isGameInitialized) {
                 if (isGameInitialized) {

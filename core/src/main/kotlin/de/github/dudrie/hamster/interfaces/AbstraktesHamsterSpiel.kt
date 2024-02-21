@@ -27,7 +27,7 @@ abstract class AbstraktesHamsterSpiel {
     /**
      * State, der überwacht, ob das Spiel initialisiert wurde.
      */
-    abstract val isInitialized: MutableState<Boolean>
+    abstract val isInitialized: Boolean
 
     /**
      * State that holds the tile which should be highlighted.

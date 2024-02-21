@@ -19,7 +19,7 @@ class HamsterGameCompose(hamsterGame: AbstraktesHamsterSpiel) {
     /**
      * Window showing the actual game.
      */
-    private val window: GameWindow = GameWindow(hamsterGame, initLatch)
+    val window: GameWindow = GameWindow(hamsterGame, initLatch)
 
     init {
         window.show()
