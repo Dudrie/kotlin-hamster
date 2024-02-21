@@ -5,9 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 
 class UIState {
-    private val hideHamsterState = mutableStateOf(false)
-
-    var hideHamster by hideHamsterState
+    var hideHamster by mutableStateOf(false)
         private set
 
     fun setHamsterHiddenState(hide: Boolean) {
