@@ -78,14 +78,14 @@ class GameCommandStack : CommandStack() {
      */
     val canUndoCommand: State<Boolean>
         @Composable
-        get() = rememberUpdatedState(hasCommandsToUndo.value && isInModeToUndoOrRedo() && !isUndoingOrRedoing)
+        get() = rememberUpdatedState(hasCommandsToUndo && isInModeToUndoOrRedo() && !isUndoingOrRedoing)
 
     /**
      * Is the game in a state in which a [Command] can be redone?
      */
     val canRedoCommand: State<Boolean>
         @Composable
-        get() = rememberUpdatedState(hasCommandsToRedo.value && isInModeToUndoOrRedo() && !isUndoingOrRedoing)
+        get() = rememberUpdatedState(hasCommandsToRedo && isInModeToUndoOrRedo() && !isUndoingOrRedoing)
 
     /**
      * Is the game in a state in which it can be [paused][GameMode.Paused] or [resumed][GameMode.Running]?
@@ -219,8 +219,6 @@ class GameCommandStack : CommandStack() {
 
             executedCommands.clear()
             undoneCommands.clear()
-            hasCommandsToUndo.value = false
-            hasCommandsToRedo.value = false
 
             modeState.value = GameMode.Running
 

@@ -20,12 +20,14 @@ abstract class CommandStack {
     /**
      * Does this stack hold any commands that can be undone?
      */
-    val hasCommandsToUndo = mutableStateOf(false)
+    val hasCommandsToUndo: Boolean
+        get() = executedCommands.size > 0
 
     /**
      * Does this stack hold any commands that can be redone?
      */
-    val hasCommandsToRedo = mutableStateOf(false)
+    val hasCommandsToRedo: Boolean
+        get() = undoneCommands.size > 0
 
     /**
      * Sum of all command either executed or undone.
@@ -52,7 +54,6 @@ abstract class CommandStack {
         try {
             command.execute()
             executedCommands += command
-            hasCommandsToUndo.value = true
         } finally {
             executionLock.unlock()
         }
@@ -71,8 +72,6 @@ abstract class CommandStack {
             commandToUndo.undo()
 
             undoneCommands += commandToUndo
-            hasCommandsToUndo.value = executedCommands.size > 0
-            hasCommandsToRedo.value = true
         } finally {
             executionLock.unlock()
         }
@@ -91,9 +90,6 @@ abstract class CommandStack {
             require(undoneCommands.size > 0) { "There are no commands to redo." }
             val commandToRedo = undoneCommands.removeLast()
             execute(commandToRedo)
-
-            hasCommandsToUndo.value = executedCommands.size > 0
-            hasCommandsToRedo.value = undoneCommands.size > 0
         } finally {
             executionLock.unlock()
         }
@@ -107,7 +103,7 @@ abstract class CommandStack {
     protected fun redoAll() {
         executionLock.lock()
         try {
-            while (hasCommandsToRedo.value) {
+            while (hasCommandsToRedo) {
                 redo()
             }
         } finally {
