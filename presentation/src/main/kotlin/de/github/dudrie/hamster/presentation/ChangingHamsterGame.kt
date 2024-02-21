@@ -70,31 +70,6 @@ class ChangingTerritory(private val internal: GameTerritory) : AbstraktesTerrito
 
 }
 
-class ChangingHamsterGameCompose(game: ChangingHamsterGame) {
-    /**
-     * Indicates when the [GameWindow] is ready.
-     */
-    private val initLatch = CountDownLatch(1)
-
-    /**
-     * Window showing the actual game.
-     */
-    private val window: GameWindow = GameWindow(game, initLatch)
-
-    init {
-        window.show()
-    }
-
-    /**
-     * Starts the game.
-     *
-     * This functions waits until the [GameWindow] is shown if it is not already visible.
-     */
-    fun startGame() {
-        initLatch.await()
-    }
-}
-
 class ChangingHamster(private val internalHamster: GameHamster, private val spiel: ChangingHamsterGame) : IHamster {
 
     /**
