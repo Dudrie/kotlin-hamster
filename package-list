@@ -7,6 +7,7 @@ de.github.dudrie.hamster.datatypes
 de.github.dudrie.hamster.execptions
 de.github.dudrie.hamster.file.model
 de.github.dudrie.hamster.i18n
+de.github.dudrie.hamster.importer
 de.github.dudrie.hamster.importer.helpers
 de.github.dudrie.hamster.interfaces
 de.github.dudrie.hamster.internal.model.game
@@ -29,6 +30,9 @@ module:imperative-de
 de.github.dudrie.hamster.imperative.de
 module:main
 de.github.dudrie.hamster.external.model
+de.github.dudrie.hamster.importer
+module:presentation
+de.github.dudrie.hamster.presentation
 module:ui
 de.github.dudrie.hamster.ui
 de.github.dudrie.hamster.ui.application

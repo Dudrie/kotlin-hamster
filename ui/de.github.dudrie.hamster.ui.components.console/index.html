@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>de.github.dudrie.hamster.ui.components.console</title>
-<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
@@ -16,12 +18,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
 <script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../styles/style.css" rel="Stylesheet">
-<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../styles/main.css" rel="Stylesheet">
 <link href="../../styles/prism.css" rel="Stylesheet">
 <link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="../../scripts/clipboard.js" async></script>
 <script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
@@ -29,195 +32,208 @@
 <script type="text/javascript" src="../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-<a href="../../index.html">
-<span>kotlin-hamster</span>            </a>    </div>
-    <div>2.2
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../index.html">
+                            kotlin-hamster
+                    </a>            </div>
+            <div class="library-version">2.4
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":ui:dokkaHtmlPartial/main">jvm</button>
+        </div>
     </div>
-    <div class="pull-right d-flex">
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
-    </div>
-    <div id="main">
-<div class="main-content" id="content" pageids="ui::de.github.dudrie.hamster.ui.components.console////PointingToDeclaration//1275902132">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="ui::de.github.dudrie.hamster.ui.components.console////PointingToDeclaration//1275902132">
   <div class="breadcrumbs"><a href="../index.html">ui</a><span class="delimiter">/</span><span class="current">de.github.dudrie.hamster.ui.components.console</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button></div>
     <div class="tabs-section-body">
-      <h2 class="">Types</h2>
-      <div class="table" data-togglable="Types"><a data-name="-927601665%2FClasslikes%2F1275902132" anchor-label="AutoScrollHelpers" id="-927601665%2FClasslikes%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-auto-scroll-helpers/index.html"><span>Auto</span><wbr><span>Scroll</span><wbr><span><span>Helpers</span></span></a></div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-927601665%2FClasslikes%2F1275902132" anchor-label="AutoScrollHelpers" id="-927601665%2FClasslikes%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-auto-scroll-helpers/index.html"><span>Auto</span><wbr><span>Scroll</span><wbr><span><span>Helpers</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-927601665%2FClasslikes%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-auto-scroll-helpers/index.html">AutoScrollHelpers</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>doAutoScroll<span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/MutableState///PointingToDeclaration/">MutableState</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scrollState<span class="token operator">: </span><span data-unresolved-link="androidx.compose.foundation.lazy/LazyListState///PointingToDeclaration/">LazyListState</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>interactionSource<span class="token operator">: </span><span data-unresolved-link="androidx.compose.foundation.interaction/MutableInteractionSource///PointingToDeclaration/">MutableInteractionSource</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Necessary helper objects that can be passed to a <span data-unresolved-link="androidx.compose.foundation.lazy//LazyColumn/#androidx.compose.ui.Modifier#androidx.compose.foundation.lazy.LazyListState#androidx.compose.foundation.layout.PaddingValues#kotlin.Boolean#androidx.compose.foundation.layout.Arrangement.Vertical#androidx.compose.ui.Alignment.Horizontal#androidx.compose.foundation.gestures.FlingBehavior#kotlin.Function1[androidx.compose.foundation.lazy.LazyListScope,kotlin.Unit]/PointingToDeclaration/">LazyColumn</span> and a <span data-unresolved-link="androidx.compose.foundation//VerticalScrollbar/#androidx.compose.foundation.ScrollbarAdapter#androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.foundation.ScrollbarStyle#androidx.compose.foundation.interaction.MutableInteractionSource/PointingToDeclaration/">VerticalScrollbar</span>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="-auto-scroll-helpers/index.html">AutoScrollHelpers</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>doAutoScroll<span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/MutableState///PointingToDeclaration/">MutableState</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>scrollState<span class="token operator">: </span><span data-unresolved-link="androidx.compose.foundation.lazy/LazyListState///PointingToDeclaration/">LazyListState</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>interactionSource<span class="token operator">: </span><span data-unresolved-link="androidx.compose.foundation.interaction/MutableInteractionSource///PointingToDeclaration/">MutableInteractionSource</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Necessary helper objects that can be passed to a <span data-unresolved-link="androidx.compose.foundation.lazy//LazyColumn/#androidx.compose.ui.Modifier#androidx.compose.foundation.lazy.LazyListState#androidx.compose.foundation.layout.PaddingValues#kotlin.Boolean#androidx.compose.foundation.layout.Arrangement.Vertical#androidx.compose.ui.Alignment.Horizontal#androidx.compose.foundation.gestures.FlingBehavior#kotlin.Function1[androidx.compose.foundation.lazy.LazyListScope,kotlin.Unit]/PointingToDeclaration/">LazyColumn</span> and a <span data-unresolved-link="androidx.compose.foundation//VerticalScrollbar/#androidx.compose.foundation.ScrollbarAdapter#androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.foundation.ScrollbarStyle#androidx.compose.foundation.interaction.MutableInteractionSource/PointingToDeclaration/">VerticalScrollbar</span>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="-445944157%2FFunctions%2F1275902132" anchor-label="ConsoleDarkRow" id="-445944157%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-console-dark-row.html"><span>Console</span><wbr><span>Dark</span><wbr><span><span>Row</span></span></a></div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-445944157%2FFunctions%2F1275902132" anchor-label="ConsoleDarkRow" id="-445944157%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-console-dark-row.html"><span>Console</span><wbr><span>Dark</span><wbr><span><span>Row</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-445944157%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-dark-row.html"><span class="token function">ConsoleDarkRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> showing the given <a href="-console-dark-row.html">text</a> on a dark background.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-dark-row.html"><span class="token function">ConsoleDarkRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> showing the given <a href="-console-dark-row.html">text</a> on a dark background.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1558445783%2FFunctions%2F1275902132" anchor-label="ConsoleErrorRow" id="1558445783%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-console-error-row.html"><span>Console</span><wbr><span>Error</span><wbr><span><span>Row</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-console-error-row.html"><span>Console</span><wbr><span>Error</span><wbr><span><span>Row</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1558445783%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-error-row.html"><span class="token function">ConsoleErrorRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> that displays the <a href="-console-error-row.html">text</a> on a row which has the <span data-unresolved-link="androidx.compose.material/MaterialTheme/colors/#/PointingToDeclaration/">error</span> background.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-error-row.html"><span class="token function">ConsoleErrorRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> that displays the <a href="-console-error-row.html">text</a> on a row which has the <span data-unresolved-link="androidx.compose.material/MaterialTheme/colors/#/PointingToDeclaration/">error</span> background.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-160867877%2FFunctions%2F1275902132" anchor-label="ConsoleInfoRow" id="-160867877%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-console-info-row.html"><span>Console</span><wbr><span>Info</span><wbr><span><span>Row</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-console-info-row.html"><span>Console</span><wbr><span>Info</span><wbr><span><span>Row</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-160867877%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-info-row.html"><span class="token function">ConsoleInfoRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> that displays the <a href="-console-info-row.html">text</a> on a row which has the <span data-unresolved-link="androidx.compose.material/MaterialTheme/colors/#/PointingToDeclaration/">primary</span> background.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-info-row.html"><span class="token function">ConsoleInfoRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> that displays the <a href="-console-info-row.html">text</a> on a row which has the <span data-unresolved-link="androidx.compose.material/MaterialTheme/colors/#/PointingToDeclaration/">primary</span> background.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-2122846363%2FFunctions%2F1275902132" anchor-label="ConsoleLightRow" id="-2122846363%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-console-light-row.html"><span>Console</span><wbr><span>Light</span><wbr><span><span>Row</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-console-light-row.html"><span>Console</span><wbr><span>Light</span><wbr><span><span>Row</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2122846363%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-light-row.html"><span class="token function">ConsoleLightRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> showing the given <a href="-console-light-row.html">text</a> on a light background.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-light-row.html"><span class="token function">ConsoleLightRow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><a href="../../ui/de.github.dudrie.hamster.ui.components.console/index.html">ConsoleRow</a> showing the given <a href="-console-light-row.html">text</a> on a light background.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-89799493%2FFunctions%2F1275902132" anchor-label="ConsoleMessageList" id="-89799493%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-console-message-list.html"><span>Console</span><wbr><span>Message</span><wbr><span><span>List</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-console-message-list.html"><span>Console</span><wbr><span>Message</span><wbr><span><span>List</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-89799493%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-message-list.html"><span class="token function">ConsoleMessageList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../de.github.dudrie.hamster.ui.model/-game-message/index.html">GameMessage</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">scrollState<span class="token operator">: </span><span data-unresolved-link="androidx.compose.foundation.lazy/LazyListState///PointingToDeclaration/">LazyListState</span><span class="token punctuation">, </span></span><span class="parameter ">onMouseScroll<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>event<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui.input.mouse/MouseScrollEvent///PointingToDeclaration/">MouseScrollEvent</span><span class="token punctuation">, </span><span class="token keyword"></span>bounds<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui.unit/IntSize///PointingToDeclaration/">IntSize</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span>{ _, _ -&gt; false }<span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-message-list.html"><span class="token function">ConsoleMessageList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messages<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../de.github.dudrie.hamster.ui.model/-game-message/index.html">GameMessage</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">scrollState<span class="token operator">: </span><span data-unresolved-link="androidx.compose.foundation.lazy/LazyListState///PointingToDeclaration/">LazyListState</span><span class="token punctuation">, </span></span><span class="parameter ">onMouseScroll<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>event<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui.input.mouse/MouseScrollEvent///PointingToDeclaration/">MouseScrollEvent</span><span class="token punctuation">, </span><span class="token keyword"></span>bounds<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui.unit/IntSize///PointingToDeclaration/">IntSize</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span>{ _, _ -&gt; false }<span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1232301720%2FFunctions%2F1275902132" anchor-label="ConsolePanel" id="-1232301720%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-console-panel.html"><span>Console</span><wbr><span><span>Panel</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-console-panel.html"><span>Console</span><wbr><span><span>Panel</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1232301720%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-panel.html"><span class="token function">ConsolePanel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Shows the game messages in a list.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-console-panel.html"><span class="token function">ConsolePanel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Shows the game messages in a list.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="74246613%2FFunctions%2F1275902132" anchor-label="handleAutoScrolling" id="74246613%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="handle-auto-scrolling.html"><span>handle</span><wbr><span>Auto</span><wbr><span><span>Scrolling</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="handle-auto-scrolling.html"><span>handle</span><wbr><span>Auto</span><wbr><span><span>Scrolling</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="74246613%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="handle-auto-scrolling.html"><span class="token function">handleAutoScrolling</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-auto-scroll-helpers/index.html">AutoScrollHelpers</a></div><div class="brief "><p class="paragraph">Composable helper that handles the logic for implementing auto scrolling behaviour in a list.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="handle-auto-scrolling.html"><span class="token function">handleAutoScrolling</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-auto-scroll-helpers/index.html">AutoScrollHelpers</a></div><div class="brief "><p class="paragraph">Composable helper that handles the logic for implementing auto scrolling behaviour in a list.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1454931766%2FFunctions%2F1275902132" anchor-label="produceMessagesForList" id="-1454931766%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="produce-messages-for-list.html"><span>produce</span><wbr><span>Messages</span><wbr><span>For</span><wbr><span><span>List</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="produce-messages-for-list.html"><span>produce</span><wbr><span>Messages</span><wbr><span>For</span><wbr><span><span>List</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1454931766%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="produce-messages-for-list.html"><span class="token function">produceMessagesForList</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../de.github.dudrie.hamster.ui.model/-game-message/index.html">GameMessage</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Creates a list of messages shown in the console.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="produce-messages-for-list.html"><span class="token function">produceMessagesForList</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="androidx.compose.runtime/State///PointingToDeclaration/">State</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../de.github.dudrie.hamster.ui.model/-game-message/index.html">GameMessage</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Creates a list of messages shown in the console.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="662436923%2FFunctions%2F1275902132" anchor-label="ScrollDownButton" id="662436923%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-scroll-down-button.html"><span>Scroll</span><wbr><span>Down</span><wbr><span><span>Button</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-scroll-down-button.html"><span>Scroll</span><wbr><span>Down</span><wbr><span><span>Button</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="662436923%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-scroll-down-button.html"><span class="token function">ScrollDownButton</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">visible<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">onClick<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token keyword"></span><span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Renders a special FAB which is used in the <a href="-console-panel.html">ConsolePanel</a> so the user can scroll to the bottom of the message list.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="androidx.compose.runtime/Composable///PointingToDeclaration/"><span class="token annotation builtin">Composable</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="-scroll-down-button.html"><span class="token function">ScrollDownButton</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">visible<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">onClick<span class="token operator">: </span><span class="token keyword">suspend </span><span class="token keyword"></span><span data-unresolved-link="kotlinx.coroutines/CoroutineScope///PointingToDeclaration/">CoroutineScope</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">modifier<span class="token operator">: </span><span data-unresolved-link="androidx.compose.ui/Modifier///PointingToDeclaration/">Modifier</span><span class="token operator"> = </span>Modifier</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Renders a special FAB which is used in the <a href="-console-panel.html">ConsolePanel</a> so the user can scroll to the bottom of the message list.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1741483017%2FFunctions%2F1275902132" anchor-label="scrollToLastMessage" id="1741483017%2FFunctions%2F1275902132" data-filterable-set=":ui:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="scroll-to-last-message.html"><span>scroll</span><wbr><span>To</span><wbr><span>Last</span><wbr><span><span>Message</span></span></a></div>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":ui:dokkaHtmlPartial/main" data-filterable-set=":ui:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="scroll-to-last-message.html"><span>scroll</span><wbr><span>To</span><wbr><span>Last</span><wbr><span><span>Message</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1741483017%2FFunctions%2F1275902132"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><span data-unresolved-link="androidx.compose.foundation.lazy/LazyListState///PointingToDeclaration/">LazyListState</span><span class="token punctuation">.</span><a href="scroll-to-last-message.html"><span class="token function">scrollToLastMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Scrolls to the last message in the list by using the given <a href="scroll-to-last-message.html">messageCount</a>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ui:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><span data-unresolved-link="androidx.compose.foundation.lazy/LazyListState///PointingToDeclaration/">LazyListState</span><span class="token punctuation">.</span><a href="scroll-to-last-message.html"><span class="token function">scrollToLastMessage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageCount<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Scrolls to the last message in the list by using the given <a href="scroll-to-last-message.html">messageCount</a>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -229,8 +245,9 @@
       <div class="footer">
         <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
-
-</body></html>
+</body>
+</html>
 
