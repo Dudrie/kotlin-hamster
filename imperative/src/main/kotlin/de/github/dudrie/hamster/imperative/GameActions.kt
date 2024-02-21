@@ -57,5 +57,5 @@ fun resumeGame() {
  * Must be called after calling [startGame] to have an effect.
  */
 fun setGameSpeed(speed: Float) {
-    imperativeGlobalGame?.gameCommands?.setSpeed(speed)
+    imperativeGlobalGame?.gameCommands?.setGameSpeed(speed)
 }

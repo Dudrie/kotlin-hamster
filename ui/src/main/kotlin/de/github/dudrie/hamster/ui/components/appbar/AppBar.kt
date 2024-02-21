@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.ui.R
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
-import de.github.dudrie.hamster.ui.application.UIStateLocal
+import de.github.dudrie.hamster.ui.application.LocalHamsterGame
+import de.github.dudrie.hamster.ui.application.LocalUIState
 import de.github.dudrie.hamster.ui.components.ControlButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,12 +28,12 @@ import kotlin.math.floor
 @Composable
 fun AppBar() {
     TopAppBar(elevation = 8.dp, contentPadding = PaddingValues(horizontal = 16.dp)) {
-        val uiState = UIStateLocal.current
+        val uiState = LocalUIState.current
         val isHamsterHidden = uiState.hideHamster
         val scope = rememberCoroutineScope { Dispatchers.Default }
         val padding = 8.dp
 
-        val commands = HamsterGameLocal.current.gameCommands
+        val commands = LocalHamsterGame.current.gameCommands
         val canUndo by commands.canUndoCommand
         val canRedo by commands.canRedoCommand
         val canPauseOrResume by commands.canPauseOrResumeGame
@@ -76,7 +76,7 @@ fun AppBar() {
 
         ControlButton(
             resourcePath = if (isHamsterHidden) R.icons.hamsterInvisible else R.icons.hamsterVisible,
-            onClick = { scope.launch { uiState.setHamsterHiddenState(!uiState.hideHamster) } },
+            onClick = { scope.launch { uiState.changeHamsterHiddenState() } },
             modifier = Modifier.padding(start = padding * 2),
             enabled = commands.mode != GameMode.Running
         )

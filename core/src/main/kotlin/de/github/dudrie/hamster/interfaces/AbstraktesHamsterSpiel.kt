@@ -90,7 +90,7 @@ abstract class AbstraktesHamsterSpiel {
      *
      * Muss zwischen der [minimalen][de.github.dudrie.hamster.internal.model.game.GameCommandStack.minSpeed] und [maximalen][de.github.dudrie.hamster.internal.model.game.GameCommandStack.maxSpeed] Geschwindigkeit liegen.
      */
-    fun setzeSpielGeschwindigkeit(geschwindigkeit: Float) = gameCommands.setSpeed(geschwindigkeit)
+    fun setzeSpielGeschwindigkeit(geschwindigkeit: Float) = gameCommands.setGameSpeed(geschwindigkeit)
 
     /**
      * Executes the given [command] to change the state of this game.

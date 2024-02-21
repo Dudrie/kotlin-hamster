@@ -7,8 +7,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.window.FrameWindowScope
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.interfaces.AbstraktesHamsterSpiel
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
-import de.github.dudrie.hamster.ui.application.UIStateLocal
+import de.github.dudrie.hamster.ui.application.LocalHamsterGame
+import de.github.dudrie.hamster.ui.application.LocalUIState
 import de.github.dudrie.hamster.ui.application.state.UIState
 import de.github.dudrie.hamster.ui.components.appbar.AppBar
 import de.github.dudrie.hamster.ui.game.MainGameUI
@@ -32,8 +32,8 @@ class GameWindow(private val hamsterGame: AbstraktesHamsterSpiel, private val in
     @Composable
     override fun FrameWindowScope.content() {
         CompositionLocalProvider(
-            HamsterGameLocal provides hamsterGame,
-            UIStateLocal provides uiState
+            LocalHamsterGame provides hamsterGame,
+            LocalUIState provides uiState
         ) {
             val isGameInitialized = hamsterGame.isInitialized
 
@@ -55,5 +55,9 @@ class GameWindow(private val hamsterGame: AbstraktesHamsterSpiel, private val in
                 }
             }
         }
+    }
+
+    fun changeConsoleVisibility() {
+        uiState.showConsole = !uiState.showConsole
     }
 }

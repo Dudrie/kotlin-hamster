@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.internal.model.game.GameMode
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.ui.application.LocalHamsterGame
 import de.github.dudrie.hamster.ui.model.GameMessage
 import de.github.dudrie.hamster.ui.model.GameMessageType
 
@@ -86,7 +86,7 @@ suspend fun LazyListState.scrollToLastMessage(messageCount: Int) {
  */
 @Composable
 fun produceMessagesForList(): State<List<GameMessage>> {
-    val commands = HamsterGameLocal.current.gameCommands
+    val commands = LocalHamsterGame.current.gameCommands
     val canRedo by commands.canRedoCommand
 
     return produceState(listOf(), commands.gameMessageCount, commands.gameException, commands.mode, canRedo) {

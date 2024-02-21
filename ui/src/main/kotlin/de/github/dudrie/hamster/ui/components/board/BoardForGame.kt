@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.ui.application.LocalHamsterGame
 
 /**
  * Wrapper for the basic components for the game board.
@@ -17,7 +17,7 @@ import de.github.dudrie.hamster.ui.application.HamsterGameLocal
  */
 @Composable
 fun BoardForGame(modifier: Modifier = Modifier) {
-    val (territory, gameCommands, tileToHighlight) = HamsterGameLocal.current
+    val (territory, gameCommands, tileToHighlight) = LocalHamsterGame.current
     val size = territory.abmessungen
 
     val minWidth = Integer.min(size.columnCount * 32, 300)

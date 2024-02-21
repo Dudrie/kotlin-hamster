@@ -9,6 +9,7 @@ fun main() {
         val game = ChangingHamsterGame("/territories/defaultTerritory.json", false)
         val compose = HamsterGameCompose(game)
         compose.startGame()
+        compose.window.changeConsoleVisibility()
 
         while (true) {
             game.changeGame("/territories/defaultTerritory.json")

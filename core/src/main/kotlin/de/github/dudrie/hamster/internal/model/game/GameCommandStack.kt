@@ -34,12 +34,11 @@ class GameCommandStack : CommandStack() {
         val speedRange = minSpeed..maxSpeed
     }
 
-    private val speedState = mutableStateOf(4.0f)
-
     /**
      * Current speed of the game.
      */
-    val speed: Float by speedState
+    var speed: Float by mutableStateOf(4.0f)
+        private set
 
     private val modeState = mutableStateOf(GameMode.Initializing)
 
@@ -103,9 +102,9 @@ class GameCommandStack : CommandStack() {
      *
      * @param speed New speed of the game. Must be between [minSpeed] and [maxSpeed].
      */
-    fun setSpeed(speed: Float) {
+    fun setGameSpeed(speed: Float) {
         require(speed in speedRange) { "Speed must be between $minSpeed and $maxSpeed." }
-        speedState.value = speed
+        this.speed = speed
     }
 
     /**

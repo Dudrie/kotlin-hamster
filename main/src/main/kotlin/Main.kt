@@ -14,7 +14,7 @@ private class TestHamsterSpiel : EinfachesHamsterSpiel("testTer", 1) {
 }
 
 private fun runSampleGame(game: HamsterSpiel) {
-    game.gameCommands.setSpeed(7f)
+    game.gameCommands.setGameSpeed(7f)
     val paule = game.paule
 
     repeat(3) {

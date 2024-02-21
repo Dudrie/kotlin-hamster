@@ -20,7 +20,7 @@ import de.github.dudrie.hamster.importer.helpers.ResourceReader
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
 import de.github.dudrie.hamster.internal.model.hamster.HamsterTileContent
 import de.github.dudrie.hamster.ui.R
-import de.github.dudrie.hamster.ui.application.UIStateLocal
+import de.github.dudrie.hamster.ui.application.LocalUIState
 import de.github.dudrie.hamster.ui.theme.GameTheme
 
 /**
@@ -30,7 +30,7 @@ import de.github.dudrie.hamster.ui.theme.GameTheme
  */
 @Composable
 fun BoardHamsterTileContent(content: HamsterTileContent) {
-    val hideHamster = UIStateLocal.current.hideHamster
+    val hideHamster = LocalUIState.current.hideHamster
 
     val degrees = getDegreesForDirection(content.direction)
     val hamster = remember { ResourceReader(R.images.hamster).getContentAsImage().toComposeImageBitmap() }

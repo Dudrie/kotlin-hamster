@@ -11,15 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
 import de.github.dudrie.hamster.ui.R
-import de.github.dudrie.hamster.ui.application.HamsterGameLocal
+import de.github.dudrie.hamster.ui.application.LocalHamsterGame
 import de.github.dudrie.hamster.ui.components.ResourceIcon
 
 /**
- * [Slider] which is responsible for adjusting the [speed][GameCommandStack.speed] of the game.
+ * [Slider] which is responsible for adjusting the [speed][GameCommandStack.setGameSpeed] of the game.
  */
 @Composable
 fun SpeedSlider(modifier: Modifier = Modifier) {
-    val commands = HamsterGameLocal.current.gameCommands
+    val commands = LocalHamsterGame.current.gameCommands
 
     Row(modifier, verticalAlignment = Alignment.CenterVertically) {
         ResourceIcon(
@@ -29,7 +29,7 @@ fun SpeedSlider(modifier: Modifier = Modifier) {
 
         Slider(
             value = commands.speed,
-            onValueChange = { newSpeed -> commands.setSpeed(newSpeed) },
+            onValueChange = { newSpeed -> commands.setGameSpeed(newSpeed) },
             valueRange = GameCommandStack.speedRange,
             steps = GameCommandStack.speedSteps,
             modifier = Modifier.weight(1f).padding(horizontal = 4.dp),

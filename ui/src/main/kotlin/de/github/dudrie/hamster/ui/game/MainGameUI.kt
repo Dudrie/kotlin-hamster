@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.ui.application.LocalUIState
 import de.github.dudrie.hamster.ui.components.appbar.AppBar
 import de.github.dudrie.hamster.ui.components.board.BoardForGame
 import de.github.dudrie.hamster.ui.components.console.ConsolePanel
@@ -22,9 +23,13 @@ import de.github.dudrie.hamster.ui.components.console.ConsolePanel
  */
 @Composable
 fun MainGameUI() {
+    val uiState = LocalUIState.current
+
     Row(modifier = Modifier.fillMaxSize()) {
         BoardForGame(Modifier.weight(1f).fillMaxHeight())
 
-        ConsolePanel(Modifier.fillMaxHeight().width(300.dp))
+        if (uiState.showConsole) {
+            ConsolePanel(Modifier.fillMaxHeight().width(300.dp))
+        }
     }
 }

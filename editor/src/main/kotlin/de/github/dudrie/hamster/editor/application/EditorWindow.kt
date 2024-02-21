@@ -8,7 +8,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.window.FrameWindowScope
 import de.github.dudrie.hamster.editor.dialog.DialogManager
 import de.github.dudrie.hamster.editor.i18n.EditorString
-import de.github.dudrie.hamster.ui.application.UIStateLocal
+import de.github.dudrie.hamster.ui.application.LocalUIState
 import de.github.dudrie.hamster.ui.application.state.UIState
 import de.github.dudrie.hamster.ui.application.windows.ApplicationWindow
 
@@ -28,7 +28,7 @@ class EditorWindow : ApplicationWindow(EditorString.get("window.editor.title")) 
 
         CompositionLocalProvider(
             SnackbarHostLocal provides scaffoldState.snackbarHostState,
-            UIStateLocal provides uiState
+            LocalUIState provides uiState
         ) {
             MainEditorUI(scaffoldState)
 
