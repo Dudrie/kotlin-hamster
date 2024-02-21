@@ -15,7 +15,7 @@ plugins {
     kotlin("jvm") version "1.7.20"
 
     id("org.jetbrains.compose") version "1.2.1"
-    id("org.jetbrains.dokka") version "1.7.20"
+    id("org.jetbrains.dokka") version "1.9.10"
 
     `maven-publish`
 }
@@ -88,7 +88,7 @@ subprojects {
 }
 
 tasks.dokkaHtmlMultiModule.configure {
-    outputDirectory.set(buildDir.resolve("kdoc"))
+    outputDirectory.set(layout.buildDirectory.dir("kdoc"))
 }
 
 fun getProjectVersion(fallbackVersion: String): String {
