@@ -1,8 +1,8 @@
 package de.github.dudrie.hamster.editor.model
 
 import androidx.compose.runtime.mutableStateOf
-import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.interfaces.AbstraktesTerritorium
 import de.github.dudrie.hamster.internal.model.territory.GameTileType
 

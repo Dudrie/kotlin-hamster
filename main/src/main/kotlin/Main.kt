@@ -1,5 +1,5 @@
-import de.github.dudrie.hamster.external.model.HamsterSpiel
 import de.github.dudrie.hamster.external.model.EinfachesHamsterSpiel
+import de.github.dudrie.hamster.external.model.HamsterSpiel
 
 private class TestHamsterSpiel : EinfachesHamsterSpiel("testTer", 1) {
 

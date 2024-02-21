@@ -2,8 +2,8 @@ package de.github.dudrie.hamster.editor.application
 
 import androidx.compose.runtime.mutableStateOf
 import de.github.dudrie.hamster.datatypes.Richtung
-import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.editor.model.*
 import de.github.dudrie.hamster.editor.model.builder.EditableTerritoryBuilder
 import de.github.dudrie.hamster.editor.tools.TileTool

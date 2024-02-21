@@ -1,7 +1,6 @@
 package de.github.dudrie.hamster.interfaces
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.produceState
 import de.github.dudrie.hamster.execptions.TileRelatedException

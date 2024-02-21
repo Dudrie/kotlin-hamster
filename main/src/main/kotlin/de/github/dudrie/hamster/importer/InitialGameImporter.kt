@@ -11,7 +11,7 @@ import de.github.dudrie.hamster.importer.InitialGameImporter.Companion.DEFAULT_F
  * @param hamsterGame Game into which the data should be imported.
  * @param territoryFile File to load the data from. If not provided the default file [DEFAULT_FILE] will be used.
  */
-class InitialGameImporter(private val hamsterGame: HamsterSpiel, private val territoryFile: String? = null)     {
+class InitialGameImporter(private val hamsterGame: HamsterSpiel, private val territoryFile: String? = null) {
 
     /**
      * Object holding some general information

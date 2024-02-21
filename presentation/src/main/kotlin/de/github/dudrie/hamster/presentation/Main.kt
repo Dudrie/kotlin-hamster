@@ -1,6 +1,5 @@
 package de.github.dudrie.hamster.presentation
 
-import de.github.dudrie.hamster.internal.model.hamster.commands.MoveCommand
 import de.github.dudrie.hamster.ui.game.HamsterGameCompose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking

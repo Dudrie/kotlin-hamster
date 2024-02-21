@@ -37,6 +37,7 @@ fun ConsoleMessageList(
                         ConsoleLightRow(text = message.text, modifier = rowModifier)
                     }
                 }
+
                 GameMessageType.ERROR -> ConsoleErrorRow(text = message.text, modifier = rowModifier)
                 GameMessageType.INFO -> ConsoleInfoRow(text = message.text, modifier = rowModifier)
             }

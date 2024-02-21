@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.*
-import kotlinx.coroutines.flow.collect
 
 /**
  * Composable helper that handles the logic for implementing auto scrolling behaviour in a list.

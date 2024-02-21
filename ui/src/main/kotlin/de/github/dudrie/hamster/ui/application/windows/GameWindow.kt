@@ -4,7 +4,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.window.FrameWindowScope
 import de.github.dudrie.hamster.i18n.HamsterString
 import de.github.dudrie.hamster.interfaces.AbstraktesHamsterSpiel

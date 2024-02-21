@@ -1,7 +1,6 @@
 package de.github.dudrie.hamster.ui.components.console
 
 import androidx.compose.animation.*
-import androidx.compose.animation.core.spring
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable

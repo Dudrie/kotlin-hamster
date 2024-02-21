@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.file.model
 
-import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.importer.helpers.parseJson
 import de.github.dudrie.hamster.importer.helpers.stringifyJson
 import de.github.dudrie.hamster.internal.model.territory.GameTileType

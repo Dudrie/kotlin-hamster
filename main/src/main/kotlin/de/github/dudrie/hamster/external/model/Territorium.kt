@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.external.model
 
-import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.datatypes.Size
+import de.github.dudrie.hamster.datatypes.SpielOrt
 import de.github.dudrie.hamster.interfaces.AbstraktesTerritorium
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
@@ -46,5 +46,5 @@ class Territorium(val spiel: HamsterSpiel, internal val internalTerritory: GameT
      * @throws IllegalArgumentException Wenn der [ort] außerhalb des Territoriums liegt.
      */
     fun holeKornAnzahlBei(ort: SpielOrt): Int = internalTerritory.getTileAt(ort).grainCount
-    
+
 }
