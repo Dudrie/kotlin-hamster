@@ -12,6 +12,7 @@ import de.github.dudrie.hamster.interfaces.AbstraktesTerritorium
 import de.github.dudrie.hamster.interfaces.IHamster
 import de.github.dudrie.hamster.internal.model.game.Command
 import de.github.dudrie.hamster.internal.model.game.GameCommandStack
+import de.github.dudrie.hamster.internal.model.game.GameMode
 import de.github.dudrie.hamster.internal.model.hamster.GameHamster
 import de.github.dudrie.hamster.internal.model.hamster.commands.*
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
@@ -38,7 +39,9 @@ class ChangingHamsterGame(initialTerritory: String, private val loadFromOuterMod
 
     fun changeGame(territoryFile: String) {
         isInitialized = false
-        gameCommands = GameCommandStack()
+        gameCommands.reset()
+        gameCommands.mode = GameMode.Initializing
+
         val importer = GameImporter(territoryFile, loadFromOuterModule)
 
         territorium = ChangingTerritory(importer.gameTerritory)
