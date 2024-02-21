@@ -110,4 +110,9 @@ abstract class CommandStack {
             executionLock.unlock()
         }
     }
+
+    fun reset() {
+        undoneCommands.clear()
+        executedCommands.clear()
+    }
 }

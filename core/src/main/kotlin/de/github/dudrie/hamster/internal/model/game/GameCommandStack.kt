@@ -40,12 +40,10 @@ class GameCommandStack : CommandStack() {
     var speed: Float by mutableStateOf(4.0f)
         private set
 
-    private val modeState = mutableStateOf(GameMode.Initializing)
-
     /**
      * Current [GameMode] of the game.
      */
-    val mode: GameMode by modeState
+    var mode: GameMode by mutableStateOf(GameMode.Initializing)
 
     private val isUndoingOrRedoingState = mutableStateOf(false)
     private var isUndoingOrRedoing: Boolean by isUndoingOrRedoingState
@@ -220,7 +218,7 @@ class GameCommandStack : CommandStack() {
             executedCommands.clear()
             undoneCommands.clear()
 
-            modeState.value = GameMode.Running
+            mode = GameMode.Running
 
             if (startPaused) {
                 pauseGame()
@@ -258,7 +256,7 @@ class GameCommandStack : CommandStack() {
         try {
             require(mode == GameMode.Paused) { "One can only resume a paused game." }
             redoAll()
-            modeState.value = GameMode.Running
+            mode = GameMode.Running
         } finally {
             executionLock.unlock()
         }
@@ -286,7 +284,7 @@ class GameCommandStack : CommandStack() {
         executionLock.lock()
         try {
             require(mode == GameMode.Running) { "One can only change the mode of a running game to $newMode." }
-            modeState.value = newMode
+            mode = newMode
         } finally {
             executionLock.unlock()
         }
