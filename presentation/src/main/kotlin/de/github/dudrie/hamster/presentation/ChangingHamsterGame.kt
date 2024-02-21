@@ -16,10 +16,9 @@ import de.github.dudrie.hamster.internal.model.hamster.GameHamster
 import de.github.dudrie.hamster.internal.model.hamster.commands.*
 import de.github.dudrie.hamster.internal.model.territory.GameTerritory
 import de.github.dudrie.hamster.internal.model.territory.GameTile
-import de.github.dudrie.hamster.ui.application.windows.GameWindow
-import java.util.concurrent.CountDownLatch
 
-class ChangingHamsterGame(initialTerritory: String) : AbstraktesHamsterSpiel() {
+class ChangingHamsterGame(initialTerritory: String, private val loadFromOuterModule: Boolean = true) :
+    AbstraktesHamsterSpiel() {
 
     override var gameCommands: GameCommandStack = GameCommandStack()
         private set
@@ -40,7 +39,7 @@ class ChangingHamsterGame(initialTerritory: String) : AbstraktesHamsterSpiel() {
     fun changeGame(territoryFile: String) {
         isInitialized = false
         gameCommands = GameCommandStack()
-        val importer = GameImporter(territoryFile, false)
+        val importer = GameImporter(territoryFile, loadFromOuterModule)
 
         territorium = ChangingTerritory(importer.gameTerritory)
         paule = ChangingHamster(importer.gameHamster, this)

@@ -6,7 +6,7 @@ import kotlinx.coroutines.runBlocking
 
 fun main() {
     runBlocking {
-        val game = ChangingHamsterGame("/territories/defaultTerritory.json")
+        val game = ChangingHamsterGame("/territories/defaultTerritory.json", false)
         val compose = HamsterGameCompose(game)
         compose.startGame()
 
