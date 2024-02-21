@@ -7,7 +7,7 @@ plugins {
 val coroutinesVersion: String by project
 
 dependencies {
-    implementation(project(":main"))
+    api(project(":main"))
     implementation(project(":ui"))
 
     compileOnly(compose.desktop.currentOs)
