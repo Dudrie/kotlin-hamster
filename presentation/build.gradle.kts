@@ -8,7 +8,7 @@ val coroutinesVersion: String by project
 
 dependencies {
     api(project(":main"))
-    implementation(project(":ui"))
+    api(project(":ui"))
 
     compileOnly(compose.desktop.currentOs)
     compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
