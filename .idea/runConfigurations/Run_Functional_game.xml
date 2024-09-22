@@ -1,7 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run Imperative Game" type="JetRunConfigurationType">
+  <configuration default="false" name="Run Functional game" type="JetRunConfigurationType">
     <option name="MAIN_CLASS_NAME" value="MainKt" />
-    <module name="kotlin-hamster.imperative.main" />
     <shortenClasspath name="NONE" />
     <method v="2">
       <option name="Make" enabled="true" />
