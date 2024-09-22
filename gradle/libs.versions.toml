@@ -1,0 +1,16 @@
+[versions]
+kotlin = "2.0.20"
+compose-plugin = "1.6.11"
+versions-plugin = "0.51.0"
+dokka-plugin = "1.9.10"
+gson = "2.8.9"
+kotlinx-coroutines = "1.6.4"
+
+[plugins]
+compose-core = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+versions = { id = "com.github.ben-manes.versions", version.ref = "versions-plugin" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-plugin" }
+
+[libraries]
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }

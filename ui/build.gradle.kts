@@ -3,18 +3,23 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 plugins {
     kotlin("jvm")
 
-    id("org.jetbrains.compose")
-}
+    alias(libs.plugins.compose.core)
+    alias(libs.plugins.compose.compiler)
 
-val coroutinesVersion: String by project
+    alias(libs.plugins.dokka)
+}
 
 dependencies {
     implementation(project(":core"))
 
-    implementation(compose.desktop.currentOs)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation(compose.desktop.currentOs) {
+        exclude("org.jetbrains.compose.material")
+    }
 
-    testImplementation(kotlin("test"))
+    implementation(compose.material3)
+    implementation(compose.materialIconsExtended)
+
+    implementation(libs.kotlinx.coroutines)
 }
 
 compose.desktop {
@@ -23,7 +28,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "kotlin-hamster"
-            packageVersion = "${rootProject.version}.0"
+            packageVersion = "${rootProject.version}"
         }
     }
 }
