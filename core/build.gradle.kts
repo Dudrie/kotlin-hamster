@@ -2,4 +2,6 @@ plugins {
     kotlin("jvm")
 }
 
-dependencies {}
+dependencies {
+    implementation(libs.kotlinx.coroutines)
+}
