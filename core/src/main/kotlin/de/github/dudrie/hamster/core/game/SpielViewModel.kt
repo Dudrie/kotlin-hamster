@@ -9,14 +9,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.sync.Semaphore
 
-object SpielDefaults {
-    const val MIN_GESCHWINDIGKEIT = 1.0
-
-    const val MAX_GESCHWINDIGKEIT = 10.0
-
-    val geschwindigkeitInterval = MIN_GESCHWINDIGKEIT..MAX_GESCHWINDIGKEIT
-}
-
 class SpielViewModel {
 
     private val _spielZustand = MutableStateFlow(SpielZustand())
@@ -44,15 +36,6 @@ class SpielViewModel {
                 geschwindigkeit = it.geschwindigkeit
             )
         }
-    }
-
-    fun setzeStartHamster(kommando: SpawneHamsterKommando) {
-        require(spielModus == SpielModus.Initialisierung) { "Hamster kann nur während der Initialisierung gesetzt werden. Benutze während dem Ausführen die Funktion `fuhreAus()`." }
-
-        val altesTerritorium = _spielZustand.value.aktuellesTerritorium
-        require(altesTerritorium != null) { "ERR_NO_TERRITORY" }
-
-        _spielZustand.update { it.copy(aktuellesTerritorium = kommando.fuhreAus(altesTerritorium)) }
     }
 
     suspend fun fuhreAus(kommando: Kommando) {
