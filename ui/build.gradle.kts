@@ -16,8 +16,14 @@ dependencies {
 
     implementation(compose.material3)
     implementation(compose.materialIconsExtended)
+    implementation(compose.components.resources)
 
     implementation(libs.kotlinx.coroutines)
+}
+
+compose.resources {
+    packageOfResClass = "de.github.dudrie.hamster.ui.generated"
+    generateResClass = always
 }
 
 compose.desktop {
