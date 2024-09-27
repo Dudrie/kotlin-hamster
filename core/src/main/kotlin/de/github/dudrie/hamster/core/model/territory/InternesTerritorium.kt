@@ -18,8 +18,8 @@ data class InternesTerritorium(
                 _abmessungen!!
             } else {
                 _abmessungen = Abmessungen(
-                    breite = kacheln.keys.maxOf { it.x },
-                    hohe = kacheln.keys.maxOf { it.y }
+                    breite = kacheln.keys.maxOf { it.x } + 1,
+                    hohe = kacheln.keys.maxOf { it.y } + 1
                 )
                 _abmessungen!!
             }
@@ -54,5 +54,8 @@ data class InternesTerritorium(
 
         return copy(hamster = this.hamster + hamster)
     }
+
+    fun getHamsterBei(position: Position): InternerHamster? =
+        hamster.find { it.position == position }
 
 }
