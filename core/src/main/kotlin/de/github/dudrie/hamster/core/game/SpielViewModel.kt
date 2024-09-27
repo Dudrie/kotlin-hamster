@@ -12,14 +12,20 @@ import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.core.model.util.Richtung
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.sync.Semaphore
+import kotlin.reflect.KProperty
 
 class SpielViewModel {
 
     private val _spielZustand = MutableStateFlow(SpielZustand())
     val spielZustand = _spielZustand.asStateFlow()
+
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): StateFlow<SpielZustand> {
+        return spielZustand
+    }
 
     val territorium: InternesTerritorium
         get() = _spielZustand.value.aktuellesTerritorium
@@ -273,4 +279,7 @@ data class SpielZustand(
      * Liste aller Kommandos, die rückgängig gemacht wurden.
      */
     val wiederherstellbareKommandos: List<KommandoErgebnis> = listOf()
-)
+) {
+    val territorium: InternesTerritorium
+        get() = aktuellesTerritorium ?: throw NullPointerException("ERR_TERRITORY_IS_NULL")
+}
