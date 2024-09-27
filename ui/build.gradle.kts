@@ -5,8 +5,6 @@ plugins {
 
     alias(libs.plugins.compose.core)
     alias(libs.plugins.compose.compiler)
-
-    alias(libs.plugins.dokka)
 }
 
 dependencies {
