@@ -6,7 +6,8 @@ import de.github.dudrie.hamster.core.model.util.Position
 
 data class InternesTerritorium(
     val hamster: List<InternerHamster>,
-    val kacheln: Map<Position, Kachel>
+    val kacheln: Map<Position, Kachel>,
+    val kachelZuMeterSkalierung: Double = 1.0
 ) {
 
     private var _abmessungen: Abmessungen? = null

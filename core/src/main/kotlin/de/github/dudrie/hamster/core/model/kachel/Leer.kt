@@ -3,8 +3,6 @@ package de.github.dudrie.hamster.core.model.kachel
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed class Kachelinhalt {
-    abstract val blocktBewegung: Boolean
-
-    // TODO: Resource
+data object Leer : Kachelinhalt() {
+    override val blocktBewegung: Boolean = false
 }
