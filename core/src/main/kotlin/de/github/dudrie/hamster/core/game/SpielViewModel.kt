@@ -9,17 +9,15 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.sync.Semaphore
 
+object SpielDefaults {
+    const val MIN_GESCHWINDIGKEIT = 1.0
+
+    const val MAX_GESCHWINDIGKEIT = 10.0
+
+    val geschwindigkeitInterval = MIN_GESCHWINDIGKEIT..MAX_GESCHWINDIGKEIT
+}
+
 class SpielViewModel {
-
-    companion object {
-        const val minGeschwindigkeit = 1.0
-
-        const val maxGeschwindigkeit = 10.0
-
-        const val schritteGeschwindigkeit = (maxGeschwindigkeit - minGeschwindigkeit - 1).toInt()
-
-        val geschwindigkeitInterval = minGeschwindigkeit..maxGeschwindigkeit
-    }
 
     private val _spielZustand = MutableStateFlow(SpielZustand())
     val spielZustand = _spielZustand.asStateFlow()
@@ -33,7 +31,6 @@ class SpielViewModel {
     private val spielLog = SpielLog()
 
     private val kommandoLock = Semaphore(1)
-    private val pausiertLock = Semaphore(1)
 
     fun setGeschwindigkeit(geschwindigkeit: Double) {
         _spielZustand.update { it.copy(geschwindigkeit = geschwindigkeit) }
@@ -50,19 +47,23 @@ class SpielViewModel {
     }
 
     fun setzeStartHamster(kommando: SpawneHamsterKommando) {
+        require(spielModus == SpielModus.Initialisierung) { "Hamster kann nur während der Initialisierung gesetzt werden. Benutze während dem Ausführen die Funktion `fuhreAus()`." }
 
+        val altesTerritorium = _spielZustand.value.aktuellesTerritorium
+        require(altesTerritorium != null) { "ERR_NO_TERRITORY" }
+
+        _spielZustand.update { it.copy(aktuellesTerritorium = kommando.fuhreAus(altesTerritorium)) }
     }
 
     suspend fun fuhreAus(kommando: Kommando) {
-        pausiertLock.acquire()
         kommandoLock.acquire()
         try {
             requireKommandoAusfuhrbar(kommando)
-            val aktuellesTerritorium = _spielZustand.value.aktuellesTerritorium
-            require(aktuellesTerritorium != null) { "ERR_NO_TERRITORY" }
+            val altesTerritorium = _spielZustand.value.aktuellesTerritorium
+            require(altesTerritorium != null) { "ERR_NO_TERRITORY" }
 
-            val neuesTerritorium = kommando.fuhreAus(aktuellesTerritorium)
-            val ergebnis = KommandoErgebnis(kommando, neuesTerritorium)
+            val neuesTerritorium = kommando.fuhreAus(altesTerritorium)
+            val ergebnis = KommandoErgebnis(kommando, altesTerritorium, neuesTerritorium)
 
             _spielZustand.update {
                 it.copy(
@@ -70,9 +71,9 @@ class SpielViewModel {
                     ausgefuhrteKommandos = it.ausgefuhrteKommandos + ergebnis
                 )
             }
-            spielLog.zeigeNachricht(kommando.getLogNachricht())
 
-            delay(((maxGeschwindigkeit + 1 - geschwindigkeit) / 5.0 * 400.0).toLong())
+            spielLog.zeigeNachricht(kommando.getLogNachricht())
+            delay(((SpielDefaults.MAX_GESCHWINDIGKEIT + 1 - geschwindigkeit) / 5.0 * 400.0).toLong())
         } catch (e: SpielException) {
             brichSpielAb(e)
         } finally {
@@ -91,13 +92,13 @@ class SpielViewModel {
         }
 
         if (startePausiert) {
-            pausiertLock.acquire()
+            kommandoLock.acquire()
         }
     }
 
     suspend fun pausiereSpiel() {
         require(spielModus == SpielModus.Lauft) { "ERR_GAME_NOT_RUNNING" }
-        pausiertLock.acquire()
+        kommandoLock.acquire()
         _spielZustand.update { it.copy(modus = SpielModus.Pausiert) }
     }
 
@@ -105,18 +106,72 @@ class SpielViewModel {
         require(spielModus == SpielModus.Pausiert) { "ERR_GAME_NOT_PAUSED" }
         stelleAlleWiederHer()
         _spielZustand.update { it.copy(modus = SpielModus.Lauft) }
-        pausiertLock.release()
+        kommandoLock.release()
+    }
+
+    fun ruckgangig() {
+        requireKannRuckganigOderWiederherstellen()
+        require(_spielZustand.value.ausgefuhrteKommandos.isNotEmpty()) { "ERR_NO_COMMAND_TO_UNDO" }
+
+        val letztesKommando = _spielZustand.value.ausgefuhrteKommandos.last()
+        val zukunftigeKommandos = _spielZustand.value.wiederherstellbareKommandos.toMutableList()
+        zukunftigeKommandos.add(0, letztesKommando)
+
+        _spielZustand.update {
+            it.copy(
+                aktuellesTerritorium = letztesKommando.territoriumVorher,
+                ausgefuhrteKommandos = it.ausgefuhrteKommandos - letztesKommando,
+                wiederherstellbareKommandos = zukunftigeKommandos
+            )
+        }
+
+        spielLog.entferneLetzteNachricht()
+    }
+
+    fun stelleWiederHer() {
+        requireKannRuckganigOderWiederherstellen()
+        require(_spielZustand.value.wiederherstellbareKommandos.isNotEmpty()) { "ERR_NO_COMMAND_TO_REDO" }
+
+        val nachstesKommando = _spielZustand.value.wiederherstellbareKommandos.first()
+
+        _spielZustand.update {
+            it.copy(
+                aktuellesTerritorium = nachstesKommando.territoriumNachher,
+                ausgefuhrteKommandos = it.ausgefuhrteKommandos + nachstesKommando,
+                wiederherstellbareKommandos = it.wiederherstellbareKommandos - nachstesKommando
+            )
+        }
+
+        spielLog.zeigeNachricht(nachstesKommando.kommando.getLogNachricht())
+    }
+
+    private fun stelleAlleWiederHer() {
+        requireKannRuckganigOderWiederherstellen()
+        val wiederherstellbareKommandos = _spielZustand.value.wiederherstellbareKommandos
+
+        if (wiederherstellbareKommandos.isNotEmpty()) {
+            val letztesKommando = wiederherstellbareKommandos.last()
+            _spielZustand.update {
+                it.copy(
+                    aktuellesTerritorium = letztesKommando.territoriumNachher,
+                    ausgefuhrteKommandos = it.ausgefuhrteKommandos + it.wiederherstellbareKommandos,
+                    wiederherstellbareKommandos = listOf()
+                )
+            }
+
+            spielLog.zeigeMehrereNachrichten(wiederherstellbareKommandos.map { it.kommando.getLogNachricht() })
+        }
     }
 
     suspend fun stoppeSpiel() {
         require(spielModus == SpielModus.Lauft) { "ERR_GAME_NOT_RUNNING" }
-        pausiertLock.acquire()
+        kommandoLock.acquire()
         _spielZustand.update { it.copy(modus = SpielModus.Gestoppt) }
     }
 
     suspend fun brichSpielAb(fehler: SpielException) {
         require(spielModus == SpielModus.Lauft) { "ERR_GAME_NOT_RUNNING" }
-        pausiertLock.acquire()
+        kommandoLock.acquire()
         _spielZustand.update {
             it.copy(
                 modus = SpielModus.Abgebrochen,
@@ -134,6 +189,14 @@ class SpielViewModel {
             else -> return
         }
     }
+
+    private fun requireKannRuckganigOderWiederherstellen() {
+        require(
+            spielModus == SpielModus.Pausiert
+                    || spielModus == SpielModus.Gestoppt
+                    || spielModus == SpielModus.Abgebrochen
+        ) { "ERR_CAN_NOT_UNDO_OR_REDO" }
+    }
 }
 
 class SpielLog {
@@ -142,6 +205,10 @@ class SpielLog {
 
     fun zeigeNachricht(nachricht: HamsterString) {
         _nachrichten.update { it + nachricht }
+    }
+
+    fun zeigeMehrereNachrichten(nachrichten: List<HamsterString>) {
+        _nachrichten.update { it + nachrichten }
     }
 
     fun entferneLetzteNachricht() {
@@ -153,7 +220,11 @@ class SpielLog {
     }
 }
 
-data class KommandoErgebnis(val kommando: Kommando, val territoriumVorher: InternesTerritorium)
+data class KommandoErgebnis(
+    val kommando: Kommando,
+    val territoriumVorher: InternesTerritorium,
+    val territoriumNachher: InternesTerritorium
+)
 
 data class SpielZustand(
     val aktuellesTerritorium: InternesTerritorium? = null,
@@ -164,9 +235,5 @@ data class SpielZustand(
     /**
      * Liste aller Kommandos, die rückgängig gemacht wurden.
      */
-    val zukunftigeKommandos: List<KommandoErgebnis> = listOf()
-) {
-    val kannRuckgangigMachen: Boolean = ausgefuhrteKommandos.isNotEmpty()
-
-    val kannWiederherstellen: Boolean = zukunftigeKommandos.isNotEmpty()
-}
+    val wiederherstellbareKommandos: List<KommandoErgebnis> = listOf()
+)
