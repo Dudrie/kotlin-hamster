@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import de.github.dudrie.hamster.core.game.SpielDefaults
 import de.github.dudrie.hamster.ui.generated.Res
 import de.github.dudrie.hamster.ui.generated.speedometer
 import de.github.dudrie.hamster.ui.generated.speedometer_slow
@@ -22,7 +23,6 @@ import org.jetbrains.compose.resources.imageResource
 
 @Composable
 fun SpeedSlider(modifier: Modifier = Modifier) {
-    // TODO: Use speed from viewmodel
     val viewmodel = viewModel<UIViewModel>()
     val state by viewmodel.spielZustand.collectAsState()
 
@@ -32,7 +32,7 @@ fun SpeedSlider(modifier: Modifier = Modifier) {
         Slider(
             value = state.geschwindigkeit.toFloat(),
             onValueChange = { viewmodel.setGeschwindigkeit(it) },
-            valueRange = 1.0f..10.0f,
+            valueRange = SpielDefaults.getSpeedInterval(),
             modifier = Modifier.padding(4.dp).weight(1f, false),
             colors = SliderDefaults.colors(
                 thumbColor = MaterialTheme.colorScheme.secondary,
@@ -42,4 +42,8 @@ fun SpeedSlider(modifier: Modifier = Modifier) {
 
         Icon(imageResource(Res.drawable.speedometer), null, modifier = Modifier.size(24.dp))
     }
+}
+
+fun SpielDefaults.getSpeedInterval(): ClosedFloatingPointRange<Float> {
+    return MIN_GESCHWINDIGKEIT.toFloat()..MAX_GESCHWINDIGKEIT.toFloat()
 }
