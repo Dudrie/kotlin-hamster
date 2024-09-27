@@ -11,6 +11,8 @@ import kotlinx.serialization.json.Json
 
 object SpielImporter {
 
+    const val STANDARD_DATEIPFAD = "/territories/standard.json"
+
     fun getStartTerritorium(
         dateipfad: String,
         ausResourceOrdner: Boolean = false

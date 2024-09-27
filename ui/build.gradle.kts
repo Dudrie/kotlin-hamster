@@ -18,6 +18,8 @@ dependencies {
     implementation(compose.materialIconsExtended)
     implementation(compose.components.resources)
 
+    implementation(libs.compose.viewmodel)
+
     implementation(libs.kotlinx.coroutines)
 }
 

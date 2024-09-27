@@ -1,3 +1,4 @@
 <resources>
     <string name="app-title">Hamster Simulator</string>
+    <string name="app-loading">Lade Territorium und Hamster...</string>
 </resources>

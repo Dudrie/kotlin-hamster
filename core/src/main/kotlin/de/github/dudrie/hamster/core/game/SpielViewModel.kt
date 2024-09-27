@@ -1,8 +1,15 @@
 package de.github.dudrie.hamster.core.game
 
 import de.github.dudrie.hamster.core.exception.SpielException
+import de.github.dudrie.hamster.core.file.SpielImporter
+import de.github.dudrie.hamster.core.model.hamster.InternerHamster
+import de.github.dudrie.hamster.core.model.kachel.Kachel
+import de.github.dudrie.hamster.core.model.kachel.Leer
+import de.github.dudrie.hamster.core.model.kachel.Wand
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
+import de.github.dudrie.hamster.core.model.util.Position
+import de.github.dudrie.hamster.core.model.util.Richtung
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,6 +20,15 @@ class SpielViewModel {
 
     private val _spielZustand = MutableStateFlow(SpielZustand())
     val spielZustand = _spielZustand.asStateFlow()
+
+    val territorium: InternesTerritorium
+        get() = _spielZustand.value.aktuellesTerritorium
+            ?: throw NoSuchElementException("ERR_NO_TERRITORY")
+
+
+    val standardHamster: InternerHamster
+        get() = _spielZustand.value.aktuellesTerritorium?.hamster?.first()
+            ?: throw NoSuchElementException("ERR_NO_DEFAULT_HAMSTER")
 
     private val geschwindigkeit: Double
         get() = spielZustand.value.geschwindigkeit
@@ -163,6 +179,17 @@ class SpielViewModel {
         }
     }
 
+
+    fun ladeSpiel(territoriumsDatei: String?) {
+        require(spielModus == SpielModus.Initialisierung) { "ERR_GAME_NOT_INITIALIZING" }
+        val territorium = SpielImporter.getStartTerritorium(
+            dateipfad = territoriumsDatei ?: SpielImporter.STANDARD_DATEIPFAD,
+            ausResourceOrdner = territoriumsDatei == null
+        )
+
+        _spielZustand.update { it.copy(aktuellesTerritorium = territorium) }
+    }
+
     private fun requireKommandoAusfuhrbar(kommando: Kommando) {
         when (spielModus) {
             SpielModus.Initialisierung -> if (kommando !is SpawneHamsterKommando) {
@@ -179,6 +206,33 @@ class SpielViewModel {
                     || spielModus == SpielModus.Gestoppt
                     || spielModus == SpielModus.Abgebrochen
         ) { "ERR_CAN_NOT_UNDO_OR_REDO" }
+    }
+
+    // TODO: Remove me
+    internal fun erstelleStandardTerritorium() {
+        require(spielModus == SpielModus.Initialisierung) { "ERR_GAME_NOT_INITIALIZING" }
+        val kacheln = mutableMapOf<Position, Kachel>()
+
+        repeat(5) {
+            kacheln[Position(it, 0)] = Kachel(Wand())
+            kacheln[Position(it, 2)] = Kachel(Wand())
+        }
+
+        kacheln[Position(0, 1)] = Kachel(Wand())
+        kacheln[Position(1, 1)] = Kachel(Leer)
+        kacheln[Position(2, 1)] = Kachel(Leer)
+        kacheln[Position(3, 1)] = Kachel(Leer)
+        kacheln[Position(4, 1)] = Kachel(Wand())
+
+        val hamster = InternerHamster(
+            position = Position(1, 1),
+            richtung = Richtung.Osten,
+            inventar = listOf()
+        )
+
+        val territorium = InternesTerritorium(hamster = listOf(hamster), kacheln = kacheln)
+
+        _spielZustand.update { it.copy(aktuellesTerritorium = territorium) }
     }
 }
 

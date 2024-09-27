@@ -14,7 +14,7 @@ import kotlin.io.path.Path
 
 object SpielExporter {
 
-    private val format = Json { prettyPrint = true }
+    private val format = Json { prettyPrint = false }
 
     fun speichereSpiel(dateipfad: String, territorium: InternesTerritorium) {
         val startHamster = territorium.hamster.firstOrNull()
