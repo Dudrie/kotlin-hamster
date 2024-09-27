@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ThemeWrapper(inhalt: @Composable () -> Unit) {
     val formen = remember { Shapes(medium = RoundedCornerShape(8.dp)) }
-    val farben = remember { highContrastLightColorScheme }
+    val farben = remember { lightScheme }
 
     MaterialTheme(colorScheme = farben, shapes = formen) {
         val scrollbarStyle =

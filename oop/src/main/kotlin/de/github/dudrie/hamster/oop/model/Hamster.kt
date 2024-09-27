@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.oop
+package de.github.dudrie.hamster.oop.model
 
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 

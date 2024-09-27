@@ -1,17 +1,19 @@
 package de.github.dudrie.hamster.ui.windows
 
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.window.FrameWindowScope
-import de.github.dudrie.hamster.ui.components.LadeUI
+import androidx.lifecycle.viewmodel.compose.viewModel
+import de.github.dudrie.hamster.core.game.SpielViewModel
+import de.github.dudrie.hamster.ui.components.util.LoadingUI
+import de.github.dudrie.hamster.ui.components.util.WindowContent
 import de.github.dudrie.hamster.ui.generated.Res
 import de.github.dudrie.hamster.ui.generated.app_title
-import de.github.dudrie.hamster.ui.model.HamsterSpiel
+import de.github.dudrie.hamster.ui.model.UIViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Semaphore
 
-class SpielFenster(private val importJob: Job, private val spiel: HamsterSpiel) :
+class SpielFenster(private val importJob: Job, private val spiel: SpielViewModel) :
     AppFenster(Res.string.app_title) {
 
     /**
@@ -30,6 +32,7 @@ class SpielFenster(private val importJob: Job, private val spiel: HamsterSpiel) 
     @Composable
     override fun FrameWindowScope.inhalt() {
         var ladtSpiel by remember { mutableStateOf(true) }
+        val viewModel = viewModel { UIViewModel(spiel) }
 
         LaunchedEffect(importJob) {
             importJob.join()
@@ -37,13 +40,10 @@ class SpielFenster(private val importJob: Job, private val spiel: HamsterSpiel) 
             fensterSemaphore.release()
         }
 
-        Scaffold() {
-            if (ladtSpiel) {
-                LadeUI()
-            } else {
-
-            }
+        if (ladtSpiel) {
+            LoadingUI()
+        } else {
+            WindowContent(viewModel)
         }
     }
-
 }

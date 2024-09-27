@@ -1,16 +1,14 @@
-package de.github.dudrie.hamster.oop
+package de.github.dudrie.hamster.oop.model
 
 import de.github.dudrie.hamster.core.game.SpielViewModel
-import de.github.dudrie.hamster.ui.model.HamsterSpiel
 import de.github.dudrie.hamster.ui.windows.SpielFenster
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) :
-    HamsterSpiel() {
+abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) {
 
-    override val spiel = SpielViewModel()
+    private val spiel = SpielViewModel()
 
     lateinit var paule: Hamster
         private set
@@ -23,7 +21,7 @@ abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = nu
             paule = Hamster(territorium, spiel.standardHamster)
         }
 
-        SpielFenster(job, this).starte()
+        SpielFenster(job, spiel).starte()
     }
 
 }

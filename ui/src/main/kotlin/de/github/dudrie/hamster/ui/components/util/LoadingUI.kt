@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.ui.components
+package de.github.dudrie.hamster.ui.components.util
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import de.github.dudrie.hamster.ui.generated.app_loading
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun LadeUI() {
+fun LoadingUI() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
