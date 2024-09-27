@@ -4,6 +4,7 @@ import de.github.dudrie.hamster.core.exception.SpielException
 import de.github.dudrie.hamster.core.file.SpielImporter
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
+import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
 import de.github.dudrie.hamster.core.model.kachel.Wand
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
@@ -215,7 +216,7 @@ class SpielViewModel {
     }
 
     // TODO: Remove me
-    internal fun erstelleStandardTerritorium() {
+    fun erstelleStandardTerritorium() {
         require(spielModus == SpielModus.Initialisierung) { "ERR_GAME_NOT_INITIALIZING" }
         val kacheln = mutableMapOf<Position, Kachel>()
 
@@ -227,7 +228,7 @@ class SpielViewModel {
         kacheln[Position(0, 1)] = Kachel(Wand())
         kacheln[Position(1, 1)] = Kachel(Leer)
         kacheln[Position(2, 1)] = Kachel(Leer)
-        kacheln[Position(3, 1)] = Kachel(Leer)
+        kacheln[Position(3, 1)] = Kachel(KornInhalt(1))
         kacheln[Position(4, 1)] = Kachel(Wand())
 
         val hamster = InternerHamster(
