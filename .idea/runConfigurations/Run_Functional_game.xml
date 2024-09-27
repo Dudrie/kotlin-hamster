@@ -2,6 +2,7 @@
   <configuration default="false" name="Run Functional game" type="JetRunConfigurationType">
     <option name="MAIN_CLASS_NAME" value="MainKt" />
     <shortenClasspath name="NONE" />
+    <option name="WORKING_DIRECTORY" value="$ProjectFileDir$" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
