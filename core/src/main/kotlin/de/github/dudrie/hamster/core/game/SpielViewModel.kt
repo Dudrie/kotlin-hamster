@@ -2,13 +2,14 @@ package de.github.dudrie.hamster.core.game
 
 import de.github.dudrie.hamster.core.exception.SpielException
 import de.github.dudrie.hamster.core.file.SpielImporter
+import de.github.dudrie.hamster.core.game.commands.Kommando
+import de.github.dudrie.hamster.core.game.commands.SpawneHamsterKommando
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
 import de.github.dudrie.hamster.core.model.kachel.Wand
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
-import de.github.dudrie.hamster.core.model.util.HamsterString
 import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.core.model.util.Richtung
 import kotlinx.coroutines.delay
@@ -31,7 +32,6 @@ class SpielViewModel {
     val territorium: InternesTerritorium
         get() = _spielZustand.value.aktuellesTerritorium
             ?: throw NoSuchElementException("ERR_NO_TERRITORY")
-
 
     val standardHamster: InternerHamster
         get() = _spielZustand.value.aktuellesTerritorium?.hamster?.first()
@@ -89,9 +89,11 @@ class SpielViewModel {
 
     suspend fun starteSpiel(startePausiert: Boolean) {
         require(spielModus == SpielModus.Initialisierung) { "ERR_GAME_NOT_INITIALIZING" }
+        require(spielZustand.value.aktuellesTerritorium != null) { "ERR_NO_TERRITORY_LOADED" }
 
         _spielZustand.update {
             SpielZustand().copy(
+                aktuellesTerritorium = it.aktuellesTerritorium,
                 modus = if (startePausiert) SpielModus.Pausiert else SpielModus.Lauft,
                 geschwindigkeit = it.geschwindigkeit
             )
@@ -171,19 +173,19 @@ class SpielViewModel {
 
     suspend fun stoppeSpiel() {
         require(spielModus == SpielModus.Lauft) { "ERR_GAME_NOT_RUNNING" }
-        kommandoLock.acquire()
         _spielZustand.update { it.copy(modus = SpielModus.Gestoppt) }
+        kommandoLock.acquire()
     }
 
     suspend fun brichSpielAb(fehler: SpielException) {
         require(spielModus == SpielModus.Lauft) { "ERR_GAME_NOT_RUNNING" }
-        kommandoLock.acquire()
         _spielZustand.update {
             it.copy(
                 modus = SpielModus.Abgebrochen,
                 fehler = fehler
             )
         }
+        kommandoLock.acquire()
     }
 
 
@@ -228,7 +230,7 @@ class SpielViewModel {
         kacheln[Position(0, 1)] = Kachel(Wand())
         kacheln[Position(1, 1)] = Kachel(Leer)
         kacheln[Position(2, 1)] = Kachel(Leer)
-        kacheln[Position(3, 1)] = Kachel(KornInhalt(1))
+        kacheln[Position(3, 1)] = Kachel(KornInhalt(3))
         kacheln[Position(4, 1)] = Kachel(Wand())
 
         val hamster = InternerHamster(
@@ -241,46 +243,4 @@ class SpielViewModel {
 
         _spielZustand.update { it.copy(aktuellesTerritorium = territorium) }
     }
-}
-
-class SpielLog {
-    private val _nachrichten = MutableStateFlow(listOf<HamsterString>())
-    val nachrichten = _nachrichten.asStateFlow()
-
-    fun zeigeNachricht(nachricht: HamsterString) {
-        _nachrichten.update { it + nachricht }
-    }
-
-    fun zeigeMehrereNachrichten(nachrichten: List<HamsterString>) {
-        _nachrichten.update { it + nachrichten }
-    }
-
-    fun entferneLetzteNachricht() {
-        _nachrichten.update {
-            val neueListe = it.toMutableList()
-            neueListe.removeLast()
-            neueListe
-        }
-    }
-}
-
-data class KommandoErgebnis(
-    val kommando: Kommando,
-    val territoriumVorher: InternesTerritorium,
-    val territoriumNachher: InternesTerritorium
-)
-
-data class SpielZustand(
-    val aktuellesTerritorium: InternesTerritorium? = null,
-    val geschwindigkeit: Double = 4.0,
-    val modus: SpielModus = SpielModus.Initialisierung,
-    val fehler: SpielException? = null,
-    val ausgefuhrteKommandos: List<KommandoErgebnis> = listOf(),
-    /**
-     * Liste aller Kommandos, die rückgängig gemacht wurden.
-     */
-    val wiederherstellbareKommandos: List<KommandoErgebnis> = listOf()
-) {
-    val territorium: InternesTerritorium
-        get() = aktuellesTerritorium ?: throw NullPointerException("ERR_TERRITORY_IS_NULL")
 }

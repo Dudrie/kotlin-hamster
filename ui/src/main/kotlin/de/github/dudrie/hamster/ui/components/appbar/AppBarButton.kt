@@ -29,7 +29,8 @@ fun AppBarButton(
         contentPadding = PaddingValues(0.dp),
         colors = ButtonDefaults.outlinedButtonColors(
             containerColor = Color.Transparent,
-            contentColor = contentColor
+            contentColor = contentColor,
+            disabledContentColor = contentColor.copy(alpha = 0.7f)
         ),
         shape = RoundedCornerShape(8.dp),
         border = BorderStroke(1.dp, contentColor),

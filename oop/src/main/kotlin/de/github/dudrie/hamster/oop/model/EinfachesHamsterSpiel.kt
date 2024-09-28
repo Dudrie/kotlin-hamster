@@ -3,9 +3,7 @@ package de.github.dudrie.hamster.oop.model
 import de.github.dudrie.hamster.core.file.SpielExporter
 import de.github.dudrie.hamster.core.game.SpielViewModel
 import de.github.dudrie.hamster.ui.windows.SpielFenster
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) {
 
@@ -14,7 +12,7 @@ abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = nu
     lateinit var paule: Hamster
         private set
 
-    fun starteSpiel() {
+    init {
         val job = CoroutineScope(Dispatchers.IO).launch {
             spiel.ladeSpiel(territoriumsDatei)
             spiel.erstelleStandardTerritorium()
@@ -28,6 +26,18 @@ abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = nu
         }
 
         SpielFenster(job, spiel).starte()
+    }
+
+    fun starteSpiel(startePausiert: Boolean = true) {
+        runBlocking {
+            spiel.starteSpiel(startePausiert)
+        }
+    }
+
+    fun stoppeSpiel() {
+        runBlocking {
+            spiel.stoppeSpiel()
+        }
     }
 
 }

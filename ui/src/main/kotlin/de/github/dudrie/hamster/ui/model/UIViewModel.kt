@@ -5,6 +5,7 @@ import de.github.dudrie.hamster.core.game.SpielViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.runBlocking
 import kotlin.math.roundToInt
 
 class UIViewModel(private val spielViewModel: SpielViewModel) : ViewModel() {
@@ -19,6 +20,14 @@ class UIViewModel(private val spielViewModel: SpielViewModel) : ViewModel() {
 
     fun toggleHamsterVisibility() {
         _uiState.update { it.copy(hideHamster = !it.hideHamster) }
+    }
+
+    fun setzeSpielFort() {
+        spielViewModel.setzeSpielFort()
+    }
+
+    fun pausiereSpiel() {
+        runBlocking { spielViewModel.pausiereSpiel() }
     }
 }
 

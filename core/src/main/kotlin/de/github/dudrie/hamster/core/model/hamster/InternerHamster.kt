@@ -32,4 +32,6 @@ data class InternerHamster(
         inventar = inventar - inhalt
     )
 
+    fun getPositionNachSchritt(): Position = position + richtung.bewegung
+
 }

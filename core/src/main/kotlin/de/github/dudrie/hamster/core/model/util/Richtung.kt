@@ -11,8 +11,8 @@ enum class Richtung(val bewegung: Bewegung) {
 
     fun nachLinksGedreht(): Richtung = when (this) {
         Norden -> Westen
-        Osten -> Sueden
+        Osten -> Norden
         Sueden -> Osten
-        Westen -> Norden
+        Westen -> Sueden
     }
 }
