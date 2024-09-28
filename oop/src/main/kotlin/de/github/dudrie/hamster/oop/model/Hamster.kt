@@ -46,6 +46,14 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
     val anzahlKorner: Int
         get() = internerHamster.kornAnzahl
 
+    val ort: Position
+        get() = internerHamster.position
+
+    val richtung: Richtung
+        get() = internerHamster.richtung
+
+    // TODO: Gemachte Schritte + Umrechnung in "Meter/Zentimeter"
+
     fun laufe() {
         territorium.runKommandoUndUpdate {
             val kommando = BewegeHamsterKommando(internerHamster)
@@ -70,4 +78,23 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         }
     }
 
+    fun legeKornAb() {
+        TODO("Implement me")
+    }
+
+    fun istVorDirFrei(): Boolean {
+        TODO("Implement me")
+    }
+
+    fun liegtEinKornAufDeinemFeld(): Boolean {
+        TODO("Implement me")
+    }
+
+    fun istDeinMundLeer(): Boolean {
+        TODO("Implement me")
+    }
+
+    fun sage(nachricht: String) {
+        TODO("Implement me")
+    }
 }
