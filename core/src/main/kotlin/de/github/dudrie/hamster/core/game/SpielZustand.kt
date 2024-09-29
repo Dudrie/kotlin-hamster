@@ -14,6 +14,17 @@ data class SpielZustand(
      */
     val wiederherstellbareKommandos: List<KommandoErgebnis> = listOf()
 ) {
+    val kannRuckgangigMachen: Boolean =
+        ausgefuhrteKommandos.isNotEmpty() && istModusFurRuckganigOderWiederherstellen()
+
+    val kannWiederherstellen: Boolean =
+        wiederherstellbareKommandos.isNotEmpty() && istModusFurRuckganigOderWiederherstellen()
+
     val territorium: InternesTerritorium
         get() = aktuellesTerritorium ?: throw NullPointerException("ERR_TERRITORY_IS_NULL")
+
+    private fun istModusFurRuckganigOderWiederherstellen(): Boolean =
+        modus == SpielModus.Pausiert
+                || modus == SpielModus.Gestoppt
+                || modus == SpielModus.Abgebrochen
 }

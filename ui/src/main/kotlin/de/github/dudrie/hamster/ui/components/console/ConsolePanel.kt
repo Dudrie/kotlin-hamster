@@ -43,14 +43,9 @@ fun ConsolePanel(modifier: Modifier = Modifier, viewModel: UIViewModel = viewMod
             messages.forEachIndexed { index, message ->
                 key(message) {
                     val messageNumber = messages.size - index
-                    var visible by remember { mutableStateOf(false) }
-
-                    LaunchedEffect(showUntilNumber) {
-                        visible = messageNumber <= showUntilNumber + 1
-                    }
 
                     AnimatedVisibility(
-                        visible = visible,
+                        visible = messageNumber <= showUntilNumber,
                         enter = slideIn { IntOffset(it.width, 0) } + fadeIn(),
                         exit = slideOut { IntOffset(it.width, 0) } + fadeOut(),
                         label = "Message$messageNumber",

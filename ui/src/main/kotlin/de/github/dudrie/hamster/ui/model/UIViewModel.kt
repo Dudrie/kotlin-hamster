@@ -12,7 +12,7 @@ class UIViewModel(private val spielViewModel: SpielViewModel) : ViewModel() {
     private val _uiState = MutableStateFlow(UIState())
     val uiState = _uiState.asStateFlow()
 
-    val spielZustand by spielViewModel
+    val spielZustand = spielViewModel.spielZustand
 
     val spielLog = spielViewModel.spielLog
 
@@ -30,6 +30,18 @@ class UIViewModel(private val spielViewModel: SpielViewModel) : ViewModel() {
 
     fun pausiereSpiel() {
         runBlocking { spielViewModel.pausiereSpiel() }
+    }
+
+    fun ruckgangig() {
+        spielViewModel.ruckgangig()
+    }
+
+    fun stelleWiederHer() {
+        spielViewModel.stelleWiederHer()
+    }
+
+    fun stelleAlleWiederHer() {
+        spielViewModel.stelleAlleWiederHer()
     }
 }
 

@@ -28,10 +28,6 @@ class SpielViewModel {
     private val _ladtSpiel = MutableStateFlow(true)
     val ladtSpiel = _ladtSpiel.asStateFlow()
 
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): StateFlow<SpielZustand> {
-        return spielZustand
-    }
-
     val territorium: InternesTerritorium
         get() = _spielZustand.value.aktuellesTerritorium
             ?: throw NoSuchElementException("ERR_NO_TERRITORY")
@@ -81,7 +77,7 @@ class SpielViewModel {
                 )
             }
 
-            spielLog.zeigeNachricht(kommando.getLogNachricht())
+            spielLog.fugeNachrichtHinzu(kommando.getLogNachricht())
             delay(((SpielDefaults.MAX_GESCHWINDIGKEIT + 1 - geschwindigkeit) / 5.0 * 400.0).toLong())
         } catch (e: SpielException) {
             brichSpielAb(e)
@@ -139,7 +135,7 @@ class SpielViewModel {
             )
         }
 
-        spielLog.entferneLetzteNachricht()
+        spielLog.zeigeEineNachrichtWeniger()
     }
 
     fun stelleWiederHer() {
@@ -156,10 +152,10 @@ class SpielViewModel {
             )
         }
 
-        spielLog.zeigeNachricht(nachstesKommando.kommando.getLogNachricht())
+        spielLog.zeigeEineNachrichtMehr()
     }
 
-    private fun stelleAlleWiederHer() {
+    fun stelleAlleWiederHer() {
         requireKannRuckganigOderWiederherstellen()
         val wiederherstellbareKommandos = _spielZustand.value.wiederherstellbareKommandos
 
@@ -172,8 +168,7 @@ class SpielViewModel {
                     wiederherstellbareKommandos = listOf()
                 )
             }
-
-            spielLog.zeigeMehrereNachrichten(wiederherstellbareKommandos.map { it.kommando.getLogNachricht() })
+            spielLog.zeigeAlleNachrichten()
         }
     }
 

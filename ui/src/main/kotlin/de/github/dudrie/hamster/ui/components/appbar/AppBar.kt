@@ -18,6 +18,7 @@ import de.github.dudrie.hamster.ui.generated.*
 import de.github.dudrie.hamster.ui.model.UIViewModel
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.imageResource
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -34,7 +35,10 @@ fun AppBar(viewModel: UIViewModel = viewModel()) {
             horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AppBarButton(onClick = {}) {
+            AppBarButton(
+                onClick = { viewModel.ruckgangig() },
+                enabled = spielState.kannRuckgangigMachen
+            ) {
                 Icon(
                     imageResource(Res.drawable.outline_undo_black_36dp),
                     null,
@@ -43,27 +47,32 @@ fun AppBar(viewModel: UIViewModel = viewModel()) {
             }
             AppBarButton(
                 onClick = {
-                    if (spielState.modus == SpielModus.Pausiert) {
-                        viewModel.setzeSpielFort()
-                    } else {
-                        viewModel.pausiereSpiel()
+                    when {
+                        spielState.kannWiederherstellen -> viewModel.stelleAlleWiederHer()
+                        spielState.modus == SpielModus.Pausiert -> viewModel.setzeSpielFort()
+                        else -> viewModel.pausiereSpiel()
                     }
                 },
-                enabled = spielState.modus == SpielModus.Lauft || spielState.modus == SpielModus.Pausiert
+                enabled = spielState.modus == SpielModus.Lauft
+                        || spielState.modus == SpielModus.Pausiert
+                        || spielState.kannWiederherstellen
             ) {
                 Icon(
-                    imageResource(
-                        if (spielState.modus == SpielModus.Pausiert) {
-                            Res.drawable.round_play_arrow_black_36dp
-                        } else {
-                            Res.drawable.round_pause_black_36dp
+                    painterResource(
+                        when {
+                            spielState.kannWiederherstellen -> Res.drawable.skip_next
+                            spielState.modus == SpielModus.Pausiert -> Res.drawable.round_play_arrow_black_36dp
+                            else -> Res.drawable.round_pause_black_36dp
                         }
                     ),
                     null,
                     modifier = Modifier.size(36.dp)
                 )
             }
-            AppBarButton(onClick = {}) {
+            AppBarButton(
+                onClick = { viewModel.stelleWiederHer() },
+                enabled = spielState.kannWiederherstellen
+            ) {
                 Icon(
                     imageResource(Res.drawable.outline_redo_black_36dp),
                     null,
