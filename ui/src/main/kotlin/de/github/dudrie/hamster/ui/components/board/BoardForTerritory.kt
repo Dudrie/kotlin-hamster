@@ -38,6 +38,7 @@ fun BoardForTerritory(modifier: Modifier = Modifier, viewModel: UIViewModel = vi
                         GameTile(
                             tile = spielState.territorium.getKachelBei(position),
                             hamster = spielState.territorium.getHamsterBei(position),
+                            highlightTile = spielState.fehler?.position == position,
                             size = tileSize
                         )
                     }

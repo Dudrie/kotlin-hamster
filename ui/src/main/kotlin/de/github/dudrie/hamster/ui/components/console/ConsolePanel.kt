@@ -17,6 +17,7 @@ import de.github.dudrie.hamster.ui.model.UIViewModel
 
 @Composable
 fun ConsolePanel(modifier: Modifier = Modifier, viewModel: UIViewModel = viewModel()) {
+    val spielState by viewModel.spielZustand.collectAsState()
     val messages by viewModel.spielLog.nachrichten.collectAsState()
     val showUntilNumber by viewModel.spielLog.zeigeBisIndex.collectAsState()
     val scrollState = rememberScrollState()
@@ -28,10 +29,16 @@ fun ConsolePanel(modifier: Modifier = Modifier, viewModel: UIViewModel = viewMod
         ) {
             Spacer(Modifier.height(0.dp))
 
+            spielState.fehler?.let {
+                key(it.nachricht) {
+                    ConsoleErrorMessage(message = it.nachricht)
+                }
+            }
+
             messages.forEachIndexed { index, message ->
                 key(message) {
                     val messageNumber = messages.size - index
-                    ConsoleMessage(
+                    ConsoleCommandMessage(
                         message = message,
                         messageNumber = messageNumber,
                         visible = messageNumber <= showUntilNumber

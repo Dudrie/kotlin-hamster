@@ -25,8 +25,8 @@ internal fun HamsterString.convertToStringResource(): StringResource = when (id)
     HamsterStringId.KOMMANDO_HAMSTER_SAGE -> Res.string.kommando_hamster_sage
     HamsterStringId.KOMMANDO_HAMSTER_SAMMLE_KORN_AUF -> Res.string.kommando_hamster_sammle_korn_auf
     HamsterStringId.KOMMANDO_TERRITORIUM_SPAWNE_HAMSTER -> Res.string.kommando_territorium_spawn_hamster
-    HamsterStringId.ERR_NO_GRAIN_IN_MOUTH -> TODO()
-    HamsterStringId.ERR_NO_GRAIN_ON_TILE -> TODO()
-    HamsterStringId.ERR_POSITION_NOT_IN_TERRITORY -> TODO()
-    HamsterStringId.ERR_TILE_BLOCKED -> TODO()
+    HamsterStringId.ERR_NO_GRAIN_IN_MOUTH -> Res.string.err_no_grain_in_mouth
+    HamsterStringId.ERR_NO_GRAIN_ON_TILE -> Res.string.err_no_grain_on_tile
+    HamsterStringId.ERR_POSITION_NOT_IN_TERRITORY -> Res.string.err_position_not_in_territory
+    HamsterStringId.ERR_TILE_BLOCKED -> Res.string.err_tile_blocked
 }

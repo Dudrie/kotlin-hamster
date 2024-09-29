@@ -3,10 +3,8 @@ package de.github.dudrie.hamster.ui.components.console
 import androidx.compose.animation.*
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
@@ -18,20 +16,55 @@ import de.github.dudrie.hamster.ui.generated.console_kommando_nummer
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun ConsoleMessage(message: HamsterString, visible: Boolean, messageNumber: Int) {
+fun ConsoleCommandMessage(
+    message: HamsterString,
+    visible: Boolean,
+    messageNumber: Int
+) {
+    ConsoleMessage(
+        message = message,
+        visible = visible,
+        title = stringResource(
+            Res.string.console_kommando_nummer,
+            messageNumber
+        )
+    )
+}
+
+@Composable
+fun ConsoleErrorMessage(
+    message: HamsterString,
+) {
+    var visible by remember(message) { mutableStateOf(false) }
+
+    LaunchedEffect(message) {
+        visible = true
+    }
+
+    ConsoleMessage(
+        message = message,
+        visible = visible,
+        title = "Fehler",
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.error)
+    )
+}
+
+@Composable
+private fun ConsoleMessage(
+    message: HamsterString,
+    visible: Boolean,
+    title: String,
+    colors: CardColors = CardDefaults.cardColors()
+) {
     AnimatedVisibility(
         visible = visible,
         enter = slideIn { IntOffset(it.width, 0) } + fadeIn(),
         exit = slideOut { IntOffset(it.width, 0) } + fadeOut(),
-        label = "Message$messageNumber",
         modifier = Modifier.fillMaxWidth()
     ) {
-        Card(Modifier.fillMaxWidth()) {
+        Card(modifier = Modifier.fillMaxWidth(), colors = colors) {
             Text(
-                text = stringResource(
-                    Res.string.console_kommando_nummer,
-                    messageNumber
-                ),
+                text = title,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(
                     start = 8.dp,

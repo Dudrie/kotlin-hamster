@@ -1,5 +1,6 @@
 package de.github.dudrie.hamster.ui.components.board
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -12,8 +13,14 @@ import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
 
 @Composable
-fun GameTile(tile: Kachel, hamster: InternerHamster?, size: Dp) {
-    Box(Modifier.size(size).border(BORDER_WIDTH.dp, MaterialTheme.colorScheme.onBackground)) {
+fun GameTile(tile: Kachel, hamster: InternerHamster?, highlightTile: Boolean, size: Dp) {
+    val border = if (highlightTile) {
+        BorderStroke(4.dp, MaterialTheme.colorScheme.primary)
+    } else {
+        BorderStroke(BORDER_WIDTH.dp, MaterialTheme.colorScheme.onBackground)
+    }
+
+    Box(Modifier.size(size).border(border)) {
         GameTileBackground()
 
         GameTileContent(tile, hamster)

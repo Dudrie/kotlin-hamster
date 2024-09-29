@@ -16,7 +16,7 @@ data class BewegeHamsterKommando(private val hamster: InternerHamster) : Hamster
         }
 
         if (territorium.istBlockiert(neuerOrt)) {
-            throw KachelBlockiertException(hamster.position, this)
+            throw KachelBlockiertException(neuerOrt, this)
         }
 
         val bewegterHamster = hamster.laufe()

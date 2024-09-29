@@ -18,4 +18,10 @@
     <string name="kommando-hamster-lege-korn-ab">Hamster hat ein Korn auf %1$s gelegt.</string>
     <string name="kommando-hamster-sage">Hamster sagt:\n"%1$s"</string>
     <string name="kommando-territorium-spawn-hamster">Ein Hamster wurde auf %1$s platziert.</string>
+
+    <!--  Fehlermeldungen  -->
+    <string name="err-no-grain-in-mouth">Der Hamster hat kein Korn im Mund, das er ablegen könnte.</string>
+    <string name="err-no-grain-on-tile">Auf dem Feld unter dem Hamster befindet sich kein Korn.</string>
+    <string name="err-position-not-in-territory">Das Feld %1$s befindet sich außerhalb des Territoriums.</string>
+    <string name="err-tile-blocked">Das Feld vor dem Hamster ist blockiert und kann nicht betreten werden.</string>
 </resources>
