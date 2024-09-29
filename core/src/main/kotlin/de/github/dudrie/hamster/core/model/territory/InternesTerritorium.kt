@@ -70,6 +70,11 @@ data class InternesTerritorium(
         getKachelBei(position).inhalt as? I
             ?: throw IllegalArgumentException("ERR_NO_MATCHING_TILE_CONTENT")
 
+    inline fun <reified I : Kachelinhalt> getInhaltOderNeu(
+        position: Position,
+        erstelleNeu: () -> I
+    ): I = getKachelBei(position).inhalt as? I ?: erstelleNeu()
+
     fun spawneHamster(hamster: InternerHamster): InternesTerritorium {
         require(istPositionInnerhalb(hamster.position)) { "ERR_POS_NOT_IN_TERRITORY" }
         require(!istBlockiert(hamster.position)) { "ERR_TILE_BLOCKED" }

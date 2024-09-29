@@ -1,8 +1,6 @@
 package de.github.dudrie.hamster.oop.model
 
-import de.github.dudrie.hamster.core.game.commands.BewegeHamsterKommando
-import de.github.dudrie.hamster.core.game.commands.DreheLinksKommando
-import de.github.dudrie.hamster.core.game.commands.SammleKornAufKommando
+import de.github.dudrie.hamster.core.game.commands.*
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.hamster.InventarInhalt
 import de.github.dudrie.hamster.core.model.hamster.Korn
@@ -79,22 +77,23 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
     }
 
     fun legeKornAb() {
-        TODO("Implement me")
+        territorium.runKommandoUndUpdate {
+            val kommando = LegeKornAbKommando(internerHamster)
+            spiel.fuhreAus(kommando)
+            internerHamster = kommando.aktualisierterHamster
+        }
     }
 
-    fun istVorDirFrei(): Boolean {
-        TODO("Implement me")
-    }
+    fun istVorDirFrei(): Boolean =
+        !territorium.istBlockiert(internerHamster.getPositionNachSchritt())
 
-    fun liegtEinKornAufDeinemFeld(): Boolean {
-        TODO("Implement me")
-    }
+    fun liegtEinKornAufDeinemFeld(): Boolean = territorium.getAnzahlKornerAufFeld(ort) > 0
 
-    fun istDeinMundLeer(): Boolean {
-        TODO("Implement me")
-    }
+    fun istDeinMundLeer(): Boolean = anzahlKorner == 0
 
     fun sage(nachricht: String) {
-        TODO("Implement me")
+        territorium.runKommandoUndUpdate {
+            spiel.fuhreAus(SageEtwasKommando(nachricht))
+        }
     }
 }

@@ -21,8 +21,7 @@ class SammleKornAufKommando(private val hamster: InternerHamster) : HamsterKomma
         val neuerHamster = hamster.fugeZuInventarHinzu(gegenstand)
         aktualisierterHamster = neuerHamster
 
-        val neuesTerritorium = territorium.ersetzeHamster(hamster, neuerHamster)
-        return neuesTerritorium.ersetzeKachelInhalt(
+        return territorium.ersetzeHamster(hamster, neuerHamster).ersetzeKachelInhalt(
             position = neuerHamster.position,
             neuerInhalt = if (neuerInhalt.anzahl == 0) {
                 Leer

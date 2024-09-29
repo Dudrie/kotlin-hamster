@@ -28,9 +28,15 @@ abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = nu
         runBlocking { fenster.starte() }
     }
 
-    fun starteSpiel(startePausiert: Boolean = false) {
+    fun starteSpiel() {
         runBlocking {
-            spiel.starteSpiel(startePausiert)
+            spiel.starteSpiel(startePausiert = false)
+        }
+    }
+
+    fun starteSpielPausiert() {
+        runBlocking {
+            spiel.starteSpiel(startePausiert = true)
         }
     }
 
@@ -38,6 +44,10 @@ abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = nu
         runBlocking {
             spiel.stoppeSpiel()
         }
+    }
+
+    fun setGeschwindigkeit(geschwindigkeit: Double) {
+        spiel.setGeschwindigkeit(geschwindigkeit)
     }
 
 }

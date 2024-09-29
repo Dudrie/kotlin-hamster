@@ -28,7 +28,14 @@ data class InternerHamster(
         inventar = inventar + inhalt
     )
 
-    fun entferneAusInventar(inhalt: InventarInhalt): InternerHamster = copy(
+    internal inline fun <reified I : InventarInhalt> entferneEinsAusInventar(): InternerHamster {
+        val gegenstand = inventar.find { it is I }
+            ?: throw IllegalArgumentException("ERR_NO_MATCHING_ITEM_IN_INVENTORY")
+
+        return entferneAusInventar(gegenstand)
+    }
+
+    private fun entferneAusInventar(inhalt: InventarInhalt): InternerHamster = copy(
         inventar = inventar - inhalt
     )
 
