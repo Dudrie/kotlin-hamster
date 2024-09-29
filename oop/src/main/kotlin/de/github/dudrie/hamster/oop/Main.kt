@@ -16,7 +16,7 @@ fun main() {
 
     paule.sammleKornAuf()
 
-    println(paule.anzahlKorner)
+    println("Kornanzahl: ${paule.anzahlKorner}")
     val paula = Hamster(paule.territorium, Position(1, 1), Richtung.Westen, 0)
 
     paula.dreheNachLinks()

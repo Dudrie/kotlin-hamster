@@ -1,6 +1,8 @@
 package de.github.dudrie.hamster.ui.windows
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.window.FrameWindowScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import de.github.dudrie.hamster.core.game.SpielViewModel
@@ -9,36 +11,32 @@ import de.github.dudrie.hamster.ui.components.util.WindowContent
 import de.github.dudrie.hamster.ui.generated.Res
 import de.github.dudrie.hamster.ui.generated.app_title
 import de.github.dudrie.hamster.ui.model.UIViewModel
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Semaphore
 
-class SpielFenster(private val importJob: Job, private val spiel: SpielViewModel) :
+class SpielFenster(
+    private val spiel: SpielViewModel,
+    private val importJob: suspend () -> Unit
+) :
     AppFenster(Res.string.app_title) {
 
     /**
-     * Wird benutzt, um sicherzustellen, dass das [starte] erste abgeschlossen werden kann, wenn der [importJob] beendet **und** das Fenster für den Hamster-Simulator geladen ist.
+     * Nach dem [importieren][importJob] wird gewartet, bis ein Permit dieses [Semaphore] verfügbar ist.
+     *
+     * Dieser [Semaphore] ist ein (grober) Indikator dafür, wann das tatsächliche Fenster angezeigt wird.
      */
-    private val fensterSemaphore = Semaphore(permits = 1, acquiredPermits = 1)
+    private val fensterLatch = Semaphore(1, 1)
 
-    fun starte() {
-        runBlocking {
-            zeige()
-            fensterSemaphore.acquire()
-            importJob.join()
-        }
+    suspend fun starte() {
+        zeige(fensterLatch)
+        importJob()
+        fensterLatch.acquire()
+        fensterLatch.release()
     }
 
     @Composable
     override fun FrameWindowScope.inhalt() {
-        var ladtSpiel by remember { mutableStateOf(true) }
         val viewModel = viewModel { UIViewModel(spiel) }
-
-        LaunchedEffect(importJob) {
-            importJob.join()
-            ladtSpiel = false
-            fensterSemaphore.release()
-        }
+        val ladtSpiel by spiel.ladtSpiel.collectAsState()
 
         if (ladtSpiel) {
             LoadingUI()

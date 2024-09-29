@@ -1,7 +1,7 @@
 <resources>
     <string name="app-title">Hamster Simulator</string>
     <string name="app-loading">Lade Territorium und Hamster...</string>
-    <string name="state-initializing">Initialisierung</string>
+    <string name="state-initializing">Initialisiere</string>
     <string name="state-running">Läuft</string>
     <string name="state-paused">Pausiert</string>
     <string name="state-aborted">Abgebrochen</string>

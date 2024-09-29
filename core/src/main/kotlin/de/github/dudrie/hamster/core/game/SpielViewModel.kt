@@ -25,6 +25,9 @@ class SpielViewModel {
     private val _spielZustand = MutableStateFlow(SpielZustand())
     val spielZustand = _spielZustand.asStateFlow()
 
+    private val _ladtSpiel = MutableStateFlow(true)
+    val ladtSpiel = _ladtSpiel.asStateFlow()
+
     operator fun getValue(thisRef: Any?, property: KProperty<*>): StateFlow<SpielZustand> {
         return spielZustand
     }
@@ -92,10 +95,13 @@ class SpielViewModel {
         require(spielZustand.value.aktuellesTerritorium != null) { "ERR_NO_TERRITORY_LOADED" }
 
         _spielZustand.update {
-            SpielZustand().copy(
+            it.copy(
                 aktuellesTerritorium = it.aktuellesTerritorium,
                 modus = if (startePausiert) SpielModus.Pausiert else SpielModus.Lauft,
-                geschwindigkeit = it.geschwindigkeit
+                geschwindigkeit = it.geschwindigkeit,
+                fehler = null,
+                ausgefuhrteKommandos = listOf(),
+                wiederherstellbareKommandos = listOf()
             )
         }
 
@@ -189,14 +195,19 @@ class SpielViewModel {
     }
 
 
-    fun ladeSpiel(territoriumsDatei: String?) {
+    suspend fun ladeSpiel(territoriumsDatei: String?) {
         require(spielModus == SpielModus.Initialisierung) { "ERR_GAME_NOT_INITIALIZING" }
+        kommandoLock.acquire()
+        _ladtSpiel.update { true }
+
         val territorium = SpielImporter.getStartTerritorium(
             dateipfad = territoriumsDatei ?: SpielImporter.STANDARD_DATEIPFAD,
             ausResourceOrdner = territoriumsDatei == null
         )
 
         _spielZustand.update { it.copy(aktuellesTerritorium = territorium) }
+        _ladtSpiel.update { false }
+        kommandoLock.release()
     }
 
     private fun requireKommandoAusfuhrbar(kommando: Kommando) {

@@ -12,23 +12,23 @@ abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = nu
     lateinit var paule: Hamster
         private set
 
-    init {
-        val job = CoroutineScope(Dispatchers.IO).launch {
-            spiel.ladeSpiel(territoriumsDatei)
-            spiel.erstelleStandardTerritorium()
-            SpielExporter.speichereSpiel(
-                "./core/src/main/resources/territories/standard.json",
-                spiel.territorium
-            )
+    private var fenster: SpielFenster = SpielFenster(spiel) {
+        spiel.ladeSpiel(territoriumsDatei)
+        spiel.erstelleStandardTerritorium()
+        SpielExporter.speichereSpiel(
+            "./core/src/main/resources/territories/standard.json",
+            spiel.territorium
+        )
 
-            val territorium = Territorium(spiel, spiel.territorium)
-            paule = Hamster(territorium, spiel.standardHamster)
-        }
-
-        SpielFenster(job, spiel).starte()
+        val territorium = Territorium(spiel, spiel.territorium)
+        paule = Hamster(territorium, spiel.standardHamster)
     }
 
-    fun starteSpiel(startePausiert: Boolean = true) {
+    init {
+        runBlocking { fenster.starte() }
+    }
+
+    fun starteSpiel(startePausiert: Boolean = false) {
         runBlocking {
             spiel.starteSpiel(startePausiert)
         }
