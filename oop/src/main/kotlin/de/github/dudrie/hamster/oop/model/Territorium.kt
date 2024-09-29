@@ -1,9 +1,8 @@
 package de.github.dudrie.hamster.oop.model
 
-import de.github.dudrie.hamster.core.game.commands.SpawneHamsterKommando
 import de.github.dudrie.hamster.core.game.SpielViewModel
+import de.github.dudrie.hamster.core.game.commands.SpawneHamsterKommando
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
-import de.github.dudrie.hamster.core.model.kachel.Kachelinhalt
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.Position

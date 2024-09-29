@@ -14,11 +14,9 @@ import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.core.model.util.Richtung
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.sync.Semaphore
-import kotlin.reflect.KProperty
 
 class SpielViewModel {
 

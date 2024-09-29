@@ -4,10 +4,6 @@ import androidx.compose.runtime.Composable
 import de.github.dudrie.hamster.core.model.util.HamsterString
 import de.github.dudrie.hamster.core.model.util.HamsterStringId
 import de.github.dudrie.hamster.ui.generated.*
-import de.github.dudrie.hamster.ui.generated.Res
-import de.github.dudrie.hamster.ui.generated.kommando_hamster_drehe_links
-import de.github.dudrie.hamster.ui.generated.kommando_hamster_laufe
-import de.github.dudrie.hamster.ui.generated.kommando_hamster_lege_korn_ab
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
