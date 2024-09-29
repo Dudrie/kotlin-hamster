@@ -42,7 +42,7 @@ data class InternesTerritorium(
             ?: throw NoSuchElementException("ERR_NO_TILE_AT_POSITION")
     }
 
-    fun ersetzeKachel(position: Position, neueKachel: Kachel): InternesTerritorium {
+    private fun ersetzeKachel(position: Position, neueKachel: Kachel): InternesTerritorium {
         require(kacheln.containsKey(position)) { "ERR_NO_TILE_FOR_POSITION" }
         val neueKacheln = kacheln.toMutableMap()
         neueKacheln[position] = neueKachel

@@ -9,8 +9,6 @@ import de.github.dudrie.hamster.core.model.util.HamsterString
 
 class SammleKornAufKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
-    override var aktualisierterHamster: InternerHamster? = null
-
     override fun fuhreAus(territorium: InternesTerritorium): InternesTerritorium {
         if (!territorium.hatInhalt<KornInhalt>(hamster.position)) {
             throw KeinKornAufKachelException(hamster.position, this)

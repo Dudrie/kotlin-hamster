@@ -8,8 +8,6 @@ import de.github.dudrie.hamster.core.model.util.HamsterString
 
 data class BewegeHamsterKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
-    override var aktualisierterHamster: InternerHamster? = null
-
     override fun fuhreAus(territorium: InternesTerritorium): InternesTerritorium {
         val neuerOrt = hamster.getPositionNachSchritt()
         if (!territorium.istPositionInnerhalb(neuerOrt)) {
@@ -21,7 +19,7 @@ data class BewegeHamsterKommando(private val hamster: InternerHamster) : Hamster
         }
 
         val bewegterHamster = hamster.laufe()
-        this.aktualisierterHamster = bewegterHamster
+        aktualisierterHamster = bewegterHamster
 
         return territorium.ersetzeHamster(hamster, bewegterHamster)
     }

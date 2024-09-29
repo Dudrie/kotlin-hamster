@@ -58,7 +58,7 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         territorium.runKommandoUndUpdate {
             val kommando = BewegeHamsterKommando(internerHamster)
             spiel.fuhreAus(kommando)
-            internerHamster = kommando.aktualisierterHamster ?: throw IllegalStateException()
+            internerHamster = kommando.aktualisierterHamster
         }
     }
 
@@ -66,7 +66,7 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         territorium.runKommandoUndUpdate {
             val kommando = DreheLinksKommando(internerHamster)
             spiel.fuhreAus(kommando)
-            internerHamster = kommando.aktualisierterHamster ?: throw IllegalStateException()
+            internerHamster = kommando.aktualisierterHamster
         }
     }
 
@@ -74,7 +74,7 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         territorium.runKommandoUndUpdate {
             val kommando = SammleKornAufKommando(internerHamster)
             spiel.fuhreAus(kommando)
-            internerHamster = kommando.aktualisierterHamster ?: throw IllegalStateException()
+            internerHamster = kommando.aktualisierterHamster
         }
     }
 

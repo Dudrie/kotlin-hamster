@@ -23,11 +23,15 @@ sealed class Kommando {
 
 sealed class HamsterKommando : Kommando() {
 
+    private var _aktualisierterHamster: InternerHamster? = null
+
     /**
      * Der [InternerHamster] nach dem Ausführen dieses Kommandos
      */
-    abstract var aktualisierterHamster: InternerHamster?
-        protected set
-
+    var aktualisierterHamster: InternerHamster
+        get() = _aktualisierterHamster ?: throw IllegalStateException()
+        protected set(value) {
+            _aktualisierterHamster = value
+        }
 
 }
