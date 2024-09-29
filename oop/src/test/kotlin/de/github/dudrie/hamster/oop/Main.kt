@@ -24,6 +24,22 @@ fun main() {
 
     paule.dreheNachLinks()
     paule.laufe()
+    println("Korn auf Feld (false): ${paule.liegtEinKornAufDeinemFeld()}")
+    paule.legeKornAb()
+    println("Korn auf Feld (true): ${paule.liegtEinKornAufDeinemFeld()}")
+
+    println("Ist frei (false): ${paule.istVorDirFrei()}")
+    paule.dreheNachLinks()
+    println("Ist frei (false): ${paule.istVorDirFrei()}")
+    paule.dreheNachLinks()
+    println("Ist frei (true): ${paule.istVorDirFrei()}")
+
+    println("Mund leer (true): ${paule.istDeinMundLeer()}")
+    paule.sammleKornAuf()
+    println("Mund leer (false): ${paule.istDeinMundLeer()}")
+    paule.legeKornAb()
+
+    paule.sage("Puh, das wäre geschafft.")
 
     spiel.stoppeSpiel()
 }
