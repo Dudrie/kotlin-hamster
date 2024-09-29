@@ -1,9 +1,21 @@
 <resources>
+    <!--  UI Stuff  -->
     <string name="app-title">Hamster Simulator</string>
     <string name="app-loading">Lade Territorium und Hamster...</string>
+    <string name="console-kommando-nummer">Kommando: Nr. %1$d</string>
+
+    <!--  SpielModus Strings  -->
     <string name="state-initializing">Initialisiere</string>
     <string name="state-running">Läuft</string>
     <string name="state-paused">Pausiert</string>
     <string name="state-aborted">Abgebrochen</string>
     <string name="state-stopped">Beendet</string>
+
+    <!--  Strings für Kommandos  -->
+    <string name="kommando-hamster-drehe-links">Hamster bei %1$s hat sich nach links gedreht.</string>
+    <string name="kommando-hamster-laufe">Hamster hat sich von %1$s nach %2$s bewegt.</string>
+    <string name="kommando-hamster-sammle-korn-auf">Hamster hat ein Korn von %1$s aufgesammelt.</string>
+    <string name="kommando-hamster-lege-korn-ab">Hamster hat ein Korn auf %1$s gelegt.</string>
+    <string name="kommando-hamster-sage">Hamster sagt:\n"%1$s"</string>
+    <string name="kommando-territorium-spawn-hamster">Ein Hamster wurde auf %1$s platziert.</string>
 </resources>

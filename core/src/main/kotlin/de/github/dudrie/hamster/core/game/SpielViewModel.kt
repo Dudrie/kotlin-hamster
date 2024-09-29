@@ -46,7 +46,7 @@ class SpielViewModel {
     private val spielModus: SpielModus
         get() = spielZustand.value.modus
 
-    private val spielLog = SpielLog()
+    val spielLog = SpielLog()
 
     private val kommandoLock = Semaphore(1)
 

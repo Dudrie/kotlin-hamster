@@ -5,6 +5,7 @@ import de.github.dudrie.hamster.core.exception.PositionAusserhalbException
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
+import de.github.dudrie.hamster.core.model.util.HamsterStringId
 
 data class SpawneHamsterKommando(private val hamster: InternerHamster) : Kommando() {
     override fun fuhreAus(territorium: InternesTerritorium): InternesTerritorium {
@@ -20,6 +21,6 @@ data class SpawneHamsterKommando(private val hamster: InternerHamster) : Kommand
     }
 
     override fun getLogNachricht(): HamsterString =
-        HamsterString("kommando.hamster.spawn", hamster.position)
+        HamsterString(HamsterStringId.KOMMANDO_TERRITORIUM_SPAWNE_HAMSTER, hamster.position)
 
 }

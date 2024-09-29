@@ -14,6 +14,8 @@ class UIViewModel(private val spielViewModel: SpielViewModel) : ViewModel() {
 
     val spielZustand by spielViewModel
 
+    val spielLog = spielViewModel.spielLog
+
     fun setGeschwindigkeit(geschwindigkeit: Float) {
         spielViewModel.setGeschwindigkeit(geschwindigkeit.roundToInt().toDouble())
     }

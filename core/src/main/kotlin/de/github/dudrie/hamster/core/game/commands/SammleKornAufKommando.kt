@@ -6,6 +6,7 @@ import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
+import de.github.dudrie.hamster.core.model.util.HamsterStringId
 
 class SammleKornAufKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
@@ -31,6 +32,7 @@ class SammleKornAufKommando(private val hamster: InternerHamster) : HamsterKomma
         )
     }
 
-    override fun getLogNachricht(): HamsterString = HamsterString("hamster.kommando.sammle.korn")
+    override fun getLogNachricht(): HamsterString =
+        HamsterString(HamsterStringId.KOMMANDO_HAMSTER_SAMMLE_KORN_AUF, hamster.position)
 
 }

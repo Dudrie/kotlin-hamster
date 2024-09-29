@@ -7,6 +7,7 @@ import de.github.dudrie.hamster.core.model.kachel.Kachelinhalt
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
+import de.github.dudrie.hamster.core.model.util.HamsterStringId
 
 class LegeKornAbKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
@@ -24,6 +25,7 @@ class LegeKornAbKommando(private val hamster: InternerHamster) : HamsterKommando
             .ersetzeKachelInhalt(hamster.position, neuerInhalt)
     }
 
-    override fun getLogNachricht(): HamsterString = HamsterString("hamster.kommando.legeAb.korn")
+    override fun getLogNachricht(): HamsterString =
+        HamsterString(HamsterStringId.KOMMANDO_HAMSTER_LEGE_KORN_AB, hamster.position)
 
 }

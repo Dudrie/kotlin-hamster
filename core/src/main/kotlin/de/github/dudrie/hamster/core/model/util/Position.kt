@@ -10,4 +10,5 @@ data class Position(val x: Int, val y: Int) {
         y = y + bewegung.deltaY
     )
 
+    override fun toString(): String = "($x,$y)"
 }

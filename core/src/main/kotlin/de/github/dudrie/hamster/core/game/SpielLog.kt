@@ -10,17 +10,25 @@ class SpielLog {
     val nachrichten = _nachrichten.asStateFlow()
 
     fun zeigeNachricht(nachricht: HamsterString) {
-        _nachrichten.update { it + nachricht }
+        _nachrichten.update {
+            val liste = it.toMutableList()
+            liste.add(0, nachricht)
+            liste
+        }
     }
 
     fun zeigeMehrereNachrichten(nachrichten: List<HamsterString>) {
-        _nachrichten.update { it + nachrichten }
+        _nachrichten.update {
+            val liste = it.toMutableList()
+            liste.addAll(0, nachrichten.asReversed())
+            liste
+        }
     }
 
     fun entferneLetzteNachricht() {
         _nachrichten.update {
             val neueListe = it.toMutableList()
-            neueListe.removeLast()
+            neueListe.removeFirst()
             neueListe
         }
     }

@@ -5,6 +5,7 @@ import de.github.dudrie.hamster.core.exception.PositionAusserhalbException
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
+import de.github.dudrie.hamster.core.model.util.HamsterStringId
 
 data class BewegeHamsterKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
@@ -24,6 +25,11 @@ data class BewegeHamsterKommando(private val hamster: InternerHamster) : Hamster
         return territorium.ersetzeHamster(hamster, bewegterHamster)
     }
 
-    override fun getLogNachricht(): HamsterString = HamsterString("kommando.hamster.laufe")
+    override fun getLogNachricht(): HamsterString =
+        HamsterString(
+            HamsterStringId.KOMMANDO_HAMSTER_LAUFE,
+            hamster.position,
+            aktualisierterHamster.position
+        )
 
 }

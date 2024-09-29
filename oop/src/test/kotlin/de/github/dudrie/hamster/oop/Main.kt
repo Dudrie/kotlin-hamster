@@ -9,6 +9,7 @@ fun main() {
     val spiel = object : EinfachesHamsterSpiel() {}
     val paule = spiel.paule
 
+    spiel.setGeschwindigkeit(10.0)
     spiel.starteSpiel()
     paule.laufe()
     paule.laufe()
