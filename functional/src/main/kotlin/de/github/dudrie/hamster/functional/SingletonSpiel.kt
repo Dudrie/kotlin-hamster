@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.functional
 
 import de.github.dudrie.hamster.oop.model.EinfachesHamsterSpiel
+import de.github.dudrie.hamster.oop.model.Hamster
 
 /**
  * Stellt die Verbindungsstelle zwischen dem OOP Modul und dem funktionalen Modul dar.
@@ -17,6 +18,12 @@ internal class SingletonSpiel private constructor() {
          */
         val spiel: EinfachesHamsterSpiel
             get() = _spiel ?: throw IllegalStateException("Es wurde noch kein Spiel gestartet.")
+
+        /**
+         * Einfacher Zugriff auf den [Hamster] des geladenen [spiel]s.
+         */
+        val paule: Hamster
+            get() = spiel.paule
 
         /**
          * Lädt ein [EinfachesHamsterSpiel] mit dem Territorium am angegebenen [dateipfand].
