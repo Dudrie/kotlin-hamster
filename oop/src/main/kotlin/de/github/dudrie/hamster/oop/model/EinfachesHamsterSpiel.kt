@@ -5,7 +5,7 @@ import de.github.dudrie.hamster.core.game.SpielViewModel
 import de.github.dudrie.hamster.ui.windows.SpielFenster
 import kotlinx.coroutines.runBlocking
 
-abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) {
+open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) {
 
     private val spiel = SpielViewModel()
 
@@ -44,6 +44,16 @@ abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = nu
         runBlocking {
             spiel.stoppeSpiel()
         }
+    }
+
+    fun pausiereSpiel() {
+        runBlocking {
+            spiel.pausiereSpiel()
+        }
+    }
+
+    fun setzeSpielFort() {
+        spiel.setzeSpielFort()
     }
 
     fun setGeschwindigkeit(geschwindigkeit: Double) {
