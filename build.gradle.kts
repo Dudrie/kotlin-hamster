@@ -80,16 +80,7 @@ subprojects {
     }
 }
 
-tasks.register("copyUiResourcesToEditor") {
-    copy {
-        from(rootProject.projectDir.resolve("ui/src/main/composeResources/drawable"))
-        into(rootProject.projectDir.resolve("editor/src/main/composeResources/drawable"))
-        include("**/**")
-    }
-}
-
 tasks.register("generateResClasses") {
-    dependsOn("copyUiResourcesToEditor")
     dependsOn(
         "ui:clean",
         "ui:generateResourceAccessorsForMain",

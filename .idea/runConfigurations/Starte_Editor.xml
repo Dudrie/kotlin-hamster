@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Starte Editor" type="JetRunConfigurationType" activateToolWindowBeforeRun="false">
+    <option name="MAIN_CLASS_NAME" value="de.github.dudrie.hamster.editor.MainKt" />
+    <module name="kotlin-hamster.editor.main" />
+    <shortenClasspath name="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
