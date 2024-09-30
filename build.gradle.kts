@@ -80,6 +80,19 @@ subprojects {
     }
 }
 
+tasks.register("generateResources") {
+    dependsOn(
+        "ui:clean",
+        "ui:generateResourceAccessorsForMain",
+        "ui:generateComposeResClass"
+    )
+    dependsOn(
+        "editor:clean",
+        "editor:generateResourceAccessorsForMain",
+        "editor:generateComposeResClass"
+    )
+}
+
 tasks.dokkaHtmlMultiModule.configure {
     outputDirectory.set(layout.buildDirectory.dir("kdoc"))
 }
