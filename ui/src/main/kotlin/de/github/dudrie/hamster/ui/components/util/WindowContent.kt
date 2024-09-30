@@ -1,6 +1,7 @@
 package de.github.dudrie.hamster.ui.components.util
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -15,10 +16,8 @@ import de.github.dudrie.hamster.ui.model.UIViewModel
 fun WindowContent(viewModel: UIViewModel) {
     val uiState by viewModel.uiState.collectAsState()
 
-    Column(Modifier.fillMaxWidth()) {
-        AppBar()
-
-        Row(Modifier.fillMaxSize()) {
+    Scaffold(topBar = { AppBar() }) { innerPadding ->
+        Row(Modifier.fillMaxSize().padding(innerPadding)) {
             BoardForTerritory(Modifier.weight(1f).fillMaxHeight().padding(8.dp))
 
             if (uiState.showConsole) {
