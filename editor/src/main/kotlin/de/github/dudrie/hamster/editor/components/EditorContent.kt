@@ -11,10 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
+import de.github.dudrie.hamster.editor.generated.tools_title
 import de.github.dudrie.hamster.ui.generated.Res
 import de.github.dudrie.hamster.ui.generated.floor
-import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+import de.github.dudrie.hamster.editor.generated.Res as EditorRes
 
 @Composable
 fun EditorContent(modifier: Modifier = Modifier) {
@@ -23,32 +25,40 @@ fun EditorContent(modifier: Modifier = Modifier) {
             Text("Hallo alle")
         }
 
+        VerticalDivider(Modifier.padding(horizontal = 8.dp))
+
         Column(
             modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 12.dp).width(300.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            SelectTileToolButton(
-                tool = TileTool(),
-                text = "Wand auswählen",
-                icon = painterResource(Res.drawable.floor)
+            Text(
+                text = stringResource(EditorRes.string.tools_title),
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier.padding(bottom = 8.dp)
             )
 
             SelectTileToolButton(
                 tool = TileTool(),
                 text = "Wand auswählen",
-                icon = painterResource(Res.drawable.floor)
+                image = painterResource(Res.drawable.floor)
             )
 
             SelectTileToolButton(
                 tool = TileTool(),
                 text = "Wand auswählen",
-                icon = painterResource(Res.drawable.floor)
+                image = painterResource(Res.drawable.floor)
             )
 
             SelectTileToolButton(
                 tool = TileTool(),
                 text = "Wand auswählen",
-                icon = painterResource(Res.drawable.floor)
+                image = painterResource(Res.drawable.floor)
+            )
+
+            SelectTileToolButton(
+                tool = TileTool(),
+                text = "Wand auswählen",
+                image = painterResource(Res.drawable.floor)
             )
         }
     }
@@ -58,18 +68,18 @@ fun EditorContent(modifier: Modifier = Modifier) {
 fun SelectTileToolButton(
     tool: TileTool,
     text: String,
-    icon: Painter,
+    image: Painter,
     modifier: Modifier = Modifier.fillMaxWidth()
 ) {
-    EditorToolboxButton(onClick = {}, text = text, icon = icon, modifier = modifier)
+    EditorToolboxButton(onClick = {}, text = text, image = image, modifier = modifier)
 }
 
 @Composable
 fun EditorToolboxButton(
     onClick: () -> Unit,
     text: String,
-    icon: Painter,
-    color: Color = MaterialTheme.colorScheme.surfaceVariant,
+    image: Painter,
+    color: Color = MaterialTheme.colorScheme.background,
     border: BorderStroke = ButtonDefaults.outlinedButtonBorder,
     modifier: Modifier = Modifier
 ) {
@@ -79,14 +89,13 @@ fun EditorToolboxButton(
         shape = RoundedCornerShape(8.dp),
         border = border,
         onClick = onClick,
-        shadowElevation = 4.dp,
         modifier = modifier
     ) {
         Row(
             modifier = Modifier.defaultMinSize(minHeight = 48.dp).padding(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(imageResource(Res.drawable.floor), null, modifier = Modifier.size(36.dp))
+            Image(image, null, modifier = Modifier.size(36.dp))
 
             Text(text = text, modifier = Modifier.padding(start = 8.dp))
         }
