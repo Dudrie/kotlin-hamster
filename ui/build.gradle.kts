@@ -24,7 +24,6 @@ dependencies {
 }
 
 compose.resources {
-    publicResClass = true
     packageOfResClass = "de.github.dudrie.hamster.ui.generated"
     generateResClass = always
 }
