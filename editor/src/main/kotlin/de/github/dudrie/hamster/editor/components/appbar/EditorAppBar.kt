@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import de.github.dudrie.hamster.editor.DialogState
+import de.github.dudrie.hamster.editor.components.dialog.DialogState
 import de.github.dudrie.hamster.editor.generated.Res
 import de.github.dudrie.hamster.editor.generated.button_load
 import de.github.dudrie.hamster.editor.generated.button_new
