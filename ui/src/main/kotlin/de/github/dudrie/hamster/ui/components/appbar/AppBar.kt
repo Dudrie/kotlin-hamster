@@ -1,6 +1,11 @@
 package de.github.dudrie.hamster.ui.components.appbar
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.PlaylistAddCheck
+import androidx.compose.material.icons.rounded.PlaylistAddCheck
+import androidx.compose.material.icons.rounded.PlaylistAddCheckCircle
+import androidx.compose.material.icons.rounded.PlaylistRemove
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -91,12 +96,22 @@ fun AppBar(viewModel: UIViewModel = viewModel()) {
                 )
             }
 
+            AppBarButton(
+                onClick = { viewModel.toggleConsoleVisibility() },
+                modifier = Modifier.padding(start = 0.dp)
+            ) {
+                Icon(
+                    if (uiState.showConsole) Icons.AutoMirrored.Rounded.PlaylistAddCheck else Icons.Rounded.PlaylistRemove,
+                    null,
+                    modifier = Modifier.size(36.dp)
+                )
+            }
+
             Spacer(Modifier.weight(1f))
 
             SpeedSlider(
                 modifier = Modifier.widthIn(max = 400.dp).padding(end = 16.dp)
             )
-
 
             Text(
                 text = stringResource(spielState.modus.getTextRes()),

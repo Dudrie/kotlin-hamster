@@ -24,6 +24,10 @@ class UIViewModel(private val spielViewModel: SpielViewModel) : ViewModel() {
         _uiState.update { it.copy(hideHamster = !it.hideHamster) }
     }
 
+    fun toggleConsoleVisibility() {
+        _uiState.update { it.copy(showConsole = !it.showConsole) }
+    }
+
     fun setzeSpielFort() {
         spielViewModel.setzeSpielFort()
     }
