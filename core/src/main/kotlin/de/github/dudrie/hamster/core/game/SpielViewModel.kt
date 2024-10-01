@@ -193,7 +193,7 @@ class SpielViewModel {
         kommandoLock.acquire()
         _ladtSpiel.update { true }
 
-        val territorium = SpielImporter.getStartTerritorium(
+        val territorium = SpielImporter.ladeTerritoriumAusProjekt(
             dateipfad = territoriumsDatei ?: SpielImporter.STANDARD_DATEIPFAD,
             ausResourceOrdner = territoriumsDatei == null
         )
