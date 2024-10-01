@@ -13,4 +13,20 @@
 
     <string name="actions-surround-walls-name">Mit Wänden umgeben</string>
 
+    <!--  File dialog  -->
+    <string name="file-dialog-load-title">Lade Datei</string>
+    <string name="file-dialog-save-title">Speichere Datei</string>
+
+    <!--  Buttons  -->
+    <string name="button-new">Neu</string>
+    <string name="button-save">Speichern</string>
+    <string name="button-load">Laden</string>
+    <string name="button-create-new">Neu erstellen</string>
+    <string name="button-cancel">Abbrechen</string>
+
+    <!--  Dialogs  -->
+    <string name="dialog-confirm-create-new-title">Neues Territorium?</string>
+    <string name="dialog-confirm-create-new-text">Soll wirklich ein neues Territorium erstellt werden? Ungespeicherte Änderungen am Alten gehen verloren. Dies kann nicht rückgängig gemacht werden.
+    </string>
+
 </resources>
