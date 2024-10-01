@@ -7,7 +7,9 @@ import de.github.dudrie.hamster.editor.model.EditorUIState
 data object MakeWallTool : TileTool() {
 
     override fun apply(position: Position, state: EditorUIState) {
-        state.replaceTile(position, state.getTileAt(position).copy(inhalt = Wand))
+        if (!state.hamster.any { it.position == position }) {
+            state.replaceTile(position, state.getTileAt(position).copy(inhalt = Wand))
+        }
     }
 
 }
