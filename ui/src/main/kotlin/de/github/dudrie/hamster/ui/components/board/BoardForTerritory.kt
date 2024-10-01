@@ -1,7 +1,9 @@
 package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -9,12 +11,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Constraints
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.*
 import androidx.lifecycle.viewmodel.compose.viewModel
 import de.github.dudrie.hamster.core.model.territory.Abmessungen
-import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.ui.model.UIViewModel
 import kotlin.math.min
 
@@ -26,23 +25,21 @@ fun BoardForTerritory(modifier: Modifier = Modifier, viewModel: UIViewModel = vi
     BoxWithConstraints(modifier = modifier, contentAlignment = Alignment.Center) {
         val tileSize = calculateTileSize(constraints, size)
 
-        Column(
-            Modifier.height(IntrinsicSize.Max).width(IntrinsicSize.Max)
+        Box(
+            Modifier.size(width = size.breite * tileSize, height = size.hohe * tileSize)
                 .border(1.dp, MaterialTheme.colorScheme.onBackground)
         ) {
-            repeat(size.hohe) { row ->
-                Row(Modifier.weight(1f)) {
-                    repeat(size.breite) { column ->
-                        val position = Position(column, row)
-
-                        GameTile(
-                            tile = spielState.territorium.getKachelBei(position),
-                            hamster = spielState.territorium.getHamsterBei(position),
-                            highlightTile = spielState.fehler?.position == position,
-                            size = tileSize
-                        )
-                    }
-                }
+            spielState.territorium.kacheln.forEach { (position, kachel) ->
+                GameTile(
+                    tile = kachel,
+                    hamster = spielState.territorium.getHamsterBei(position),
+                    highlightTile = spielState.fehler?.position == position,
+                    size = tileSize,
+                    offset = DpOffset(
+                        x = (tileSize * position.x),
+                        y = (tileSize * position.y)
+                    )
+                )
             }
         }
     }
