@@ -13,6 +13,6 @@ fun EditorAppBar() {
     Surface(
         modifier = Modifier.height(64.0.dp).fillMaxWidth(),
         shadowElevation = 24.dp,
-        color = MaterialTheme.colorScheme.primaryContainer
+        color = MaterialTheme.colorScheme.primary
     ) {}
 }
