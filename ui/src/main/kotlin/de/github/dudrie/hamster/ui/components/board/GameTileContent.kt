@@ -6,8 +6,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -15,7 +13,6 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
@@ -26,7 +23,6 @@ import de.github.dudrie.hamster.ui.generated.Res
 import de.github.dudrie.hamster.ui.generated.grain
 import de.github.dudrie.hamster.ui.generated.hamster
 import de.github.dudrie.hamster.ui.generated.wall
-import de.github.dudrie.hamster.ui.model.UIViewModel
 import de.github.dudrie.hamster.ui.theme.SpielTypographyLocal
 import org.jetbrains.compose.resources.imageResource
 

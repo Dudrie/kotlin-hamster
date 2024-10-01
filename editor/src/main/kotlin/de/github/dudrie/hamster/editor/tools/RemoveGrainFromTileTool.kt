@@ -1,6 +1,5 @@
 package de.github.dudrie.hamster.editor.tools
 
-import de.github.dudrie.hamster.core.model.hamster.Korn
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
 import de.github.dudrie.hamster.core.model.util.Position

@@ -3,8 +3,6 @@ package de.github.dudrie.hamster.ui.components.appbar
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.PlaylistAddCheck
-import androidx.compose.material.icons.rounded.PlaylistAddCheck
-import androidx.compose.material.icons.rounded.PlaylistAddCheckCircle
 import androidx.compose.material.icons.rounded.PlaylistRemove
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
