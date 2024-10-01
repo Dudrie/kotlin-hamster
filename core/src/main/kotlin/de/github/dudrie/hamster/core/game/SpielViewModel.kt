@@ -48,16 +48,6 @@ class SpielViewModel {
         _spielZustand.update { it.copy(geschwindigkeit = geschwindigkeit) }
     }
 
-    fun setStartTerritorium(territorium: InternesTerritorium) {
-        require(spielModus == SpielModus.Initialisierung) { "ERR_GAME_NOT_INITIALIZING" }
-        _spielZustand.update {
-            SpielZustand().copy(
-                aktuellesTerritorium = territorium,
-                geschwindigkeit = it.geschwindigkeit
-            )
-        }
-    }
-
     suspend fun fuhreAus(kommando: Kommando) {
         kommandoLock.acquire()
         try {
