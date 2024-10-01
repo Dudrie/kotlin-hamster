@@ -1,4 +1,16 @@
 <resources>
     <string name="editor-app-title">Hamster-Editor</string>
+
     <string name="tools-title">Werkzeuge</string>
+    <string name="actions-title">Aktionen</string>
+
+    <!--  Tile tools  -->
+    <string name="tool-select-name">Auswahlwerkzeug</string>
+    <string name="tool-wall-name">Wandwerkzeug</string>
+    <string name="tool-floor-name">Bodenwerkzeug</string>
+    <string name="tool-add-grain-name">1 Korn hinzufügen</string>
+    <string name="tool-remove-grain-name">1 Korn entfernen</string>
+
+    <string name="actions-surround-walls-name">Mit Wänden umgeben</string>
+
 </resources>
