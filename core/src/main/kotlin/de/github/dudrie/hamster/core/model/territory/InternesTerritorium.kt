@@ -1,5 +1,6 @@
 package de.github.dudrie.hamster.core.model.territory
 
+import de.github.dudrie.hamster.core.extensions.getAbmessungen
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
 import de.github.dudrie.hamster.core.model.kachel.Kachelinhalt
@@ -18,10 +19,7 @@ data class InternesTerritorium(
             if (_abmessungen != null) {
                 _abmessungen!!
             } else {
-                _abmessungen = Abmessungen(
-                    breite = kacheln.keys.maxOf { it.x } + 1,
-                    hohe = kacheln.keys.maxOf { it.y } + 1
-                )
+                _abmessungen = kacheln.getAbmessungen()
                 _abmessungen!!
             }
 
