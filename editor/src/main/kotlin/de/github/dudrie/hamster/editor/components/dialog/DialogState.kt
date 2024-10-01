@@ -10,10 +10,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.window.FrameWindowScope
 import androidx.lifecycle.ViewModel
 import de.github.dudrie.hamster.editor.generated.*
-import de.github.dudrie.hamster.editor.generated.Res
-import de.github.dudrie.hamster.editor.generated.button_create_new
-import de.github.dudrie.hamster.editor.generated.dialog_confirm_create_new_text
-import de.github.dudrie.hamster.editor.generated.dialog_confirm_create_new_title
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import java.nio.file.Path

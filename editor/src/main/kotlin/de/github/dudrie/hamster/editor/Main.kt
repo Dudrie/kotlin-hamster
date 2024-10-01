@@ -5,11 +5,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.*
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowState
+import androidx.compose.ui.window.application
 import de.github.dudrie.hamster.editor.components.EditorContent
 import de.github.dudrie.hamster.editor.components.appbar.EditorAppBar
 import de.github.dudrie.hamster.editor.components.dialog.DialogPlacer
-import de.github.dudrie.hamster.editor.generated.*
+import de.github.dudrie.hamster.editor.generated.Res
+import de.github.dudrie.hamster.editor.generated.editor_app_title
 import de.github.dudrie.hamster.ui.theme.ThemeWrapper
 import org.jetbrains.compose.resources.stringResource
 

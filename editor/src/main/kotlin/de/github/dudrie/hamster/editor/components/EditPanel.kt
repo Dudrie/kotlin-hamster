@@ -16,10 +16,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.editor.generated.*
-import de.github.dudrie.hamster.editor.generated.Res
-import de.github.dudrie.hamster.editor.generated.edit_panel_bt_hamster_add
-import de.github.dudrie.hamster.editor.generated.edit_panel_hamster_title
-import de.github.dudrie.hamster.editor.generated.edit_panel_tile_title
 import de.github.dudrie.hamster.editor.model.EditorUIState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
