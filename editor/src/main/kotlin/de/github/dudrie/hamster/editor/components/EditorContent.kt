@@ -20,7 +20,7 @@ import de.github.dudrie.hamster.ui.components.board.LocalGameTileClicked
 fun EditorContent(modifier: Modifier = Modifier, state: EditorUIState = viewModel()) {
     Row(modifier) {
         val listener = { position: Position ->
-            println(position)
+            state.selectedTool.apply(position, state)
         }
 
         CompositionLocalProvider(LocalGameTileClicked provides listener) {
