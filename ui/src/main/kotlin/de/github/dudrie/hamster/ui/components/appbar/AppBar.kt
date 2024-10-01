@@ -28,7 +28,7 @@ fun AppBar(viewModel: UIViewModel = viewModel()) {
 
     Surface(
         modifier = Modifier.height(64.0.dp).fillMaxWidth(),
-        color = MaterialTheme.colorScheme.primaryContainer
+        color = MaterialTheme.colorScheme.primary
     ) {
         Row(
             modifier = Modifier.padding(vertical = 8.dp, horizontal = 24.dp),
