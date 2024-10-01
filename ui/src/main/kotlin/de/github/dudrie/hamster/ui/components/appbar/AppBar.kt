@@ -3,6 +3,8 @@ package de.github.dudrie.hamster.ui.components.appbar
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.PlaylistAddCheck
+import androidx.compose.material.icons.rounded.Fullscreen
+import androidx.compose.material.icons.rounded.FullscreenExit
 import androidx.compose.material.icons.rounded.PlaylistRemove
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -99,7 +101,7 @@ fun AppBar(viewModel: UIViewModel = viewModel()) {
                 modifier = Modifier.padding(start = 0.dp)
             ) {
                 Icon(
-                    if (uiState.showConsole) Icons.AutoMirrored.Rounded.PlaylistAddCheck else Icons.Rounded.PlaylistRemove,
+                    if (uiState.showConsole) Icons.Rounded.Fullscreen else Icons.Rounded.FullscreenExit,
                     null,
                     modifier = Modifier.size(36.dp)
                 )
