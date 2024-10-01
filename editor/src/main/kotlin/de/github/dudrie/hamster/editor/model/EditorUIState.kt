@@ -1,9 +1,6 @@
 package de.github.dudrie.hamster.editor.model
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import de.github.dudrie.hamster.core.file.SpielExporter
 import de.github.dudrie.hamster.core.file.SpielImporter
@@ -12,6 +9,7 @@ import de.github.dudrie.hamster.core.model.kachel.Kachel
 import de.github.dudrie.hamster.core.model.kachel.Leer
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.Position
+import de.github.dudrie.hamster.core.model.util.Richtung
 import de.github.dudrie.hamster.editor.tools.SelectTileTool
 import de.github.dudrie.hamster.editor.tools.TileTool
 import java.nio.file.Path
@@ -24,9 +22,9 @@ class EditorUIState : ViewModel() {
     var tiles by mutableStateOf(mapOf<Position, Kachel>())
         private set
 
-    private val _hamster = mutableStateListOf<InternerHamster>()
+    private val _hamster = mutableStateMapOf<Position, InternerHamster>()
     val hamster: List<InternerHamster>
-        get() = _hamster.toList()
+        get() = _hamster.values.toList()
 
     var selectedTool by mutableStateOf<TileTool>(SelectTileTool)
 
@@ -46,6 +44,16 @@ class EditorUIState : ViewModel() {
         hasUnsavedChanges = true
     }
 
+    fun getHamsterAt(position: Position): InternerHamster? = _hamster[position]
+
+    fun createHamsterAt(position: Position) {
+        _hamster[position] = InternerHamster(position, Richtung.Sueden, listOf())
+    }
+
+    fun removeHamsterFrom(position: Position) {
+        _hamster.remove(position)
+    }
+
     fun createNewTerritory() {
         val tiles = mutableMapOf<Position, Kachel>()
         repeat(3) { row ->
@@ -63,7 +71,7 @@ class EditorUIState : ViewModel() {
 
         val territory = InternesTerritorium(
             kacheln = tiles,
-            hamster = _hamster,
+            hamster = _hamster.values.toList(),
             kachelZuMeterSkalierung = 1.0
         )
         SpielExporter.speichereSpiel(filepath.toString(), territory)
@@ -74,7 +82,9 @@ class EditorUIState : ViewModel() {
         val territory = SpielImporter.ladeTerritoriumAusDatei(filepath)
         tiles = territory.kacheln
         _hamster.clear()
-        _hamster.addAll(territory.hamster)
+        territory.hamster.forEach {
+            _hamster[it.position] = it
+        }
         reset()
     }
 

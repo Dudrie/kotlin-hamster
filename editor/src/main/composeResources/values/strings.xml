@@ -13,6 +13,12 @@
 
     <string name="actions-surround-walls-name">Mit Wänden umgeben</string>
 
+    <!--  Edit panel  -->
+    <string name="edit-panel-tile-title">Kachelinfos</string>
+    <string name="edit-panel-hamster-title">Hamsterinfos</string>
+    <string name="edit-panel-bt-hamster-add">Füge Hamster hinzu</string>
+    <string name="edit-panel-bt-hamster-remove">Entferne Hamster</string>
+
     <!--  File dialog  -->
     <string name="file-dialog-load-title">Lade Datei</string>
     <string name="file-dialog-save-title">Speichere Datei</string>

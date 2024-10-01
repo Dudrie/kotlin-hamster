@@ -1,12 +1,8 @@
 package de.github.dudrie.hamster.editor.components
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.VerticalDivider
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -35,6 +31,14 @@ fun EditorContent(modifier: Modifier = Modifier, state: EditorUIState = viewMode
 
         VerticalDivider(Modifier.padding(horizontal = 8.dp))
 
-        ToolBox(Modifier.padding(start = 8.dp, end = 8.dp, top = 12.dp).width(300.dp))
+        Box(Modifier.width(300.dp)) {
+            ToolBox(Modifier.padding(start = 8.dp, end = 8.dp, top = 12.dp))
+
+            EditPanel(
+                visible = state.selectedPosition != null,
+                position = state.selectedPosition,
+                modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 12.dp)
+            )
+        }
     }
 }
