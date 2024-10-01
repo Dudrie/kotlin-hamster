@@ -1,5 +1,6 @@
 package de.github.dudrie.hamster.editor.tools
 
+import de.github.dudrie.hamster.core.model.hamster.Korn
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
 import de.github.dudrie.hamster.core.model.util.Position
@@ -10,9 +11,12 @@ data object RemoveGrainFromTileTool : TileTool() {
     override fun apply(position: Position, state: EditorUIState) {
         val tile = state.getTileAt(position)
         val inhalt = tile.inhalt
-        require(inhalt is KornInhalt) { "Tool muss auf eine Kachel mit KornInhalt angewendet werden." }
-        val neueAnzahl = inhalt.anzahl - 1
 
+        if (inhalt !is KornInhalt) {
+            return
+        }
+
+        val neueAnzahl = inhalt.anzahl - 1
         val newTile = if (neueAnzahl == 0) {
             tile.copy(inhalt = Leer)
         } else {

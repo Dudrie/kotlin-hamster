@@ -10,7 +10,9 @@ data object AddGrainToTileTool : TileTool() {
     override fun apply(position: Position, state: EditorUIState) {
         val tile = state.getTileAt(position)
         val inhalt = tile.inhalt
-        require(inhalt is Leer || inhalt is KornInhalt) { "Tool muss auf eine leere Kachel ODER auf eine Kachel, auf der bereits Körner liegen, angewendet werden." }
+        if (!(inhalt is Leer || inhalt is KornInhalt)) {
+            return
+        }
 
         val newTile = if (inhalt is KornInhalt) {
             tile.copy(inhalt = inhalt.copy(anzahl = inhalt.anzahl + 1))
