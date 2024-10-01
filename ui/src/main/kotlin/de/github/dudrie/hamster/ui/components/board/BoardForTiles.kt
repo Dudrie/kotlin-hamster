@@ -23,11 +23,13 @@ fun BoardForTiles(
     kacheln: Map<Position, Kachel>,
     hamster: List<InternerHamster>,
     highlightedTile: Position?,
+    hideHamster: Boolean,
     modifier: Modifier = Modifier
 ) {
     BoxWithConstraints(modifier = modifier, contentAlignment = Alignment.Center) {
         val totalSize = remember(kacheln) { kacheln.getAbmessungen() }
         val tileSize = calculateTileSize(constraints, totalSize)
+        val listener = LocalGameTileClicked.current
 
         Box(
             Modifier.size(width = totalSize.breite * tileSize, height = totalSize.hohe * tileSize)
@@ -36,9 +38,11 @@ fun BoardForTiles(
             kacheln.forEach { (position, kachel) ->
                 GameTile(
                     tile = kachel,
+                    onClick = listener?.let { { it(position) } },
                     hamster = hamster.find { it.position == position },
                     highlightTile = highlightedTile == position,
                     size = tileSize,
+                    hideHamster = hideHamster,
                     offset = DpOffset(
                         x = (tileSize * position.x),
                         y = (tileSize * position.y)

@@ -1,17 +1,36 @@
 package de.github.dudrie.hamster.editor.components
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.editor.components.toolbox.ToolBox
+import de.github.dudrie.hamster.editor.model.EditorUIState
+import de.github.dudrie.hamster.ui.components.board.BoardForTiles
+import de.github.dudrie.hamster.ui.components.board.LocalGameTileClicked
 
 @Composable
-fun EditorContent(modifier: Modifier = Modifier) {
+fun EditorContent(modifier: Modifier = Modifier, state: EditorUIState = viewModel()) {
     Row(modifier) {
-        Box(Modifier.weight(1f)) {
-            Text("Hallo alle")
+        val listener = { position: Position ->
+            println(position)
+        }
+
+        CompositionLocalProvider(LocalGameTileClicked provides listener) {
+            BoardForTiles(
+                kacheln = state.tiles,
+                hamster = listOf(),
+                highlightedTile = null,
+                hideHamster = false,
+                modifier = Modifier.weight(1f).fillMaxHeight().padding(8.dp)
+            )
         }
 
         VerticalDivider(Modifier.padding(horizontal = 8.dp))

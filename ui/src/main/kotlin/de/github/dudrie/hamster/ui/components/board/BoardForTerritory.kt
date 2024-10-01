@@ -10,11 +10,13 @@ import de.github.dudrie.hamster.ui.model.UIViewModel
 @Composable
 fun BoardForTerritory(modifier: Modifier = Modifier, viewModel: UIViewModel = viewModel()) {
     val spielState by viewModel.spielZustand.collectAsState()
+    val uiState by viewModel.uiState.collectAsState()
 
     BoardForTiles(
         kacheln = spielState.territorium.kacheln,
         hamster = spielState.territorium.hamster,
         highlightedTile = spielState.fehler?.position,
+        hideHamster = uiState.hideHamster,
         modifier = modifier
     )
 }

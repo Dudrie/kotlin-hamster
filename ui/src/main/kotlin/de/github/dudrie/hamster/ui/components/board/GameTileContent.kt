@@ -31,9 +31,7 @@ import de.github.dudrie.hamster.ui.theme.SpielTypographyLocal
 import org.jetbrains.compose.resources.imageResource
 
 @Composable
-fun GameTileContent(tile: Kachel, hamster: InternerHamster?, viewModel: UIViewModel = viewModel()) {
-    val uiState by viewModel.uiState.collectAsState()
-
+fun GameTileContent(tile: Kachel, hamster: InternerHamster?, hideHamster: Boolean) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         when (val inhalt = tile.inhalt) {
             is KornInhalt -> {
@@ -77,7 +75,7 @@ fun GameTileContent(tile: Kachel, hamster: InternerHamster?, viewModel: UIViewMo
         }
 
         hamster?.let {
-            Box(Modifier.alpha(if (uiState.hideHamster) 0.35f else 1f)) {
+            Box(Modifier.alpha(if (hideHamster) 0.35f else 1f)) {
                 Image(
                     imageResource(Res.drawable.hamster),
                     null,
