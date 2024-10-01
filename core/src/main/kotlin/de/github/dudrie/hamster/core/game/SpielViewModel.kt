@@ -227,15 +227,15 @@ class SpielViewModel {
         val kacheln = mutableMapOf<Position, Kachel>()
 
         repeat(5) {
-            kacheln[Position(it, 0)] = Kachel(Wand())
-            kacheln[Position(it, 2)] = Kachel(Wand())
+            kacheln[Position(it, 0)] = Kachel(Wand)
+            kacheln[Position(it, 2)] = Kachel(Wand)
         }
 
-        kacheln[Position(0, 1)] = Kachel(Wand())
+        kacheln[Position(0, 1)] = Kachel(Wand)
         kacheln[Position(1, 1)] = Kachel(Leer)
         kacheln[Position(2, 1)] = Kachel(Leer)
         kacheln[Position(3, 1)] = Kachel(KornInhalt(3))
-        kacheln[Position(4, 1)] = Kachel(Wand())
+        kacheln[Position(4, 1)] = Kachel(Wand)
 
         val hamster = InternerHamster(
             position = Position(1, 1),
