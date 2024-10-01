@@ -17,6 +17,8 @@ class EditorUIState : ViewModel() {
 
     var selectedTool by mutableStateOf<TileTool>(SelectTileTool)
 
+    var selectedPosition by mutableStateOf<Position?>(null)
+
     init {
         val tiles = mutableMapOf<Position, Kachel>()
         repeat(3) { row ->

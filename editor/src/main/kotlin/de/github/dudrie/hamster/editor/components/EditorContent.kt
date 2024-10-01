@@ -27,7 +27,7 @@ fun EditorContent(modifier: Modifier = Modifier, state: EditorUIState = viewMode
             BoardForTiles(
                 kacheln = state.tiles,
                 hamster = listOf(),
-                highlightedTile = null,
+                highlightedTile = state.selectedPosition,
                 hideHamster = false,
                 modifier = Modifier.weight(1f).fillMaxHeight().padding(8.dp)
             )
