@@ -5,11 +5,14 @@ import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import de.github.dudrie.hamster.core.extensions.getAbmessungen
 import de.github.dudrie.hamster.core.file.SpielExporter
 import de.github.dudrie.hamster.core.file.SpielImporter
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
+import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
+import de.github.dudrie.hamster.core.model.kachel.Wand
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.core.model.util.Richtung
@@ -95,5 +98,26 @@ class EditorUIState : ViewModel() {
         hasUnsavedChanges = false
         selectedTool = SelectTileTool
         selectedPosition = null
+    }
+
+    fun surroundWithWalls() {
+        val size = tiles.getAbmessungen()
+
+        repeat(size.breite) { column ->
+            makeWallIfPossible(Position(x = column, y = 0))
+            makeWallIfPossible(Position(x = column, y = size.hohe - 1))
+        }
+
+        for (row in 1 until size.hohe - 1) {
+            makeWallIfPossible(Position(x = 0, y = row))
+            makeWallIfPossible(Position(x = size.breite - 1, y = row))
+        }
+    }
+
+    private fun makeWallIfPossible(position: Position) {
+        val tile = getTileAt(position)
+        if (tile.inhalt is KornInhalt || hamster.any { it.position == position }) return
+
+        replaceTile(position, tile.copy(inhalt = Wand))
     }
 }

@@ -79,7 +79,7 @@ fun ToolBox(modifier: Modifier = Modifier, state: EditorUIState = viewModel()) {
         )
 
         EditorToolboxButton(
-            onClick = {},
+            onClick = state::surroundWithWalls,
             text = stringResource(Res.string.actions_surround_walls_name),
             image = painterResource(Res.drawable.dots_square)
         )
