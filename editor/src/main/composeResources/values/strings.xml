@@ -18,6 +18,11 @@
     <string name="edit-panel-hamster-title">Hamsterinfos</string>
     <string name="edit-panel-bt-hamster-add">Füge Hamster hinzu</string>
     <string name="edit-panel-bt-hamster-remove">Entferne Hamster</string>
+    <string name="edit-panel-tf-grain-count">Anzahl Körner auf dem Feld</string>
+    <string name="edit-panel-cb-hide-grain-count">Verstecke Kornanzahl</string>
+    <string name="tile-content-select-type-floor">Boden</string>
+    <string name="tile-content-select-type-wall">Wand</string>
+    <string name="tile-content-select-type-grains">Körner</string>
 
     <!--  File dialog  -->
     <string name="file-dialog-load-title">Lade Datei</string>

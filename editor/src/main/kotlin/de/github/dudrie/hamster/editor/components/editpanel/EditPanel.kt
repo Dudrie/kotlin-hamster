@@ -1,4 +1,4 @@
-package de.github.dudrie.hamster.editor.components
+package de.github.dudrie.hamster.editor.components.editpanel
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeOut
@@ -14,6 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import de.github.dudrie.hamster.core.model.kachel.KornInhalt
+import de.github.dudrie.hamster.core.model.kachel.Leer
+import de.github.dudrie.hamster.core.model.kachel.Wand
 import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.editor.generated.*
 import de.github.dudrie.hamster.editor.model.EditorUIState
@@ -60,10 +63,34 @@ fun EditPanel(
                     }
                 }
 
-                // TODO: Kachelinhalt bearbeiten:
-                //       Typ festlegen und abhängig davon ein entsprechendes Panel anzeigen
+                TileContentSelect(
+                    tile = tile,
+                    hamster = hamster,
+                    onChange = { state.replaceTile(position, tile.copy(inhalt = it)) },
+                    modifier = Modifier.padding(bottom = 12.dp)
+                )
 
-                if (hamster == null) {
+                when (val inhalt = tile.inhalt) {
+                    Leer, Wand -> {}
+
+                    is KornInhalt -> EditGrainCountOnTile(
+                        inhalt = inhalt,
+                        onCountChanged = {
+                            state.replaceTile(
+                                position,
+                                tile.copy(inhalt = inhalt.copy(anzahl = it))
+                            )
+                        },
+                        onHideGrainChanged = {
+                            state.replaceTile(
+                                position,
+                                tile.copy(inhalt = inhalt.copy(verbergeKornAnzahl = it))
+                            )
+                        }
+                    )
+                }
+
+                if (hamster == null && !tile.inhalt.blocktBewegung) {
                     OutlinedButton(
                         onClick = { state.createHamsterAt(position) },
                         modifier = Modifier.fillMaxWidth().padding(top = 12.dp)
@@ -80,7 +107,7 @@ fun EditPanel(
                         style = MaterialTheme.typography.headlineSmall
                     )
 
-                    // TODO: Hamsterrichtung festlegen
+                    // TODO: Hamsterrichtung festlegen (Icons: "Navigation")
                     // TODO: Anzahl Körner zu Beginn festlegen
 
                     OutlinedButton(

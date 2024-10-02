@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import de.github.dudrie.hamster.core.model.util.Position
+import de.github.dudrie.hamster.editor.components.editpanel.EditPanel
 import de.github.dudrie.hamster.editor.components.toolbox.ToolBox
 import de.github.dudrie.hamster.editor.model.EditorUIState
 import de.github.dudrie.hamster.ui.components.board.BoardForTiles
