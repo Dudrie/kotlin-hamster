@@ -20,6 +20,8 @@ dependencies {
     implementation(libs.compose.viewmodel)
 
     implementation(libs.kotlinx.coroutines)
+
+    implementation(libs.dudrie.commons.select)
 }
 
 compose.resources {
