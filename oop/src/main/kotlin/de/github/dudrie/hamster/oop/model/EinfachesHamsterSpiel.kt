@@ -24,6 +24,12 @@ open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) 
         private set
 
     /**
+     * Enthält das [Territorium] des Spiels.
+     */
+    lateinit var territorium: Territorium
+        private set
+
+    /**
      * Das [SpielFenster], welches zu diesem Spiel gehört.
      */
     private var fenster: SpielFenster = SpielFenster(spiel) {
@@ -36,7 +42,7 @@ open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) 
 
         spiel.ladeSpiel(territoriumsDatei)
 
-        val territorium = Territorium(spiel, spiel.territorium)
+        territorium = Territorium(spiel, spiel.territorium)
         paule = Hamster(territorium, spiel.standardHamster)
     }
 

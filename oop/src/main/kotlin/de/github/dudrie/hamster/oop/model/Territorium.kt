@@ -28,6 +28,12 @@ class Territorium(
         get() = internesTerritorium.abmessungen
 
     /**
+     * Wie vielen Metern entspricht eine [de.github.dudrie.hamster.core.model.kachel.Kachel] dieses Territoriums?
+     */
+    val kachelZuMeterSkalierung: Double
+        get() = internesTerritorium.kachelZuMeterSkalierung
+
+    /**
      * Ist das Feld an der [position] blockiert?
      *
      * _Blockiert bedeutet, dass ein Hamster dieses Feld **nicht** betreten kann._

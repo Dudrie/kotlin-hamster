@@ -72,7 +72,11 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
     val richtung: Richtung
         get() = internerHamster.richtung
 
-    // TODO: Gemachte Schritte + Umrechnung in "Meter/Zentimeter"
+    /**
+     * Die Anzahl Schritte, die der Hamster bisher gemacht hat.
+     */
+    val anzahlSchritte: Int
+        get() = internerHamster.anzahlSchritte
 
     /**
      * Bewegt den Hamster einen Schritt in Blickrichtung.
