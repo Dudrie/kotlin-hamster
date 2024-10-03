@@ -21,5 +21,8 @@ data class Position(val x: Int, val y: Int) {
         y = y + bewegung.deltaY
     )
 
+    /**
+     * Gibt die [String] Repräsentation dieser [Position] zurück.
+     */
     override fun toString(): String = "($x,$y)"
 }
