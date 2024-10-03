@@ -41,9 +41,9 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         }
     }
 
-    val anzahlKorner: Int
-        get() = internerHamster.kornAnzahl
-
+    /**
+     * Der [Ort][Position] an dem sich dieser Hamster befindet.
+     */
     val ort: Position
         get() = internerHamster.position
 
