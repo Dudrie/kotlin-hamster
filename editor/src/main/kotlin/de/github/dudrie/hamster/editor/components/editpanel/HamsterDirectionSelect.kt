@@ -14,10 +14,6 @@ import de.github.dudrie.commons.select.Select
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.util.Richtung
 import de.github.dudrie.hamster.editor.generated.*
-import de.github.dudrie.hamster.editor.generated.Res
-import de.github.dudrie.hamster.editor.generated.richtung_norden
-import de.github.dudrie.hamster.editor.generated.richtung_osten
-import de.github.dudrie.hamster.editor.generated.richtung_sueden
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
