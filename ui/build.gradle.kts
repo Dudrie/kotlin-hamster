@@ -1,4 +1,5 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 plugins {
     kotlin("jvm")
@@ -27,6 +28,15 @@ compose.resources {
     publicResClass = true
     packageOfResClass = "de.github.dudrie.hamster.ui.generated"
     generateResClass = always
+}
+
+tasks.withType<DokkaTaskPartial>().configureEach {
+    dokkaSourceSets {
+        configureEach {
+            reportUndocumented.set(false)
+            includeNonPublic.set(false)
+        }
+    }
 }
 
 compose.desktop {

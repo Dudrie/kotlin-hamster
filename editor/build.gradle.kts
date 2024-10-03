@@ -1,3 +1,5 @@
+import org.jetbrains.dokka.gradle.DokkaTaskPartial
+
 plugins {
     kotlin("jvm")
 
@@ -28,6 +30,15 @@ dependencies {
 compose.resources {
     packageOfResClass = "de.github.dudrie.hamster.editor.generated"
     generateResClass = always
+}
+
+tasks.withType<DokkaTaskPartial>().configureEach {
+    dokkaSourceSets {
+        configureEach {
+            reportUndocumented.set(false)
+            includeNonPublic.set(false)
+        }
+    }
 }
 
 tasks.withType<PublishToMavenLocal>().configureEach { enabled = false }
