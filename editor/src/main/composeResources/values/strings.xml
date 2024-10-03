@@ -24,6 +24,7 @@
     <string name="tile-content-select-type-floor">Boden</string>
     <string name="tile-content-select-type-wall">Wand</string>
     <string name="tile-content-select-type-grains">Körner</string>
+    <string name="edit-panel-tf-hamster-grain-in-mouth">Anzahl Körner im Mund</string>
 
     <!--  Buttons  -->
     <string name="button-new">Neu</string>

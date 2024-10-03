@@ -110,9 +110,13 @@ fun EditPanel(
                     HamsterDirectionSelect(
                         hamster = it,
                         onChange = { richtung -> state.turnHamsterAt(position, richtung) },
-                        modifier = Modifier.padding(top = 8.dp, bottom = 12.dp)
+                        modifier = Modifier.padding(vertical = 8.dp)
                     )
-                    // TODO: Anzahl Körner zu Beginn festlegen
+
+                    EditGrainsInHamstersMouth(
+                        hamster = it,
+                        onChange = { count -> state.setHamsterGrainsTo(position, count) }
+                    )
 
                     OutlinedButton(
                         onClick = { state.removeHamsterFrom(position) },
@@ -120,7 +124,7 @@ fun EditPanel(
                             contentColor = MaterialTheme.colorScheme.error
                         ),
                         border = BorderStroke(1.dp, MaterialTheme.colorScheme.error),
-                        modifier = Modifier.fillMaxWidth().padding(top = 12.dp)
+                        modifier = Modifier.fillMaxWidth().padding(top = 24.dp)
                     ) {
                         Text(stringResource(Res.string.edit_panel_bt_hamster_remove))
                     }

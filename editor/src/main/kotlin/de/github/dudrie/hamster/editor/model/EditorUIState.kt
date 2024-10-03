@@ -9,6 +9,7 @@ import de.github.dudrie.hamster.core.extensions.getAbmessungen
 import de.github.dudrie.hamster.core.file.SpielExporter
 import de.github.dudrie.hamster.core.file.SpielImporter
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
+import de.github.dudrie.hamster.core.model.hamster.Korn
 import de.github.dudrie.hamster.core.model.kachel.Kachel
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
@@ -143,5 +144,17 @@ class EditorUIState : ViewModel() {
             }
         }
         return tiles
+    }
+
+    fun setHamsterGrainsTo(position: Position, count: Int) {
+        require(count >= 0) { "Die Kornanzahl im Mund des Hamsters muss 0 oder größer sein." }
+
+        val hamster = _hamster[position]
+            ?: throw IllegalArgumentException("Es gibt bei $position keinen Hamster")
+        val grainsInMouth = mutableListOf<Korn>()
+
+        repeat(count) { grainsInMouth += Korn() }
+
+        _hamster[position] = hamster.copy(inventar = grainsInMouth)
     }
 }
