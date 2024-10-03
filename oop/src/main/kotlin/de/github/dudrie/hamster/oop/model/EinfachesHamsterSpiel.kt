@@ -33,13 +33,6 @@ open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) 
      * Das [SpielFenster], welches zu diesem Spiel gehört.
      */
     private var fenster: SpielFenster = SpielFenster(spiel) {
-        // FIXME: Remove creating and saving a default territory
-        spiel.erstelleStandardTerritorium()
-        SpielExporter.speichereSpiel(
-            "./core/src/main/resources/territories/standard.json",
-            spiel.territorium
-        )
-
         spiel.ladeSpiel(territoriumsDatei)
 
         territorium = Territorium(spiel, spiel.territorium)
