@@ -12,6 +12,7 @@
     <string name="tool-remove-grain-name">1 Korn entfernen</string>
 
     <string name="actions-surround-walls-name">Mit Wänden umgeben</string>
+    <string name="actions-territory-change-size">Größe ändern</string>
 
     <!--  Edit panel  -->
     <string name="edit-panel-tile-title">Kachelinfos</string>
@@ -24,10 +25,6 @@
     <string name="tile-content-select-type-wall">Wand</string>
     <string name="tile-content-select-type-grains">Körner</string>
 
-    <!--  File dialog  -->
-    <string name="file-dialog-load-title">Lade Datei</string>
-    <string name="file-dialog-save-title">Speichere Datei</string>
-
     <!--  Buttons  -->
     <string name="button-new">Neu</string>
     <string name="button-save">Speichern</string>
@@ -35,9 +32,21 @@
     <string name="button-create-new">Neu erstellen</string>
     <string name="button-cancel">Abbrechen</string>
 
-    <!--  Dialogs  -->
+    <!--  Confirm dialog  -->
     <string name="dialog-confirm-create-new-title">Neues Territorium?</string>
     <string name="dialog-confirm-create-new-text">Soll wirklich ein neues Territorium erstellt werden? Ungespeicherte Änderungen am Alten gehen verloren. Dies kann nicht rückgängig gemacht werden.
     </string>
+
+    <!--  File dialog  -->
+    <string name="file-dialog-load-title">Lade Datei</string>
+    <string name="file-dialog-save-title">Speichere Datei</string>
+
+    <!--  New Territory size dialog  -->
+    <string name="territory-size-dialog-title">Territoriumsgröße ändern</string>
+    <string name="territory-size-dialog-confirm">Größe ändern</string>
+    <string name="territory-size-dialog-width-label">Breite</string>
+    <string name="territory-size-dialog-height-label">Höhe</string>
+    <string name="territory-size-dialog-invalid-number">Keine gültige Zahl</string>
+    <string name="territory-size-dialog-not-positiv">%1$s muss größer als 0 sein.</string>
 
 </resources>

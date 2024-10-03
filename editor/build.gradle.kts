@@ -21,6 +21,7 @@ dependencies {
 
     implementation(libs.kotlinx.coroutines)
 
+    implementation(libs.dudrie.commons.forms)
     implementation(libs.dudrie.commons.select)
 }
 

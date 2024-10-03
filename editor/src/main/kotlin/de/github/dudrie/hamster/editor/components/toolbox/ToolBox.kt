@@ -7,9 +7,12 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import de.github.dudrie.hamster.core.extensions.getAbmessungen
+import de.github.dudrie.hamster.editor.components.dialog.DialogState
 import de.github.dudrie.hamster.editor.generated.*
 import de.github.dudrie.hamster.editor.generated.Res
 import de.github.dudrie.hamster.editor.generated.tool_select_name
@@ -19,12 +22,19 @@ import de.github.dudrie.hamster.editor.model.EditorUIState
 import de.github.dudrie.hamster.editor.tools.*
 import de.github.dudrie.hamster.ui.generated.floor
 import de.github.dudrie.hamster.ui.generated.wall
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import de.github.dudrie.hamster.ui.generated.Res as UIRes
 
 @Composable
-fun ToolBox(modifier: Modifier = Modifier, state: EditorUIState = viewModel()) {
+fun ToolBox(
+    modifier: Modifier = Modifier,
+    state: EditorUIState = viewModel(),
+    dialog: DialogState = viewModel()
+) {
+    val scope = rememberCoroutineScope()
+
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -83,5 +93,19 @@ fun ToolBox(modifier: Modifier = Modifier, state: EditorUIState = viewModel()) {
             text = stringResource(Res.string.actions_surround_walls_name),
             image = painterResource(Res.drawable.dots_square)
         )
+
+        EditorToolboxButton(
+            onClick = {
+                scope.launch {
+                    val newSize =
+                        dialog.askForNewTerritorySize(state.tiles.getAbmessungen()) ?: return@launch
+
+                    state.changeTerritorySize(newSize)
+                }
+            },
+            text = stringResource(Res.string.actions_territory_change_size),
+            image = painterResource(Res.drawable.resize)
+        )
+
     }
 }

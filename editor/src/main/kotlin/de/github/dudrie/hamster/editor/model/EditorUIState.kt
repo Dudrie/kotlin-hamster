@@ -13,6 +13,7 @@ import de.github.dudrie.hamster.core.model.kachel.Kachel
 import de.github.dudrie.hamster.core.model.kachel.KornInhalt
 import de.github.dudrie.hamster.core.model.kachel.Leer
 import de.github.dudrie.hamster.core.model.kachel.Wand
+import de.github.dudrie.hamster.core.model.territory.Abmessungen
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.core.model.util.Richtung
@@ -61,13 +62,7 @@ class EditorUIState : ViewModel() {
     }
 
     fun createNewTerritory() {
-        val tiles = mutableMapOf<Position, Kachel>()
-        repeat(3) { row ->
-            repeat(5) { column ->
-                tiles[Position(column, row)] = Kachel(Leer)
-            }
-        }
-        this.tiles = tiles
+        this.tiles = createEmptyTerritory(Abmessungen(breite = 5, hohe = 3))
         _hamster.clear()
         reset()
     }
@@ -119,5 +114,27 @@ class EditorUIState : ViewModel() {
         if (tile.inhalt is KornInhalt || hamster.any { it.position == position }) return
 
         replaceTile(position, tile.copy(inhalt = Wand))
+    }
+
+    fun changeTerritorySize(newSize: Abmessungen) {
+        val newTiles = createEmptyTerritory(newSize).toMutableMap()
+
+        tiles.entries.forEach { (position, tile) ->
+            if (newSize.istInnerhalb(position)) {
+                newTiles[position] = tile.copy()
+            }
+        }
+
+        tiles = newTiles
+    }
+
+    private fun createEmptyTerritory(size: Abmessungen): Map<Position, Kachel> {
+        val tiles = mutableMapOf<Position, Kachel>()
+        repeat(size.hohe) { row ->
+            repeat(size.breite) { column ->
+                tiles[Position(column, row)] = Kachel(Leer)
+            }
+        }
+        return tiles
     }
 }
