@@ -1,6 +1,5 @@
 package de.github.dudrie.hamster.oop.model
 
-import de.github.dudrie.hamster.core.file.SpielExporter
 import de.github.dudrie.hamster.core.game.SpielViewModel
 import de.github.dudrie.hamster.ui.windows.SpielFenster
 import kotlinx.coroutines.runBlocking
