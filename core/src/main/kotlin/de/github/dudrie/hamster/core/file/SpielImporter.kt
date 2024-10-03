@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.core.file
 
+import de.github.dudrie.hamster.core.file.model.HamsterDaten
 import de.github.dudrie.hamster.core.file.model.KachelDaten
-import de.github.dudrie.hamster.core.file.model.StartHamsterDaten
 import de.github.dudrie.hamster.core.file.model.StartTerritoriumDaten
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
@@ -32,16 +32,15 @@ object SpielImporter {
 
     private fun ladeTerritoriumVonJSON(json: String): InternesTerritorium {
         val startDaten = Json.decodeFromString<StartTerritoriumDaten>(json)
-        val startHamster = startDaten.startHamster?.let { listOf(getStartHamster(it)) } ?: listOf()
 
         return InternesTerritorium(
-            hamster = startHamster,
+            hamster = startDaten.hamster.map(::konvertiereHamsterDaten),
             kacheln = erstelleKachelMap(startDaten.kacheln),
             kachelZuMeterSkalierung = startDaten.kachelZuMeterSkalierung
         )
     }
 
-    private fun getStartHamster(daten: StartHamsterDaten): InternerHamster = InternerHamster(
+    private fun konvertiereHamsterDaten(daten: HamsterDaten): InternerHamster = InternerHamster(
         position = daten.position,
         richtung = daten.richtung,
         inventar = daten.inventar

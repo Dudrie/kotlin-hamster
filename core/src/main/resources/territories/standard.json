@@ -137,13 +137,15 @@
       }
     }
   ],
-  "startHamster": {
-    "position": {
-      "x": 1,
-      "y": 1
-    },
-    "richtung": "Osten",
-    "inventar": []
-  },
+  "hamster": [
+    {
+      "position": {
+        "x": 1,
+        "y": 1
+      },
+      "richtung": "Osten",
+      "inventar": []
+    }
+  ],
   "kachelZuMeterSkalierung": 1.0
 }

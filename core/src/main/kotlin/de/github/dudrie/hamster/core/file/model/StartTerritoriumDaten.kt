@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 class StartTerritoriumDaten(
     val kacheln: List<KachelDaten>,
-    val startHamster: StartHamsterDaten?,
+    val hamster: List<HamsterDaten>,
     val kachelZuMeterSkalierung: Double
 )

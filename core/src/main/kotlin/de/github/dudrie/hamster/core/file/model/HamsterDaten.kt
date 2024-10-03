@@ -6,7 +6,7 @@ import de.github.dudrie.hamster.core.model.util.Richtung
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class StartHamsterDaten(
+data class HamsterDaten(
     val position: Position,
     val richtung: Richtung,
     val inventar: List<InventarInhalt>

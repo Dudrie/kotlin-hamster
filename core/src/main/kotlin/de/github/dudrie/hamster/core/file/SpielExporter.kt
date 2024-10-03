@@ -1,7 +1,7 @@
 package de.github.dudrie.hamster.core.file
 
+import de.github.dudrie.hamster.core.file.model.HamsterDaten
 import de.github.dudrie.hamster.core.file.model.KachelDaten
-import de.github.dudrie.hamster.core.file.model.StartHamsterDaten
 import de.github.dudrie.hamster.core.file.model.StartTerritoriumDaten
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
@@ -17,12 +17,9 @@ object SpielExporter {
     private val format = Json { prettyPrint = false }
 
     fun speichereSpiel(dateipfad: String, territorium: InternesTerritorium) {
-        val startHamster = territorium.hamster.firstOrNull()
-        val kacheln = territorium.kacheln
-
         val daten = StartTerritoriumDaten(
-            kacheln = konvertiereKacheln(kacheln),
-            startHamster = startHamster?.let { konvertiereHamster(it) },
+            kacheln = konvertiereKacheln(territorium.kacheln),
+            hamster = territorium.hamster.map { konvertiereHamster(it) },
             kachelZuMeterSkalierung = territorium.kachelZuMeterSkalierung
         )
         val datei = if (dateipfad.endsWith(".json")) {
@@ -35,7 +32,7 @@ object SpielExporter {
             .use { it.write(format.encodeToString(daten)) }
     }
 
-    private fun konvertiereHamster(hamster: InternerHamster): StartHamsterDaten = StartHamsterDaten(
+    private fun konvertiereHamster(hamster: InternerHamster): HamsterDaten = HamsterDaten(
         position = hamster.position,
         richtung = hamster.richtung,
         inventar = hamster.inventar.toMutableList() // Make a copy
