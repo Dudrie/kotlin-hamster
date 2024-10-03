@@ -7,7 +7,7 @@ package de.github.dudrie.hamster.functional
  *
  * Dabei wird die übergebene [territoriumsDatei] geladen.
  */
-fun starteSpiel(territoriumsDatei: String?) {
+fun starteSpiel(territoriumsDatei: String? = null) {
     SingletonSpiel.ladeSpiel(territoriumsDatei)
 }
 
@@ -18,7 +18,7 @@ fun starteSpiel(territoriumsDatei: String?) {
  *
  * @see starteSpiel
  */
-fun starteSpielPausiert(territoriumsDatei: String?) {
+fun starteSpielPausiert(territoriumsDatei: String? = null) {
     SingletonSpiel.ladeSpielPausiert(territoriumsDatei)
 }
 
