@@ -1,5 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Generate documentation" type="GradleRunConfiguration" factoryName="Gradle">
+    <output_file path="E:\workspace\kotlin-hamster\log.log" is_save="true" />
     <ExternalSystemSettings>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -10,6 +11,7 @@
       </option>
       <option name="taskNames">
         <list>
+          <option value="clean" />
           <option value="dokkaHtmlMultiModule" />
         </list>
       </option>
