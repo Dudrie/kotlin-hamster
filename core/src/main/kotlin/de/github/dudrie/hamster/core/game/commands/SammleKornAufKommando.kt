@@ -8,8 +8,16 @@ import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
 import de.github.dudrie.hamster.core.model.util.HamsterStringId
 
+/**
+ * Lässt den [hamster] ein Korn von seinem Feld aufsammeln.
+ */
 class SammleKornAufKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
+    /**
+     * Der [hamster] sammelt ein Korn von seinem Feld im [territorium] auf.
+     *
+     * @throws KeinKornAufKachelException Auf dem Feld des Hamsters liegt kein Korn.
+     */
     override fun fuhreAus(territorium: InternesTerritorium): InternesTerritorium {
         if (!territorium.hatInhalt<KornInhalt>(hamster.position)) {
             throw KeinKornAufKachelException(hamster.position, this)

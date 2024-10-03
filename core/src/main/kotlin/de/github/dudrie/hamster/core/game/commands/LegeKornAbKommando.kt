@@ -8,8 +8,16 @@ import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
 import de.github.dudrie.hamster.core.model.util.HamsterStringId
 
+/**
+ * Lässt den [hamster] ein Korn auf seinem Feld ablegen, sofern möglich.
+ */
 class LegeKornAbKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
+    /**
+     * Der [hamster] legt im [territorium] ein [Korn] ab.
+     *
+     * @throws KeineKornerImMundException Der [hamster] hat kein [Korn] zum Ablegen.
+     */
     override fun fuhreAus(territorium: InternesTerritorium): InternesTerritorium {
         if (hamster.kornAnzahl == 0) {
             throw KeineKornerImMundException(hamster, this)

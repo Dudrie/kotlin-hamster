@@ -7,8 +7,17 @@ import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
 import de.github.dudrie.hamster.core.model.util.HamsterString
 import de.github.dudrie.hamster.core.model.util.HamsterStringId
 
+/**
+ * Bewegt den [hamster] um einen Schritt, sofern möglich.
+ */
 data class BewegeHamsterKommando(private val hamster: InternerHamster) : HamsterKommando() {
 
+    /**
+     * Bewegt den [hamster] um einen Schritt in seine [Blickrichtung][InternerHamster.richtung] im [territorium].
+     *
+     * @throws PositionAusserhalbException Die neue [de.github.dudrie.hamster.core.model.util.Position] liegt außerhalb des [territorium].
+     * @throws KachelBlockiertException Die Kachel an der neuen [de.github.dudrie.hamster.core.model.util.Position] ist blockiert.
+     */
     override fun fuhreAus(territorium: InternesTerritorium): InternesTerritorium {
         val neuerOrt = hamster.getPositionNachSchritt()
         if (!territorium.istPositionInnerhalb(neuerOrt)) {
