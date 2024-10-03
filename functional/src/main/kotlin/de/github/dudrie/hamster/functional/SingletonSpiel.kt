@@ -27,7 +27,7 @@ internal class SingletonSpiel private constructor() {
             get() = spiel.paule
 
         /**
-         * Einfacher Zugriff auf das [Territorium] des geladenen [Spiel]s.
+         * Einfacher Zugriff auf das [Territorium] des geladenen [spiel]s.
          */
         val territorium: Territorium
             get() = spiel.territorium
