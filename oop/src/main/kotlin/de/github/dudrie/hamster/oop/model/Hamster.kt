@@ -7,12 +7,31 @@ import de.github.dudrie.hamster.core.model.hamster.Korn
 import de.github.dudrie.hamster.core.model.util.Position
 import de.github.dudrie.hamster.core.model.util.Richtung
 
+/**
+ * Hamster, der im Spiel benutzt wird.
+ *
+ * Erstellt den zugehörigen [InternerHamster] während der Initialisierung.
+ *
+ * @param territorium [Territorium] des Hamsters.
+ * @param ort [Position] an dem sich der Hamster befindet. Muss innerhalb des [Territoriums][territorium] liegen.
+ * @param richtung [Richtung], in die der Hamster anfänglich schaut.
+ * @param kornAnzahl Anzahl der Körner, die der Hamster zu Beginn im Mund hat.
+ */
 class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, kornAnzahl: Int) {
 
+    /**
+     * Referenz zum tatsächlichen [InternerHamster].
+     */
     private var internerHamster: InternerHamster
 
+    /**
+     * [de.github.dudrie.hamster.core.game.SpielViewModel] des Spiels, zu welchem dieser Hamster gehört.
+     */
     private val spiel = territorium.spiel
 
+    /**
+     * Erstellt einen Hamster im gegebenen [territorium] und dem gegebenen [hamster] als Referenz.
+     */
     internal constructor(territorium: Territorium, hamster: InternerHamster) : this(
         territorium,
         hamster.position,
@@ -47,11 +66,19 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
     val ort: Position
         get() = internerHamster.position
 
+    /**
+     * Die [Richtung] in die dieser Hamster schaut.
+     */
     val richtung: Richtung
         get() = internerHamster.richtung
 
     // TODO: Gemachte Schritte + Umrechnung in "Meter/Zentimeter"
 
+    /**
+     * Bewegt den Hamster einen Schritt in Blickrichtung.
+     *
+     * Das Feld vor ihm darf nicht blockiert sein.
+     */
     fun laufe() {
         territorium.runKommandoUndUpdate {
             val kommando = BewegeHamsterKommando(internerHamster)
@@ -60,6 +87,9 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         }
     }
 
+    /**
+     * Dreht den Hamster um 90 Grad gegen den Uhrzeigersinn.
+     */
     fun dreheNachLinks() {
         territorium.runKommandoUndUpdate {
             val kommando = DreheLinksKommando(internerHamster)
@@ -68,6 +98,11 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         }
     }
 
+    /**
+     * Sammelt ein Korn vom Feld des Hamsters auf.
+     *
+     * Das Feld muss mindestens ein Korn haben, dass aufgesammelt werden kann.
+     */
     fun sammleKornAuf() {
         territorium.runKommandoUndUpdate {
             val kommando = SammleKornAufKommando(internerHamster)
@@ -76,6 +111,13 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         }
     }
 
+    /**
+     * Legt ein Korn auf das Feld des Hamsters.
+     *
+     * Der Hamster muss mindestens ein Korn im Mund haben.
+     *
+     * @see istDeinMundLeer Damit kann abgefragt werden, ob der Hamster **keine** Körner im Mund hat.
+     */
     fun legeKornAb() {
         territorium.runKommandoUndUpdate {
             val kommando = LegeKornAbKommando(internerHamster)
@@ -84,13 +126,25 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
         }
     }
 
+    /**
+     * Ist das Feld vor dem Hamster frei?
+     */
     fun istVorDirFrei(): Boolean =
         !territorium.istBlockiert(internerHamster.getPositionNachSchritt())
 
+    /**
+     * Liegt auf dem Feld des Hamsters mindestens ein Korn?
+     */
     fun liegtEinKornAufDeinemFeld(): Boolean = territorium.getAnzahlKornerAufFeld(ort) > 0
 
-    fun istDeinMundLeer(): Boolean = anzahlKorner == 0
+    /**
+     * Ist der Mund des Hamsters leer?
+     */
+    fun istDeinMundLeer(): Boolean = internerHamster.kornAnzahl == 0
 
+    /**
+     * Gibt die übergebene [nachricht] auf der Spielekonsole aus.
+     */
     fun sage(nachricht: String) {
         territorium.runKommandoUndUpdate {
             spiel.fuhreAus(SageEtwasKommando(nachricht))
