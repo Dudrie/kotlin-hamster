@@ -49,4 +49,10 @@
     <string name="territory-size-dialog-invalid-number">Keine gültige Zahl</string>
     <string name="territory-size-dialog-not-positiv">%1$s muss größer als 0 sein.</string>
 
+    <!--  Richtungen  -->
+    <string name="richtung-norden">Norden</string>
+    <string name="richtung-osten">Osten</string>
+    <string name="richtung-sueden">Süden</string>
+    <string name="richtung-westen">Westen</string>
+
 </resources>

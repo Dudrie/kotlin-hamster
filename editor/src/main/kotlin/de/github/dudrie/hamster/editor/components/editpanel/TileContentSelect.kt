@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.commons.select.Select
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
@@ -28,37 +29,22 @@ fun TileContentSelect(
     onChange: (Kachelinhalt) -> Unit,
     modifier: Modifier = Modifier
 ) {
+
     Select(
         items = listOf(Leer, Wand, KornInhalt(0)),
         itemToContent = {
-            when (it) {
-                Leer -> {
-                    Image(
-                        painterResource(Res.drawable.floor),
-                        null,
-                        modifier = Modifier.size(40.dp).padding(end = 8.dp)
-                    )
-                    Text(stringResource(EditorRes.string.tile_content_select_type_floor))
-                }
-
-                Wand -> {
-                    Image(
-                        painterResource(Res.drawable.wall),
-                        null,
-                        modifier = Modifier.size(40.dp).padding(end = 8.dp)
-                    )
-                    Text(stringResource(EditorRes.string.tile_content_select_type_wall))
-                }
-
-                is KornInhalt -> {
-                    Image(
-                        painterResource(Res.drawable.grain),
-                        null,
-                        modifier = Modifier.size(40.dp).padding(end = 8.dp)
-                    )
-                    Text(stringResource(EditorRes.string.tile_content_select_type_grains))
-                }
+            val content: Pair<Painter, String> = when (it) {
+                Leer -> painterResource(Res.drawable.floor) to stringResource(EditorRes.string.tile_content_select_type_floor)
+                Wand -> painterResource(Res.drawable.wall) to stringResource(EditorRes.string.tile_content_select_type_wall)
+                is KornInhalt -> painterResource(Res.drawable.grain) to stringResource(EditorRes.string.tile_content_select_type_grains)
             }
+
+            Image(
+                content.first,
+                null,
+                modifier = Modifier.size(40.dp).padding(end = 8.dp)
+            )
+            Text(content.second)
         },
         isItemEnabled = {
             when (it) {

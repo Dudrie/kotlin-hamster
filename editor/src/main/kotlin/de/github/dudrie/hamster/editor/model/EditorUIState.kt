@@ -61,6 +61,13 @@ class EditorUIState : ViewModel() {
         _hamster.remove(position)
     }
 
+    fun turnHamsterAt(position: Position, direction: Richtung) {
+        val hamster = _hamster[position]
+            ?: throw IllegalArgumentException("Es gibt bei $position keinen Hamster")
+
+        _hamster[position] = hamster.copy(richtung = direction)
+    }
+
     fun createNewTerritory() {
         this.tiles = createEmptyTerritory(Abmessungen(breite = 5, hohe = 3))
         _hamster.clear()

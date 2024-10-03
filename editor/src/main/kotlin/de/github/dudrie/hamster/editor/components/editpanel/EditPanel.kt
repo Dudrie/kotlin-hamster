@@ -107,7 +107,11 @@ fun EditPanel(
                         style = MaterialTheme.typography.headlineSmall
                     )
 
-                    // TODO: Hamsterrichtung festlegen (Icons: "Navigation")
+                    HamsterDirectionSelect(
+                        hamster = it,
+                        onChange = { richtung -> state.turnHamsterAt(position, richtung) },
+                        modifier = Modifier.padding(top = 8.dp, bottom = 12.dp)
+                    )
                     // TODO: Anzahl Körner zu Beginn festlegen
 
                     OutlinedButton(
