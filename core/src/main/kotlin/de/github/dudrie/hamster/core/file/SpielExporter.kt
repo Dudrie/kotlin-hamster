@@ -12,10 +12,21 @@ import kotlinx.serialization.json.Json
 import java.nio.file.Files
 import kotlin.io.path.Path
 
+/**
+ * Ist dafür zuständig, ein Spiel in Form eines [InternesTerritorium] in eine Datei zu exportieren.
+ */
 object SpielExporter {
 
+    /**
+     * Formateinstellungen für den [Json] Serializer.
+     */
     private val format = Json { prettyPrint = false }
 
+    /**
+     * Speichert das [territorium] in der durch den [dateipfad] angegebenen Datei.
+     *
+     * Sollte der [dateipfad] nicht auf ".json" enden, so wird die Endung vor dem Speichern angefügt.
+     */
     fun speichereSpiel(dateipfad: String, territorium: InternesTerritorium) {
         val daten = StartTerritoriumDaten(
             kacheln = konvertiereKacheln(territorium.kacheln),
@@ -32,14 +43,21 @@ object SpielExporter {
             .use { it.write(format.encodeToString(daten)) }
     }
 
+    /**
+     * Konvertiert einen [InternerHamster] zu den [HamsterDaten].
+     */
     private fun konvertiereHamster(hamster: InternerHamster): HamsterDaten = HamsterDaten(
         position = hamster.position,
         richtung = hamster.richtung,
         inventar = hamster.inventar.toMutableList() // Make a copy
     )
 
+    /**
+     * Konvertiert alle [Kachel]n zu einer Liste auf [KachelDaten].
+     */
     private fun konvertiereKacheln(kacheln: Map<Position, Kachel>): List<KachelDaten> =
         kacheln.map { (pos, kachel) ->
             KachelDaten(position = pos, inhalt = kachel.inhalt)
         }
+
 }
