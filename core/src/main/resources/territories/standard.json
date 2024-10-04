@@ -124,7 +124,7 @@
       },
       "inhalt": {
         "type": "de.github.dudrie.hamster.core.model.kachel.KornInhalt",
-        "anzahl": 3
+        "anzahl": 1
       }
     },
     {
