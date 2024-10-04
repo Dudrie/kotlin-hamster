@@ -1,3 +1,4 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 plugins {
@@ -43,3 +44,15 @@ tasks.withType<DokkaTaskPartial>().configureEach {
 
 tasks.withType<PublishToMavenLocal>().configureEach { enabled = false }
 tasks.withType<PublishToMavenRepository>().configureEach { enabled = false }
+
+compose.desktop {
+    application {
+        mainClass = "de.github.dudrie.hamster.editor.MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "kotlin-hamster-editor"
+            packageVersion = "${rootProject.version}"
+        }
+    }
+
+}
