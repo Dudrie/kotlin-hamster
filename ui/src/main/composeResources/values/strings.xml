@@ -3,6 +3,9 @@
     <string name="app-title">Hamster Simulator</string>
     <string name="app-loading">Lade Territorium und Hamster...</string>
     <string name="console-kommando-nummer">Kommando: Nr. %1$d</string>
+    <string name="console-fehler-titel">Fehler</string>
+    <string name="console-kommando-anzahl-titel">Anzahl Kommandos</string>
+    <string name="console-kommando-anzahl-inhalt">Es wurden insgesamt %1$d Kommandos ausgeführt.</string>
 
     <!--  SpielModus Strings  -->
     <string name="state-initializing">Initialisiere</string>

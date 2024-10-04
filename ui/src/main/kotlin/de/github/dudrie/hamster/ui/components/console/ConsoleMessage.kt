@@ -11,8 +11,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.core.model.util.HamsterString
 import de.github.dudrie.hamster.ui.extensions.getText
-import de.github.dudrie.hamster.ui.generated.Res
-import de.github.dudrie.hamster.ui.generated.console_kommando_nummer
+import de.github.dudrie.hamster.ui.generated.*
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -32,6 +31,22 @@ fun ConsoleCommandMessage(
 }
 
 @Composable
+fun ConsoleCommandCountMessage(count: Int) {
+    var visible by remember(count) { mutableStateOf(false) }
+
+    LaunchedEffect(count) {
+        visible = true
+    }
+
+    ConsoleMessage(
+        message = stringResource(Res.string.console_kommando_anzahl_inhalt, count),
+        visible = visible,
+        title = stringResource(Res.string.console_kommando_anzahl_titel),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
+    )
+}
+
+@Composable
 fun ConsoleErrorMessage(
     message: HamsterString,
 ) {
@@ -44,7 +59,7 @@ fun ConsoleErrorMessage(
     ConsoleMessage(
         message = message,
         visible = visible,
-        title = "Fehler",
+        title = stringResource(Res.string.console_fehler_titel),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.error)
     )
 }
@@ -52,6 +67,16 @@ fun ConsoleErrorMessage(
 @Composable
 private fun ConsoleMessage(
     message: HamsterString,
+    visible: Boolean,
+    title: String,
+    colors: CardColors = CardDefaults.cardColors()
+) {
+    ConsoleMessage(message = message.getText(), visible = visible, title = title, colors = colors)
+}
+
+@Composable
+private fun ConsoleMessage(
+    message: String,
     visible: Boolean,
     title: String,
     colors: CardColors = CardDefaults.cardColors()
@@ -77,7 +102,7 @@ private fun ConsoleMessage(
             HorizontalDivider()
 
             Text(
-                text = message.getText(),
+                text = message,
                 modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp)
             )
         }

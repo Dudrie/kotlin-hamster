@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import de.github.dudrie.hamster.core.game.SpielModus
 import de.github.dudrie.hamster.ui.model.UIViewModel
 
 @Composable
@@ -33,6 +34,10 @@ fun ConsolePanel(modifier: Modifier = Modifier, viewModel: UIViewModel = viewMod
                 key(it.nachricht) {
                     ConsoleErrorMessage(message = it.nachricht)
                 }
+            }
+
+            if (spielState.modus == SpielModus.Gestoppt) {
+                ConsoleCommandCountMessage(spielState.anzahlAusgefuhrteKommandos)
             }
 
             messages.forEachIndexed { index, message ->

@@ -23,7 +23,7 @@ fun main() {
 
     paule.dreheNachLinks()
     paule.laufe()
-    paule.laufe()
+    //paule.laufe()
     println("Korn auf Feld (false): ${paule.liegtEinKornAufDeinemFeld()}")
     paule.legeKornAb()
     println("Korn auf Feld (true): ${paule.liegtEinKornAufDeinemFeld()}")
