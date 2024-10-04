@@ -58,6 +58,12 @@ data class SpielZustand(
         get() = aktuellesTerritorium ?: throw NullPointerException("ERR_TERRITORY_IS_NULL")
 
     /**
+     * Gibt die Anzahl der **insgesamt** ausgeführten Kommandos zurück.
+     */
+    val anzahlAusgefuhrteKommandos: Int
+        get() = ausgefuhrteKommandos.size + wiederherstellbareKommandos.size
+
+    /**
      * Erlaubt der aktuelle [modus] ein Rückgängigmachen oder Wiederherstellen?
      */
     private fun istModusFurRuckganigOderWiederherstellen(): Boolean =
