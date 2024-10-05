@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import de.github.dudrie.hamster.core.model.territory.Abmessungen
 import de.github.dudrie.hamster.editor.components.dialog.DialogState
 import de.github.dudrie.hamster.editor.generated.Res
 import de.github.dudrie.hamster.editor.generated.button_load
@@ -37,7 +38,9 @@ fun EditorAppBar(dialogState: DialogState = viewModel(), editorState: EditorUISt
             AppBarButton(onClick = {
                 scope.launch {
                     if (dialogState.askToCreateNewFile()) {
-                        editorState.createNewTerritory()
+                        dialogState.askForNewTerritorySize(Abmessungen(breite = 5, hohe = 3))?.let {
+                            editorState.createNewTerritory(it)
+                        }
                     }
                 }
             }) { Text(stringResource(Res.string.button_new)) }

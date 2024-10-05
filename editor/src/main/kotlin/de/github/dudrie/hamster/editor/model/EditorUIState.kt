@@ -69,8 +69,8 @@ class EditorUIState : ViewModel() {
         _hamster[position] = hamster.copy(richtung = direction)
     }
 
-    fun createNewTerritory() {
-        this.tiles = createEmptyTerritory(Abmessungen(breite = 5, hohe = 3))
+    fun createNewTerritory(abmessungen: Abmessungen = Abmessungen(breite = 5, hohe = 3)) {
+        this.tiles = createEmptyTerritory(abmessungen)
         _hamster.clear()
         reset()
     }
