@@ -14,25 +14,20 @@ This module contains all code which other modules can use. It contains the basic
 a working hamster game. It also contains the game engine which controls the game state through commands that get
 executed.
 
-## ui
-
-Implements a basic UI using [Compose for Desktop][compose-for-desktop] representing the current game state. It also
-contains the needed assets and resources for a hamster game.
-
-## main
+## oop
 
 Implements an external object-oriented API which can be used by students in solving their exercises. It contains several
 wrapper classes which provide a simpler API to change the game state instead of manually executing the game commands.
 
-## imperative
+## functional
 
 Implements an external imperative API which can be used by students in solving their exercises. This module wraps all
-the API code from the `main` in functions therefore creating an API which does not need any object-oriented concepts.
+the API code from the `:oop` in functions therefore creating an API which does not need any object-oriented concepts.
 
-## imperative-de
+## ui
 
-A translation of the `imperative` module's API into the german language so students can use functions with german names
-to control the hamster.
+Implements a basic UI using [Compose for Desktop][compose-for-desktop] representing the current game state. It also
+contains the needed assets and resources for a hamster game.
 
 ## editor
 
