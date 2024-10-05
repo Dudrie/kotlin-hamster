@@ -1,19 +1,10 @@
 plugins {
     kotlin("jvm")
 
-    id("org.jetbrains.compose")
+    kotlin("plugin.serialization") version libs.versions.kotlin
 }
-
-val gsonVersion: String by project
 
 dependencies {
-    implementation(compose.desktop.common)
-
-    implementation("com.google.code.gson:gson:$gsonVersion")
-
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnit()
+    implementation(libs.kotlinx.coroutines)
+    implementation(libs.kotlinx.serialization)
 }

@@ -1,13 +1,13 @@
 package de.github.dudrie.hamster.editor.tools
 
-import de.github.dudrie.hamster.editor.model.EditableGameTile
-import de.github.dudrie.hamster.internal.model.territory.GameTileType
+import de.github.dudrie.hamster.core.model.kachel.Leer
+import de.github.dudrie.hamster.core.model.util.Position
+import de.github.dudrie.hamster.editor.model.EditorUIState
 
-/**
- * Changes the tile to be [floor][GameTileType.Floor].
- */
-class MakeFloorTool : TileTool() {
-    override fun applyToTile(tile: EditableGameTile) {
-        tile.type = GameTileType.Floor
+data object MakeFloorTool : TileTool() {
+
+    override fun apply(position: Position, state: EditorUIState) {
+        state.replaceTile(position, state.getTileAt(position).copy(inhalt = Leer))
     }
+
 }

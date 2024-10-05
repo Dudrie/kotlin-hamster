@@ -1,30 +1,43 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.dokka.gradle.DokkaTaskPartial
 
 plugins {
     kotlin("jvm")
 
-    id("org.jetbrains.compose")
+    alias(libs.plugins.compose.core)
+    alias(libs.plugins.compose.compiler)
 }
-
-val coroutinesVersion: String by project
 
 dependencies {
     implementation(project(":core"))
     implementation(project(":ui"))
 
-    // Must be of a different type than the one in :ui because otherwise the dependencies will clash inside the IDE.
-    compileOnly(compose.desktop.currentOs)
-    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation(compose.desktop.currentOs) {
+        exclude("org.jetbrains.compose.material")
+    }
+
+    implementation(compose.material3)
+    implementation(compose.materialIconsExtended)
+    implementation(compose.components.resources)
+
+    implementation(libs.compose.viewmodel)
+
+    implementation(libs.kotlinx.coroutines)
+
+    implementation(libs.dudrie.commons.forms)
+    implementation(libs.dudrie.commons.select)
 }
 
-compose.desktop {
-    application {
-        mainClass = "MainKt"
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "kotlin-hamster-editor"
-            // Add a ".0" to the end, so it conforms with the MSI versioning scheme
-            packageVersion = "${rootProject.version}.0"
+compose.resources {
+    packageOfResClass = "de.github.dudrie.hamster.editor.generated"
+    generateResClass = always
+}
+
+tasks.withType<DokkaTaskPartial>().configureEach {
+    dokkaSourceSets {
+        configureEach {
+            reportUndocumented.set(false)
+            includeNonPublic.set(false)
         }
     }
 }
@@ -32,6 +45,14 @@ compose.desktop {
 tasks.withType<PublishToMavenLocal>().configureEach { enabled = false }
 tasks.withType<PublishToMavenRepository>().configureEach { enabled = false }
 
-tasks.test {
-    useJUnit()
+compose.desktop {
+    application {
+        mainClass = "de.github.dudrie.hamster.editor.MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "kotlin-hamster-editor"
+            packageVersion = "${rootProject.version}"
+        }
+    }
+
 }

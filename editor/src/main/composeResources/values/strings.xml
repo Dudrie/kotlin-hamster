@@ -1,0 +1,59 @@
+<resources>
+    <string name="editor-app-title">Hamster-Editor</string>
+
+    <string name="tools-title">Werkzeuge</string>
+    <string name="actions-title">Aktionen</string>
+
+    <!--  Tile tools  -->
+    <string name="tool-select-name">Auswahlwerkzeug</string>
+    <string name="tool-wall-name">Wandwerkzeug</string>
+    <string name="tool-floor-name">Bodenwerkzeug</string>
+    <string name="tool-add-grain-name">1 Korn hinzufügen</string>
+    <string name="tool-remove-grain-name">1 Korn entfernen</string>
+
+    <string name="actions-surround-walls-name">Mit Wänden umgeben</string>
+    <string name="actions-territory-change-size">Größe ändern</string>
+
+    <!--  Edit panel  -->
+    <string name="edit-panel-tile-title">Kachelinfos</string>
+    <string name="edit-panel-hamster-title">Hamsterinfos</string>
+    <string name="edit-panel-bt-hamster-add">Füge Hamster hinzu</string>
+    <string name="edit-panel-bt-hamster-remove">Entferne Hamster</string>
+    <string name="edit-panel-tf-grain-count">Anzahl Körner auf dem Feld</string>
+    <string name="edit-panel-cb-hide-grain-count">Verstecke Kornanzahl</string>
+    <string name="tile-content-select-type-floor">Boden</string>
+    <string name="tile-content-select-type-wall">Wand</string>
+    <string name="tile-content-select-type-grains">Körner</string>
+    <string name="edit-panel-tf-hamster-grain-in-mouth">Anzahl Körner im Mund</string>
+
+    <!--  Buttons  -->
+    <string name="button-new">Neu</string>
+    <string name="button-save">Speichern</string>
+    <string name="button-load">Laden</string>
+    <string name="button-create-new">Neu erstellen</string>
+    <string name="button-cancel">Abbrechen</string>
+
+    <!--  Confirm dialog  -->
+    <string name="dialog-confirm-create-new-title">Neues Territorium?</string>
+    <string name="dialog-confirm-create-new-text">Soll wirklich ein neues Territorium erstellt werden? Ungespeicherte Änderungen am Alten gehen verloren. Dies kann nicht rückgängig gemacht werden.
+    </string>
+
+    <!--  File dialog  -->
+    <string name="file-dialog-load-title">Lade Datei</string>
+    <string name="file-dialog-save-title">Speichere Datei</string>
+
+    <!--  New Territory size dialog  -->
+    <string name="territory-size-dialog-title">Territoriumsgröße ändern</string>
+    <string name="territory-size-dialog-confirm">Größe ändern</string>
+    <string name="territory-size-dialog-width-label">Breite</string>
+    <string name="territory-size-dialog-height-label">Höhe</string>
+    <string name="territory-size-dialog-invalid-number">Keine gültige Zahl</string>
+    <string name="territory-size-dialog-not-positiv">%1$s muss größer als 0 sein.</string>
+
+    <!--  Richtungen  -->
+    <string name="richtung-norden">Norden</string>
+    <string name="richtung-osten">Osten</string>
+    <string name="richtung-sueden">Süden</string>
+    <string name="richtung-westen">Westen</string>
+
+</resources>

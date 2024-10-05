@@ -3,38 +3,38 @@ package de.github.dudrie.hamster.ui.components.appbar
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import de.github.dudrie.hamster.ui.components.ControlButtonColors
 
-/**
- * Special [OutlinedButton] to be displayed on the [AppBar].
- *
- * @param onClick Gets called if the user clicks on the button.
- * @param modifier [Modifier] applied to the underlying button. Defaults to [Modifier].
- * @param enabled Is this button enabled? Defaults to `true`.
- * @param contentPadding Padding of the content. Defaults to [ButtonDefaults.ContentPadding].
- * @param content Content of the button.
- */
 @Composable
 fun AppBarButton(
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    content: @Composable (RowScope.() -> Unit)
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp, vertical = 0.dp),
+    content: @Composable RowScope.() -> Unit
 ) {
+    val contentColor = LocalContentColor.current
+
     OutlinedButton(
         onClick = onClick,
-        colors = ControlButtonColors,
-        border = BorderStroke(1.dp, MaterialTheme.colors.onPrimary),
         enabled = enabled,
-        modifier = modifier,
+        modifier = modifier.height(36.dp),
         contentPadding = contentPadding,
+        colors = ButtonDefaults.outlinedButtonColors(
+            containerColor = Color.Transparent,
+            contentColor = contentColor,
+            disabledContentColor = contentColor.copy(alpha = 0.7f)
+        ),
+        shape = RoundedCornerShape(8.dp),
+        border = BorderStroke(1.dp, contentColor),
         content = content
     )
 }

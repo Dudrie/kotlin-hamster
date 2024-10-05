@@ -1,15 +1,10 @@
 package de.github.dudrie.hamster.editor.tools
 
-import de.github.dudrie.hamster.editor.model.EditableGameTile
+import de.github.dudrie.hamster.core.model.util.Position
+import de.github.dudrie.hamster.editor.model.EditorUIState
 
-/**
- * Abstraction for tools to manipulate the tiles in the editor.
- */
-abstract class TileTool {
+sealed class TileTool {
 
-    /**
-     * Apply this tool to the given [tile].
-     */
-    abstract fun applyToTile(tile: EditableGameTile)
+    abstract fun apply(position: Position, state: EditorUIState)
 
 }

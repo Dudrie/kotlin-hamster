@@ -1,10 +1,9 @@
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileNotFoundException
 import java.util.*
 
 group = "de.github.dudrie"
-version = getProjectVersion("1.0")
+version = getProjectVersion("3.0.0")
 
 var mavenUser: String? = null
 var mavenPass: String? = null
@@ -12,10 +11,10 @@ var mavenPass: String? = null
 loadProperties()
 
 plugins {
-    kotlin("jvm") version "1.7.20"
+    kotlin("jvm") version libs.versions.kotlin
 
-    id("org.jetbrains.compose") version "1.2.1"
-    id("org.jetbrains.dokka") version "1.9.10"
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.versions)
 
     `maven-publish`
 }
@@ -24,29 +23,21 @@ allprojects {
     group = rootProject.group
     version = rootProject.version
 
-    apply(plugin = "maven-publish")
-    apply(plugin = "org.jetbrains.dokka")
-
     repositories {
         google()
-        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://maven.dudrie.de/releases")
     }
 
     afterEvaluate {
-        java {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+        kotlin {
+            jvmToolchain(21)
+        }
 
+        java {
             withJavadocJar()
             withSourcesJar()
-        }
-    }
-
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = "17"
-            freeCompilerArgs = freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn"
         }
     }
 
@@ -61,6 +52,9 @@ allprojects {
 }
 
 subprojects {
+    apply(plugin = "maven-publish")
+    apply(plugin = rootProject.project.libs.plugins.dokka.get().pluginId)
+
     publishing {
         publications {
             register<MavenPublication>("maven") {
@@ -85,6 +79,19 @@ subprojects {
             }
         }
     }
+}
+
+tasks.register("generateResClasses") {
+    dependsOn(
+        "ui:clean",
+        "ui:generateResourceAccessorsForMain",
+        "ui:generateComposeResClass"
+    )
+    dependsOn(
+        "editor:clean",
+        "editor:generateResourceAccessorsForMain",
+        "editor:generateComposeResClass"
+    )
 }
 
 tasks.dokkaHtmlMultiModule.configure {
