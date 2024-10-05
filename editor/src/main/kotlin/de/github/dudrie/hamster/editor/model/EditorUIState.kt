@@ -55,7 +55,7 @@ class EditorUIState : ViewModel() {
     fun getHamsterAt(position: Position): InternerHamster? = _hamster[position]
 
     fun createHamsterAt(position: Position) {
-        _hamster[position] = InternerHamster(position, Richtung.Sueden, listOf())
+        _hamster[position] = InternerHamster(position, Richtung.Osten, listOf())
     }
 
     fun removeHamsterFrom(position: Position) {
