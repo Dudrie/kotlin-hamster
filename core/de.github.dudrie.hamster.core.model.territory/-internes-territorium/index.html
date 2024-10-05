@@ -1,0 +1,333 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>InternesTerritorium</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            kotlin-hamster
+                    </a>            </div>
+            <div class="library-version">3.0.0
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":core:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="core::de.github.dudrie.hamster.core.model.territory/InternesTerritorium///PointingToDeclaration//537371977">
+  <div class="breadcrumbs"><a href="../../index.html">core</a><span class="delimiter">/</span><a href="../index.html">de.github.dudrie.hamster.core.model.territory</a><span class="delimiter">/</span><span class="current">InternesTerritorium</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Internes</span><wbr><span><span>Territorium</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">InternesTerritorium</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>hamster<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>kacheln<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>kachelZuMeterSkalierung<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token operator"> = </span><span class="token constant">1.0</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Ein Territorium des Hamsterspiels.</p><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>hamster</span></span></u></div></span></div><div><div class="title"><p class="paragraph">Eine <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a> aller <a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a>, die in diesem Territorium leben.</p></div></div></div></div><div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>kacheln</span></span></u></div></span></div><div><div class="title"><p class="paragraph">Alle <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a>n, aus denen dieses Territorium besteht.</p></div></div></div></div><div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>kachel</span><wbr><span>Zu</span><wbr><span>Meter</span><wbr><span><span>Skalierung</span></span></u></div></span></div><div><div class="title"><p class="paragraph">Wie vielen Metern entspricht eine <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a> dieses Territoriums?</p></div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1451977303%2FConstructors%2F537371977" anchor-label="InternesTerritorium" id="1451977303%2FConstructors%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-internes-territorium.html"><span>Internes</span><wbr><span><span>Territorium</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1451977303%2FConstructors%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">hamster<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">kacheln<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">kachelZuMeterSkalierung<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token operator"> = </span><span class="token constant">1.0</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1526903700%2FProperties%2F537371977" anchor-label="abmessungen" id="1526903700%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="abmessungen.html"><span><span>abmessungen</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1526903700%2FProperties%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="abmessungen.html">abmessungen</a><span class="token operator">: </span><a href="../-abmessungen/index.html">Abmessungen</a></div><div class="brief "><p class="paragraph"><a href="../-abmessungen/index.html">Abmessungen</a> dieses Territoriums.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1794021200%2FProperties%2F537371977" anchor-label="hamster" id="1794021200%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hamster.html"><span><span>hamster</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1794021200%2FProperties%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="hamster.html">hamster</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1545303194%2FProperties%2F537371977" anchor-label="kacheln" id="-1545303194%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="kacheln.html"><span><span>kacheln</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1545303194%2FProperties%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="kacheln.html">kacheln</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="410455563%2FProperties%2F537371977" anchor-label="kachelZuMeterSkalierung" id="410455563%2FProperties%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="kachel-zu-meter-skalierung.html"><span>kachel</span><wbr><span>Zu</span><wbr><span>Meter</span><wbr><span><span>Skalierung</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="410455563%2FProperties%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="kachel-zu-meter-skalierung.html">kachelZuMeterSkalierung</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token operator"> = </span><span class="token constant">1.0</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="531625079%2FFunctions%2F537371977" anchor-label="ersetzeHamster" id="531625079%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ersetze-hamster.html"><span>ersetze</span><wbr><span><span>Hamster</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="531625079%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="ersetze-hamster.html"><span class="token function">ersetzeHamster</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">alterHamster<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a><span class="token punctuation">, </span></span><span class="parameter ">neuerHamster<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">InternesTerritorium</a></div><div class="brief "><p class="paragraph">Ersetzt den <a href="ersetze-hamster.html">alterHamster</a> dieses Tutoriums durch den <a href="ersetze-hamster.html">neuerHamster</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-133183720%2FFunctions%2F537371977" anchor-label="ersetzeKachelInhalt" id="-133183720%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ersetze-kachel-inhalt.html"><span>ersetze</span><wbr><span>Kachel</span><wbr><span><span>Inhalt</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-133183720%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="ersetze-kachel-inhalt.html"><span class="token function">ersetzeKachelInhalt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a><span class="token punctuation">, </span></span><span class="parameter ">neuerInhalt<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">InternesTerritorium</a></div><div class="brief "><p class="paragraph">Ersetzt den <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a> der <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a> an der <a href="ersetze-kachel-inhalt.html">position</a> durch den <a href="ersetze-kachel-inhalt.html">neuerInhalt</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-672304824%2FFunctions%2F537371977" anchor-label="getHamsterBei" id="-672304824%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-hamster-bei.html"><span>get</span><wbr><span>Hamster</span><wbr><span><span>Bei</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-672304824%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-hamster-bei.html"><span class="token function">getHamsterBei</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Gibt den <a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">Hamster</a> an der <a href="get-hamster-bei.html">position</a> zurück.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-780416918%2FFunctions%2F537371977" anchor-label="getInhalt" id="-780416918%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-inhalt.html"><span>get</span><wbr><span><span>Inhalt</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-780416918%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-inhalt.html">I</a><span class="token operator"> : </span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a><span class="token operator">&gt; </span><a href="get-inhalt.html"><span class="token function">getInhalt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="get-inhalt.html">I</a></div><div class="brief "><p class="paragraph">Gibt den <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a> vom Typ <a href="get-inhalt.html">I</a> von der <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a> an der <a href="get-inhalt.html">position</a> zurück.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1107440621%2FFunctions%2F537371977" anchor-label="getInhaltOderNeu" id="-1107440621%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-inhalt-oder-neu.html"><span>get</span><wbr><span>Inhalt</span><wbr><span>Oder</span><wbr><span><span>Neu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1107440621%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="get-inhalt-oder-neu.html">I</a><span class="token operator"> : </span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a><span class="token operator">&gt; </span><a href="get-inhalt-oder-neu.html"><span class="token function">getInhaltOderNeu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a><span class="token punctuation">, </span></span><span class="parameter ">erstelleNeu<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="get-inhalt-oder-neu.html">I</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="get-inhalt-oder-neu.html">I</a></div><div class="brief "><p class="paragraph">Gibt den <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a> vom Typ <a href="get-inhalt-oder-neu.html">I</a> von der <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a> an der <a href="get-inhalt-oder-neu.html">position</a> zurück.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-550198746%2FFunctions%2F537371977" anchor-label="getKachelBei" id="-550198746%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-kachel-bei.html"><span>get</span><wbr><span>Kachel</span><wbr><span><span>Bei</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-550198746%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-kachel-bei.html"><span class="token function">getKachelBei</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a></div><div class="brief "><p class="paragraph">Gibt die <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a> an der übergebenen <a href="get-kachel-bei.html">position</a> zurück.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="804222989%2FFunctions%2F537371977" anchor-label="hatHamsterBei" id="804222989%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hat-hamster-bei.html"><span>hat</span><wbr><span>Hamster</span><wbr><span><span>Bei</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="804222989%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="hat-hamster-bei.html"><span class="token function">hatHamsterBei</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Gibt es in diesem Territorium an der <a href="hat-hamster-bei.html">position</a> einen Hamster?</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1104021073%2FFunctions%2F537371977" anchor-label="hatInhalt" id="-1104021073%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="hat-inhalt.html"><span>hat</span><wbr><span><span>Inhalt</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1104021073%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="hat-inhalt.html">I</a><span class="token operator"> : </span><a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a><span class="token operator">&gt; </span><a href="hat-inhalt.html"><span class="token function">hatInhalt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Hat die <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachel/index.html">Kachel</a> an der <a href="hat-inhalt.html">position</a> einen <a href="../../de.github.dudrie.hamster.core.model.kachel/-kachelinhalt/index.html">Kachelinhalt</a> vom Typ <a href="hat-inhalt.html">I</a>?</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1466883865%2FFunctions%2F537371977" anchor-label="istBlockiert" id="1466883865%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ist-blockiert.html"><span>ist</span><wbr><span><span>Blockiert</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1466883865%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="ist-blockiert.html"><span class="token function">istBlockiert</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Ist die <a href="ist-blockiert.html">position</a> blockiert?</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1602576586%2FFunctions%2F537371977" anchor-label="istPositionInnerhalb" id="1602576586%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ist-position-innerhalb.html"><span>ist</span><wbr><span>Position</span><wbr><span><span>Innerhalb</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1602576586%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="ist-position-innerhalb.html"><span class="token function">istPositionInnerhalb</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.util/-position/index.html">Position</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Ist die <a href="ist-position-innerhalb.html">position</a> innerhalb dieses Territoriums?</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="399236164%2FFunctions%2F537371977" anchor-label="spawneHamster" id="399236164%2FFunctions%2F537371977" data-filterable-set=":core:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":core:dokkaHtmlPartial/main" data-filterable-set=":core:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="spawne-hamster.html"><span>spawne</span><wbr><span><span>Hamster</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="399236164%2FFunctions%2F537371977"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="spawne-hamster.html"><span class="token function">spawneHamster</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">hamster<span class="token operator">: </span><a href="../../de.github.dudrie.hamster.core.model.hamster/-interner-hamster/index.html">InternerHamster</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">InternesTerritorium</a></div><div class="brief "><p class="paragraph">Setzt den <a href="spawne-hamster.html">hamster</a> ins Territorium.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

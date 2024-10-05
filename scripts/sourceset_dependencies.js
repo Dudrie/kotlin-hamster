@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":presentation:dokkaHtmlPartial/main":[],":core:dokkaHtmlPartial/main":[],":editor:dokkaHtmlPartial/main":[],":imperative-de:dokkaHtmlPartial/main":[],":ui:dokkaHtmlPartial/main":[],":main:dokkaHtmlPartial/main":[],":imperative:dokkaHtmlPartial/main":[]}'
+sourceset_dependencies = '{":core:dokkaHtmlPartial/main":[],":editor:dokkaHtmlPartial/main":[],":oop:dokkaHtmlPartial/main":[],":functional:dokkaHtmlPartial/main":[],":ui:dokkaHtmlPartial/main":[]}'
