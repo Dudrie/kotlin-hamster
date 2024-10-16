@@ -14,6 +14,6 @@ data class Abmessungen(val breite: Int, val hohe: Int) {
      * Befindet sich die [position] innerhalb dieser [Abmessungen]?
      */
     fun istInnerhalb(position: Position): Boolean =
-        position.x in 0..breite && position.y in 0..hohe
+        position.x in 0 until breite && position.y in 0 until hohe
 
 }
