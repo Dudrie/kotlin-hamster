@@ -12,6 +12,16 @@ import kotlinx.coroutines.runBlocking
 open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) {
 
     /**
+     * Lädt das Spiel mit dem gegebenen [spielName] und der entsprechenden [spielNr].
+     *
+     * Das Territorium muss sich im `/territories` Ordner befinden.
+     *
+     * @param spielName Name des Hamsterspiels, welches geladen werden soll.
+     * @param spielNr Nummer des Spiels.
+     */
+    constructor(spielName: String, spielNr: Int) : this("territories/${spielName}_$spielNr")
+
+    /**
      * Daten des aktuell geladenen Spiels.
      */
     private val spiel = SpielViewModel()
