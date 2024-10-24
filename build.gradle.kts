@@ -3,7 +3,7 @@ import java.io.FileNotFoundException
 import java.util.*
 
 group = "de.github.dudrie"
-version = getProjectVersion("3.0.0")
+version = getProjectVersion("3.1.0")
 
 var mavenUser: String? = null
 var mavenPass: String? = null
