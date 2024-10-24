@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
  *
  * @param territoriumsDatei Pfad zur Territoriumsdatei, die geladen werden soll. Es wird ein Standardterritorium geladen, wenn weggelassen.
  */
-open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) {
+abstract class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) {
 
     /**
      * Lädt das Spiel mit dem gegebenen [spielName] und der entsprechenden [spielNr].
@@ -19,7 +19,7 @@ open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) 
      * @param spielName Name des Hamsterspiels, welches geladen werden soll.
      * @param spielNr Nummer des Spiels.
      */
-    constructor(spielName: String, spielNr: Int) : this("territories/${spielName}_$spielNr")
+    constructor(spielName: String, spielNr: Int) : this("territories/${spielName}_$spielNr.json")
 
     /**
      * Daten des aktuell geladenen Spiels.
@@ -50,6 +50,26 @@ open class EinfachesHamsterSpiel(private val territoriumsDatei: String? = null) 
 
     init {
         runBlocking { fenster.starte() }
+    }
+
+    /**
+     * Wird von [lasseSpielAblaufen] aufgerufen, sodass der Code für das Spiel ausgeführt wird.
+     *
+     * Das Spiel muss **nicht** von Hand gestartet oder gestoppt werden.
+     */
+    protected abstract fun fuehreAus()
+
+    /**
+     * Lässt das in [fuehreAus] Spiel ablaufen.
+     *
+     * Davor wird das Spiel gestartet und anschließend gestoppt.
+     */
+    fun lasseSpielAblaufen() {
+        runBlocking {
+            spiel.starteSpiel(false)
+            fuehreAus()
+            spiel.stoppeSpiel()
+        }
     }
 
     /**

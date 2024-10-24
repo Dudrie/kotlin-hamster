@@ -39,7 +39,9 @@ internal class SingletonSpiel private constructor() {
          */
         fun ladeSpiel(dateipfand: String?) {
             require(_spiel == null) { "Es darf immer nur ein Hamsterspiel gleichzeitig gestartet sein." }
-            _spiel = EinfachesHamsterSpiel(dateipfand)
+            _spiel = object : EinfachesHamsterSpiel(dateipfand) {
+                override fun fuehreAus() {}
+            }
             spiel.starteSpiel()
         }
 
@@ -52,7 +54,9 @@ internal class SingletonSpiel private constructor() {
          */
         fun ladeSpielPausiert(dateipfand: String?) {
             require(_spiel == null) { "Es darf immer nur ein Hamsterspiel gleichzeitig gestartet sein." }
-            _spiel = EinfachesHamsterSpiel(dateipfand)
+            _spiel = object : EinfachesHamsterSpiel(dateipfand) {
+                override fun fuehreAus() {}
+            }
             spiel.starteSpielPausiert()
         }
     }
