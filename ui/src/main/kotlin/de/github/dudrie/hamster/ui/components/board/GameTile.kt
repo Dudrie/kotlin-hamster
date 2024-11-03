@@ -17,13 +17,13 @@ import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun GameTile(
     tile: Kachel,
     hamster: InternerHamster?,
     highlightTile: Boolean,
     hideHamster: Boolean,
+    mehrAlsEinHamster: Boolean,
     size: Dp,
     onClick: (() -> Unit)? = null,
     offset: DpOffset
@@ -43,6 +43,11 @@ fun GameTile(
     ) {
         GameTileBackground()
 
-        GameTileContent(tile, hamster, hideHamster)
+        GameTileContent(
+            tile = tile,
+            hamster = hamster,
+            hideHamster = hideHamster,
+            mehrAlsEinHamster = mehrAlsEinHamster
+        )
     }
 }

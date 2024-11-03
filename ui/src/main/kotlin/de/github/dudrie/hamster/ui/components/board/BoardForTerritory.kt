@@ -17,6 +17,7 @@ fun BoardForTerritory(modifier: Modifier = Modifier, viewModel: UIViewModel = vi
         hamster = spielState.territorium.hamster,
         highlightedTile = spielState.fehler?.position,
         hideHamster = uiState.hideHamster,
+        mehrAlsEinHamster = spielState.territorium.hatMehrereHamster(),
         modifier = modifier
     )
 }

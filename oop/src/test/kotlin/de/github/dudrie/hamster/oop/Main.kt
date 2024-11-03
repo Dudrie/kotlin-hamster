@@ -6,40 +6,40 @@ import de.github.dudrie.hamster.oop.model.EinfachesHamsterSpiel
 import de.github.dudrie.hamster.oop.model.Hamster
 
 fun main() {
-    val spiel = object : EinfachesHamsterSpiel() {}
-    val paule = spiel.paule
+    val spiel = object : EinfachesHamsterSpiel() {
+        override fun fuehreAus() {
+            paule.laufe()
+            paule.laufe()
+            paule.dreheNachLinks()
 
-    spiel.starteSpiel()
-    paule.laufe()
-    paule.laufe()
-    paule.dreheNachLinks()
+            paule.sammleKornAuf()
 
-    paule.sammleKornAuf()
+            val paula = Hamster(paule.territorium, Position(1, 1), Richtung.Westen, 0)
 
-    val paula = Hamster(paule.territorium, Position(1, 1), Richtung.Westen, 0)
+            paula.dreheNachLinks()
+            paula.dreheNachLinks()
 
-    paula.dreheNachLinks()
-    paula.dreheNachLinks()
+            paule.dreheNachLinks()
+            paule.laufe()
+            //paule.laufe()
+            println("Korn auf Feld (false): ${paule.liegtEinKornAufDeinemFeld()}")
+            paule.legeKornAb()
+            println("Korn auf Feld (true): ${paule.liegtEinKornAufDeinemFeld()}")
 
-    paule.dreheNachLinks()
-    paule.laufe()
-    //paule.laufe()
-    println("Korn auf Feld (false): ${paule.liegtEinKornAufDeinemFeld()}")
-    paule.legeKornAb()
-    println("Korn auf Feld (true): ${paule.liegtEinKornAufDeinemFeld()}")
+            println("Ist frei (false): ${paule.istVorDirFrei()}")
+            paule.dreheNachLinks()
+            println("Ist frei (false): ${paule.istVorDirFrei()}")
+            paule.dreheNachLinks()
+            println("Ist frei (true): ${paule.istVorDirFrei()}")
 
-    println("Ist frei (false): ${paule.istVorDirFrei()}")
-    paule.dreheNachLinks()
-    println("Ist frei (false): ${paule.istVorDirFrei()}")
-    paule.dreheNachLinks()
-    println("Ist frei (true): ${paule.istVorDirFrei()}")
+            println("Mund leer (true): ${paule.istDeinMundLeer()}")
+            paule.sammleKornAuf()
+            println("Mund leer (false): ${paule.istDeinMundLeer()}")
+            paule.legeKornAb()
 
-    println("Mund leer (true): ${paule.istDeinMundLeer()}")
-    paule.sammleKornAuf()
-    println("Mund leer (false): ${paule.istDeinMundLeer()}")
-    paule.legeKornAb()
+            paule.sage("Puh, das wäre geschafft.")
+        }
+    }
 
-    paule.sage("Puh, das wäre geschafft.")
-
-    spiel.stoppeSpiel()
+    spiel.lasseSpielAblaufen()
 }

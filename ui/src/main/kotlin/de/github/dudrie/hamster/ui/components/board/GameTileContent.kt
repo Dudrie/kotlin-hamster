@@ -2,16 +2,11 @@ package de.github.dudrie.hamster.ui.components.board
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
 import de.github.dudrie.hamster.core.model.kachel.Kachel
@@ -23,11 +18,15 @@ import de.github.dudrie.hamster.ui.generated.Res
 import de.github.dudrie.hamster.ui.generated.grain
 import de.github.dudrie.hamster.ui.generated.hamster
 import de.github.dudrie.hamster.ui.generated.wall
-import de.github.dudrie.hamster.ui.theme.SpielTypographyLocal
 import org.jetbrains.compose.resources.imageResource
 
 @Composable
-fun GameTileContent(tile: Kachel, hamster: InternerHamster?, hideHamster: Boolean) {
+fun GameTileContent(
+    tile: Kachel,
+    hamster: InternerHamster?,
+    hideHamster: Boolean,
+    mehrAlsEinHamster: Boolean
+) {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         when (val inhalt = tile.inhalt) {
             is KornInhalt -> {
@@ -43,22 +42,7 @@ fun GameTileContent(tile: Kachel, hamster: InternerHamster?, hideHamster: Boolea
                     modifier = Modifier.fillMaxSize()
                 )
 
-                infoText?.let {
-                    Surface(
-                        contentColor = Color.White,
-                        color = Color.Gray.copy(alpha = 0.8f),
-                        shape = RoundedCornerShape(50),
-                        modifier = Modifier.padding(2.dp).size(36.dp).align(Alignment.BottomEnd)
-                    ) {
-                        Box(Modifier.fillMaxHeight(), contentAlignment = Alignment.Center) {
-                            Text(
-                                text = it,
-                                style = SpielTypographyLocal.current.kornAnzahl,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-                    }
-                }
+                infoText?.let { InfoTextAufKachel(it) }
             }
 
             is Wand -> Image(
@@ -77,6 +61,10 @@ fun GameTileContent(tile: Kachel, hamster: InternerHamster?, hideHamster: Boolea
                     null,
                     modifier = Modifier.fillMaxSize().padding(8.dp).rotate(it.richtung.getGrad())
                 )
+
+                if (mehrAlsEinHamster) {
+                    InfoTextAufKachel("${it.nummer}", Alignment.BottomStart)
+                }
             }
         }
     }

@@ -53,7 +53,7 @@ object SpielImporter {
         val startDaten = Json.decodeFromString<StartTerritoriumDaten>(json)
 
         return InternesTerritorium(
-            hamster = startDaten.hamster.map(::konvertiereHamsterDaten),
+            hamster = startDaten.hamster.mapIndexed(::konvertiereHamsterDaten),
             kacheln = erstelleKachelMap(startDaten.kacheln),
             kachelZuMeterSkalierung = startDaten.kachelZuMeterSkalierung
         )
@@ -62,11 +62,13 @@ object SpielImporter {
     /**
      * Konvertiert die [HamsterDaten] zu einem [InternerHamster].
      */
-    private fun konvertiereHamsterDaten(daten: HamsterDaten): InternerHamster = InternerHamster(
-        position = daten.position,
-        richtung = daten.richtung,
-        inventar = daten.inventar
-    )
+    private fun konvertiereHamsterDaten(idx: Int, daten: HamsterDaten): InternerHamster =
+        InternerHamster(
+            position = daten.position,
+            richtung = daten.richtung,
+            inventar = daten.inventar,
+            nummer = idx
+        )
 
     /**
      * Erstellt aus dem [kachelDaten] die Map mit den [Kachel]n des Territoriums.

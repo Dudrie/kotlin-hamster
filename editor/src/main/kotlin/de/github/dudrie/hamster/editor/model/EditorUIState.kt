@@ -55,11 +55,23 @@ class EditorUIState : ViewModel() {
     fun getHamsterAt(position: Position): InternerHamster? = _hamster[position]
 
     fun createHamsterAt(position: Position) {
-        _hamster[position] = InternerHamster(position, Richtung.Osten, listOf())
+        _hamster[position] = InternerHamster(
+            position = position,
+            richtung = Richtung.Osten,
+            inventar = listOf(),
+            nummer = getNextHamsterNumber()
+        )
     }
 
     fun removeHamsterFrom(position: Position) {
-        _hamster.remove(position)
+        val removedHamster = _hamster.remove(position)
+        removedHamster?.let { removed ->
+            hamster.filter { it.nummer > removed.nummer }
+                .map { it.copy(nummer = it.nummer - 1) }
+                .forEach {
+                    _hamster[it.position] = it
+                }
+        }
     }
 
     fun turnHamsterAt(position: Position, direction: Richtung) {
@@ -95,6 +107,14 @@ class EditorUIState : ViewModel() {
             _hamster[it.position] = it
         }
         reset()
+    }
+
+    private fun getNextHamsterNumber(): Int {
+        return if (hamster.isEmpty()) {
+            0
+        } else {
+            hamster.maxOf { it.nummer } + 1
+        }
     }
 
     private fun reset() {

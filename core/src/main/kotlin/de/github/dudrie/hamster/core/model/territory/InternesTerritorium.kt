@@ -62,6 +62,11 @@ data class InternesTerritorium(
     }
 
     /**
+     * Hat dieses Territorium mehr als einen Hamster?
+     */
+    fun hatMehrereHamster(): Boolean = hamster.size > 1
+
+    /**
      * Ersetzt die [Kachel] an der [position] durch die [neueKachel].
      *
      * @throws RuntimeException Es gibt an der [position] keine [Kachel] im Territorium.
@@ -99,7 +104,7 @@ data class InternesTerritorium(
         val kachel = kacheln[position]
         require(kachel != null) { "ERR_NO_TILE_AT_POSITION" }
 
-        return kachel.inhalt.blocktBewegung || hatHamsterBei(position)
+        return kachel.inhalt.blocktBewegung
     }
 
     /**
@@ -141,7 +146,6 @@ data class InternesTerritorium(
      */
     fun spawneHamster(hamster: InternerHamster): InternesTerritorium {
         require(istPositionInnerhalb(hamster.position)) { "ERR_POS_NOT_IN_TERRITORY" }
-        require(!istBlockiert(hamster.position)) { "ERR_TILE_BLOCKED" }
 
         return copy(hamster = this.hamster + hamster)
     }

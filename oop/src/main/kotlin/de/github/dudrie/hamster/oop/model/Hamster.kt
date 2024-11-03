@@ -13,11 +13,18 @@ import de.github.dudrie.hamster.core.model.util.Richtung
  * Erstellt den zugehörigen [InternerHamster] während der Initialisierung.
  *
  * @param territorium [Territorium] des Hamsters.
- * @param ort [Position] an dem sich der Hamster befindet. Muss innerhalb des [Territoriums][territorium] liegen.
+ * @param position [Position] an dem sich der Hamster befindet. Muss innerhalb des [Territoriums][territorium] liegen.
  * @param richtung [Richtung], in die der Hamster anfänglich schaut.
  * @param kornAnzahl Anzahl der Körner, die der Hamster zu Beginn im Mund hat.
+ * @param nummer Die Nummer des Hamsters.
  */
-class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, kornAnzahl: Int) {
+class Hamster internal constructor(
+    val territorium: Territorium,
+    position: Position,
+    richtung: Richtung,
+    kornAnzahl: Int,
+    nummer: Int
+) {
 
     /**
      * Referenz zum tatsächlichen [InternerHamster].
@@ -33,37 +40,60 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
      * Erstellt einen Hamster im gegebenen [territorium] und dem gegebenen [hamster] als Referenz.
      */
     internal constructor(territorium: Territorium, hamster: InternerHamster) : this(
-        territorium,
-        hamster.position,
-        hamster.richtung,
-        hamster.kornAnzahl
+        territorium = territorium,
+        position = hamster.position,
+        richtung = hamster.richtung,
+        kornAnzahl = hamster.kornAnzahl,
+        nummer = hamster.nummer
     ) {
         internerHamster = hamster
     }
 
+    /**
+     * Hamster, der im Spiel benutzt wird.
+     *
+     * Erstellt den zugehörigen [InternerHamster] während der Initialisierung.
+     *
+     * @param territorium [Territorium] des Hamsters.
+     * @param ort [Position] an dem sich der Hamster befindet. Muss innerhalb des [Territoriums][territorium] liegen.
+     * @param richtung [Richtung], in die der Hamster anfänglich schaut.
+     * @param kornAnzahl Anzahl der Körner, die der Hamster zu Beginn im Mund hat.
+     */
+    constructor(
+        territorium: Territorium,
+        ort: Position,
+        richtung: Richtung,
+        kornAnzahl: Int
+    ) : this(
+        territorium = territorium,
+        position = ort,
+        richtung = richtung,
+        kornAnzahl = kornAnzahl,
+        nummer = territorium.getNachsteHamsterNummer()
+    )
+
     init {
-        val hamster = territorium.getHamsterBei(ort)
+        val inventar = mutableListOf<InventarInhalt>()
+        repeat(kornAnzahl) { inventar += Korn() }
 
-        if (hamster == null) {
-            val inventar = mutableListOf<InventarInhalt>()
-            repeat(kornAnzahl) { inventar += Korn() }
+        val hamster = InternerHamster(
+            position = position,
+            richtung = richtung,
+            inventar = inventar,
+            nummer = nummer
+        )
 
-            internerHamster = InternerHamster(
-                position = ort,
-                richtung = richtung,
-                inventar = inventar
-            )
-
-            territorium.setzeHamster(internerHamster)
-        } else {
-            internerHamster = hamster
+        if (!territorium.hatHamster(hamster)) {
+            territorium.setzeHamster(hamster)
         }
+
+        internerHamster = hamster
     }
 
     /**
      * Der [Ort][Position] an dem sich dieser Hamster befindet.
      */
-    val ort: Position
+    val position: Position
         get() = internerHamster.position
 
     /**
@@ -139,7 +169,7 @@ class Hamster(val territorium: Territorium, ort: Position, richtung: Richtung, k
     /**
      * Liegt auf dem Feld des Hamsters mindestens ein Korn?
      */
-    fun liegtEinKornAufDeinemFeld(): Boolean = territorium.getAnzahlKornerAufFeld(ort) > 0
+    fun liegtEinKornAufDeinemFeld(): Boolean = territorium.getAnzahlKornerAufFeld(position) > 0
 
     /**
      * Ist der Mund des Hamsters leer?

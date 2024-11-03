@@ -27,6 +27,7 @@ fun EditorContent(modifier: Modifier = Modifier, state: EditorUIState = viewMode
                 hamster = state.hamster,
                 highlightedTile = state.selectedPosition,
                 hideHamster = false,
+                mehrAlsEinHamster = state.hamster.size > 1,
                 modifier = Modifier.weight(1f).fillMaxHeight().padding(8.dp)
             )
         }

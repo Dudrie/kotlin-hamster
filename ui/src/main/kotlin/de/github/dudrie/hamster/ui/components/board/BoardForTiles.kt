@@ -24,6 +24,7 @@ fun BoardForTiles(
     hamster: List<InternerHamster>,
     highlightedTile: Position?,
     hideHamster: Boolean,
+    mehrAlsEinHamster: Boolean,
     modifier: Modifier = Modifier
 ) {
     BoxWithConstraints(modifier = modifier, contentAlignment = Alignment.Center) {
@@ -43,6 +44,7 @@ fun BoardForTiles(
                     highlightTile = highlightedTile == position,
                     size = tileSize,
                     hideHamster = hideHamster,
+                    mehrAlsEinHamster = mehrAlsEinHamster,
                     offset = DpOffset(
                         x = (tileSize * position.x),
                         y = (tileSize * position.y)

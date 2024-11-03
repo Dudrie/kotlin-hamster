@@ -9,13 +9,15 @@ import de.github.dudrie.hamster.core.model.util.Richtung
  * @param position Die [Position] des Hamsters.
  * @param richtung Die [Richtung], in die der Hamster schaut.
  * @param inventar Das Inventar des Hamsters. Enthält alle [InventarInhalt]e, die der Hamster aktuell bei sich trägt.
+ * @param nummer Die Nummer des Hamsters.
  * @param anzahlSchritte Die Anzahl an Schritten, die der Hamster bisher gemacht hat.
  */
 data class InternerHamster(
     val position: Position,
     val richtung: Richtung,
     val inventar: List<InventarInhalt>,
-    val anzahlSchritte: Int = 0
+    val nummer: Int,
+    val anzahlSchritte: Int = 0,
 ) {
 
     /**

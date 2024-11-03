@@ -50,12 +50,21 @@ class Territorium(
     }
 
     /**
-     * Gibt den [InternerHamster] zurück, welcher sich auf der gegebenen [position] befindet.
-     *
-     * Ist dort kein Hamster, so wird `null` zurückgegeben.
+     * Ist der [hamster] Teil dieses Territoriums?
      */
-    internal fun getHamsterBei(position: Position): InternerHamster? =
-        internesTerritorium.getHamsterBei(position)
+    internal fun hatHamster(hamster: InternerHamster): Boolean =
+        internesTerritorium.hamster.find { it.nummer == hamster.nummer } != null
+
+    /**
+     * Gibt die nächste, freie Nummer für einen Hamster zurück.
+     */
+    internal fun getNachsteHamsterNummer(): Int {
+        return if (internesTerritorium.hamster.isEmpty()) {
+            0
+        } else {
+            internesTerritorium.hamster.maxOf { it.nummer } + 1
+        }
+    }
 
     /**
      * Platziert den [hamster] im Territorium.

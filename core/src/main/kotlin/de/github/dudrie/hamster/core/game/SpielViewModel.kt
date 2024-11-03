@@ -5,13 +5,7 @@ import de.github.dudrie.hamster.core.file.SpielImporter
 import de.github.dudrie.hamster.core.game.commands.Kommando
 import de.github.dudrie.hamster.core.game.commands.SpawneHamsterKommando
 import de.github.dudrie.hamster.core.model.hamster.InternerHamster
-import de.github.dudrie.hamster.core.model.kachel.Kachel
-import de.github.dudrie.hamster.core.model.kachel.KornInhalt
-import de.github.dudrie.hamster.core.model.kachel.Leer
-import de.github.dudrie.hamster.core.model.kachel.Wand
 import de.github.dudrie.hamster.core.model.territory.InternesTerritorium
-import de.github.dudrie.hamster.core.model.util.Position
-import de.github.dudrie.hamster.core.model.util.Richtung
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -303,34 +297,5 @@ class SpielViewModel {
                     || spielModus == SpielModus.Gestoppt
                     || spielModus == SpielModus.Abgebrochen
         ) { "ERR_CAN_NOT_UNDO_OR_REDO" }
-    }
-
-    /**
-     * Erstellt das Standardterritorium des Hamsterspiels.
-     */
-    fun erstelleStandardTerritorium() {
-        require(spielModus == SpielModus.Initialisierung) { "ERR_GAME_NOT_INITIALIZING" }
-        val kacheln = mutableMapOf<Position, Kachel>()
-
-        repeat(5) {
-            kacheln[Position(it, 0)] = Kachel(Wand)
-            kacheln[Position(it, 2)] = Kachel(Wand)
-        }
-
-        kacheln[Position(0, 1)] = Kachel(Wand)
-        kacheln[Position(1, 1)] = Kachel(Leer)
-        kacheln[Position(2, 1)] = Kachel(Leer)
-        kacheln[Position(3, 1)] = Kachel(KornInhalt(3))
-        kacheln[Position(4, 1)] = Kachel(Wand)
-
-        val hamster = InternerHamster(
-            position = Position(1, 1),
-            richtung = Richtung.Osten,
-            inventar = listOf()
-        )
-
-        val territorium = InternesTerritorium(hamster = listOf(hamster), kacheln = kacheln)
-
-        _spielZustand.update { it.copy(aktuellesTerritorium = territorium) }
     }
 }
