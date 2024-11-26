@@ -11,25 +11,29 @@ import de.github.dudrie.hamster.core.model.util.Richtung
  * Hamster, der im Spiel benutzt wird.
  *
  * Erstellt den zugehörigen [InternerHamster] während der Initialisierung.
- *
- * @param territorium [Territorium] des Hamsters.
- * @param position [Position] an dem sich der Hamster befindet. Muss innerhalb des [Territoriums][territorium] liegen.
- * @param richtung [Richtung], in die der Hamster anfänglich schaut.
- * @param kornAnzahl Anzahl der Körner, die der Hamster zu Beginn im Mund hat.
- * @param nummer Die Nummer des Hamsters.
  */
-class Hamster internal constructor(
+open class Hamster internal constructor(
+    /** [Territorium] des Hamsters */
     val territorium: Territorium,
+
+    /**  [Position] an dem sich der Hamster befindet. Muss innerhalb des [Territoriums][territorium] liegen. */
     position: Position,
+
+    /** [Richtung], in die der Hamster anfänglich schaut. */
     richtung: Richtung,
+
+    /** Anzahl der Körner, die der Hamster zu Beginn im Mund hat. */
     kornAnzahl: Int,
+
+    /** Die Nummer des Hamsters. */
     nummer: Int
 ) {
 
     /**
      * Referenz zum tatsächlichen [InternerHamster].
      */
-    private var internerHamster: InternerHamster
+    protected var internerHamster: InternerHamster
+        private set
 
     /**
      * [de.github.dudrie.hamster.core.game.SpielViewModel] des Spiels, zu welchem dieser Hamster gehört.
@@ -113,23 +117,15 @@ class Hamster internal constructor(
      *
      * Das Feld vor ihm darf nicht blockiert sein.
      */
-    fun laufe() {
-        territorium.runKommandoUndUpdate {
-            val kommando = BewegeHamsterKommando(internerHamster)
-            spiel.fuhreAus(kommando)
-            internerHamster = kommando.aktualisierterHamster
-        }
+    open fun laufe() {
+        fuhreKommandoAus(BewegeHamsterKommando(internerHamster))
     }
 
     /**
      * Dreht den Hamster um 90 Grad gegen den Uhrzeigersinn.
      */
     fun dreheNachLinks() {
-        territorium.runKommandoUndUpdate {
-            val kommando = DreheLinksKommando(internerHamster)
-            spiel.fuhreAus(kommando)
-            internerHamster = kommando.aktualisierterHamster
-        }
+        fuhreKommandoAus(DreheLinksKommando(internerHamster))
     }
 
     /**
@@ -137,12 +133,8 @@ class Hamster internal constructor(
      *
      * Das Feld muss mindestens ein Korn haben, dass aufgesammelt werden kann.
      */
-    fun sammleKornAuf() {
-        territorium.runKommandoUndUpdate {
-            val kommando = SammleKornAufKommando(internerHamster)
-            spiel.fuhreAus(kommando)
-            internerHamster = kommando.aktualisierterHamster
-        }
+    open fun sammleKornAuf() {
+        fuhreKommandoAus(SammleKornAufKommando(internerHamster))
     }
 
     /**
@@ -153,11 +145,7 @@ class Hamster internal constructor(
      * @see istDeinMundLeer Damit kann abgefragt werden, ob der Hamster **keine** Körner im Mund hat.
      */
     fun legeKornAb() {
-        territorium.runKommandoUndUpdate {
-            val kommando = LegeKornAbKommando(internerHamster)
-            spiel.fuhreAus(kommando)
-            internerHamster = kommando.aktualisierterHamster
-        }
+        fuhreKommandoAus(LegeKornAbKommando(internerHamster))
     }
 
     /**
@@ -182,6 +170,18 @@ class Hamster internal constructor(
     fun sage(nachricht: String) {
         territorium.runKommandoUndUpdate {
             spiel.fuhreAus(SageEtwasKommando(nachricht))
+        }
+    }
+
+    /**
+     * Führt das übergebene [kommando] im [territorium] aus.
+     *
+     * Der [internerHamster] wird anschließend entsprechend aktualisiert.
+     */
+    protected fun fuhreKommandoAus(kommando: HamsterKommando) {
+        territorium.runKommandoUndUpdate {
+            spiel.fuhreAus(kommando)
+            internerHamster = kommando.aktualisierterHamster
         }
     }
 }

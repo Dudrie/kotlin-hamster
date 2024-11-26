@@ -9,6 +9,10 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 internal fun HamsterString.getText(): String {
+    if (id == HamsterStringId.TEXT) {
+        return text
+    }
+
     val resource = convertToStringResource()
 
     return if (args.isNotEmpty()) {
@@ -29,4 +33,5 @@ internal fun HamsterString.convertToStringResource(): StringResource = when (id)
     HamsterStringId.ERR_NO_GRAIN_ON_TILE -> Res.string.err_no_grain_on_tile
     HamsterStringId.ERR_POSITION_NOT_IN_TERRITORY -> Res.string.err_position_not_in_territory
     HamsterStringId.ERR_TILE_BLOCKED -> Res.string.err_tile_blocked
+    HamsterStringId.TEXT -> throw IllegalStateException("HamsterStringId.TEXT must not be handled by stringResources.")
 }

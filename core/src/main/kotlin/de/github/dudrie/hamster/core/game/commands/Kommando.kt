@@ -8,7 +8,7 @@ import de.github.dudrie.hamster.core.model.util.HamsterString
 /**
  * Beschreibt ein Kommando, welches im Hamsterspiel ausgeführt werden kann.
  */
-sealed class Kommando {
+abstract class Kommando {
 
     /**
      * Führt das Kommando aus und gibt das [InternesTerritorium] zurück, welches durch die Ausführung des Kommandos entsteht.
@@ -27,7 +27,7 @@ sealed class Kommando {
 /**
  * Beschreibt ein Kommando, welches einen [InternerHamster] betrifft.
  */
-sealed class HamsterKommando : Kommando() {
+abstract class HamsterKommando : Kommando() {
 
     /**
      * Der [InternerHamster] nach dem Ausführen dieses Kommandos
