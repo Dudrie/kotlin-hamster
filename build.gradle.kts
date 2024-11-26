@@ -3,7 +3,7 @@ import java.io.FileNotFoundException
 import java.util.*
 
 group = "de.github.dudrie"
-version = getProjectVersion("3.2.0")
+version = getProjectVersion("3.3.0")
 
 var mavenUser: String? = null
 var mavenPass: String? = null
@@ -45,7 +45,7 @@ allprojects {
         dokkaSourceSets {
             configureEach {
                 reportUndocumented.set(true)
-                includeNonPublic.set(false)
+                includeNonPublic.set(true)
             }
         }
     }
